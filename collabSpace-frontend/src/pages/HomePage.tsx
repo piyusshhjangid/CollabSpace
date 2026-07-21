@@ -6,8 +6,8 @@ const HomePage = () => {
     console.log(message);
   };
   return (
-    <div className="h-screen p-10 flex justify-center">
-      <div className="flex flex-col w-1/2 rounded-3xl bg-gray-50 items-center p-5 gap-5">
+    <div className="flex justify-center">
+      <div className="flex flex-col w-2/3 rounded-3xl bg-gray-50 items-center p-5 gap-5 border border-zinc-300">
         <div className="flex flex-col items-center gap-2">
           <h1 className="font-bold text-3xl text-gray-900">
             Welcome To CollabSpace

@@ -1,9 +1,12 @@
+import Shell from "./components/layout/Shell";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
   return (
-    <div>
-      <HomePage/>
+    <div className="h-screen">
+      <Shell>
+        <HomePage/>
+      </Shell>
     </div>
   );
 };
