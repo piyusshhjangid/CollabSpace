@@ -1,15 +1,9 @@
-import { Search, Bell, Moon, Menu } from "lucide-react";
+import { Search, Bell, Moon } from "lucide-react";
 
 export default function TopBar() {
   return (
     <header className="flex h-16  border-b border-zinc-300 bg-gray-50 pl-3 pr-6">
-      <div className="w-53 gap-3 flex flex-row items-center border-r border-zinc-300">
-        <button className="rounded-lg p-2 transition hover:bg-zinc-200">
-          <Menu size={20} className="text-black" />
-        </button>
-        <h1 className="font-bold text-2xl mr-3 text-zinc-800">CollabSpace</h1>
-      </div>
-      <div className="flex flex-row gap-111 items-center">
+      <div className="flex flex-row gap-107 items-center">
         <div className=" ml-6 relative w-85">
           <Search
             size={18}

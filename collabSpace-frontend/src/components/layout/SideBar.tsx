@@ -1,10 +1,17 @@
 import { navItems } from "../../types/navigation";
+import { Menu } from "lucide-react";
 
 export default function Sidebar() {
   const currentPath = "/";
 
   return (
     <aside className="w-56 border-r border-zinc-300 bg-gray-50 ">
+      <div className="w-56 h-16 border-b gap-3 flex flex-row items-center border-zinc-300">
+        <button className="rounded-lg p-2 ml-3 transition hover:bg-zinc-200">
+          <Menu size={20} className="text-black" />
+        </button>
+        <h1 className="font-bold text-2xl mr-3 text-zinc-800">CollabSpace</h1>
+      </div>
       <nav className=" flex flex-col gap-2 py-3 px-3 justify-between">
         {navItems.map((item) => {
           const Icon = item.icon;
