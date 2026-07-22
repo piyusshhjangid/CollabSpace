@@ -14,8 +14,8 @@ export const Badge: React.FC<BadgeProps> = ({ color, children }) => {
   }
 
   return (
-    <span className={`rounded-full px-2 py-1 font-medium text-shadow-gray-800 items-center flex flex-row gap-2 border-2 ${colorStyles[color]}`}>
-      <div className={`${colorStyles[color]} border-8 rounded-full w-4 h-4`}></div>
+    <span className={`rounded-full px-2 py-0.5 text-xs text-shadow-gray-800 items-center flex flex-row gap-1 border-2 ${colorStyles[color]}`}>
+      <div className={`${colorStyles[color]} border-6 rounded-full w-3 h-3`}></div>
       {children}
     </span>
   )

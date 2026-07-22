@@ -7,7 +7,7 @@ export default function Sidebar() {
   return (
     <aside className="w-56 border-r border-zinc-300 bg-gray-50 ">
       <div className="w-56 h-16 border-b gap-3 flex flex-row items-center border-zinc-300">
-        <button className="rounded-lg p-2 ml-3 transition hover:bg-zinc-200">
+        <button className="rounded-lg p-2 ml-4 transition hover:bg-zinc-200">
           <Menu size={20} className="text-black" />
         </button>
         <h1 className="font-bold text-2xl mr-3 text-zinc-800">CollabSpace</h1>
