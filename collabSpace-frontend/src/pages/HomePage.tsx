@@ -1,7 +1,12 @@
 import Badge from "../components/Badge";
 import { Button } from "../components/Button";
+import type { Workspace } from "../types/workspace";
 
-const HomePage = () => {
+interface HomePageProps {
+  currentWorkspace: Workspace;
+}
+
+export default function HomePage({ currentWorkspace }: HomePageProps) {
   const handleClick = (message: string) => {
     console.log(message);
   };
@@ -10,20 +15,20 @@ const HomePage = () => {
       <div className="flex flex-col w-2/3 rounded-3xl bg-gray-50 items-center p-5 gap-5 border border-zinc-300">
         <div className="flex flex-col items-center gap-2">
           <h1 className="font-bold text-3xl text-gray-900">
-            Welcome To CollabSpace
+            Welcome To {currentWorkspace.name}
           </h1>
           <p className="text-lg text-gray-600">
             Your Collabrative Workspace to build amazing things together.
           </p>
         </div>
         <div className="flex gap-5">
-          <Button variant="primary" onClick={() => handleClick("Started")}>
+          <Button variant="primary" disabled={false} onClick={() => handleClick("Started")}>
             Get Started
           </Button>
-          <Button variant="secondary" onClick={() => handleClick("More")}>
+          <Button variant="secondary" disabled={false} onClick={() => handleClick("More")}>
             Learn More
           </Button>
-          <Button variant="danger" onClick={() => handleClick("Delete")}>
+          <Button variant="danger" disabled={false} onClick={() => handleClick("Delete")}>
             Delete
           </Button>
         </div>
@@ -36,6 +41,4 @@ const HomePage = () => {
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}
