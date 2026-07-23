@@ -1,9 +1,8 @@
+import { NavLink } from "react-router-dom";
 import { navItems } from "../../types/navigation";
 import { Menu } from "lucide-react";
 
 export default function Sidebar() {
-  const currentPath = "/";
-
   return (
     <aside className="w-56 border-r border-zinc-300 bg-gray-50 ">
       <div className="w-56 h-16 border-b gap-3 flex flex-row items-center border-zinc-300">
@@ -15,20 +14,21 @@ export default function Sidebar() {
       <nav className=" flex flex-col gap-2 py-3 px-3 justify-between">
         {navItems.map((item) => {
           const Icon = item.icon;
-
           return (
-            <button
+            <NavLink
+              to={item.path}
               key={item.path}
-              className={`flex items-center gap-3 rounded-lg px-4 py-1 text-left transition
-              ${
-                currentPath === item.path
-                  ? "bg-violet-100 text-violet-700 font-semibold"
-                  : "text-zinc-600 hover:bg-zinc-100"
-              }`}
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded-lg px-4 py-2 transition ${
+                  isActive
+                    ? "bg-violet-100 text-violet-700 font-semibold"
+                    : "text-zinc-600 hover:bg-zinc-100"
+                }`
+              }
             >
               <Icon size={20} />
               {item.label}
-            </button>
+            </NavLink>
           );
         })}
       </nav>

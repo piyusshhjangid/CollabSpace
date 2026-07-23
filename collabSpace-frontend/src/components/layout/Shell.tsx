@@ -2,12 +2,12 @@ import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import { fakeWorkspaces } from "../../data/workspaces";
 import { useState } from "react";
-import ProjectPage from "../../pages/ProjectPage";
-// import HomePage from "../../pages/HomePage";
-// import ProjectCard from "../ProjectCard";
 
+interface ShellProps {
+  children: React.ReactNode;
+}
 
-export default function Shell() {
+export default function Shell({ children }: ShellProps) {
   const [currentWorkspace, setCurrentWorkspace] = useState(fakeWorkspaces[0]);
   return (
     <div className="flex h-screen overflow-hidden">
@@ -19,8 +19,8 @@ export default function Shell() {
           setCurrentWorkspace={setCurrentWorkspace}
         />
 
-        <main className="flex-1 overflow-y-auto bg-zinc-100 p-6">
-          <ProjectPage/>
+        <main className="flex-1 overflow-y-auto bg-zinc-100 p-6" >
+          {children}
         </main>
       </div>
     </div>
