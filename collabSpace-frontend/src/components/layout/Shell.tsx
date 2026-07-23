@@ -2,7 +2,9 @@ import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import { fakeWorkspaces } from "../../data/workspaces";
 import { useState } from "react";
-import HomePage from "../../pages/HomePage";
+import ProjectPage from "../../pages/ProjectPage";
+// import HomePage from "../../pages/HomePage";
+// import ProjectCard from "../ProjectCard";
 
 
 export default function Shell() {
@@ -18,7 +20,7 @@ export default function Shell() {
         />
 
         <main className="flex-1 overflow-y-auto bg-zinc-100 p-6">
-          <HomePage currentWorkspace={currentWorkspace} />
+          <ProjectPage/>
         </main>
       </div>
     </div>
