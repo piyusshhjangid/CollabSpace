@@ -1,6 +1,6 @@
 import { Search, Bell, Moon } from "lucide-react";
 import WorkspaceSwitcher from "./WorkspaceSwitcher";
-import type { Workspace } from "../types/workspace";
+import type { Workspace } from "../../types/workspace";
 
 interface TopBarProps {
   currentWorkspace: Workspace;
