@@ -1,18 +1,40 @@
 import KanbanColumn from "./KanbanColumn";
-import { tasks } from "../../data/tasks";
 import { Folder } from "lucide-react";
 import { Button } from "../Button";
 import { useState } from "react";
 import { Plus, Search } from "lucide-react";
+import type { Task } from "../../types/task";
+import { tasks } from "../../data/tasks";
+import TaskModal from "./TaskModal";
 
 const statuses = ["TODO", "IN_PROGRESS", "DONE"] as const;
 
 const ProjectBoard = () => {
+  const [boardTasks, setBoardTasks] = useState(tasks);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+
   const [search, setSearch] = useState("");
-  const [open, setOpen] = useState(false);
-  const filteredTasks = tasks.filter((task) =>
+
+  const filteredTasks = boardTasks.filter((task) =>
     task.title.toLowerCase().includes(search.trim().toLowerCase()),
   );
+
+  const openTask = (task: Task) => {
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+
+  const handleSaveTask = (updatedTask: Task) => {
+    setBoardTasks((prev) =>
+      prev.map((task) =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
+    );
+
+    setIsModalOpen(false)
+  };
+
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="flex flex-row items-center justify-between w-full shadow-sm bg-gray-50 rounded-xl p-5">
@@ -46,7 +68,6 @@ const ProjectBoard = () => {
               variant="primary"
               disabled={false}
               onClick={() => {
-                setOpen(!open);
                 console.log("Open Create Task Modal");
               }}
             >
@@ -58,9 +79,20 @@ const ProjectBoard = () => {
       </div>
       <div className="bg-white rounded-xl shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4 p-6 overflow-x-auto">
         {statuses.map((status) => (
-          <KanbanColumn key={status} status={status} tasks={filteredTasks} />
+          <KanbanColumn
+            onTaskClick={openTask}
+            key={status}
+            status={status}
+            tasks={filteredTasks}
+          />
         ))}
       </div>
+      <TaskModal
+        open={isModalOpen}
+        task={selectedTask}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveTask}
+      />
     </div>
   );
 };

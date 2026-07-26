@@ -5,6 +5,7 @@ import type { Task, TaskStatus } from "../../types/task";
 interface KanbanColumnProps {
   status: TaskStatus;
   tasks: Task[];
+  onTaskClick: (task: Task) => void;
 }
 
 const statusConfig = {
@@ -25,10 +26,7 @@ const statusConfig = {
   },
 } as const;
 
-export default function KanbanColumn({
-  status,
-  tasks,
-}: KanbanColumnProps) {
+export default function KanbanColumn({ status, tasks, onTaskClick }: KanbanColumnProps) {
   const filteredTasks = tasks.filter((task) => task.status === status);
 
   const config = statusConfig[status];
@@ -59,9 +57,7 @@ export default function KanbanColumn({
         {filteredTasks.length === 0 ? (
           <div className="flex h-40 items-center justify-center rounded-xl border-2 border-dashed border-zinc-300 text-center">
             <div>
-              <p className="font-medium text-zinc-700">
-                No tasks yet
-              </p>
+              <p className="font-medium text-zinc-700">No tasks yet</p>
 
               <p className="mt-1 text-sm text-zinc-500">
                 Create a task to get started.
@@ -70,10 +66,7 @@ export default function KanbanColumn({
           </div>
         ) : (
           filteredTasks.map((task) => (
-            <TaskCard
-              key={task.id}
-              task={task}
-            />
+            <TaskCard key={task.id} task={task} onClick={onTaskClick} />
           ))
         )}
       </div>

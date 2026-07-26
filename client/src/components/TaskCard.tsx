@@ -1,9 +1,10 @@
-import { Folder} from "lucide-react";
+import { Folder } from "lucide-react";
 import Badge from "./Badge";
 import type { Task } from "../types/task";
 
 interface TaskCardProps {
   task: Task;
+  onClick: (task: Task) => void;
 }
 
 const PriorityColors = {
@@ -42,15 +43,23 @@ function formatDueDate(date: string) {
   return `📅 Due on ${new Date(date).toLocaleDateString(undefined, options)}`;
 }
 
-
-
-export default function TaskCard({ task }: TaskCardProps) {
+export default function TaskCard({ task, onClick }: TaskCardProps) {
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white cursor-pointer p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl">
-        <div className="flex flex-row items-center gap-2 mb-2"><Folder size={16} className="text-violet-500" /><h1 className="text-xs font-semibold uppercase tracking-wide text-purple-500">{task.project.name}</h1></div>
+    <article
+      onClick={() => onClick(task)}
+      className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white cursor-pointer p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl"
+    >
+      <div className="flex flex-row items-center gap-2 mb-2">
+        <Folder size={16} className="text-violet-500" />
+        <h1 className="text-xs font-semibold uppercase tracking-wide text-purple-500">
+          {task.project.name}
+        </h1>
+      </div>
       <div className="flex items-start justify-between">
         <div className="flex w-full items-center justify-between">
-          <h2 className="cursor-pointer font-semibold hover:text-violet-600 transition text-gray-700">{task.title}</h2>
+          <h2 className="cursor-pointer font-semibold hover:text-violet-600 transition text-gray-700">
+            {task.title}
+          </h2>
           <Badge color={PriorityColors[task.priority]}>{task.priority}</Badge>
         </div>
       </div>
@@ -69,7 +78,9 @@ export default function TaskCard({ task }: TaskCardProps) {
               className="h-8 w-8 rounded-full"
               alt={task.assigneeName}
             />
-            <h3 className="text-[16px] font-normal text-zinc-600 tracking-tight  ">{task.assigneeName}</h3>
+            <h3 className="text-[16px] font-normal text-zinc-600 tracking-tight  ">
+              {task.assigneeName}
+            </h3>
           </div>
           <div className="flex items-center gap-2">
             {formatDueDate(task.dueDate)}
