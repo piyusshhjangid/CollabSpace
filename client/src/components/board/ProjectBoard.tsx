@@ -4,21 +4,33 @@ import { Button } from "../Button";
 import { useState } from "react";
 import { Plus, Search } from "lucide-react";
 import type { Task } from "../../types/task";
-import { tasks } from "../../data/tasks";
+import { fetchTasks } from "../../data/fakeapi";
 import TaskModal from "./TaskModal";
 
 const statuses = ["TODO", "IN_PROGRESS", "DONE"] as const;
 
 const ProjectBoard = () => {
+  const response = fetchTasks();
+
+  if (response.error) {
+    return (
+      <div className="rounded-xl border border-red-300 bg-red-50 p-4 text-red-600">
+        {response.error}
+      </div>
+    );
+  }
+  const tasks = response.data;
+
   const [boardTasks, setBoardTasks] = useState(tasks);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const [search, setSearch] = useState("");
 
-  const filteredTasks = boardTasks.filter((task) =>
-    task.title.toLowerCase().includes(search.trim().toLowerCase()),
-  );
+  const filteredTasks = boardTasks.filter(task =>
+    task.title.toLowerCase().includes(search.toLowerCase()) ||
+    task.project.name.toLowerCase().includes(search.toLowerCase())
+);
 
   const openTask = (task: Task) => {
     setSelectedTask(task);
@@ -27,13 +39,13 @@ const ProjectBoard = () => {
 
   const handleSaveTask = (updatedTask: Task) => {
     setBoardTasks((prev) =>
-      prev.map((task) =>
-        task.id === updatedTask.id ? updatedTask : task
-      )
+      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task)),
     );
 
-    setIsModalOpen(false)
+    setIsModalOpen(false);
   };
+
+ 
 
   return (
     <div className="flex flex-col items-center gap-4">

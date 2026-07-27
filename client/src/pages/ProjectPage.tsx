@@ -1,15 +1,25 @@
-import { useState} from "react";
+import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
-import { projects } from "../data/projects";
+import { fetchProjects } from "../data/fakeapi";
 import { Plus, Search } from "lucide-react";
 import { Button } from "../components/Button";
 
 const ProjectPage = () => {
+  const response = fetchProjects();
+  if (response.error) {
+    return (
+      <div className="rounded-xl border border-red-300 bg-red-50 p-4 text-red-600">
+        {response.error}
+      </div>
+    );
+  }
+  const projects = response.data;
   const [search, setSearch] = useState("");
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-  const filteredProjects = projects.filter((project) => project.name.toLowerCase().includes(search.toLowerCase()))
-    
+  const filteredProjects = projects.filter((project) =>
+    project.name.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <div className="space-y-6">
@@ -20,7 +30,14 @@ const ProjectPage = () => {
             Manage all your projects in one place.
           </p>
         </div>
-        <Button variant="primary" disabled={false} onClick={() => {setOpen(!open); console.log(open)}}>
+        <Button
+          variant="primary"
+          disabled={false}
+          onClick={() => {
+            setOpen(!open);
+            console.log(open);
+          }}
+        >
           <Plus size={18} />
           New Project
         </Button>
