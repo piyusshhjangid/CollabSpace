@@ -1,4 +1,4 @@
-import { projects } from "./data/projects.ts";
+import { projects } from "../data/projects.ts";
 
 function firstItem<T>(items: T[]): T | undefined {
     return items[0];
