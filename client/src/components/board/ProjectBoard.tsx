@@ -78,7 +78,7 @@ const ProjectBoard = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-row items-center justify-between w-full px-5 mb-4">
+      <div className="flex flex-row items-center justify-between w-full mb-4">
         <div className="flex items-center gap-3">
           <div className="text-violet-600 bg-violet-100 rounded-md px-2 py-2">
             <Folder size={28} />

@@ -1,7 +1,6 @@
 import { Folder } from "lucide-react";
 import Badge from "./Badge";
 import type { Task } from "../types/task";
-import { useState } from "react";
 
 interface TaskCardProps {
   task: Task;
