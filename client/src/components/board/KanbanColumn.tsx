@@ -1,11 +1,14 @@
 import { MoreHorizontal } from "lucide-react";
 import TaskCard from "../TaskCard";
 import type { Task, TaskStatus } from "../../types/task";
+import { useState } from "react";
 
 interface KanbanColumnProps {
   status: TaskStatus;
   tasks: Task[];
   onTaskClick: (task: Task) => void;
+  onDragStart: (task: Task) => void;
+  onDrop: (status: TaskStatus) => void;
 }
 
 const statusConfig = {
@@ -26,13 +29,36 @@ const statusConfig = {
   },
 } as const;
 
-export default function KanbanColumn({ status, tasks, onTaskClick }: KanbanColumnProps) {
+export default function KanbanColumn({
+  status,
+  tasks,
+  onTaskClick,
+  onDragStart,
+  onDrop,
+}: KanbanColumnProps) {
   const filteredTasks = tasks.filter((task) => task.status === status);
-
   const config = statusConfig[status];
 
+  const [isOver, setIsOver] = useState(false);
   return (
-    <section className="flex h-fit min-h-150 flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-2">
+    <section
+      onDragOver={(e) => {
+        e.preventDefault();
+        setIsOver(true);
+      }}
+      onDragLeave={() => setIsOver(false)}
+      onDrop={() => {
+        onDrop(status);
+        setIsOver(false);
+      }}
+      className={`flex min-h-150 h-fit flex-col rounded-2xl border p-2 transition
+    ${
+      isOver
+        ? "border-violet-500 bg-violet-50"
+        : "border-zinc-200 bg-zinc-50"
+    }`}
+
+    >
       <div className=" p-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={`h-3 w-3 rounded-full ${config.dot}`} />
@@ -66,7 +92,12 @@ export default function KanbanColumn({ status, tasks, onTaskClick }: KanbanColum
           </div>
         ) : (
           filteredTasks.map((task) => (
-            <TaskCard key={task.id} task={task} onClick={onTaskClick} />
+            <TaskCard
+              key={task.id}
+              task={task}
+              onClick={onTaskClick}
+              onDragStart={onDragStart}
+            />
           ))
         )}
       </div>
