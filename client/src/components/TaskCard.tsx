@@ -1,6 +1,7 @@
 import { Folder } from "lucide-react";
 import Badge from "./Badge";
 import type { Task } from "../types/task";
+import { useState } from "react";
 
 interface TaskCardProps {
   task: Task;
@@ -48,6 +49,11 @@ export default function TaskCard({ task, onClick, onDragStart }: TaskCardProps) 
   return (
     <article
       draggable
+      onDragOver={(e) => {
+        e.preventDefault();
+        setIsOver(true);
+      }}
+      onDragLeave={() => setIsOver(false)}
       onDragStart={() => onDragStart(task)}
       onClick={() => onClick(task)}
       className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white cursor-pointer p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl"
