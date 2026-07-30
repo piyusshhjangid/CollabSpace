@@ -1,38 +1,61 @@
-import Badge from "../components/Badge";
-import { Button } from "../components/Button";
+import QuickActions from "../components/home/QuickActions";
+import RecentProjects from "../components/home/RecentProjects";
+import StatCard from "../components/home/StatCard";
+import { ClipboardList, Folder, Users, TrendingUp } from "lucide-react";
 
 export default function HomePage() {
-  const handleClick = (message: string) => {
-    console.log(message);
-  };
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col w-2/3 rounded-3xl bg-gray-50 items-center p-5 gap-5 border border-zinc-300">
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="font-bold text-3xl text-gray-900">
-            Welcome To CollabSpace
-          </h1>
-          <p className="text-lg text-gray-600">
-            Your Collaborative Workspace to build amazing things together.
-          </p>
-        </div>
-        <div className="flex gap-5">
-          <Button variant="primary" disabled={false} onClick={() => handleClick("Started")}>
-            Get Started
-          </Button>
-          <Button variant="secondary" disabled={false} onClick={() => handleClick("More")}>
-            Learn More
-          </Button>
-          <Button variant="danger" disabled={false} onClick={() => handleClick("Delete")}>
-            Delete
-          </Button>
-        </div>
-        <div className="flex gap-3">
-          <Badge color="green">Active</Badge>
-          <Badge color="blue">In Progress</Badge>
-          <Badge color="yellow">Pending</Badge>
-          <Badge color="red">High Demand</Badge>
-        </div>
+    <div>
+      <div className="px-4 mb-8">
+        <h1 className="text-3xl text-zinc-900 font-bold">
+          {greeting}, Piyush 👋
+        </h1>
+        <p className="text-zinc-500">
+          Welcome back to CollabSpace. Manage your projects and stay productive.
+        </p>
+      </div>
+
+      <div className="grid gap-8 px-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+        <StatCard
+          icon={ClipboardList}
+          title="Tasks"
+          value={12}
+          subtitle="+3 today"
+          color="text-purple-600"
+          bgColor="bg-purple-100"
+        />
+        <StatCard
+          icon={Folder}
+          title="Projects"
+          value={5}
+          subtitle="Active now"
+          color="text-blue-600"
+          bgColor="bg-blue-100"
+        />
+        <StatCard
+          icon={Users}
+          title="Members"
+          value={8}
+          subtitle="2 new this week"
+          color="text-green-600"
+          bgColor="bg-green-100"
+        />
+        <StatCard
+          icon={TrendingUp}
+          title="Productivity"
+          value="92%"
+          subtitle="5% vs last week"
+          color="text-yellow-600"
+          bgColor="bg-yellow-100"
+        />
+      </div>
+      <div className="flex items-center flex-row gap-10 mt-8 px-4">
+        <RecentProjects />
+        <QuickActions />
       </div>
     </div>
   );
