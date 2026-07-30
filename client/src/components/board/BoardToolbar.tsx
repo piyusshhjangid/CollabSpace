@@ -70,7 +70,7 @@ const BoardToolbar = ({
           }
           className="rounded-lg border border-zinc-300 bg-white px-6 py-2 text-sm focus:border-violet-500"
         >
-          <option value="">ALL Assignee</option>
+          <option value="">ALL Assignees</option>
           {assignees.map((assignee) => {
             return (
               <option key={assignee} value={assignee}>

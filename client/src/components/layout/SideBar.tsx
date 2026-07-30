@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { navItems } from "../../types/navigation";
+import { NavItems } from "../../types/navigation";
 import { Menu } from "lucide-react";
 
 export default function Sidebar() {
@@ -12,7 +12,7 @@ export default function Sidebar() {
         <h1 className="font-bold text-2xl mr-3 text-zinc-800">CollabSpace</h1>
       </div>
       <nav className=" flex flex-col gap-2 py-3 px-3 justify-between">
-        {navItems.map((item) => {
+        {NavItems.map((item) => {
           const Icon = item.icon;
           return (
             <NavLink

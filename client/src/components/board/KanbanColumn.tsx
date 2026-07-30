@@ -51,13 +51,12 @@ export default function KanbanColumn({
         onDrop(status);
         setIsOver(false);
       }}
-      className={`flex min-h-150 h-fit flex-col rounded-2xl border p-2 transition
+      className={`flex min-h-150 h-fit flex-col rounded-2xl border p-4 transition-colors duration-200 ease-in-out
     ${
       isOver
-        ? "border-violet-500 bg-violet-50"
-        : "border-zinc-200 bg-zinc-50"
+        ? "ring-2 ring-violet-400 bg-violet-50 border-violet-400"
+        : "border-zinc-200 bg-zinc-50 hover:border-violet-200 hover:bg-violet-50"
     }`}
-
     >
       <div className=" p-3 flex items-center justify-between">
         <div className="flex items-center gap-3">

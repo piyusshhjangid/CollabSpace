@@ -13,7 +13,7 @@ export default function HomePage() {
             Welcome To CollabSpace
           </h1>
           <p className="text-lg text-gray-600">
-            Your Collabrative Workspace to build amazing things together.
+            Your Collaborative Workspace to build amazing things together.
           </p>
         </div>
         <div className="flex gap-5">

@@ -18,13 +18,13 @@ import {
 
 import type { LucideIcon } from "lucide-react";
 
-export interface navItem {
+export interface NavItem {
   label: string;
   icon: LucideIcon;
   path: string;
 }
 
-export const navItems: navItem[] = [
+export const NavItems: NavItem[] = [
     //General
   { label: "Home", icon: Home, path: "/" },
   { label: "My Tasks", icon: ListTodo, path: "/tasks" },

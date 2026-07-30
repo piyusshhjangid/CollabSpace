@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Folder } from "lucide-react";
 import Badge from "./Badge";
 import type { Task } from "../types/task";
@@ -27,7 +28,7 @@ function formatDueDate(date: string) {
   if (diff <= 0) {
     const overdueDays = Math.abs(days);
     if (overdueDays < 1) return "⚠️ Past due (today)";
-    if (overdueDays >= 1) return "⚠️ Overdue ";
+    if (overdueDays >= 1) return "⚠️ Overdue";
   }
 
   if (mins < 60) return `⏳ Due in ${mins} min`;
@@ -35,7 +36,6 @@ function formatDueDate(date: string) {
   if (days === 1) return "📅 Due tomorrow";
   if (days <= 7) return `📅 Due in ${days} days`;
 
-  // For longer deadlines, show exact date
   const options: Intl.DateTimeFormatOptions = {
     day: "numeric",
     month: "short",
@@ -45,12 +45,20 @@ function formatDueDate(date: string) {
 }
 
 export default function TaskCard({ task, onClick, onDragStart }: TaskCardProps) {
+  const [dragging, setDragging] = useState(false);
+
   return (
     <article
       draggable
-      onDragStart={() => onDragStart(task)}
+      onDragStart={() => {
+        setDragging(true);
+        onDragStart(task);
+      }}
+      onDragEnd={() => setDragging(false)}
       onClick={() => onClick(task)}
-      className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white cursor-pointer p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl"
+      className={`group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-300 
+        ${dragging ? "cursor-grabbing opacity-50 rotate-1 scale-[1.02]" : "cursor-grab opacity-100"} 
+        hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl`}
     >
       <div className="flex flex-row items-center gap-2 mb-2">
         <Folder size={16} className="text-violet-500" />
@@ -58,6 +66,7 @@ export default function TaskCard({ task, onClick, onDragStart }: TaskCardProps) 
           {task.project.name}
         </h1>
       </div>
+
       <div className="flex items-start justify-between">
         <div className="flex w-full items-center justify-between">
           <h2 className="cursor-pointer font-semibold hover:text-violet-600 transition text-gray-700">
@@ -81,7 +90,7 @@ export default function TaskCard({ task, onClick, onDragStart }: TaskCardProps) 
               className="h-8 w-8 rounded-full"
               alt={task.assigneeName}
             />
-            <h3 className="text-[16px] font-normal text-zinc-600 tracking-tight  ">
+            <h3 className="text-[16px] font-normal text-zinc-600 tracking-tight">
               {task.assigneeName}
             </h3>
           </div>
