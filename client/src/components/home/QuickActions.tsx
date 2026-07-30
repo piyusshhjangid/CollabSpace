@@ -2,7 +2,7 @@ import { Button } from "../Button"
 
 const QuickActions = () => {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+    <div className="rounded-2xl h-1/3 border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
 
           <h2 className="text-lg font-bold text-zinc-900">Quick Actions</h2>
 

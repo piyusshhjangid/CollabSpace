@@ -19,7 +19,7 @@ export default function Sidebar() {
               to={item.path}
               key={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-lg px-4 py-2 transition ${
+                `flex items-center gap-2 rounded-lg px-4 py-1 transition ${
                   isActive
                     ? "bg-violet-100 text-violet-700 font-semibold"
                     : "text-zinc-600 hover:bg-zinc-100"

@@ -53,7 +53,7 @@ export default function HomePage() {
           bgColor="bg-yellow-100"
         />
       </div>
-      <div className="flex items-center flex-row gap-10 mt-8 px-4">
+      <div className="flex flex-row gap-10 mt-8 px-4">
         <RecentProjects />
         <QuickActions />
       </div>
