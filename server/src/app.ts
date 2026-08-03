@@ -1,5 +1,8 @@
 import express from "express";
 import type { Request, Response } from "express";
+import workspaceRouter from "./routes/workspace.routes.js";
+import projectRouter from "./routes/project.routes.js";
+import taskRouter from "./routes/task.routes.js"
 
 const app = express();
 
@@ -8,6 +11,10 @@ app.use(express.json());
 interface PingQuery {
   name: string;
 }
+
+app.use("/api/workspaces", workspaceRouter);
+app.use("/api/workspaces/:workspaceId/projects", projectRouter);
+app.use("/api/projects/:projectId/tasks", taskRouter)
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({
