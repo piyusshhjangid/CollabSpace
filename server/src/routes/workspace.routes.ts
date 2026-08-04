@@ -1,15 +1,8 @@
 import { Router } from "express";
-import type { Request, Response } from "express";
-import { workspaces} from "../data/fakeStore.js";
+import { getWorkspaces } from "../controllers/workspace.controller.js";
 
-const router = Router({
-  mergeParams: true,
-});
+const router = Router();
 
-router.get('/', (req : Request, res: Response) => {
-    res.json({
-        workspaces
-    })
-})
+router.get('/', getWorkspaces)
 
 export default router;
