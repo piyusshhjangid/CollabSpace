@@ -1,35 +1,74 @@
 # 🚀 CollabSpace
 
-A modern **team collaboration platform** built with the **PERN Stack (PostgreSQL, Express, React, Node.js)** and **TypeScript**.
+A modern, AI-powered team collaboration platform built with the **PERN Stack (PostgreSQL, Express, React, Node.js)** and **TypeScript**.
 
-CollabSpace helps teams organize projects, manage tasks, collaborate in real time, and boost productivity with an AI-powered workspace assistant.
+CollabSpace is designed to help teams manage projects, organize tasks, collaborate in real time, and improve productivity through an intelligent workspace experience.
 
-> **Status:** 🚧 Currently under active development
-
----
-
-## ✨ Features
-
-- 🏢 Multi-workspace support
-- 📁 Project management
-- ✅ Task management
-- 📋 Kanban board
-- 👥 Team collaboration
-- 💬 Real-time chat
-- 🔔 Notifications
-- 🤖 AI Workspace Assistant
-- 📄 Document Management
-- 📊 Dashboard & Analytics
-- 🔐 Authentication & Authorization
-- 👑 Role Based Access Control (RBAC)
-- 🌙 Dark Mode
-- 📱 Responsive Design
+> 🚧 **Currently under active development as part of my #100DaysOfCode journey.**
 
 ---
 
-## 🛠️ Tech Stack
+# ✨ Current Features
 
 ### Frontend
+
+- 📊 Dashboard
+- 📁 Project Management
+- ✅ Task Management
+- 📋 Interactive Kanban Board
+- 🔍 Task Search & Filtering
+- 🖱️ Drag & Drop Task Movement
+- 📝 Task Detail Modal
+- 📱 Responsive UI
+
+### Backend
+
+- ⚡ Express + TypeScript backend
+- 🛣️ REST API architecture
+- 📂 Nested routing
+- 🎮 Controllers layer
+- 🔧 Service layer *(In Progress)*
+- 📦 Fake in-memory data store
+
+---
+
+# 🛣️ Roadmap
+
+### ✅ Phase 1 — React + TypeScript Foundation
+
+- Dashboard
+- Projects Page
+- Kanban Board
+- Drag & Drop
+- Typed Components
+- Generic Types
+- Fake API Layer
+
+### 🚧 Phase 2 — Backend Foundation
+
+- Express
+- Controllers
+- Services
+- Repository Pattern
+- Validation
+- Error Handling
+
+### 🔜 Upcoming Phases
+
+- PostgreSQL + Prisma
+- JWT Authentication
+- Role Based Access Control
+- File Uploads
+- Real-time Collaboration
+- Notifications
+- AI Workspace Assistant
+- Docker Deployment
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
 
 - React
 - TypeScript
@@ -39,61 +78,58 @@ CollabSpace helps teams organize projects, manage tasks, collaborate in real tim
 - Redux Toolkit
 - TanStack Query
 
-### Backend
+## Backend
 
 - Node.js
-- Express.js
+- Express
 - TypeScript
-- Prisma ORM
 
-### Database
+## Database *(Upcoming)*
 
 - PostgreSQL
+- Prisma ORM
 
-### Real-time
+## Real-time *(Upcoming)*
 
 - Socket.IO
 
-### Caching & Jobs
+## AI *(Upcoming)*
 
-- Redis
-- BullMQ
-
-### AI
-
-- LLM APIs
-- RAG (Retrieval Augmented Generation)
-- Embeddings
+- OpenAI / Gemini APIs
+- RAG
 - pgvector
 
-### DevOps
+## DevOps *(Upcoming)*
 
 - Docker
 - GitHub Actions
-- ESLint
-- Prettier
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 collabspace/
 
 ├── client/
+│
 │   ├── src/
+│   │
 │   ├── components/
 │   ├── pages/
-│   ├── hooks/
 │   ├── layouts/
-│   └── types/
+│   ├── hooks/
+│   ├── types/
+│   └── data/
 │
 ├── server/
+│
 │   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
 │   ├── services/
-│   ├── prisma/
+│   ├── routes/
+│   ├── data/
+│   ├── types/
+│   ├── middleware/
 │   └── utils/
 │
 └── README.md
@@ -101,102 +137,119 @@ collabspace/
 
 ---
 
-## 🎯 Core Functionalities
+# 🎯 Planned Features
 
-### Workspace Management
+### Workspace
 
-- Create workspaces
-- Switch between workspaces
-- Invite members
-- Manage workspace roles
+- Multiple Workspaces
+- Member Invitations
+- Workspace Roles
 
-### Project Management
+### Projects
 
-- Create projects
-- Edit/Delete projects
-- Search projects
-- Project overview
+- CRUD Operations
+- Search & Filters
+- Analytics
 
-### Task Management
+### Tasks
 
-- Create tasks
-- Assign tasks
-- Due dates
-- Priority levels
-- Task status
-- Kanban board
+- Assignment
+- Due Dates
+- Priority Levels
+- Labels
+- Comments
+- Attachments
 
-### Team Collaboration
+### Collaboration
 
-- Real-time messaging
-- Team channels
-- Activity tracking
-- Member management
+- Team Chat
+- Activity Feed
+- Notifications
+- Presence Indicators
 
 ### AI Assistant
 
 - Workspace Q&A
-- Task recommendations
-- Project summaries
-- AI-powered productivity
+- Smart Search
+- Project Summaries
+- Task Suggestions
 
 ---
 
-## 🔐 Authentication
+# 🚀 Getting Started
 
-- User Registration
-- User Login
-- JWT Authentication
-- Protected Routes
-- Role Based Authorization
-
----
-
-## 🚀 Getting Started
-
-### Clone the repository
+## Clone the repository
 
 ```bash
 git clone https://github.com/piyusshhjangid/collabspace.git
 ```
 
-### Install dependencies
+## Install dependencies
+
+### Frontend
 
 ```bash
+cd client
 npm install
+npm run dev
 ```
 
-### Run development server
+### Backend
 
 ```bash
+cd server
+npm install
 npm run dev
 ```
 
 ---
 
-## 📖 Learning Goals
+# 📚 Learning Goals
 
-This project is being built to gain hands-on experience with:
+This project is helping me learn and practice:
 
+- Full Stack Development
 - TypeScript
 - React
+- Express
 - PostgreSQL
-- Express.js
-- Redis
-- Real-time Systems
-- SaaS Architecture
-- AI Integration
+- Prisma
 - System Design
-- Full Stack Development
+- REST API Design
+- Authentication
+- Real-time Systems
+- AI Integration
+- Scalable Software Architecture
 
 ---
 
-## 🤝 Contributing
+# 🏗️ Project Status
 
-Contributions, suggestions, and feedback are welcome.
-
-Feel free to fork the repository and open a pull request.
+| Module | Status |
+|---------|--------|
+| Frontend UI | ✅ Complete |
+| Kanban Board | ✅ Complete |
+| Backend Setup | ✅ Complete |
+| Controllers | ✅ Complete |
+| Services | 🚧 In Progress |
+| Repository Layer | ⏳ Planned |
+| PostgreSQL | ⏳ Planned |
+| Authentication | ⏳ Planned |
+| AI Assistant | ⏳ Planned |
+| Deployment | ⏳ Planned |
 
 ---
 
-⭐ If you like this project, consider giving it a star!
+# 🤝 Contributing
+
+Suggestions, issues, and pull requests are always welcome.
+
+If you have ideas that could improve CollabSpace, feel free to open an issue or start a discussion.
+
+---
+
+# ⭐ Support
+
+If you enjoy this project or find it useful, consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and motivates me to keep building.
