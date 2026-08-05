@@ -1,8 +1,7 @@
 import type { Request, Response } from "express";
-import { workspaces } from "../data/fakeStore.js";
+import { getAllWorkspaces as getAllWorkspacesService } from "../services/workspace.service.js";
 
 export function getWorkspaces(req: Request, res: Response) {
-  res.json({
-    workspaces,
-  });
+  const allWorkspaces = getAllWorkspacesService();
+  res.json({ workspaces: allWorkspaces });
 }
