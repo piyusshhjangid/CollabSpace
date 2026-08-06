@@ -1,8 +1,11 @@
-import { tasks } from "../data/fakeStore.js";
+import {
+  findTasksByProject,
+  createTask,
+} from "../repositories/task.repository.js";
 import type { Task } from "../types/task.js";
 
 export async function getTasksByProject(projectId: string) {
-  return tasks.filter((task) => task.projectId === projectId);
+  return await findTasksByProject(projectId);
 }
 
 export function createTaskService(
@@ -13,13 +16,12 @@ export function createTaskService(
   if (title.trim() === "") {
     throw new Error("Task title is required");
   }
-  const newTask: Task = {
-    id: `t${tasks.length + 1}`,
+  const task: Task = {
+    id: `t${Date.now()}`,
     projectId,
     title,
     completed: completed ?? false,
   };
-
-  tasks.push(newTask);
-  return newTask;
+  
+  return createTask(task);
 }

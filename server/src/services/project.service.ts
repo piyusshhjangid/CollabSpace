@@ -1,5 +1,5 @@
-import { projects } from "../data/fakeStore.js";
+import { findProjectsByWorkspace } from "../repositories/project.repository.js";
 
-export function getProjectsByWorkspace(workspaceId: string) {
-  return projects.filter((project) => project.workspaceId === workspaceId);
+export async function getProjectsByWorkspace(workspaceId: string) {
+  return await findProjectsByWorkspace(workspaceId);
 }

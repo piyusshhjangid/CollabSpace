@@ -1,5 +1,5 @@
-import { workspaces } from "../data/fakeStore.js";
+import { findAllWorkspaces } from "../repositories/workspace.repository.js";
 
-export function getAllWorkspaces() {
-  return workspaces;
+export async function getAllWorkspaces() {
+  return await findAllWorkspaces();
 }

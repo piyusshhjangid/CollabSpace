@@ -15,7 +15,7 @@ export function getTasks(req: Request<TaskParams>, res: Response) {
   res.json(projectTasks);
 }
 
-export function createTask(
+export async function createTask(
   req: Request<TaskParams, {}, CreateTaskBody>,
   res: Response,
 ) {
@@ -28,7 +28,7 @@ export function createTask(
   }
 
   try {
-    const task = createTaskService(projectId, title, completed);
+    const task = await createTaskService(projectId, title, completed);
 
     res.status(201).json(task);
   } catch (error) {

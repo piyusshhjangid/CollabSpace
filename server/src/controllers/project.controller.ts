@@ -5,8 +5,8 @@ interface WorkspaceParams {
   workspaceId: string;
 }
 
-export function getProjects(req: Request<WorkspaceParams>, res: Response) {
+export async function getProjects(req: Request<WorkspaceParams>, res: Response) {
   const { workspaceId } = req.params;
-  const workSpaceProjects = getProjectsByWorkspace(workspaceId);
+  const workSpaceProjects = await getProjectsByWorkspace(workspaceId);
   res.json(workSpaceProjects);
 }
