@@ -3,10 +3,23 @@ import type { Request, Response } from "express";
 import workspaceRouter from "./routes/workspace.routes.js";
 import projectRouter from "./routes/project.routes.js";
 import taskRouter from "./routes/task.routes.js"
+import { requestLogger } from "./middleware/requestLogger.js";
+import cors from "cors";
 
 const app = express();
 
-app.use(express.json());
+app.use(requestLogger);
+app.use(
+  express.json({
+    limit: "1mb",
+  }),
+);
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 
 interface PingQuery {
   name: string;
