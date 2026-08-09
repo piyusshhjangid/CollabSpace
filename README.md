@@ -1,72 +1,98 @@
+<div align="center">
+
 # 🚀 CollabSpace
 
-A modern, AI-powered team collaboration platform built with the **PERN Stack (PostgreSQL, Express, React, Node.js)** and **TypeScript**.
+### Modern AI-powered Team Collaboration Platform
 
-CollabSpace is designed to help teams manage projects, organize tasks, collaborate in real time, and improve productivity through an intelligent workspace experience.
+Build projects • Manage tasks • Collaborate in real-time • AI Assisted
 
-> 🚧 **Currently under active development as part of my #100DaysOfCode journey.**
+🚧 **Currently being built publicly through my #100DaysOfCode journey**
 
 ---
 
-# ✨ Current Features
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Express](https://img.shields.io/badge/Express-5-black?logo=express)
+![Node.js](https://img.shields.io/badge/Node.js-22-green?logo=node.js)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Upcoming-blue?logo=postgresql)
+![License](https://img.shields.io/badge/License-MIT-success)
 
-### Frontend
+</div>
 
-- 📊 Dashboard
+---
+
+# 📖 About
+
+CollabSpace is a full-stack SaaS project inspired by tools like **Jira, Linear, Notion, ClickUp and Slack**.
+
+The goal is to build a production-grade collaboration platform while learning modern backend architecture, scalable frontend development, PostgreSQL, AI integrations, authentication, and real-world software engineering practices.
+
+This project is being built completely in public from scratch.
+
+---
+
+# ✨ Features
+
+## Frontend
+
+- 📊 Analytics Dashboard
 - 📁 Project Management
 - ✅ Task Management
 - 📋 Interactive Kanban Board
-- 🔍 Task Search & Filtering
-- 🖱️ Drag & Drop Task Movement
-- 📝 Task Detail Modal
-- 📱 Responsive UI
+- 🔍 Search & Multi-filtering
+- 🖱️ Drag & Drop Tasks
+- 📝 Task Details Modal
+- 🎨 Responsive UI
+- ⚡ Type-safe Components
 
-### Backend
+## Backend
 
-- ⚡ Express + TypeScript backend
-- 🛣️ REST API architecture
-- 📂 Nested routing
-- 🎮 Controllers layer
-- 🔧 Service layer *(In Progress)*
-- 📦 Fake in-memory data store
-
----
-
-# 🛣️ Roadmap
-
-### ✅ Phase 1 — React + TypeScript Foundation
-
-- Dashboard
-- Projects Page
-- Kanban Board
-- Drag & Drop
-- Typed Components
-- Generic Types
-- Fake API Layer
-
-### 🚧 Phase 2 — Backend Foundation
-
-- Express
-- Controllers
-- Services
-- Repository Pattern
-- Validation
-- Error Handling
-
-### 🔜 Upcoming Phases
-
-- PostgreSQL + Prisma
-- JWT Authentication
-- Role Based Access Control
-- File Uploads
-- Real-time Collaboration
-- Notifications
-- AI Workspace Assistant
-- Docker Deployment
+- ⚡ Express + TypeScript
+- 🛣️ REST API
+- 📂 Nested Routing
+- 🎮 Controllers
+- 🔧 Services
+- 📦 Repository Pattern
+- 📝 Zod Validation
+- 📋 Middleware
+- 📡 Request Logging
+- 🌐 CORS Configuration
 
 ---
 
-# 🛠️ Tech Stack
+# 🏗 Architecture
+
+Current backend architecture
+
+```
+Client
+    │
+    ▼
+Routes
+    │
+    ▼
+Controllers
+    │
+    ▼
+Services
+    │
+    ▼
+Repositories
+    │
+    ▼
+Fake Data Store
+
+(Phase 3)
+
+Repositories
+      │
+      ▼
+ PostgreSQL
+```
+
+---
+
+# 🛠 Tech Stack
 
 ## Frontend
 
@@ -83,26 +109,31 @@ CollabSpace is designed to help teams manage projects, organize tasks, collabora
 - Node.js
 - Express
 - TypeScript
+- Zod
 
-## Database *(Upcoming)*
+## Database (Upcoming)
 
 - PostgreSQL
 - Prisma ORM
 
-## Real-time *(Upcoming)*
+## Authentication (Upcoming)
 
-- Socket.IO
+- JWT
+- Refresh Tokens
+- RBAC
 
-## AI *(Upcoming)*
+## AI (Upcoming)
 
-- OpenAI / Gemini APIs
+- Gemini
+- OpenAI
 - RAG
 - pgvector
 
-## DevOps *(Upcoming)*
+## DevOps (Upcoming)
 
 - Docker
 - GitHub Actions
+- CI/CD
 
 ---
 
@@ -111,86 +142,135 @@ CollabSpace is designed to help teams manage projects, organize tasks, collabora
 ```text
 collabspace/
 
-├── client/
+client/
 │
-│   ├── src/
-│   │
+├── src/
 │   ├── components/
-│   ├── pages/
 │   ├── layouts/
+│   ├── pages/
 │   ├── hooks/
-│   ├── types/
-│   └── data/
-│
-├── server/
-│
-│   ├── controllers/
-│   ├── services/
+│   ├── store/
 │   ├── routes/
-│   ├── data/
 │   ├── types/
-│   ├── middleware/
+│   ├── data/
 │   └── utils/
+
+server/
 │
-└── README.md
+├── controllers/
+├── middleware/
+├── repositories/
+├── routes/
+├── schemas/
+├── services/
+├── data/
+├── types/
+├── utils/
+
+README.md
 ```
 
 ---
 
-# 🎯 Planned Features
+# 🗺 Roadmap
 
-### Workspace
+## ✅ Phase 1 — Frontend Foundation
 
-- Multiple Workspaces
-- Member Invitations
-- Workspace Roles
+- Dashboard
+- Project Management
+- Task Management
+- Kanban Board
+- Drag & Drop
+- Generic Types
+- Fake API Layer
 
-### Projects
+---
 
-- CRUD Operations
-- Search & Filters
-- Analytics
+## 🚧 Phase 2 — Backend Foundation
 
-### Tasks
+- Express + TypeScript
+- REST API
+- Nested Routing
+- Controllers
+- Services
+- Repository Pattern
+- Middleware
+- Request Logging
+- Zod Validation
 
-- Assignment
-- Due Dates
-- Priority Levels
-- Labels
-- Comments
-- Attachments
+---
 
-### Collaboration
+## 🔜 Phase 3
 
-- Team Chat
-- Activity Feed
+- PostgreSQL
+- Prisma ORM
+- Repository Migration
+- SQL Queries
+
+---
+
+## 🔜 Phase 4
+
+- Authentication
+- JWT
+- Refresh Tokens
+
+---
+
+## 🔜 Phase 5
+
+- Role Based Access Control
+- Permissions
+- Protected Routes
+
+---
+
+## 🔜 Future
+
+- AI Assistant
+- File Uploads
+- Docker
 - Notifications
-- Presence Indicators
+- Activity Feed
+- Team Chat
+- Real-time Collaboration
+- Deployment
 
-### AI Assistant
+---
 
-- Workspace Q&A
-- Smart Search
-- Project Summaries
-- Task Suggestions
+# 📸 Screenshots
+
+## Dashboard
+
+> Coming Soon
+
+## Kanban Board
+
+> Coming Soon
+
+## Backend API
+
+> Coming Soon
 
 ---
 
 # 🚀 Getting Started
 
-## Clone the repository
+Clone
 
 ```bash
 git clone https://github.com/piyusshhjangid/collabspace.git
 ```
 
-## Install dependencies
+Install
 
 ### Frontend
 
 ```bash
 cd client
+
 npm install
+
 npm run dev
 ```
 
@@ -198,15 +278,17 @@ npm run dev
 
 ```bash
 cd server
+
 npm install
+
 npm run dev
 ```
 
 ---
 
-# 📚 Learning Goals
+# 📚 What I'm Learning
 
-This project is helping me learn and practice:
+This project is helping me learn
 
 - Full Stack Development
 - TypeScript
@@ -214,42 +296,71 @@ This project is helping me learn and practice:
 - Express
 - PostgreSQL
 - Prisma
-- System Design
+- Software Architecture
+- Repository Pattern
 - REST API Design
 - Authentication
-- Real-time Systems
+- Docker
+- CI/CD
 - AI Integration
-- Scalable Software Architecture
 
 ---
 
-# 🏗️ Project Status
+# 📊 Current Progress
 
 | Module | Status |
 |---------|--------|
-| Frontend UI | ✅ Complete |
-| Kanban Board | ✅ Complete |
-| Backend Setup | ✅ Complete |
-| Controllers | ✅ Complete |
-| Services | 🚧 In Progress |
-| Repository Layer | ⏳ Planned |
-| PostgreSQL | ⏳ Planned |
-| Authentication | ⏳ Planned |
-| AI Assistant | ⏳ Planned |
-| Deployment | ⏳ Planned |
+| Frontend UI | ✅ |
+| Dashboard | ✅ |
+| Project Management | ✅ |
+| Task Management | ✅ |
+| Kanban Board | ✅ |
+| Drag & Drop | ✅ |
+| Express Setup | ✅ |
+| Controllers | ✅ |
+| Services | ✅ |
+| Repository Pattern | ✅ |
+| Middleware | ✅ |
+| Request Logging | ✅ |
+| Zod Validation | ✅ |
+| PostgreSQL | ⏳ |
+| Prisma | ⏳ |
+| Authentication | ⏳ |
+| AI Assistant | ⏳ |
+| Deployment | ⏳ |
+
+---
+
+# 🌱 Build In Public
+
+I'm documenting this project every day as part of my **#100DaysOfCode** journey.
+
+Follow along to see the project evolve from a simple prototype into a production-ready SaaS platform.
 
 ---
 
 # 🤝 Contributing
 
-Suggestions, issues, and pull requests are always welcome.
+Contributions, feedback, and ideas are always welcome.
 
-If you have ideas that could improve CollabSpace, feel free to open an issue or start a discussion.
+If you'd like to improve CollabSpace, feel free to:
+
+- Open an Issue
+- Submit a Pull Request
+- Share suggestions
 
 ---
 
 # ⭐ Support
 
-If you enjoy this project or find it useful, consider giving it a **⭐ Star** on GitHub.
+If you like this project, consider giving it a ⭐ on GitHub.
 
-It helps others discover the project and motivates me to keep building.
+It motivates me to continue building and documenting the journey.
+
+---
+
+<div align="center">
+
+Made with ❤️ using React, TypeScript, Express and lots of coffee ☕
+
+</div>
