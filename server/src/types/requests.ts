@@ -1,4 +1,1 @@
-export interface CreateTaskBody {
-    title: string;
-    completed?: boolean;
-}
+const CreateTaskSchema = ...

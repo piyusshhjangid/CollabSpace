@@ -1,4 +1,5 @@
 import { projects } from "../data/fakeStore.js";
+import type { Project } from "../types/project.js";
 
 export async function findProjectsByWorkspace(workspaceId: string) {
   return projects.filter(
@@ -6,9 +7,13 @@ export async function findProjectsByWorkspace(workspaceId: string) {
   );
 }
 
-// findById()
+export async function createProject(project: Project) {
+  projects.push(project);
 
-// create()
+  return project;
+}
+
+// findById()
 
 // update()
 

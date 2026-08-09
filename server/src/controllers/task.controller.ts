@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import type { CreateTaskBody } from "../types/requests.js";
+import type { CreateTaskBody } from "../schemas/task.schema.js";
 import {
   getTasksByProject,
   createTaskService,
@@ -9,11 +9,21 @@ interface TaskParams {
   projectId: string;
 }
 
-export function getTasks(req: Request<TaskParams>, res: Response) {
-  const projectId = req.params.projectId;
-  const projectTasks = getTasksByProject(projectId);
-  res.json(projectTasks);
+export async function getTasks(req: Request<TaskParams>, res: Response) {
+  try {
+    const { projectId } = req.params;
+
+    if (!projectId) {
+      return res.status(400).json({ message: "projectId is required" });
+    }
+
+    const projectTasks = await getTasksByProject(projectId);
+    res.json(projectTasks);
+  } catch (error) {
+    res.status(500).json({ message: (error as Error).message });
+  }
 }
+
 
 export async function createTask(
   req: Request<TaskParams, {}, CreateTaskBody>,
@@ -21,10 +31,9 @@ export async function createTask(
 ) {
   const projectId = req.params.projectId;
   const { title, completed } = req.body;
-  if (!title) {
-    return res.status(400).json({
-      message: "Title is required",
-    });
+
+  if (!projectId) {
+    return res.status(400).json({ message: "projectId is required" });
   }
 
   try {
