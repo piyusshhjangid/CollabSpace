@@ -1,48 +1,35 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import type { CreateTaskBody } from "../schemas/task.schema.js";
-import {
-  getTasksByProject,
-  createTaskService,
-} from "../services/task.service.js";
+import { getTasksByProject, createTaskService } from "../services/task.service.js";
+import { badRequest } from "../lib/AppError.js";
 
 interface TaskParams {
   projectId: string;
 }
 
-export async function getTasks(req: Request<TaskParams>, res: Response) {
-  try {
-    const { projectId } = req.params;
+export const getTasks: RequestHandler<TaskParams> = async (req, res) => {
+  const { projectId } = req.params;
 
-    if (!projectId) {
-      return res.status(400).json({ message: "projectId is required" });
-    }
-
-    const projectTasks = await getTasksByProject(projectId);
-    res.json(projectTasks);
-  } catch (error) {
-    res.status(500).json({ message: (error as Error).message });
+  if (!projectId) {
+    throw badRequest("projectId is required");
   }
-}
 
+  const projectTasks = await getTasksByProject(projectId);
+  res.json(projectTasks);
+};
 
-export async function createTask(
-  req: Request<TaskParams, {}, CreateTaskBody>,
-  res: Response,
-) {
-  const projectId = req.params.projectId;
+export const createTask: RequestHandler<TaskParams, any, CreateTaskBody> = async (req, res) => {
+  const { projectId } = req.params;
   const { title, completed } = req.body;
 
   if (!projectId) {
-    return res.status(400).json({ message: "projectId is required" });
+    throw badRequest("projectId is required");
   }
 
-  try {
-    const task = await createTaskService(projectId, title, completed);
-
-    res.status(201).json(task);
-  } catch (error) {
-    res.status(400).json({
-      message: (error as Error).message,
-    });
+  if (!title) {
+    throw badRequest("Title is required");
   }
-}
+
+  const task = await createTaskService(projectId, title, completed);
+  res.status(201).json(task);
+};

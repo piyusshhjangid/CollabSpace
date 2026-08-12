@@ -1,8 +1,6 @@
-import {
-  findTasksByProject,
-  createTask,
-} from "../repositories/task.repository.js";
+import { findTasksByProject, createTask } from "../repositories/task.repository.js";
 import type { Task } from "../types/task.js";
+import { badRequest } from "../lib/AppError.js";
 
 export async function getTasksByProject(projectId: string) {
   return await findTasksByProject(projectId);
@@ -14,14 +12,15 @@ export function createTaskService(
   completed: boolean | undefined,
 ) {
   if (title.trim() === "") {
-    throw new Error("Task title is required");
+    throw badRequest("Task title is required");
   }
+
   const task: Task = {
     id: `t${Date.now()}`,
     projectId,
     title,
     completed: completed ?? false,
   };
-  
+
   return createTask(task);
 }

@@ -1,5 +1,6 @@
 import { findProjectsByWorkspace, createProject } from "../repositories/project.repository.js";
 import type { Project } from "../types/project.js";
+import { badRequest } from "../lib/AppError.js";
 
 export async function getProjectsByWorkspace(workspaceId: string) {
   return await findProjectsByWorkspace(workspaceId);
@@ -11,14 +12,15 @@ export function createProjectService(
   description: string | undefined,
 ) {
   if (name.trim() === "") {
-    throw new Error("Task title is required");
+    throw badRequest("Project name is required");
   }
+
   const project: Project = {
-    id: `t${Date.now()}`,
+    id: `p${Date.now()}`,
     workspaceId,
     name,
     description,
   };
-  
+
   return createProject(project);
 }

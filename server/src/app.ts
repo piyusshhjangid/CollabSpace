@@ -5,6 +5,7 @@ import projectRouter from "./routes/project.routes.js";
 import taskRouter from "./routes/task.routes.js"
 import { requestLogger } from "./middleware/requestLogger.js";
 import cors from "cors";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 
@@ -28,6 +29,8 @@ interface PingQuery {
 app.use("/api/workspaces", workspaceRouter);
 app.use("/api/workspaces/:workspaceId/projects", projectRouter);
 app.use("/api/projects/:projectId/tasks", taskRouter)
+
+app.use(errorHandler)
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({

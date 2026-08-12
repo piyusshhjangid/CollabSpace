@@ -1,43 +1,35 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import { getProjectsByWorkspace, createProjectService } from "../services/project.service.js";
 import type { CreateProjectBody } from "../schemas/project.schema.js";
+import { badRequest } from "../lib/AppError.js";
 
 interface WorkspaceParams {
   workspaceId: string;
 }
 
-export async function getProjects(req: Request<WorkspaceParams>, res: Response) {
+export const getProjects: RequestHandler<WorkspaceParams> = async (req, res) => {
   const { workspaceId } = req.params;
 
   if (!workspaceId) {
-    return res.status(400).json({
-      message: "Workspace ID is required",
-    });
+    throw badRequest("Workspace ID is required");
   }
 
   const workSpaceProjects = await getProjectsByWorkspace(workspaceId);
   res.json(workSpaceProjects);
-}
+};
 
-export async function createProject(
-  req: Request<WorkspaceParams, {}, CreateProjectBody>,
-  res: Response,
-) {
+export const createProject: RequestHandler<WorkspaceParams, any, CreateProjectBody> = async (req, res) => {
   const { workspaceId } = req.params;
   const { name, description } = req.body;
 
   if (!workspaceId) {
-    return res.status(400).json({
-      message: "Workspace ID is required",
-    });
+    throw badRequest("Workspace ID is required");
   }
-  try {
-      const project = await createProjectService(workspaceId, name, description);
-  
-      res.status(201).json(project);
-    } catch (error) {
-      res.status(400).json({
-        message: (error as Error).message,
-      });
-    }
-}
+
+  if (!name) {
+    throw badRequest("Title is required");
+  }
+
+  const project = await createProjectService(workspaceId, name, description);
+  res.status(201).json(project);
+};
