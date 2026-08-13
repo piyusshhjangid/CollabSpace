@@ -1,7 +1,12 @@
 import type { RequestHandler } from "express";
 import type { CreateTaskBody } from "../schemas/task.schema.js";
-import { getTasksByProject, createTaskService } from "../services/task.service.js";
+import {
+  getTasksByProject,
+  createTaskService,
+} from "../services/task.service.js";
 import { badRequest } from "../lib/AppError.js";
+import type { ApiResponse } from "../types/apiResponse.js";
+import type { Task } from "../types/task.js";
 
 interface TaskParams {
   projectId: string;
@@ -15,10 +20,21 @@ export const getTasks: RequestHandler<TaskParams> = async (req, res) => {
   }
 
   const projectTasks = await getTasksByProject(projectId);
-  res.json(projectTasks);
+  const response: ApiResponse<Task[]> = {
+    success: true,
+    message: "Tasks fetched",
+    data: projectTasks,
+  };
+
+  res.json(response);
+  
 };
 
-export const createTask: RequestHandler<TaskParams, any, CreateTaskBody> = async (req, res) => {
+export const createTask: RequestHandler<
+  TaskParams,
+  any,
+  CreateTaskBody
+> = async (req, res) => {
   const { projectId } = req.params;
   const { title, completed } = req.body;
 
@@ -31,5 +47,11 @@ export const createTask: RequestHandler<TaskParams, any, CreateTaskBody> = async
   }
 
   const task = await createTaskService(projectId, title, completed);
-  res.status(201).json(task);
+  const response: ApiResponse<Task> = {
+    success: true,
+    message: "Task created successfully",
+    data: task,
+  };
+
+  res.status(201).json(response);
 };

@@ -2,6 +2,8 @@ import type { RequestHandler } from "express";
 import { getProjectsByWorkspace, createProjectService } from "../services/project.service.js";
 import type { CreateProjectBody } from "../schemas/project.schema.js";
 import { badRequest } from "../lib/AppError.js";
+import type { Project } from "../types/project.js";
+import type { ApiResponse } from "../types/apiResponse.js";
 
 interface WorkspaceParams {
   workspaceId: string;
@@ -15,7 +17,13 @@ export const getProjects: RequestHandler<WorkspaceParams> = async (req, res) => 
   }
 
   const workSpaceProjects = await getProjectsByWorkspace(workspaceId);
-  res.json(workSpaceProjects);
+  const response: ApiResponse<Project[]> = {
+    success: true,
+    message: "Projects fetched",
+    data: workSpaceProjects,
+  };
+
+  res.json(response);
 };
 
 export const createProject: RequestHandler<WorkspaceParams, any, CreateProjectBody> = async (req, res) => {
@@ -31,5 +39,11 @@ export const createProject: RequestHandler<WorkspaceParams, any, CreateProjectBo
   }
 
   const project = await createProjectService(workspaceId, name, description);
-  res.status(201).json(project);
+  const response: ApiResponse<Project> = {
+    success: true,
+    message: "Project created successfully",
+    data: project,
+  };
+
+  res.status(201).json(response);
 };
