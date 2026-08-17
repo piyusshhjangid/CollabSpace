@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"a4cbc42e1b446d53","type":"text","text":"Users\n\nid ---                   Primary key\nname ---            users_name\nemail ---            users_email\ncreated_at ---    default\n","x":-1140,"y":-450,"width":200,"height":180},
+		{"id":"9b7bf1c93292310b","type":"text","text":"Workspace_memberes\n\nid --- Primary_key\nworkspace_id --- workspace\nrole --- memeber_role\ncreated_at --- default\n","x":-680,"y":-439,"width":260,"height":158},
+		{"id":"1aaa12ad3d03d80b","x":-860,"y":-450,"width":101,"height":50,"type":"text","text":"---\n\n---\n  many\n"},
+		{"id":"ef6e2d54ddc12070","x":-340,"y":-460,"width":102,"height":60,"type":"text","text":"many\n"},
+		{"id":"1810e92ecd9c4e4a","type":"text","text":"Workspaces\n\nid --- Primary_key\nname --- workspace_name\ncreated_at --- default","x":-160,"y":-418,"width":240,"height":137},
+		{"id":"04da86ae35fab225","x":-623,"y":-220,"width":146,"height":60,"type":"text","text":"many-many"},
+		{"id":"bc41508ec7ba816d","x":-880,"y":-760,"width":720,"height":240,"type":"file","file":"Collab_Space schema Design.md"}
+	],
+	"edges":[
+		{"id":"b4735c5dd47bb126","fromNode":"a4cbc42e1b446d53","fromSide":"right","toNode":"1aaa12ad3d03d80b","toSide":"left"},
+		{"id":"bba1282ea35a5271","fromNode":"1aaa12ad3d03d80b","fromSide":"right","toNode":"9b7bf1c93292310b","toSide":"left"},
+		{"id":"c9c8ee8e4e246a51","fromNode":"1810e92ecd9c4e4a","fromSide":"left","toNode":"ef6e2d54ddc12070","toSide":"right"},
+		{"id":"da994c11700636b7","fromNode":"ef6e2d54ddc12070","fromSide":"left","toNode":"9b7bf1c93292310b","toSide":"right"},
+		{"id":"a0d948bf31dd1cf0","fromNode":"a4cbc42e1b446d53","fromSide":"right","toNode":"04da86ae35fab225","toSide":"left"},
+		{"id":"b14ff1970e3901a7","fromNode":"1810e92ecd9c4e4a","fromSide":"left","toNode":"04da86ae35fab225","toSide":"right"}
+	]
+}
