@@ -4,18 +4,7 @@
 
 ### Modern AI-powered Team Collaboration Platform
 
-Build projects • Manage tasks • Collaborate in real-time • AI Assisted
-
-🚧 **Currently being built publicly through my #100DaysOfCode journey**
-
----
-
-![React](https://img.shields.io/badge/React-19-blue?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Express](https://img.shields.io/badge/Express-5-black?logo=express)
-![Node.js](https://img.shields.io/badge/Node.js-22-green?logo=node.js)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Upcoming-blue?logo=postgresql)
-![License](https://img.shields.io/badge/License-MIT-success)
+Build projects • Manage tasks • Collaborate • AI-assisted productivity
 
 </div>
 
@@ -23,11 +12,11 @@ Build projects • Manage tasks • Collaborate in real-time • AI Assisted
 
 # 📖 About
 
-CollabSpace is a full-stack SaaS project inspired by tools like **Jira, Linear, Notion, ClickUp and Slack**.
+CollabSpace is a full-stack SaaS collaboration platform designed for modern teams to manage work, projects, tasks, and team collaboration from a single workspace.
 
-The goal is to build a production-grade collaboration platform while learning modern backend architecture, scalable frontend development, PostgreSQL, AI integrations, authentication, and real-world software engineering practices.
+The platform is inspired by products such as **Jira, Linear, Notion, ClickUp, and Slack**, while focusing on a clean architecture and a scalable foundation.
 
-This project is being built completely in public from scratch.
+The project is being built with a production-oriented architecture using **React, TypeScript, Node.js, Express, PostgreSQL, and Prisma**, with AI-powered features planned for later stages.
 
 ---
 
@@ -36,63 +25,102 @@ This project is being built completely in public from scratch.
 ## Frontend
 
 - 📊 Analytics Dashboard
-- 📁 Project Management
+- 📁 Workspace Management
+- 📂 Project Management
 - ✅ Task Management
 - 📋 Interactive Kanban Board
-- 🔍 Search & Multi-filtering
+- 🔍 Search & Filtering
 - 🖱️ Drag & Drop Tasks
-- 📝 Task Details Modal
+- 📝 Task Details
 - 🎨 Responsive UI
 - ⚡ Type-safe Components
+- 🔄 State Management
 
 ## Backend
 
 - ⚡ Express + TypeScript
 - 🛣️ REST API
-- 📂 Nested Routing
-- 🎮 Controllers
-- 🔧 Services
+- 📂 Nested Resource Routing
+- 🎮 Controller Layer
+- 🔧 Service Layer
 - 📦 Repository Pattern
-- 📝 Zod Validation
-- 📋 Middleware
+- 📝 Zod Request Validation
+- 📋 Typed Middleware
 - 📡 Request Logging
 - 🌐 CORS Configuration
+- 🚨 Centralized Error Handling
+
+## Database
+
+- 🐘 PostgreSQL
+- 🔷 Prisma ORM
+- 🔗 Relational Data Modeling
+- 🔐 Foreign Keys
+- 🧩 Many-to-Many Relationships
+- 📊 Database Constraints
+
+## Planned Platform Features
+
+- 🔐 Authentication
+- 👥 Team Members
+- 🛡️ Role-Based Access Control
+- 🤖 AI Assistant
+- 📎 File Uploads
+- 💬 Team Chat
+- 🔔 Notifications
+- ⚡ Real-time Collaboration
+- 📈 Activity Feed
 
 ---
 
-# 🏗 Architecture
+# 🏗️ Architecture
 
-Current backend architecture
+## Backend
 
-```
+The backend follows a layered architecture:
+
+```text
 Client
-    │
-    ▼
+   │
+   ▼
 Routes
-    │
-    ▼
+   │
+   ▼
 Controllers
-    │
-    ▼
+   │
+   ▼
 Services
-    │
-    ▼
+   │
+   ▼
 Repositories
-    │
-    ▼
-Fake Data Store
-
-(Phase 3)
-
-Repositories
-      │
-      ▼
- PostgreSQL
+   │
+   ▼
+PostgreSQL
 ```
+
+### Routes
+
+Responsible for mapping HTTP endpoints to controllers.
+
+### Controllers
+
+Responsible for handling HTTP requests and responses.
+
+### Services
+
+Contain application and business logic.
+
+### Repositories
+
+Responsible for data access and provide an abstraction between the application and database.
+
+### Database
+
+PostgreSQL provides persistent relational data storage.
 
 ---
 
-# 🛠 Tech Stack
+# 🛠️ Tech Stack
 
 ## Frontend
 
@@ -111,25 +139,25 @@ Repositories
 - TypeScript
 - Zod
 
-## Database (Upcoming)
+## Database
 
 - PostgreSQL
 - Prisma ORM
 
-## Authentication (Upcoming)
+## Authentication
 
 - JWT
 - Refresh Tokens
 - RBAC
 
-## AI (Upcoming)
+## AI
 
 - Gemini
 - OpenAI
 - RAG
 - pgvector
 
-## DevOps (Upcoming)
+## DevOps
 
 - Docker
 - GitHub Actions
@@ -141,38 +169,36 @@ Repositories
 
 ```text
 collabspace/
-
-client/
 │
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   ├── hooks/
-│   ├── store/
+├── client/
+│   └── src/
+│       ├── components/
+│       ├── layouts/
+│       ├── pages/
+│       ├── hooks/
+│       ├── store/
+│       ├── routes/
+│       ├── types/
+│       ├── data/
+│       └── utils/
+│
+├── server/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── repositories/
 │   ├── routes/
-│   ├── types/
+│   ├── schemas/
+│   ├── services/
 │   ├── data/
+│   ├── types/
 │   └── utils/
-
-server/
 │
-├── controllers/
-├── middleware/
-├── repositories/
-├── routes/
-├── schemas/
-├── services/
-├── data/
-├── types/
-├── utils/
-
-README.md
+└── README.md
 ```
 
 ---
 
-# 🗺 Roadmap
+# 🗺️ Roadmap
 
 ## ✅ Phase 1 — Frontend Foundation
 
@@ -182,11 +208,11 @@ README.md
 - Kanban Board
 - Drag & Drop
 - Generic Types
-- Fake API Layer
+- API Integration Foundation
 
 ---
 
-## 🚧 Phase 2 — Backend Foundation
+## ✅ Phase 2 — Backend Foundation
 
 - Express + TypeScript
 - REST API
@@ -194,122 +220,187 @@ README.md
 - Controllers
 - Services
 - Repository Pattern
-- Middleware
+- Typed Middleware
 - Request Logging
+- CORS
 - Zod Validation
+- Centralized Error Handling
+- Typed Request Lifecycle
 
 ---
 
-## 🔜 Phase 3
+## 🚧 Phase 3 — PostgreSQL + Prisma
 
-- PostgreSQL
-- Prisma ORM
+- PostgreSQL Database
+- Relational Schema
+- Users
+- Workspaces
+- Workspace Members
+- Foreign Keys
+- Database Constraints
 - Repository Migration
+- Prisma ORM
 - SQL Queries
 
 ---
 
-## 🔜 Phase 4
+## 🔜 Phase 4 — Authentication
 
-- Authentication
-- JWT
+- User Registration
+- Login
+- Password Hashing
+- JWT Authentication
+- Access Tokens
 - Refresh Tokens
+- Protected Routes
 
 ---
 
-## 🔜 Phase 5
+## 🔜 Phase 5 — Authorization
 
-- Role Based Access Control
+- Workspace Roles
+- Role-Based Access Control
 - Permissions
-- Protected Routes
+- Protected Resources
+- Authorization Middleware
 
 ---
 
 ## 🔜 Future
 
-- AI Assistant
-- File Uploads
-- Docker
-- Notifications
-- Activity Feed
-- Team Chat
-- Real-time Collaboration
-- Deployment
-
----
-
-# 📸 Screenshots
-
-## Dashboard
-
-> Coming Soon
-
-## Kanban Board
-
-> Coming Soon
-
-## Backend API
-
-> Coming Soon
+- 🤖 AI Assistant
+- 📎 File Uploads
+- 💬 Team Chat
+- 🔔 Notifications
+- ⚡ Real-time Collaboration
+- 📊 Activity Feed
+- 🔎 Advanced Search
+- 🧠 AI-powered Productivity Features
+- 🐳 Docker
+- ⚙️ CI/CD
+- ☁️ Production Deployment
 
 ---
 
 # 🚀 Getting Started
 
-Clone
+## Prerequisites
+
+Make sure you have installed:
+
+- Node.js
+- npm
+- PostgreSQL
+- Git
+
+---
+
+## Clone the Repository
 
 ```bash
 git clone https://github.com/piyusshhjangid/collabspace.git
+cd collabspace
 ```
 
-Install
+---
 
-### Frontend
+## Frontend
 
 ```bash
 cd client
-
 npm install
-
 npm run dev
 ```
 
-### Backend
+---
+
+## Backend
 
 ```bash
 cd server
-
 npm install
-
 npm run dev
 ```
 
 ---
 
-# 📚 What I'm Learning
+## Environment Variables
 
-This project is helping me learn
+Create a `.env` file inside the server directory.
 
-- Full Stack Development
-- TypeScript
-- React
-- Express
-- PostgreSQL
-- Prisma
-- Software Architecture
-- Repository Pattern
-- REST API Design
-- Authentication
-- Docker
-- CI/CD
-- AI Integration
+```env
+DATABASE_URL=your_postgresql_connection_string
+PORT=5000
+```
+
+Never commit your `.env` file.
+
+Use `.env.example` to document required environment variables.
 
 ---
 
-# 📊 Current Progress
+# 🗄️ Database
+
+CollabSpace uses PostgreSQL as its relational database.
+
+The core relational model includes:
+
+```text
+users
+   │
+   │
+   ▼
+workspace_members
+   ▲
+   │
+   │
+workspaces
+```
+
+A user can belong to multiple workspaces, while each workspace can contain multiple users.
+
+The `workspace_members` table represents this many-to-many relationship and stores membership-specific information such as the user's role.
+
+---
+
+# 🔌 API
+
+The backend exposes RESTful endpoints for managing workspaces, projects, and tasks.
+
+Example:
+
+```text
+GET    /api/workspaces
+GET    /api/workspaces/:workspaceId/projects
+POST   /api/workspaces/:workspaceId/projects
+GET    /api/projects/:projectId/tasks
+POST   /api/projects/:projectId/tasks
+```
+
+The API follows the layered architecture:
+
+```text
+Request
+   ↓
+Middleware
+   ↓
+Route
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+Database
+```
+
+---
+
+# 📊 Current Status
 
 | Module | Status |
-|---------|--------|
+|---|---|
 | Frontend UI | ✅ |
 | Dashboard | ✅ |
 | Project Management | ✅ |
@@ -317,50 +408,69 @@ This project is helping me learn
 | Kanban Board | ✅ |
 | Drag & Drop | ✅ |
 | Express Setup | ✅ |
+| REST API | ✅ |
 | Controllers | ✅ |
 | Services | ✅ |
 | Repository Pattern | ✅ |
 | Middleware | ✅ |
 | Request Logging | ✅ |
 | Zod Validation | ✅ |
-| PostgreSQL | ⏳ |
+| Centralized Error Handling | ✅ |
+| PostgreSQL Setup | 🚧 |
+| Database Schema | 🚧 |
 | Prisma | ⏳ |
 | Authentication | ⏳ |
+| RBAC | ⏳ |
 | AI Assistant | ⏳ |
+| Real-time Collaboration | ⏳ |
+| Docker | ⏳ |
+| CI/CD | ⏳ |
 | Deployment | ⏳ |
 
 ---
 
-# 🌱 Build In Public
+# 🔐 Engineering Principles
 
-I'm documenting this project every day as part of my **#100DaysOfCode** journey.
+CollabSpace is built around a few core principles:
 
-Follow along to see the project evolve from a simple prototype into a production-ready SaaS platform.
+- **Separation of concerns**
+- **Type safety**
+- **Reusable architecture**
+- **Runtime validation**
+- **Centralized error handling**
+- **Database integrity**
+- **Maintainable code**
+- **Scalable application structure**
+- **Clear API boundaries**
+
+The goal is to keep each layer responsible for one specific concern and make the system easier to extend as new features are introduced.
 
 ---
 
 # 🤝 Contributing
 
-Contributions, feedback, and ideas are always welcome.
+Contributions, feedback, and ideas are welcome.
 
-If you'd like to improve CollabSpace, feel free to:
+If you'd like to contribute:
 
-- Open an Issue
-- Submit a Pull Request
-- Share suggestions
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Commit your changes
+5. Open a Pull Request
+
+For bugs or feature requests, open an Issue.
 
 ---
 
 # ⭐ Support
 
-If you like this project, consider giving it a ⭐ on GitHub.
-
-It motivates me to continue building and documenting the journey.
+If you find CollabSpace interesting, consider giving the repository a ⭐ on GitHub.
 
 ---
 
 <div align="center">
 
-Made with ❤️ using React, TypeScript, Express and lots of coffee ☕
+Made with ❤️ using React, TypeScript, Node.js, Express and PostgreSQL
 
 </div>
