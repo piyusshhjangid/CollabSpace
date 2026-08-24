@@ -5,10 +5,18 @@ import { pool } from "../db/pool.js";
 export async function findTasksByProject(projectId: string) {
   const result = await pool.query(
     `
-    SELECT *
-    FROM tasks
-    WHERE project_id = $1
-    ORDER BY created_at DESC
+    SELECT
+      t.id,
+      t.title,
+      t.completed,
+      p.name AS project,
+      u.name AS assigned_to
+    FROM tasks t
+    INNER JOIN projects p
+        ON t.project_id = p.id
+    LEFT JOIN users u
+        ON t.assigned_to = u.id
+    WHERE t.project_id = $1;
     `,
     [projectId],
   );
