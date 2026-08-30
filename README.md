@@ -663,6 +663,6 @@ If you find **CollabSpace** interesting, consider giving the repository a ⭐ on
 
 <br>
 
-Made with ❤️ using React, TypeScript, Node.js, Express and PostgreSQL.
+Made with ❤️ by me using React, TypeScript, Node.js, Express and PostgreSQL.
 
 </div>
