@@ -1,4 +1,3 @@
-import { tasks } from "../data/fakeStore.js";
 import type { Task } from "../types/task.js";
 import { pool } from "../db/pool.js";
 
@@ -45,6 +44,41 @@ export async function createTask(
   );
 
   return result.rows[0];
+}
+
+export async function getOverdueTasks() {
+  const result = await pool.query(
+    `
+    SELECT
+      id,
+      title,
+      status,
+      due_date
+    FROM tasks
+    WHERE due_date < NOW()
+      AND status != 'DONE'
+    ORDER BY due_date ASC
+  `,
+  );
+
+  return result.rows;
+}
+
+export async function getTaskCountsByStatus(projectId: string) {
+  const result = await pool.query(
+    `
+      SELECT
+        status,
+        COUNT(*) AS task_count
+      FROM tasks
+      WHERE project_id = $1
+      GROUP BY status
+      ORDER BY status
+    `,
+    [projectId],
+  );
+
+  return result.rows;
 }
 
 // findById()

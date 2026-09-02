@@ -4,6 +4,7 @@ import type { CreateProjectBody } from "../schemas/project.schema.js";
 import { badRequest } from "../lib/AppError.js";
 import type { Project } from "../types/project.js";
 import type { ApiResponse } from "../types/apiResponse.js";
+import { getTaskCountsByStatusService } from "../services/task.service.js";
 
 interface WorkspaceParams {
   workspaceId: string;
@@ -46,4 +47,25 @@ export const createProject: RequestHandler<WorkspaceParams, any, CreateProjectBo
   };
 
   res.status(201).json(response);
+};
+
+export const getProjectSummary: RequestHandler<{ projectId: string }> = async (req, res) => {
+  const { projectId } = req.params;
+
+  if (!projectId) {
+    throw badRequest("Project ID is required");
+  }
+
+  const taskCounts = await getTaskCountsByStatusService(projectId);
+
+  const response: ApiResponse<{ projectId: string; taskCounts: Awaited<ReturnType<typeof getTaskCountsByStatusService>> }> = {
+    success: true,
+    message: "Project summary fetched",
+    data: {
+      projectId,
+      taskCounts,
+    },
+  };
+
+  res.json(response);
 };

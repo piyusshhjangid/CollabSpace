@@ -1,6 +1,8 @@
 import {
   findTasksByProject,
   createTask,
+  getOverdueTasks,
+  getTaskCountsByStatus
 } from "../repositories/task.repository.js";
 import type { Task } from "../types/task.js";
 import { badRequest } from "../lib/AppError.js";
@@ -25,5 +27,13 @@ export function createTaskService(
     completed: completed ?? false,
   };
 
-  return createTask(task);
+  return createTask(task.projectId, task.title, String(task.completed), task.id);
+}
+
+export async function getOverdueTasksService() {
+  return getOverdueTasks();
+}
+
+export async function getTaskCountsByStatusService(projectId: string) {
+  return getTaskCountsByStatus(projectId);
 }

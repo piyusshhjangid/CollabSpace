@@ -6,6 +6,7 @@ import taskRouter from "./routes/task.routes.js"
 import { requestLogger } from "./middleware/requestLogger.js";
 import cors from "cors";
 import { errorHandler } from "./middleware/errorHandler.js";
+import projectSummaryRouter from "./routes/project-summary.routes.js";
 
 const app = express();
 
@@ -26,11 +27,10 @@ interface PingQuery {
   name: string;
 }
 
+app.use("/api/projects", projectSummaryRouter);
 app.use("/api/workspaces", workspaceRouter);
 app.use("/api/workspaces/:workspaceId/projects", projectRouter);
 app.use("/api/projects/:projectId/tasks", taskRouter)
-
-app.use(errorHandler)
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({
@@ -46,5 +46,7 @@ app.get("/api/ping", (req: Request<{}, {}, {}, PingQuery>, res: Response) => {
     message: `Hello ${name}`,
   });
 });
+
+app.use(errorHandler);
 
 export default app;

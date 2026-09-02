@@ -6,6 +6,10 @@ import { Button } from "../components/Button";
 
 const ProjectPage = () => {
   const response = fetchProjects();
+  const projects = response.data || [];
+  const [search, setSearch] = useState("");
+  const [open, setOpen] = useState(false);
+
   if (response.error) {
     return (
       <div className="rounded-xl border border-red-300 bg-red-50 p-4 text-red-600">
@@ -13,9 +17,6 @@ const ProjectPage = () => {
       </div>
     );
   }
-  const projects = response.data;
-  const [search, setSearch] = useState("");
-  const [open, setOpen] = useState(false);
 
   const filteredProjects = projects.filter((project) =>
     project.name.toLowerCase().includes(search.toLowerCase()),

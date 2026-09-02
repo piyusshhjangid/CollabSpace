@@ -6,7 +6,7 @@ export async function getProjectsByWorkspace(workspaceId: string) {
   return await findProjectsByWorkspace(workspaceId);
 }
 
-export function createProjectService(
+export async function createProjectService(
   workspaceId: string,
   name: string,
   description: string | undefined,
@@ -15,12 +15,5 @@ export function createProjectService(
     throw badRequest("Project name is required");
   }
 
-  const project: Project = {
-    id: `p${Date.now()}`,
-    workspaceId,
-    name,
-    description,
-  };
-
-  return createProject(project);
+  return createProject(workspaceId, name, description);
 }
