@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model projects {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String     @db.Uuid
+  name         String
+  description  String?
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tasks        tasks[]
+}
+
+model tasks {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  project_id   String     @db.Uuid
+  workspace_id String     @db.Uuid
+  assigned_to  String?    @db.Uuid
+  title        String
+  completed    Boolean    @default(false)
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  status       String     @default("TODO")
+  due_date     DateTime?  @db.Timestamptz(6)
+  users        users?     @relation(fields: [assigned_to], references: [id], onUpdate: NoAction)
+  projects     projects   @relation(fields: [project_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([assigned_to], map: "idx_tasks_assigned_to")
+  @@index([project_id], map: "idx_tasks_project_id")
+  @@index([status], map: "idx_tasks_status")
+  @@index([workspace_id], map: "idx_tasks_workspace_id")
+}
+
+model users {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email             String              @unique
+  password_hash     String
+  name              String
+  created_at        DateTime            @default(now()) @db.Timestamptz(6)
+  tasks             tasks[]
+  workspace_members workspace_members[]
+}
+
+model workspace_members {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id      String     @db.Uuid
+  workspace_id String     @db.Uuid
+  role         String     @default("member")
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([user_id, workspace_id])
+}
+
+model workspaces {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name              String
+  created_at        DateTime            @default(now()) @db.Timestamptz(6)
+  projects          projects[]
+  tasks             tasks[]
+  workspace_members workspace_members[]
+}
