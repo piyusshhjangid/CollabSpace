@@ -1,8 +1,11 @@
-import { pool } from "../db/pool.js";
+import { prisma } from "../db/prisma.js";
 
 export async function findAllWorkspaces() {
-  const result = await pool.query(`SELECT * FROM workspaces ORDER BY created_at DESC`);
-  return result.rows;
+  return prisma.workspaces.findMany({
+    orderBy: {
+      created_at: "desc",
+    },
+  });
 }
 
 // findById()

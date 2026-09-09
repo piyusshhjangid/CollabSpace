@@ -1,84 +1,115 @@
-import type { Task } from "../types/task.js";
-import { pool } from "../db/pool.js";
+import { prisma } from "../db/prisma.js";
 
 export async function findTasksByProject(projectId: string) {
-  const result = await pool.query(
-    `
-    SELECT
-      t.id,
-      t.title,
-      t.completed,
-      p.name AS project,
-      u.name AS assigned_to
-    FROM tasks t
-    INNER JOIN projects p
-        ON t.project_id = p.id
-    LEFT JOIN users u
-        ON t.assigned_to = u.id
-    WHERE t.project_id = $1;
-    `,
-    [projectId],
-  );
+  const tasks = await prisma.tasks.findMany({
+    where: {
+      project_id: projectId,
+    },
+    include: {
+      users: true,
+      projects: true,
+    },
+  });
 
-  return result.rows;
+  return tasks.map((task) => ({
+    id: task.id,
+    projectId: task.project_id,
+    title: task.title,
+    completed: task.completed,
+    project: task.projects.name,
+    assigned_to: task.users?.name ?? null,
+  }));
 }
 
 export async function createTask(
   projectId: string,
-  workspaceId: string,
   title: string,
-  assignedTo?: string,
+  completed: string,
+  _id: string,
 ) {
-  const result = await pool.query(
-    `
-    INSERT INTO tasks (
-      project_id,
-      workspace_id,
-      title,
-      assigned_to
-    )
-    VALUES ($1, $2, $3, $4)
-    RETURNING *
-    `,
-    [projectId, workspaceId, title, assignedTo ?? null],
-  );
+  const project = await prisma.projects.findUnique({
+    where: {
+      id: projectId,
+    },
+    select: {
+      workspace_id: true,
+    },
+  });
 
-  return result.rows[0];
+  if (!project) {
+    throw new Error("Project not found");
+  }
+
+  const task = await prisma.tasks.create({
+    data: {
+      project_id: projectId,
+      workspace_id: project.workspace_id,
+      title,
+      completed: completed === "true",
+    },
+  });
+
+  return {
+    id: task.id,
+    projectId: task.project_id,
+    title: task.title,
+    completed: task.completed,
+  };
 }
 
 export async function getOverdueTasks() {
-  const result = await pool.query(
-    `
-    SELECT
-      id,
-      title,
-      status,
-      due_date
-    FROM tasks
-    WHERE due_date < NOW()
-      AND status != 'DONE'
-    ORDER BY due_date ASC
-  `,
-  );
+  // const result = await pool.query(
+  //   `
+  //   SELECT
+  //     id,
+  //     title,
+  //     status,
+  //     due_date
+  //   FROM tasks
+  //   WHERE due_date < NOW()
+  //     AND status != 'DONE'
+  //   ORDER BY due_date ASC
+  // `,
+  // );
 
-  return result.rows;
+  // return result.rows;
+  return prisma.tasks.findMany({
+    where: {
+      due_date: {
+        lt: new Date(),
+      },
+      status: {
+        not: "DONE",
+      },
+    },
+    orderBy: {
+      due_date: "asc",
+    },
+  });
 }
 
 export async function getTaskCountsByStatus(projectId: string) {
-  const result = await pool.query(
-    `
-      SELECT
-        status,
-        COUNT(*) AS task_count
-      FROM tasks
-      WHERE project_id = $1
-      GROUP BY status
-      ORDER BY status
-    `,
-    [projectId],
-  );
+  const tasks = await prisma.tasks.findMany({
+    where: {
+      project_id: projectId,
+    },
+    select: {
+      status: true,
+    },
+  });
 
-  return result.rows;
+  const counts = new Map<string, number>();
+
+  for (const task of tasks) {
+    counts.set(task.status, (counts.get(task.status) ?? 0) + 1);
+  }
+
+  return Array.from(counts.entries())
+    .map(([status, task_count]) => ({
+      status,
+      task_count: String(task_count),
+    }))
+    .sort((a, b) => a.status.localeCompare(b.status));
 }
 
 // findById()

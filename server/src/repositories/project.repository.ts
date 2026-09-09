@@ -1,20 +1,44 @@
-import { pool } from "../db/pool.js";
-import type { Project } from "../types/project.js";
+import { prisma } from "../db/prisma.js";
 
 export async function findProjectsByWorkspace(workspaceId: string) {
-  const result = await pool.query(
-    `SELECT * FROM projects WHERE workspace_id = $1 ORDER BY created_at DESC`,
-    [workspaceId]
-  );
-  return result.rows;
+  const projects = await prisma.projects.findMany({
+    where: {
+      workspace_id: workspaceId,
+    },
+    orderBy: {
+      created_at: "desc",
+    },
+  });
+
+  return projects.map((project) => ({
+    id: project.id,
+    workspaceId: project.workspace_id,
+    name: project.name,
+    description: project.description ?? undefined,
+    createdAt: project.created_at,
+  }));
 }
 
-export async function createProject(workspaceId: string, name: string, description: string | undefined) {
-  const result = await pool.query(
-    `INSERT INTO projects (workspace_id, name, description) VALUES ($1, $2, $3) RETURNING *`,
-    [workspaceId, name, description]
-  );
-  return result.rows[0];
+export async function createProject(
+  workspaceId: string,
+  name: string,
+  description: string | undefined,
+) {
+  const project = await prisma.projects.create({
+    data: {
+      workspace_id: workspaceId,
+      name,
+      description: description ?? null,
+    },
+  });
+
+  return {
+    id: project.id,
+    workspaceId: project.workspace_id,
+    name: project.name,
+    description: project.description ?? undefined,
+    createdAt: project.created_at,
+  };
 }
 
 // findById()
