@@ -7,6 +7,7 @@ import { requestLogger } from "./middleware/requestLogger.js";
 import cors from "cors";
 import { errorHandler } from "./middleware/errorHandler.js";
 import projectSummaryRouter from "./routes/project-summary.routes.js";
+import authRouter from "./routes/auth.routes.js";
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use("/api/projects", projectSummaryRouter);
 app.use("/api/workspaces", workspaceRouter);
 app.use("/api/workspaces/:workspaceId/projects", projectRouter);
 app.use("/api/projects/:projectId/tasks", taskRouter)
+app.use("/auth", authRouter);
 
 app.get("/health", (req: Request, res: Response) => {
   res.json({
