@@ -7,22 +7,23 @@
 **Build projects • Manage tasks • Collaborate • Organize work • AI-assisted productivity**
 
 <p>
-<a href="https://github.com/piyusshhjangid/collabspace">
-<img src="https://img.shields.io/github/stars/piyusshhjangid/collabspace?style=for-the-badge&logo=github&label=Stars" />
-</a>
-<a href="https://github.com/piyusshhjangid/collabspace">
-<img src="https://img.shields.io/github/forks/piyusshhjangid/collabspace?style=for-the-badge&logo=github&label=Forks" />
-</a>
-<img src="https://img.shields.io/badge/Status-Active%20Development-58A6FF?style=for-the-badge" />
-<img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" />
+  <a href="https://github.com/piyusshhjangid/collabspace">
+    <img src="https://img.shields.io/github/stars/piyusshhjangid/collabspace?style=for-the-badge&logo=github&label=Stars" />
+  </a>
+  <a href="https://github.com/piyusshhjangid/collabspace">
+    <img src="https://img.shields.io/github/forks/piyusshhjangid/collabspace?style=for-the-badge&logo=github&label=Forks" />
+  </a>
+  <img src="https://img.shields.io/badge/Status-Active%20Development-58A6FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" />
 </p>
 
 <p>
-<a href="#-features">Features</a> •
-<a href="#-architecture">Architecture</a> •
-<a href="#-tech-stack">Tech Stack</a> •
-<a href="#-roadmap">Roadmap</a> •
-<a href="#-getting-started">Getting Started</a>
+  <a href="#-features">Features</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-database-architecture">Database</a> •
+  <a href="#-roadmap">Roadmap</a> •
+  <a href="#-getting-started">Getting Started</a>
 </p>
 
 </div>
@@ -70,21 +71,35 @@ Built with:
 - Request Logging
 - CORS Configuration
 - Centralized Error Handling
+- Typed Request Lifecycle
 
 ## 🗄️ Database
 
 - PostgreSQL
 - Prisma ORM
 - Relational Data Modeling
-- Foreign Keys
+- Primary & Foreign Keys
 - Many-to-Many Relationships
 - Database Constraints
 - SQL Joins
 - Aggregate Queries
+- Database Indexes
+- Prisma-based Repository Data Access
+
+## 🔐 Authentication
+
+**Currently in development**
+
+- User Registration
+- bcrypt Password Hashing
+- Login
+- JWT Authentication
+- Access Tokens
+- Refresh Tokens
+- Protected Routes
 
 ## 🔮 Planned
 
-- Authentication
 - Team Members
 - Role-Based Access Control
 - AI Assistant
@@ -100,7 +115,7 @@ Built with:
 
 # 🏗️ Architecture
 
-CollabSpace follows a layered backend architecture.
+CollabSpace follows a layered backend architecture designed to keep HTTP handling, business logic, and database access separated.
 
 ```text
                          ┌─────────────────┐
@@ -133,24 +148,34 @@ CollabSpace follows a layered backend architecture.
                                   │
                                   ▼
                          ┌─────────────────┐
+                         │     Prisma     │
+                         └────────┬────────┘
+                                  │
+                                  ▼
+                         ┌─────────────────┐
                          │   PostgreSQL    │
                          │ Persistent data │
                          └─────────────────┘
 ```
 
 ### 🛣️ Routes
+
 Map HTTP endpoints to controllers.
 
 ### 🎮 Controllers
+
 Handle HTTP requests, parameters, responses, and request-level concerns.
 
 ### 🧠 Services
+
 Contain application and business logic.
 
 ### 📦 Repositories
-Own database access and SQL operations.
+
+Own database access and Prisma queries.
 
 ### 🐘 PostgreSQL
+
 Provides persistent relational storage and database-level integrity.
 
 ---
@@ -170,6 +195,8 @@ HTTP Request
      ↓
 Repository
      ↓
+  Prisma
+     ↓
 PostgreSQL
      ↓
 Repository
@@ -181,7 +208,7 @@ Repository
 HTTP Response
 ```
 
-SQL stays in repositories and business logic stays in services.
+**Business logic stays in services and database access stays in repositories.**
 
 ---
 
@@ -213,13 +240,14 @@ SQL stays in repositories and business logic stays in services.
 | Technology | Purpose |
 |---|---|
 | PostgreSQL | Relational database |
-| Prisma | ORM |
-| SQL | Database queries |
+| Prisma | ORM / database access |
+| SQL | Relational query language |
 
 ## Authentication
 
 | Technology | Purpose |
 |---|---|
+| bcrypt | Password hashing |
 | JWT | Authentication |
 | Refresh Tokens | Session management |
 | RBAC | Authorization |
@@ -262,22 +290,31 @@ collabspace/
 │
 ├── server/
 │   ├── controllers/
+│   ├── db/
+│   │   └── prisma.ts
+│   ├── generated/
 │   ├── middleware/
 │   ├── repositories/
 │   ├── routes/
 │   ├── schemas/
 │   ├── services/
-│   ├── data/
 │   ├── types/
-│   └── utils/
+│   ├── prisma/
+│   │   └── schema.prisma
+│   ├── prisma.config.ts
+│   └── ...
 │
 ├── README.md
 └── ...
 ```
 
+> Generated Prisma client files are generated from the Prisma schema and should generally be treated as generated artifacts rather than manually edited source code.
+
 ---
 
 # 🗄️ Database Architecture
+
+CollabSpace uses PostgreSQL as its persistent relational database.
 
 ```text
 ┌─────────────┐
@@ -311,35 +348,113 @@ A user can belong to multiple workspaces, while a workspace can contain multiple
 
 Projects belong to workspaces, while tasks belong to projects and workspaces.
 
+Tasks can also reference users as assignees.
+
+## Core tables
+
+```text
+collabspace
+│
+├── users
+├── workspaces
+├── workspace_members
+├── projects
+└── tasks
+```
+
+## Database integrity
+
+Relationships are protected using:
+
+- Primary Keys
+- Foreign Keys
+- Unique Constraints
+- NOT NULL Constraints
+- Referential Integrity
+- Indexes
+
 ---
 
 # 🔌 API
 
-### Workspace
+## Workspace
 
 ```text
 GET    /api/workspaces
 GET    /api/workspaces/:workspaceId
 ```
 
-### Projects
+## Projects
 
 ```text
 GET    /api/workspaces/:workspaceId/projects
 POST   /api/workspaces/:workspaceId/projects
 ```
 
-### Tasks
+## Tasks
 
 ```text
 GET    /api/projects/:projectId/tasks
 POST   /api/projects/:projectId/tasks
 ```
 
-### Project Insights
+## Project Insights
 
 ```text
 GET    /api/projects/:projectId/summary
+```
+
+## Authentication
+
+Authentication endpoints are being added as part of the current authentication phase.
+
+Planned:
+
+```text
+POST   /auth/register
+POST   /auth/login
+```
+
+---
+
+# 🔐 Authentication Direction
+
+The authentication layer is being built incrementally.
+
+The registration flow is designed around:
+
+```text
+Registration Request
+        ↓
+Zod Validation
+        ↓
+Auth Controller
+        ↓
+Auth Service
+        ↓
+bcrypt Password Hashing
+        ↓
+User Repository
+        ↓
+Prisma
+        ↓
+PostgreSQL
+```
+
+Passwords must never be stored in plaintext.
+
+The authentication implementation will later expand to include:
+
+```text
+Registration
+    ↓
+Login
+    ↓
+JWT Access Token
+    ↓
+Refresh Tokens
+    ↓
+Protected Routes
 ```
 
 ---
@@ -371,7 +486,7 @@ GET    /api/projects/:projectId/summary
 - [x] Centralized Error Handling
 - [x] Typed Request Lifecycle
 
-## 🚧 Phase 3 — PostgreSQL + Prisma
+## ✅ Phase 3 — PostgreSQL + SQL + Prisma
 
 - [x] PostgreSQL Setup
 - [x] Database Creation
@@ -383,19 +498,25 @@ GET    /api/projects/:projectId/summary
 - [x] Projects Table
 - [x] Tasks Table
 - [x] SQL Joins
-- [ ] Advanced Queries
-- [ ] Repository Migration
-- [ ] Prisma ORM
+- [x] Aggregate Queries
+- [x] Database Indexes
+- [x] Prisma ORM Introduction
+- [x] Prisma Schema Introspection
+- [x] Prisma Repository Migration
+- [x] Prisma Relations / `include`
+- [x] Shared Prisma Client
+- [x] Data Layer Review
 
-## 🔜 Phase 4 — Authentication
+## 🚧 Phase 4 — Authentication
 
 - [ ] User Registration
+- [ ] Password Hashing with bcrypt
 - [ ] Login
-- [ ] Password Hashing
 - [ ] JWT Authentication
 - [ ] Access Tokens
 - [ ] Refresh Tokens
 - [ ] Protected Routes
+- [ ] Tenant Isolation
 
 ## 🔜 Phase 5 — Authorization
 
@@ -440,11 +561,15 @@ GET    /api/projects/:projectId/summary
 | Request Logging | ✅ |
 | Zod Validation | ✅ |
 | Centralized Error Handling | ✅ |
-| PostgreSQL Setup | 🚧 |
-| Database Schema | 🚧 |
-| SQL Queries | 🚧 |
-| Prisma | ⏳ |
-| Authentication | ⏳ |
+| PostgreSQL | ✅ |
+| Database Schema | ✅ |
+| SQL Queries | ✅ |
+| Database Indexes | ✅ |
+| Prisma ORM | ✅ |
+| Repository Migration | ✅ |
+| Authentication | 🚧 |
+| Password Hashing | 🚧 |
+| JWT | ⏳ |
 | RBAC | ⏳ |
 | AI Assistant | ⏳ |
 | Real-time Collaboration | ⏳ |
@@ -505,7 +630,7 @@ PORT=5000
 
 Never commit `.env`.
 
-Create `server/.env.example` instead:
+Create `server/.env.example` for documenting required variables:
 
 ```env
 DATABASE_URL=
@@ -514,27 +639,27 @@ PORT=5000
 
 ---
 
-# 🐘 PostgreSQL
+# 🐘 PostgreSQL + Prisma
 
-CollabSpace uses PostgreSQL for persistent relational data.
+The database layer uses PostgreSQL for persistent relational storage and Prisma for application-level database access.
+
+The repository layer owns Prisma queries:
 
 ```text
-collabspace
-│
-├── users
-├── workspaces
-├── workspace_members
-├── projects
-└── tasks
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+Prisma
+    ↓
+PostgreSQL
 ```
 
-Database relationships are enforced using:
+This keeps database implementation details isolated from the HTTP and business-logic layers.
 
-- Primary Keys
-- Foreign Keys
-- Unique Constraints
-- NOT NULL Constraints
-- Referential Integrity
+The project also deliberately retains SQL knowledge because understanding joins, constraints, indexes, aggregates, and relational modeling remains important even when using an ORM.
 
 ---
 
@@ -545,16 +670,18 @@ Database relationships are enforced using:
 - **Runtime validation** — Zod validates API input.
 - **Database integrity** — PostgreSQL enforces important relationships.
 - **Repository abstraction** — database access stays inside repositories.
+- **ORM without losing SQL knowledge** — Prisma improves application-level data access while PostgreSQL concepts remain fundamental.
 - **Clear API boundaries** — routes, controllers, services, and repositories remain separated.
+- **Security by design** — authentication credentials must never be stored or exposed insecurely.
 - **Scalability** — the architecture is designed to support new features without excessive coupling.
 
 ---
 
 # 🔐 Security
 
-Planned security features include:
+Current and planned security features include:
 
-- Password hashing
+- Password hashing with bcrypt
 - JWT authentication
 - Refresh token rotation
 - Role-based authorization
@@ -562,23 +689,49 @@ Planned security features include:
 - Request validation
 - Environment-based secrets
 - Database constraints
+- Workspace / tenant isolation
+
+### Password security rule
+
+Passwords must never be stored in plaintext.
+
+The intended registration flow is:
+
+```text
+Plaintext password
+       ↓
+    bcrypt
+       ↓
+Password hash
+       ↓
+PostgreSQL
+```
+
+The plaintext password and password hash should not be returned in normal registration responses.
 
 ---
 
 # 🧪 Development
 
-Backend:
+### Backend
 
 ```bash
 cd server
 npm run dev
 ```
 
-Frontend:
+### Frontend
 
 ```bash
 cd client
 npm run dev
+```
+
+### TypeScript check
+
+```bash
+cd server
+npx tsc --noEmit
 ```
 
 ---
@@ -600,10 +753,12 @@ Controller
    ↓
 Testing
    ↓
+Review
+   ↓
 Commit
 ```
 
-The goal is to keep changes isolated, understandable, and easy to review.
+The goal is to keep changes isolated, understandable, testable, and easy to review.
 
 ---
 
@@ -640,17 +795,17 @@ If you find **CollabSpace** interesting, consider giving the repository a ⭐ on
 <div align="center">
 
 <a href="https://github.com/piyusshhjangid/collabspace">
-<img src="https://img.shields.io/badge/GitHub-CollabSpace-181717?style=for-the-badge&logo=github" />
+  <img src="https://img.shields.io/badge/GitHub-CollabSpace-181717?style=for-the-badge&logo=github" />
 </a>
 
 <br><br>
 
 <a href="https://github.com/piyusshhjangid/collabspace/issues">
-<img src="https://img.shields.io/badge/Issues-Report%20a%20problem-orange?style=flat-square&logo=github" />
+  <img src="https://img.shields.io/badge/Issues-Report%20a%20problem-orange?style=flat-square&logo=github" />
 </a>
 
 <a href="https://github.com/piyusshhjangid/collabspace/pulls">
-<img src="https://img.shields.io/badge/Pull%20Requests-Contribute-blue?style=flat-square&logo=github" />
+  <img src="https://img.shields.io/badge/Pull%20Requests-Contribute-blue?style=flat-square&logo=github" />
 </a>
 
 </div>
@@ -663,6 +818,6 @@ If you find **CollabSpace** interesting, consider giving the repository a ⭐ on
 
 <br>
 
-Made with ❤️ using React, TypeScript, Node.js, Express and PostgreSQL.
+Made with ❤️ by me using React, TypeScript, Node.js, Express, PostgreSQL and Prisma.
 
 </div>
