@@ -13,3 +13,7 @@ export function badRequest(message: string) {
 export function notFound(message: string) {
   return new AppError(message, 404);
 }
+
+export function unauthorized(message = "Unauthorized") {
+  return new AppError(message, 401);
+}
