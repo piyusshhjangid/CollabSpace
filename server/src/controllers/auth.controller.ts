@@ -1,7 +1,13 @@
 import type { RequestHandler } from "express";
-import { registerUser, loginUser } from "../services/auth.service.js";
+import {
+  registerUser,
+  loginUser,
+  refreshAccessToken,
+  logoutUser,
+} from "../services/auth.service.js";
 import type { ApiResponse } from "../types/apiResponse.js";
 import type { RegisterBody, LoginBody } from "../schemas/auth.schema.js";
+import type { RefreshTokenBody } from "../schemas/auth.schema.js";
 
 export const register: RequestHandler<{}, any, RegisterBody> = async (
   req,
@@ -33,6 +39,42 @@ export const login: RequestHandler<
     success: true,
     message: "Login successful",
     data: result,
+  };
+
+  res.json(response);
+};
+
+export const refresh: RequestHandler<
+  {},
+  any,
+  RefreshTokenBody
+> = async (req, res) => {
+  const { refreshToken } = req.body;
+
+  const result = await refreshAccessToken(refreshToken);
+
+  const response: ApiResponse<typeof result> = {
+    success: true,
+    message: "Access token refreshed",
+    data: result,
+  };
+
+  res.json(response);
+};
+
+export const logout: RequestHandler<
+  {},
+  any,
+  RefreshTokenBody
+> = async (req, res) => {
+  const { refreshToken } = req.body;
+
+  await logoutUser(refreshToken);
+
+  const response: ApiResponse<null> = {
+    success: true,
+    message: "Logged out successfully",
+    data: null,
   };
 
   res.json(response);

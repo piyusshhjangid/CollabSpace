@@ -42,3 +42,8 @@ export type workspace_members = Prisma.workspace_membersModel
  * 
  */
 export type workspaces = Prisma.workspacesModel
+/**
+ * Model refresh_tokens
+ * 
+ */
+export type refresh_tokens = Prisma.refresh_tokensModel

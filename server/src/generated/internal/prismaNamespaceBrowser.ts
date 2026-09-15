@@ -55,7 +55,8 @@ export const ModelName = {
   tasks: 'tasks',
   users: 'users',
   workspace_members: 'workspace_members',
-  workspaces: 'workspaces'
+  workspaces: 'workspaces',
+  refresh_tokens: 'refresh_tokens'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -129,6 +130,18 @@ export const WorkspacesScalarFieldEnum = {
 } as const
 
 export type WorkspacesScalarFieldEnum = (typeof WorkspacesScalarFieldEnum)[keyof typeof WorkspacesScalarFieldEnum]
+
+
+export const Refresh_tokensScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  token: 'token',
+  expires_at: 'expires_at',
+  created_at: 'created_at',
+  revoked_at: 'revoked_at'
+} as const
+
+export type Refresh_tokensScalarFieldEnum = (typeof Refresh_tokensScalarFieldEnum)[keyof typeof Refresh_tokensScalarFieldEnum]
 
 
 export const SortOrder = {

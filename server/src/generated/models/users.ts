@@ -184,6 +184,7 @@ export type usersWhereInput = {
   created_at?: Prisma.DateTimeFilter<"users"> | Date | string
   tasks?: Prisma.TasksListRelationFilter
   workspace_members?: Prisma.Workspace_membersListRelationFilter
+  refresh_tokens?: Prisma.Refresh_tokensListRelationFilter
 }
 
 export type usersOrderByWithRelationInput = {
@@ -194,6 +195,7 @@ export type usersOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   tasks?: Prisma.tasksOrderByRelationAggregateInput
   workspace_members?: Prisma.workspace_membersOrderByRelationAggregateInput
+  refresh_tokens?: Prisma.refresh_tokensOrderByRelationAggregateInput
 }
 
 export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -207,6 +209,7 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"users"> | Date | string
   tasks?: Prisma.TasksListRelationFilter
   workspace_members?: Prisma.Workspace_membersListRelationFilter
+  refresh_tokens?: Prisma.Refresh_tokensListRelationFilter
 }, "id" | "email">
 
 export type usersOrderByWithAggregationInput = {
@@ -239,6 +242,7 @@ export type usersCreateInput = {
   created_at?: Date | string
   tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
 }
 
 export type usersUncheckedCreateInput = {
@@ -249,6 +253,7 @@ export type usersUncheckedCreateInput = {
   created_at?: Date | string
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type usersUpdateInput = {
@@ -259,6 +264,7 @@ export type usersUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateInput = {
@@ -269,6 +275,7 @@ export type usersUncheckedUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 export type usersCreateManyInput = {
@@ -359,6 +366,20 @@ export type usersUpdateOneRequiredWithoutWorkspace_membersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutWorkspace_membersInput, Prisma.usersUpdateWithoutWorkspace_membersInput>, Prisma.usersUncheckedUpdateWithoutWorkspace_membersInput>
 }
 
+export type usersCreateNestedOneWithoutRefresh_tokensInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRefresh_tokensInput, Prisma.usersUncheckedCreateWithoutRefresh_tokensInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRefresh_tokensInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutRefresh_tokensNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRefresh_tokensInput, Prisma.usersUncheckedCreateWithoutRefresh_tokensInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRefresh_tokensInput
+  upsert?: Prisma.usersUpsertWithoutRefresh_tokensInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutRefresh_tokensInput, Prisma.usersUpdateWithoutRefresh_tokensInput>, Prisma.usersUncheckedUpdateWithoutRefresh_tokensInput>
+}
+
 export type usersCreateWithoutTasksInput = {
   id?: string
   email: string
@@ -366,6 +387,7 @@ export type usersCreateWithoutTasksInput = {
   name: string
   created_at?: Date | string
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
 }
 
 export type usersUncheckedCreateWithoutTasksInput = {
@@ -375,6 +397,7 @@ export type usersUncheckedCreateWithoutTasksInput = {
   name: string
   created_at?: Date | string
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type usersCreateOrConnectWithoutTasksInput = {
@@ -400,6 +423,7 @@ export type usersUpdateWithoutTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateWithoutTasksInput = {
@@ -409,6 +433,7 @@ export type usersUncheckedUpdateWithoutTasksInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 export type usersCreateWithoutWorkspace_membersInput = {
@@ -418,6 +443,7 @@ export type usersCreateWithoutWorkspace_membersInput = {
   name: string
   created_at?: Date | string
   tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
 }
 
 export type usersUncheckedCreateWithoutWorkspace_membersInput = {
@@ -427,6 +453,7 @@ export type usersUncheckedCreateWithoutWorkspace_membersInput = {
   name: string
   created_at?: Date | string
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
 }
 
 export type usersCreateOrConnectWithoutWorkspace_membersInput = {
@@ -452,6 +479,7 @@ export type usersUpdateWithoutWorkspace_membersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
 }
 
 export type usersUncheckedUpdateWithoutWorkspace_membersInput = {
@@ -461,6 +489,63 @@ export type usersUncheckedUpdateWithoutWorkspace_membersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+}
+
+export type usersCreateWithoutRefresh_tokensInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+}
+
+export type usersUncheckedCreateWithoutRefresh_tokensInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+}
+
+export type usersCreateOrConnectWithoutRefresh_tokensInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutRefresh_tokensInput, Prisma.usersUncheckedCreateWithoutRefresh_tokensInput>
+}
+
+export type usersUpsertWithoutRefresh_tokensInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutRefresh_tokensInput, Prisma.usersUncheckedUpdateWithoutRefresh_tokensInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRefresh_tokensInput, Prisma.usersUncheckedCreateWithoutRefresh_tokensInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutRefresh_tokensInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutRefresh_tokensInput, Prisma.usersUncheckedUpdateWithoutRefresh_tokensInput>
+}
+
+export type usersUpdateWithoutRefresh_tokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+}
+
+export type usersUncheckedUpdateWithoutRefresh_tokensInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 
@@ -471,11 +556,13 @@ export type usersUncheckedUpdateWithoutWorkspace_membersInput = {
 export type UsersCountOutputType = {
   tasks: number
   workspace_members: number
+  refresh_tokens: number
 }
 
 export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tasks?: boolean | UsersCountOutputTypeCountTasksArgs
   workspace_members?: boolean | UsersCountOutputTypeCountWorkspace_membersArgs
+  refresh_tokens?: boolean | UsersCountOutputTypeCountRefresh_tokensArgs
 }
 
 /**
@@ -502,6 +589,13 @@ export type UsersCountOutputTypeCountWorkspace_membersArgs<ExtArgs extends runti
   where?: Prisma.workspace_membersWhereInput
 }
 
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountRefresh_tokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.refresh_tokensWhereInput
+}
+
 
 export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -511,6 +605,7 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   created_at?: boolean
   tasks?: boolean | Prisma.users$tasksArgs<ExtArgs>
   workspace_members?: boolean | Prisma.users$workspace_membersArgs<ExtArgs>
+  refresh_tokens?: boolean | Prisma.users$refresh_tokensArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
@@ -542,6 +637,7 @@ export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
 export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tasks?: boolean | Prisma.users$tasksArgs<ExtArgs>
   workspace_members?: boolean | Prisma.users$workspace_membersArgs<ExtArgs>
+  refresh_tokens?: boolean | Prisma.users$refresh_tokensArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type usersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -552,6 +648,7 @@ export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   objects: {
     tasks: Prisma.$tasksPayload<ExtArgs>[]
     workspace_members: Prisma.$workspace_membersPayload<ExtArgs>[]
+    refresh_tokens: Prisma.$refresh_tokensPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -955,6 +1052,7 @@ export interface Prisma__usersClient<T, Null = never, ExtArgs extends runtime.Ty
   readonly [Symbol.toStringTag]: "PrismaPromise"
   tasks<T extends Prisma.users$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workspace_members<T extends Prisma.users$workspace_membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$workspace_membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$workspace_membersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  refresh_tokens<T extends Prisma.users$refresh_tokensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$refresh_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$refresh_tokensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1427,6 +1525,30 @@ export type users$workspace_membersArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.Workspace_membersScalarFieldEnum | Prisma.Workspace_membersScalarFieldEnum[]
+}
+
+/**
+ * users.refresh_tokens
+ */
+export type users$refresh_tokensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the refresh_tokens
+   */
+  select?: Prisma.refresh_tokensSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the refresh_tokens
+   */
+  omit?: Prisma.refresh_tokensOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.refresh_tokensInclude<ExtArgs> | null
+  where?: Prisma.refresh_tokensWhereInput
+  orderBy?: Prisma.refresh_tokensOrderByWithRelationInput | Prisma.refresh_tokensOrderByWithRelationInput[]
+  cursor?: Prisma.refresh_tokensWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Refresh_tokensScalarFieldEnum | Prisma.Refresh_tokensScalarFieldEnum[]
 }
 
 /**

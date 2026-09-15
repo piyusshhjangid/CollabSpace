@@ -401,7 +401,8 @@ export const ModelName = {
   tasks: 'tasks',
   users: 'users',
   workspace_members: 'workspace_members',
-  workspaces: 'workspaces'
+  workspaces: 'workspaces',
+  refresh_tokens: 'refresh_tokens'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -417,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "users" | "workspace_members" | "workspaces"
+    modelProps: "projects" | "tasks" | "users" | "workspace_members" | "workspaces" | "refresh_tokens"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -791,6 +792,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    refresh_tokens: {
+      payload: Prisma.$refresh_tokensPayload<ExtArgs>
+      fields: Prisma.refresh_tokensFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.refresh_tokensFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.refresh_tokensFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        findFirst: {
+          args: Prisma.refresh_tokensFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.refresh_tokensFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        findMany: {
+          args: Prisma.refresh_tokensFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>[]
+        }
+        create: {
+          args: Prisma.refresh_tokensCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        createMany: {
+          args: Prisma.refresh_tokensCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.refresh_tokensCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>[]
+        }
+        delete: {
+          args: Prisma.refresh_tokensDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        update: {
+          args: Prisma.refresh_tokensUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        deleteMany: {
+          args: Prisma.refresh_tokensDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.refresh_tokensUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.refresh_tokensUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>[]
+        }
+        upsert: {
+          args: Prisma.refresh_tokensUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$refresh_tokensPayload>
+        }
+        aggregate: {
+          args: Prisma.Refresh_tokensAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRefresh_tokens>
+        }
+        groupBy: {
+          args: Prisma.refresh_tokensGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Refresh_tokensGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.refresh_tokensCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Refresh_tokensCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -885,6 +960,18 @@ export const WorkspacesScalarFieldEnum = {
 } as const
 
 export type WorkspacesScalarFieldEnum = (typeof WorkspacesScalarFieldEnum)[keyof typeof WorkspacesScalarFieldEnum]
+
+
+export const Refresh_tokensScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  token: 'token',
+  expires_at: 'expires_at',
+  created_at: 'created_at',
+  revoked_at: 'revoked_at'
+} as const
+
+export type Refresh_tokensScalarFieldEnum = (typeof Refresh_tokensScalarFieldEnum)[keyof typeof Refresh_tokensScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1121,6 +1208,7 @@ export type GlobalOmitConfig = {
   users?: Prisma.usersOmit
   workspace_members?: Prisma.workspace_membersOmit
   workspaces?: Prisma.workspacesOmit
+  refresh_tokens?: Prisma.refresh_tokensOmit
 }
 
 /* Types for Logging */

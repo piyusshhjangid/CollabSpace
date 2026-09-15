@@ -14,3 +14,9 @@ export const LoginSchema = z.object({
 });
 
 export type LoginBody = z.infer<typeof LoginSchema>;
+
+export const RefreshTokenSchema = z.object({
+  refreshToken: z.string().min(1, "Refresh token is required"),
+});
+
+export type RefreshTokenBody = z.infer<typeof RefreshTokenSchema>;
