@@ -1,15 +1,53 @@
-import type { Request, Response } from "express";
-import { getAllWorkspaces as getAllWorkspacesService } from "../services/workspace.service.js";
-import type { Workspace } from "../types/workspace.js";
+import type { RequestHandler } from "express";
+import type { CreateWorkspaceBody } from "../schemas/workspace.schema.js";
+
+import {
+  createWorkspaceService,
+  getUserWorkspacesService,
+} from "../services/workspace.service.js";
+
+import { unauthorized } from "../lib/AppError.js";
+
 import type { ApiResponse } from "../types/apiResponse.js";
 
-export async function getWorkspaces(req: Request, res: Response) {
-  const allWorkspaces = await getAllWorkspacesService();
-  const response: ApiResponse<Workspace[]> = {
-      success: true,
-      message: "Workspaces fetched",
-      data: allWorkspaces,
-    };
-  
-    res.json(response);
-}
+export const getWorkspaces: RequestHandler = async (req, res) => {
+  const userId = req.user?.id;
+
+  if (!userId) {
+    throw unauthorized("Authentication required");
+  }
+
+  const workspaces = await getUserWorkspacesService(userId);
+
+  const response: ApiResponse<typeof workspaces> = {
+    success: true,
+    message: "Workspaces fetched",
+    data: workspaces,
+  };
+
+  res.json(response);
+};
+
+export const createWorkspace: RequestHandler<
+  {},
+  any,
+  CreateWorkspaceBody
+> = async (req, res) => {
+  const userId = req.user?.id;
+
+  if (!userId) {
+    throw unauthorized("Authentication required");
+  }
+
+  const { name } = req.body;
+
+  const workspace = await createWorkspaceService(userId, name);
+
+  const response: ApiResponse<typeof workspace> = {
+    success: true,
+    message: "Workspace created successfully",
+    data: workspace,
+  };
+
+  res.status(201).json(response);
+};
