@@ -47,6 +47,20 @@ export async function createWorkspaceWithOwner(
   });
 }
 
+export async function findWorkspaceMembership(
+  workspaceId: string,
+  userId: string,
+) {
+  return prisma.workspace_members.findUnique({
+    where: {
+      user_id_workspace_id: {
+        user_id: userId,
+        workspace_id: workspaceId,
+      },
+    },
+  });
+}
+
 // findById()
 // create()
 // update()

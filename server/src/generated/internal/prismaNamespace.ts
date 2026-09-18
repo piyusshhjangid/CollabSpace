@@ -402,7 +402,8 @@ export const ModelName = {
   users: 'users',
   workspace_members: 'workspace_members',
   workspaces: 'workspaces',
-  refresh_tokens: 'refresh_tokens'
+  refresh_tokens: 'refresh_tokens',
+  invitations: 'invitations'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -418,7 +419,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "users" | "workspace_members" | "workspaces" | "refresh_tokens"
+    modelProps: "projects" | "tasks" | "users" | "workspace_members" | "workspaces" | "refresh_tokens" | "invitations"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -866,6 +867,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    invitations: {
+      payload: Prisma.$invitationsPayload<ExtArgs>
+      fields: Prisma.invitationsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.invitationsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.invitationsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        findFirst: {
+          args: Prisma.invitationsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.invitationsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        findMany: {
+          args: Prisma.invitationsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>[]
+        }
+        create: {
+          args: Prisma.invitationsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        createMany: {
+          args: Prisma.invitationsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.invitationsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>[]
+        }
+        delete: {
+          args: Prisma.invitationsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        update: {
+          args: Prisma.invitationsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        deleteMany: {
+          args: Prisma.invitationsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.invitationsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.invitationsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>[]
+        }
+        upsert: {
+          args: Prisma.invitationsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$invitationsPayload>
+        }
+        aggregate: {
+          args: Prisma.InvitationsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateInvitations>
+        }
+        groupBy: {
+          args: Prisma.invitationsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InvitationsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.invitationsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.InvitationsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -972,6 +1047,20 @@ export const Refresh_tokensScalarFieldEnum = {
 } as const
 
 export type Refresh_tokensScalarFieldEnum = (typeof Refresh_tokensScalarFieldEnum)[keyof typeof Refresh_tokensScalarFieldEnum]
+
+
+export const InvitationsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  invited_by: 'invited_by',
+  email: 'email',
+  token: 'token',
+  expires_at: 'expires_at',
+  accepted_at: 'accepted_at',
+  created_at: 'created_at'
+} as const
+
+export type InvitationsScalarFieldEnum = (typeof InvitationsScalarFieldEnum)[keyof typeof InvitationsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1209,6 +1298,7 @@ export type GlobalOmitConfig = {
   workspace_members?: Prisma.workspace_membersOmit
   workspaces?: Prisma.workspacesOmit
   refresh_tokens?: Prisma.refresh_tokensOmit
+  invitations?: Prisma.invitationsOmit
 }
 
 /* Types for Logging */

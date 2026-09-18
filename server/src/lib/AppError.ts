@@ -17,3 +17,9 @@ export function notFound(message: string) {
 export function unauthorized(message = "Unauthorized") {
   return new AppError(message, 401);
 }
+
+export function forbidden(
+  message = "Forbidden",
+) {
+  return new AppError(message, 403);
+}

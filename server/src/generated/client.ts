@@ -71,3 +71,8 @@ export type workspaces = Prisma.workspacesModel
  * 
  */
 export type refresh_tokens = Prisma.refresh_tokensModel
+/**
+ * Model invitations
+ * 
+ */
+export type invitations = Prisma.invitationsModel
