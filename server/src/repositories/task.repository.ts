@@ -1,9 +1,13 @@
 import { prisma } from "../db/prisma.js";
 
-export async function findTasksByProject(projectId: string) {
+export async function findTasksByProject(
+  projectId: string,
+  workspaceId: string,
+) {
   const tasks = await prisma.tasks.findMany({
     where: {
       project_id: projectId,
+      workspace_id: workspaceId,
     },
     include: {
       users: true,
@@ -23,13 +27,15 @@ export async function findTasksByProject(projectId: string) {
 
 export async function createTask(
   projectId: string,
+  workspaceId: string,
   title: string,
   completed: string,
   _id: string,
 ) {
-  const project = await prisma.projects.findUnique({
+  const project = await prisma.projects.findFirst({
     where: {
       id: projectId,
+      workspace_id: workspaceId,
     },
     select: {
       workspace_id: true,
@@ -43,7 +49,7 @@ export async function createTask(
   const task = await prisma.tasks.create({
     data: {
       project_id: projectId,
-      workspace_id: project.workspace_id,
+      workspace_id: workspaceId,
       title,
       completed: completed === "true",
     },
@@ -57,24 +63,10 @@ export async function createTask(
   };
 }
 
-export async function getOverdueTasks() {
-  // const result = await pool.query(
-  //   `
-  //   SELECT
-  //     id,
-  //     title,
-  //     status,
-  //     due_date
-  //   FROM tasks
-  //   WHERE due_date < NOW()
-  //     AND status != 'DONE'
-  //   ORDER BY due_date ASC
-  // `,
-  // );
-
-  // return result.rows;
+export async function getOverdueTasks(workspaceId: string) {
   return prisma.tasks.findMany({
     where: {
+      workspace_id: workspaceId,
       due_date: {
         lt: new Date(),
       },
@@ -88,10 +80,14 @@ export async function getOverdueTasks() {
   });
 }
 
-export async function getTaskCountsByStatus(projectId: string) {
+export async function getTaskCountsByStatus(
+  projectId: string,
+  workspaceId: string,
+) {
   const tasks = await prisma.tasks.findMany({
     where: {
       project_id: projectId,
+      workspace_id: workspaceId,
     },
     select: {
       status: true,
@@ -111,9 +107,3 @@ export async function getTaskCountsByStatus(projectId: string) {
     }))
     .sort((a, b) => a.status.localeCompare(b.status));
 }
-
-// findById()
-
-// update()
-
-// delete()

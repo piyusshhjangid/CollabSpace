@@ -4,22 +4,33 @@ import {
   getTasksByProject,
   createTaskService,
 } from "../services/task.service.js";
-import { badRequest } from "../lib/AppError.js";
+import { badRequest, unauthorized } from "../lib/AppError.js";
 import type { ApiResponse } from "../types/apiResponse.js";
 import type { Task } from "../types/task.js";
 
-interface TaskParams {
-  projectId: string;
-}
+export const getTasks: RequestHandler = async (req, res) => {
+  const projectId = req.params.projectId;
+  const workspaceId = req.query.workspaceId;
+  const userId = req.user?.id;
 
-export const getTasks: RequestHandler<TaskParams> = async (req, res) => {
-  const { projectId } = req.params;
-
-  if (!projectId) {
+  if (typeof projectId !== "string") {
     throw badRequest("projectId is required");
   }
 
-  const projectTasks = await getTasksByProject(projectId);
+  if (typeof workspaceId !== "string") {
+    throw badRequest("Workspace ID is required");
+  }
+
+  if (!userId) {
+    throw unauthorized("Authentication required");
+  }
+
+  const projectTasks = await getTasksByProject(
+    projectId,
+    workspaceId,
+    userId,
+  );
+
   const response: ApiResponse<Task[]> = {
     success: true,
     message: "Tasks fetched",
@@ -27,26 +38,38 @@ export const getTasks: RequestHandler<TaskParams> = async (req, res) => {
   };
 
   res.json(response);
-  
 };
 
-export const createTask: RequestHandler<
-  TaskParams,
-  any,
-  CreateTaskBody
-> = async (req, res) => {
-  const { projectId } = req.params;
-  const { title, completed } = req.body;
+export const createTask: RequestHandler = async (req, res) => {
+  const projectId = req.params.projectId;
+  const workspaceId = req.query.workspaceId;
+  const userId = req.user?.id;
+  const { title, completed } = req.body as CreateTaskBody;
 
-  if (!projectId) {
+  if (typeof projectId !== "string") {
     throw badRequest("projectId is required");
+  }
+
+  if (typeof workspaceId !== "string") {
+    throw badRequest("Workspace ID is required");
+  }
+
+  if (!userId) {
+    throw unauthorized("Authentication required");
   }
 
   if (!title) {
     throw badRequest("Title is required");
   }
 
-  const task = await createTaskService(projectId, title, completed);
+  const task = await createTaskService(
+    projectId,
+    workspaceId,
+    userId,
+    title,
+    completed,
+  );
+
   const response: ApiResponse<Task> = {
     success: true,
     message: "Task created successfully",
@@ -55,4 +78,3 @@ export const createTask: RequestHandler<
 
   res.status(201).json(response);
 };
-
