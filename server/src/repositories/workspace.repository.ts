@@ -1,4 +1,5 @@
 import { prisma } from "../db/prisma.js";
+import { normalizeRole } from "../types/role.js";
 
 export async function findWorkspacesByUser(userId: string) {
   const memberships = await prisma.workspace_members.findMany({
@@ -13,12 +14,20 @@ export async function findWorkspacesByUser(userId: string) {
     },
   });
 
-  return memberships.map((membership) => ({
-    id: membership.workspaces.id,
-    name: membership.workspaces.name,
-    createdAt: membership.workspaces.created_at,
-    role: membership.role,
-  }));
+  return memberships.map((membership) => {
+    const role = normalizeRole(membership.role);
+
+    if (!role) {
+      throw new Error(`Invalid workspace role: ${membership.role}`);
+    }
+
+    return {
+      id: membership.workspaces.id,
+      name: membership.workspaces.name,
+      createdAt: membership.workspaces.created_at,
+      role,
+    };
+  });
 }
 
 export async function createWorkspaceWithOwner(
@@ -60,8 +69,3 @@ export async function findWorkspaceMembership(
     },
   });
 }
-
-// findById()
-// create()
-// update()
-// delete()

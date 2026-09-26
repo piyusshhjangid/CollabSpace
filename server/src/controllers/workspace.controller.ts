@@ -6,7 +6,10 @@ import {
   getUserWorkspacesService,
 } from "../services/workspace.service.js";
 
-import { unauthorized } from "../lib/AppError.js";
+import {
+  badRequest,
+  unauthorized,
+} from "../lib/AppError.js";
 
 import type { ApiResponse } from "../types/apiResponse.js";
 
@@ -50,4 +53,27 @@ export const createWorkspace: RequestHandler<
   };
 
   res.status(201).json(response);
+};
+
+export const getCurrentWorkspace: RequestHandler = async (
+  req,
+  res,
+) => {
+  if (!req.workspace) {
+    throw badRequest("Workspace context is required");
+  }
+
+  const response: ApiResponse<{
+    workspaceId: string;
+    role: string;
+  }> = {
+    success: true,
+    message: "Workspace role fetched",
+    data: {
+      workspaceId: req.workspace.id,
+      role: req.workspace.role,
+    },
+  };
+
+  res.json(response);
 };

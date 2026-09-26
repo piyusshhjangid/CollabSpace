@@ -1,5 +1,8 @@
 import { apiFetch } from "../lib/api";
-import type { Workspace } from "../types/workspace";
+import type {
+  Workspace,
+  WorkspaceRole,
+} from "../types/workspace";
 
 interface ApiResponse<T> {
   success: boolean;
@@ -13,4 +16,19 @@ export async function fetchWorkspaces(): Promise<Workspace[]> {
   );
 
   return response.data;
+}
+
+interface CurrentWorkspaceRole {
+  workspaceId: string;
+  role: WorkspaceRole;
+}
+
+export async function fetchWorkspaceRole(
+  workspaceId: string,
+): Promise<WorkspaceRole> {
+  const response = await apiFetch<
+    ApiResponse<CurrentWorkspaceRole>
+  >(`/api/workspaces/${workspaceId}/me`);
+
+  return response.data.role;
 }

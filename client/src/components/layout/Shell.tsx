@@ -1,9 +1,10 @@
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
-import { fetchWorkspaces } from "../../api/workspaces";
+import { fetchWorkspaceRole, fetchWorkspaces } from "../../api/workspaces";
 import { useEffect, useState } from "react";
 import type { Workspace } from "../../types/workspace";
 import { WorkspaceContext } from "../../context/WorkspaceContext";
+
 
 interface ShellProps {
   children: React.ReactNode;
@@ -37,6 +38,44 @@ export default function Shell({ children }: ShellProps) {
     loadWorkspaces();
   }, []);
 
+  useEffect(() => {
+  if (!currentWorkspace) return;
+
+  async function loadCurrentRole() {
+    try {
+      const role = await fetchWorkspaceRole(currentWorkspace.id);
+
+      setCurrentWorkspace((previous) => {
+        if (!previous || previous.id !== currentWorkspace.id) {
+          return previous;
+        }
+
+        if (previous.role === role) {
+          return previous;
+        }
+
+        return {
+          ...previous,
+          role,
+        };
+      });
+
+      setWorkspaces((previous) =>
+        previous.map((workspace) =>
+          workspace.id === currentWorkspace.id &&
+          workspace.role !== role
+            ? { ...workspace, role }
+            : workspace,
+        ),
+      );
+    } catch (error) {
+      console.error("Failed to load workspace role:", error);
+    }
+  }
+
+  loadCurrentRole();
+}, [currentWorkspace?.id]);
+
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-zinc-100">
@@ -44,6 +83,8 @@ export default function Shell({ children }: ShellProps) {
       </div>
     );
   }
+
+  
 
   if (error) {
     return (
@@ -62,6 +103,8 @@ export default function Shell({ children }: ShellProps) {
       </div>
     );
   }
+
+  
 
   return (
     <WorkspaceContext.Provider

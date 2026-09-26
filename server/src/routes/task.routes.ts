@@ -1,15 +1,29 @@
 import { Router } from "express";
-import { createTask, getTasks } from "../controllers/task.controller.js";
+import {
+  getTasks,
+  createTask,
+} from "../controllers/task.controller.js";
+
+import { requireAuth } from "../middleware/requireAuth.js";
+import { workspaceContext } from "../middleware/workspaceContext.js";
 import { validateBody } from "../middleware/validateBody.js";
 import { CreateTaskSchema } from "../schemas/task.schema.js";
-import { requireAuth } from "../middleware/requireAuth.js";
 
-const router = Router({
-  mergeParams: true,
-});
+const router = Router({ mergeParams: true });
 
-router.get("/", requireAuth, getTasks);
+router.get(
+  "/",
+  requireAuth,
+  workspaceContext,
+  getTasks,
+);
 
-router.post("/", requireAuth, validateBody(CreateTaskSchema), createTask);
+router.post(
+  "/",
+  requireAuth,
+  workspaceContext,
+  validateBody(CreateTaskSchema),
+  createTask,
+);
 
 export default router;

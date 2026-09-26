@@ -1,0 +1,702 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>CollabSpace Engineering Handbook</h1>
+<p><strong>Status: Parts 1–4 done · Phases 2–4 (Authentication, Tenant Isolation, RBAC) just added</strong> · Everything below is verified against your actual uploaded files, not the README's or RBAC doc's aspirations. From here, phase numbers follow your own outline.</p>
+<hr>
+<h2>How this handbook works</h2>
+<p>Your original ask was 21 parts deep — realistically a small book. Writing all of it in one pass would mean shallow treatment of everything, which works against the one rule you cared about most: <em>understanding, not memorization</em>. So this is being built as a living document across a handful of sessions. Each phase gets appended here, and I republish the same link — one URL, growing over time.</p>
+<p><strong>Progress tracker</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Parts 1–4 — mental model, structure, request lifecycles, database</li>
+<li><input checked="" disabled="" type="checkbox"> Phase 2 — Authentication deep dive</li>
+<li><input checked="" disabled="" type="checkbox"> Phase 3 — Tenant isolation deep dive</li>
+<li><input checked="" disabled="" type="checkbox"> Phase 4 — RBAC deep dive</li>
+<li><input disabled="" type="checkbox"> Phase 5 — Frontend deep dive</li>
+<li><input disabled="" type="checkbox"> Phase 6 — Backend architecture deep dive</li>
+<li><input disabled="" type="checkbox"> Phase 7 — API documentation</li>
+<li><input disabled="" type="checkbox"> Phase 8 — Validation &amp; error handling</li>
+<li><input disabled="" type="checkbox"> Phase 9 — Security audit</li>
+<li><input disabled="" type="checkbox"> Phase 10 — Testing deep dive</li>
+<li><input disabled="" type="checkbox"> Phase 11 — Debugging playbook</li>
+<li><input disabled="" type="checkbox"> Phase 12 — Performance &amp; scalability</li>
+<li><input disabled="" type="checkbox"> Phase 13 — Engineering decisions</li>
+<li><input disabled="" type="checkbox"> Phase 14 — Problems, bugs &amp; technical debt</li>
+<li><input disabled="" type="checkbox"> Phase 15 — Project modification exercises</li>
+<li><input disabled="" type="checkbox"> Phase 16 — Interview handbook</li>
+<li><input disabled="" type="checkbox"> Phase 17 — Learning gaps</li>
+<li><input disabled="" type="checkbox"> Phase 18 — Final interview readiness test</li>
+<li><input disabled="" type="checkbox"> Phase 19 — Rapid revision sheet</li>
+</ul>
+<p>Say <strong>&quot;continue&quot;</strong> and I'll build the next phase into this same document. Name a phase number if you want to jump the queue.</p>
+<hr>
+<h1>Part 1 — What Is CollabSpace?</h1>
+<p><strong>The problem it solves:</strong> small teams need somewhere to organize work — who's on the team, what projects exist, what tasks are open — without every team's data being visible to every other team using the same app. That &quot;every team's data stays walled off&quot; requirement is called <strong>multi-tenancy</strong>, and it's the single idea the whole backend is organized around.</p>
+<p><strong>Main entities</strong> (the nouns your database and API are built around):</p>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>What it represents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>An account — one row per person, across the whole app</td>
+</tr>
+<tr>
+<td><code>workspaces</code></td>
+<td>A tenant — one company/team's walled-off space</td>
+</tr>
+<tr>
+<td><code>workspace_members</code></td>
+<td>The join table: which user belongs to which workspace, and with what role</td>
+</tr>
+<tr>
+<td><code>projects</code></td>
+<td>A project inside one workspace</td>
+</tr>
+<tr>
+<td><code>tasks</code></td>
+<td>A task inside one project (and, redundantly, tagged with its workspace too — more on why in Part 4)</td>
+</tr>
+<tr>
+<td><code>invitations</code></td>
+<td>A pending, token-based invite for someone to join a workspace</td>
+</tr>
+<tr>
+<td><code>refresh_tokens</code></td>
+<td>A long-lived credential that lets a logged-in session mint new short-lived access tokens</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Main user flows that actually exist in the code</strong> (registration → login → create/join a workspace → view projects → view/create tasks → invite teammates). I'm intentionally <em>not</em> calling this &quot;Jira-lite&quot; without qualification yet — Part 3 will show you exactly how much of the task/project management is real vs. still a UI mockup.</p>
+<p><strong>Main features, IMPLEMENTED today:</strong></p>
+<ul>
+<li>Register / log in with email + password</li>
+<li>JWT access tokens + separate refresh tokens</li>
+<li>Create a workspace (creator becomes <code>OWNER</code>)</li>
+<li>Switch between workspaces you belong to</li>
+<li>List and create projects within a workspace</li>
+<li>List and create tasks within a project</li>
+<li>Invite someone to a workspace by email (token-based, expires in 24h)</li>
+<li>A documented four-role permission model (<code>OWNER</code>/<code>ADMIN</code>/<code>MEMBER</code>/<code>VIEWER</code>) — <strong>stored</strong>, not yet <strong>enforced</strong> (flagged properly in the Reality Check section below and covered in depth in Part 7)</li>
+</ul>
+<p><strong>Tech stack</strong> (confirmed from your <code>package.json</code> files, not assumed):</p>
+<ul>
+<li><strong>Client:</strong> React 19, TypeScript, Vite, React Router, Tailwind CSS v4, <code>lucide-react</code> for icons</li>
+<li><strong>Server:</strong> Node.js, Express 5, TypeScript, Prisma 7 (<code>@prisma/adapter-pg</code>), PostgreSQL, <code>bcrypt</code>, <code>jsonwebtoken</code>, <code>zod</code></li>
+</ul>
+<h3>The 30-second version</h3>
+<p>&quot;CollabSpace is a multi-tenant project-and-task tool — each company gets its own isolated workspace with its own members, projects, and tasks. It's a React/TypeScript frontend talking to an Express/Prisma/PostgreSQL backend, with JWT access + refresh token auth and a role-based permission model that's designed but only partially enforced so far.&quot;</p>
+<h3>The 2-minute version</h3>
+<p>Add: the entity chain is <code>User → WorkspaceMember → Workspace → Project → Task</code>. The backend is layered — routes hand off to controllers, controllers to services, services to repositories, repositories to Prisma, Prisma to Postgres — specifically so that authorization logic (the &quot;is this user allowed to touch this workspace&quot; check) lives in one place (the service layer) instead of being copy-pasted into every controller. Auth is two-token: a 15-minute JWT access token for normal requests, and a 7-day opaque refresh token stored in the database so it can be revoked on logout. New members join either by being the workspace creator (auto-<code>OWNER</code>) or by accepting an emailed invitation token (currently always as <code>MEMBER</code>).</p>
+<h3>The 5-minute version</h3>
+<p>Add: the actual mechanism that makes multi-tenancy work isn't magic — it's one function, <code>verifyWorkspaceMember()</code>, called at the top of every workspace-scoped service method, which does a single-row lookup against <code>workspace_members</code> on the compound key <code>(user_id, workspace_id)</code>. No row → <code>403 Forbidden</code>. That's it — that's tenant isolation in this codebase. Tasks additionally carry their own <code>workspace_id</code> column even though they already belong to a project (which itself belongs to a workspace) — that's a deliberate denormalization so a task query never has to join through <code>projects</code> just to check which tenant it belongs to. And here's the honest, interview-relevant gap: your own <code>docs/RBAC-permission-matrix.md</code> describes four roles with different permissions, but <code>verifyWorkspaceMember()</code> only checks <em>membership</em>, never <em>role</em>. A <code>VIEWER</code> today can hit the same create-project endpoint as an <code>OWNER</code>. That's the single most important &quot;documented vs. real&quot; gap in the project, and Part 7 is going to be built around it.</p>
+<hr>
+<h1>Part 2 — Project Structure Map</h1>
+<pre><code class="language-text">CollabSpace
+│
+├── client/                    React + Vite frontend
+│   └── src/
+│       ├── api/                Thin fetch wrappers — the ONLY code that talks to the real backend
+│       ├── components/
+│       │   ├── board/           Kanban UI (ProjectBoard, KanbanColumn, TaskModal, BoardToolbar)
+│       │   ├── home/             Dashboard widgets (StatCard, RecentProjects, QuickActions)
+│       │   ├── layout/           Shell, SideBar, TopBar, WorkspaceSwitcher
+│       │   └── (top-level)       Badge, Button, ProjectCard, TaskCard — shared primitives
+│       ├── context/             WorkspaceContext — the one piece of real global state
+│       ├── data/                Static/fake demo data — see the warning below
+│       ├── lib/api.ts           apiFetch() — attaches the bearer token, throws on non-2xx
+│       ├── pages/                HomePage, ProjectPage, TasksPage — the only 3 routed pages
+│       └── types/                Shared TS interfaces
+│
+├── server/                     Express + Prisma backend
+│   └── src/
+│       ├── routes/               Wires URL + HTTP verb → middleware → controller
+│       ├── controllers/          Parses req, calls a service, shapes the response
+│       ├── services/              Business logic + the authorization checks live here
+│       ├── repositories/          The only layer allowed to call Prisma directly
+│       ├── schemas/               Zod request-body validators
+│       ├── middleware/            requireAuth, validateBody, errorHandler, requestLogger
+│       ├── db/                    prisma.ts (the real client), pool.ts (dead — see below)
+│       ├── generated/             Prisma Client output — never hand-edit this
+│       └── lib/AppError.ts        Custom error classes → mapped to HTTP status codes
+│
+└── docs/
+    ├── Collab_Space schema Design.md    Early 3-table sketch — now stale, predates projects/tasks
+    ├── RBAC-permission-matrix.md         The target permission design (not yet fully wired up)
+    └── Untitled.canvas                   Obsidian whiteboard file — not readable from the export
+</code></pre>
+<p><strong>Two things worth flagging immediately</strong>, because they'll save you real confusion later:</p>
+<ol>
+<li><strong><code>client/src/data/</code> is not <code>client/src/api/</code>.</strong> <code>api/</code> makes real HTTP calls to your Express server. <code>data/</code> is hand-written fake arrays (<code>fakeapi.ts</code>, <code>projects.ts</code>, <code>tasks.ts</code>, <code>workspaces.ts</code>). <code>HomePage</code> and the entire <code>TasksPage</code>/Kanban board import from <code>data/</code>, not <code>api/</code>. <code>ProjectPage</code> is the one page that actually calls the real backend. This matters a lot once you start tracing &quot;what happens when I click X&quot; — for two of your three pages, the honest answer is &quot;nothing happens on the server.&quot;</li>
+<li><strong><code>server/src/db/pool.ts</code> and <code>server/src/db/testConnection.ts</code> are dead code.</strong> They set up a raw <code>pg.Pool</code>/<code>pg.Client</code> that nothing else imports. Your own git log confirms why: commit <code>ab18348</code> is literally <em>&quot;migrate from raw SQL to Prisma ORM in repositories and add tests for Prisma integration.&quot;</em> These two files are leftovers from before that migration. Harmless, but worth knowing so you don't spend time trying to figure out where <code>pool.ts</code> is used — it isn't.</li>
+</ol>
+<hr>
+<h1>Part 3 — Request Lifecycles</h1>
+<p>Here's the generic shape every real (non-fake-data) request follows:</p>
+<pre class="mermaid">graph TD
+    A[React Component] --&gt; B[&#34;api/*.ts (fetch wrapper)&#34;]
+    B --&gt; C[Express Route]
+    C --&gt; D[&#34;Middleware (requireAuth, validateBody)&#34;]
+    D --&gt; E[Controller]
+    E --&gt; F[Service]
+    F --&gt; G[Repository]
+    G --&gt; H[Prisma Client]
+    H --&gt; I[(PostgreSQL)]
+</pre>
+<p>Now let's trace real ones, file by file.</p>
+<h3>Request 1 — Registration</h3>
+<pre><code class="language-text">POST /auth/register  { name, email, password }
+  → app.ts:            app.use(&#34;/auth&#34;, authRouter)
+  → auth.routes.ts:     validateBody(RegisterSchema) → register()
+  → validateBody.ts:    RegisterSchema.safeParse() — name non-empty, valid email, password ≥ 8 chars
+                         (fails → badRequest(&#34;Validation failed&#34;) → 400)
+  → auth.controller.ts: register() destructures the body, calls registerUser()
+  → auth.service.ts:    registerUser()
+        - findUserByEmail(email)        → exists? badRequest(&#34;Email is already registered&#34;) → 400
+        - bcrypt.hash(password, 12)
+        - createUser(name, email, hash) → prisma.users.create()
+  → 201 { data: { id, name, email, createdAt } }   ← password/hash never returned
+</code></pre>
+<h3>Request 2 — Login</h3>
+<pre class="mermaid">sequenceDiagram
+    participant C as Client
+    participant Route as auth.routes.ts
+    participant Ctrl as auth.controller.ts
+    participant Svc as auth.service.ts
+    participant Repo as user/refreshToken repos
+    participant DB as PostgreSQL
+
+    C-&gt;&gt;Route: POST /auth/login {email, password}
+    Route-&gt;&gt;Ctrl: login()
+    Ctrl-&gt;&gt;Svc: loginUser(email, password)
+    Svc-&gt;&gt;Repo: findUserByEmail(email)
+    Repo-&gt;&gt;DB: SELECT * FROM users WHERE email = ?
+    DB--&gt;&gt;Repo: user row
+    Svc-&gt;&gt;Svc: bcrypt.compare(password, user.password_hash)
+    Svc-&gt;&gt;Svc: jwt.sign({sub: user.id}, SECRET, {expiresIn: &#34;15m&#34;})
+    Svc-&gt;&gt;Svc: crypto.randomBytes(32) → refresh token (opaque, not a JWT)
+    Svc-&gt;&gt;Repo: createRefreshToken(user.id, token, now+7d)
+    Repo-&gt;&gt;DB: INSERT INTO refresh_tokens
+    Svc--&gt;&gt;Ctrl: {accessToken, refreshToken, user}
+    Ctrl--&gt;&gt;C: 200 {data: {...}}
+</pre>
+<p>Notice <code>loginUser</code> returns the <em>same</em> generic <code>unauthorized(&quot;Invalid email or password&quot;)</code> whether the email doesn't exist or the password is wrong — that's deliberate; it stops an attacker from using your login endpoint to figure out which emails are registered.</p>
+<h3>Request 3 — Create Workspace</h3>
+<pre><code class="language-text">POST /api/workspaces  { name }   Authorization: Bearer &lt;accessToken&gt;
+  → workspace.routes.ts:  requireAuth → validateBody(CreateWorkspaceSchema) → createWorkspace()
+  → requireAuth.ts:       jwt.verify() → req.user = { id: decoded.sub }
+  → workspace.controller: reads req.user.id + req.body.name
+  → workspace.service:    createWorkspaceService() — name.trim() === &#34;&#34; ? badRequest : createWorkspaceWithOwner()
+  → workspace.repository: createWorkspaceWithOwner(userId, name)
+</code></pre>
+<pre><code class="language-ts">// workspace.repository.ts — this is a good pattern, worth internalizing
+export async function createWorkspaceWithOwner(userId: string, name: string) {
+  return prisma.$transaction(async (tx) =&gt; {
+    const workspace = await tx.workspaces.create({ data: { name } });
+    const membership = await tx.workspace_members.create({
+      data: { user_id: userId, workspace_id: workspace.id, role: &#34;OWNER&#34; },
+    });
+    return { workspace, membership };
+  });
+}
+</code></pre>
+<p>The <code>$transaction</code> matters: without it, a crash between &quot;create the workspace&quot; and &quot;create the membership row&quot; would leave an orphaned workspace nobody can access. Wrapping both in a transaction makes them atomic — either both happen or neither does.</p>
+<h3>Request 4 — Switch Workspace</h3>
+<pre><code class="language-text">WorkspaceSwitcher.handleSelect(workspace)
+  → setCurrentWorkspace(workspace)   ← plain React state, via WorkspaceContext
+</code></pre>
+<p>There is no backend call here at all, and there doesn't need to be — &quot;switching workspace&quot; isn't an action the server needs to know about. It's just which <code>workspaceId</code> gets embedded into your <em>next</em> API call (e.g., the next <code>fetchProjects(currentWorkspace.id)</code>).</p>
+<h3>Request 5 — Create Project</h3>
+<pre><code class="language-text">POST /api/workspaces/:workspaceId/projects  { name, description? }
+  → project.routes.ts:    requireAuth → validateBody(CreateProjectSchema) → createProject()
+  → project.controller:   workspaceId from req.params, userId from req.user
+  → project.service:      createProjectService()
+</code></pre>
+<pre><code class="language-ts">// project.service.ts — this is THE tenant-isolation checkpoint. Memorize this shape.
+async function verifyWorkspaceMember(workspaceId: string, userId: string) {
+  const membership = await findWorkspaceMembership(workspaceId, userId);
+  if (!membership) {
+    throw forbidden(&#34;You are not a member of this workspace&#34;); // → 403
+  }
+}
+</code></pre>
+<pre><code class="language-text">  → project.repository:   createProject() → prisma.projects.create(...)
+  → 201 { data: { id, workspaceId, name, description, createdAt } }
+</code></pre>
+<p>Worth knowing: the frontend's &quot;New Project&quot; button (<code>ProjectPage.tsx</code>) currently just toggles a piece of local state (<code>setOpen(!open)</code>) that nothing renders from — clicking it doesn't call this endpoint yet. The backend route works; the UI to reach it doesn't exist yet.</p>
+<h3>Request 6 — Create / Update Task</h3>
+<pre><code class="language-text">POST /api/projects/:projectId/tasks?workspaceId=...   { title, completed? }
+  → task.routes.ts:   requireAuth → validateBody(CreateTaskSchema) → createTask()
+  → task.controller:  projectId from PARAMS, workspaceId from QUERY STRING (different from
+                       the project routes, which take workspaceId as a param — this is because
+                       this router is mounted at /api/projects/:projectId/tasks, one level up
+                       from any :workspaceId segment, so there&#39;s nowhere else for it to come from)
+  → task.service:      verifyWorkspaceMember() — same tenant check as above
+  → task.repository:   createTask() — ALSO independently checks the project&#39;s own
+                        workspace_id matches the one you passed, before inserting
+</code></pre>
+<p><strong>Update doesn't exist yet.</strong> <code>task.routes.ts</code> only defines <code>GET</code> and <code>POST</code> — there's no <code>PATCH</code>/<code>PUT</code>. The <code>TaskModal</code> component in the Kanban board <em>looks</em> like it edits a task, but <code>onSave</code> only updates local React state in <code>ProjectBoard</code> — nothing is ever sent to the server. If someone asks you &quot;how do you update a task,&quot; the honest, accurate answer is: <em>the API doesn't support it yet; only creation and listing exist.</em></p>
+<h3>Request 7 — Unauthorized Request</h3>
+<p>Three distinct failure modes, each mapping to a different HTTP status — this is a great interview answer on its own:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Where it fails</th>
+<th>Status</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No <code>Authorization</code> header</td>
+<td><code>requireAuth.ts</code>, before the route even runs</td>
+<td><strong>401</strong></td>
+<td>We don't know who you are</td>
+</tr>
+<tr>
+<td>Expired / malformed JWT</td>
+<td><code>requireAuth.ts</code> — <code>jwt.verify()</code> throws, caught, rethrown as <code>unauthorized(&quot;Invalid or expired token&quot;)</code></td>
+<td><strong>401</strong></td>
+<td>We can't confirm who you are</td>
+</tr>
+<tr>
+<td>Valid token, but not a member of the target workspace</td>
+<td><code>verifyWorkspaceMember()</code> in the service layer</td>
+<td><strong>403</strong></td>
+<td>We know exactly who you are — you're just not allowed here</td>
+</tr>
+</tbody>
+</table>
+<p>That 401-vs-403 split (<em>&quot;who are you&quot; unresolved</em> vs. <em>&quot;we know, but no&quot;</em>) is exactly the distinction between <strong>authentication</strong> and <strong>authorization</strong>, and CollabSpace draws that line cleanly across two different layers of the stack (middleware vs. service).</p>
+<p><strong>Quick check — don't look back until you've answered these:</strong></p>
+<ol>
+<li>Why does <code>createWorkspaceWithOwner</code> need a <code>$transaction</code> but <code>createProject</code> doesn't?</li>
+<li>What's the one function that stands between User A and User B's workspace data?</li>
+<li>Why does the task route read <code>workspaceId</code> from the query string while the project route reads it from a URL param?</li>
+</ol>
+<hr>
+<h1>Part 4 — The Database</h1>
+<pre class="mermaid">erDiagram
+    USERS ||--o{ WORKSPACE_MEMBERS : &#34;has&#34;
+    WORKSPACES ||--o{ WORKSPACE_MEMBERS : &#34;has&#34;
+    WORKSPACES ||--o{ PROJECTS : &#34;has&#34;
+    WORKSPACES ||--o{ TASKS : &#34;has&#34;
+    PROJECTS ||--o{ TASKS : &#34;has&#34;
+    USERS ||--o{ TASKS : &#34;assigned to&#34;
+    USERS ||--o{ REFRESH_TOKENS : &#34;has&#34;
+    WORKSPACES ||--o{ INVITATIONS : &#34;has&#34;
+    USERS ||--o{ INVITATIONS : &#34;sent by&#34;
+</pre>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Purpose</th>
+<th>Key fields</th>
+<th>Notable constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>Account identity</td>
+<td><code>email</code> (unique), <code>password_hash</code>, <code>name</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>workspaces</code></td>
+<td>The tenant boundary</td>
+<td><code>name</code>, <code>created_at</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>workspace_members</code></td>
+<td><strong>The</strong> multi-tenancy join table</td>
+<td><code>user_id</code> FK, <code>workspace_id</code> FK, <code>role</code></td>
+<td><strong>Unique on <code>(user_id, workspace_id)</code></strong> — one membership row per person per workspace</td>
+</tr>
+<tr>
+<td><code>projects</code></td>
+<td>A project inside one workspace</td>
+<td><code>workspace_id</code> FK, <code>name</code>, <code>description?</code></td>
+<td>Cascade-deletes with its workspace</td>
+</tr>
+<tr>
+<td><code>tasks</code></td>
+<td>A task inside one project</td>
+<td><code>project_id</code> FK, <code>workspace_id</code> FK (redundant, on purpose — see below), <code>assigned_to</code> FK (nullable), <code>status</code>, <code>due_date</code></td>
+<td>Indexed on <code>assigned_to</code>, <code>project_id</code>, <code>status</code>, <code>workspace_id</code></td>
+</tr>
+<tr>
+<td><code>refresh_tokens</code></td>
+<td>Long-lived login credential</td>
+<td><code>user_id</code> FK, <code>token</code> (unique), <code>expires_at</code>, <code>revoked_at?</code></td>
+<td>Indexed on <code>user_id</code> and <code>token</code></td>
+</tr>
+<tr>
+<td><code>invitations</code></td>
+<td>Pending workspace invite</td>
+<td><code>workspace_id</code> FK, <code>invited_by</code> FK, <code>email</code>, <code>token</code> (unique), <code>expires_at</code>, <code>accepted_at?</code></td>
+<td>Indexed on <code>workspace_id</code>, <code>email</code>, <code>token</code></td>
+</tr>
+</tbody>
+</table>
+<p>Every primary key is a <code>String @db.Uuid</code> generated via Postgres's own <code>gen_random_uuid()</code> (the <code>pgcrypto</code> extension is enabled in <code>001_create_users.sql</code>) — so IDs are generated by the database, not the application.</p>
+<p><strong>Why the redundant <code>workspace_id</code> on <code>tasks</code>?</strong> A task already belongs to a project, and a project already belongs to a workspace — so <code>workspace_id</code> is technically derivable by joining through <code>projects</code>. Storing it directly on <code>tasks</code> anyway is a deliberate denormalization: every tenant-scoped task query (which is <em>most</em> task queries) can filter on <code>workspace_id</code> directly instead of joining through <code>projects</code> first, and it's what makes the <code>idx_tasks_workspace_id</code> index actually useful. This is a good, defensible tradeoff — not an oversight.</p>
+<p><strong>Why Postgres:</strong> the domain is genuinely relational — memberships, ownership chains, and cascading deletes (delete a workspace → its projects and tasks should go with it) are exactly what foreign keys and <code>ON DELETE CASCADE</code> exist for.</p>
+<p><strong>Why Prisma:</strong> type-safe query building that matches a TypeScript-heavy stack, with types generated straight from the schema instead of hand-maintained.</p>
+<p><strong>Where migrations actually happen — and a real inconsistency worth knowing about.</strong> Your repo has hand-written SQL files under <code>server/src/db/migrations/*.sql</code> (six of them), and separately, <code>prisma.config.ts</code> points Prisma at a <code>prisma/migrations</code> folder — but no files exist there in what you uploaded. That strongly suggests schema changes are currently driven by the raw SQL files, with <code>schema.prisma</code> kept in sync by hand rather than by <code>prisma migrate dev</code>. <em>(I can't verify this with full certainty from the files alone — if you do use <code>prisma migrate</code>, let me know and I'll correct this.)</em> One small, concrete bug in those SQL files: there are <strong>two files numbered <code>004</code></strong> — <code>004_add_indexes.sql</code> and <code>004_create_tasks.sql</code>. Harmless today, but any tool that applies migrations by sorting filenames would have an ambiguous order between them.</p>
+<p><strong>Quick check:</strong></p>
+<ol>
+<li>Which single column lets a task query skip a join through <code>projects</code> to know its workspace?</li>
+<li>What Postgres extension does <code>gen_random_uuid()</code> depend on, and where is it enabled?</li>
+<li>What breaks if two migration files share the same number?</li>
+</ol>
+<hr>
+<h2>Reality Check — what's actually true vs. what the docs claim</h2>
+<p>This is the section I'd read first before an interview. Each item below is something I confirmed by reading the code directly, not by trusting a comment, README checkbox, or doc file.</p>
+<ol>
+<li><strong>IMPLEMENTED, but your README says otherwise.</strong> Register, login, JWT access tokens, refresh tokens, logout, and the <code>requireAuth</code> middleware are all fully working end-to-end. Your own <code>README.md</code> still marks &quot;Authentication 🚧&quot; and &quot;JWT ⏳&quot; as in-progress. The code is further along than the docs — a genuinely good example of why rule #3 in your own prompt (&quot;don't assume something is implemented just because docs say so&quot;) cuts both ways.</li>
+<li><strong>PLANNED, not IMPLEMENTED — the RBAC gap.</strong> <code>docs/RBAC-permission-matrix.md</code> lays out exactly what <code>OWNER</code>/<code>ADMIN</code>/<code>MEMBER</code>/<code>VIEWER</code> should each be allowed to do. But <code>verifyWorkspaceMember()</code> — the only authorization check that actually runs — checks whether you're <em>a</em> member, never <em>which</em> role you have. Right now, any member of a workspace can create a project, regardless of role.</li>
+<li><strong>PARTIALLY IMPLEMENTED — two frontends coexist.</strong> <code>ProjectPage</code> calls the real API. <code>HomePage</code>'s stats and <code>TasksPage</code>'s entire Kanban board run on hardcoded arrays in <code>client/src/data/</code>. The fake <code>Task</code> type there even has fields — <code>priority</code>, <code>description</code>, <code>assigneeAvatar</code> — that <strong>don't exist in your actual Postgres schema at all</strong>. That's not a small detail; it means the Kanban board was designed against a data model the backend was never built to support.</li>
+<li><strong>UNCLEAR / not found in the upload.</strong> I don't see a login or registration page anywhere in the client source. The backend auth is real and complete; nothing in the uploaded frontend calls <code>/auth/login</code> or <code>/auth/register</code>. If it exists in a file that wasn't included in your export, tell me and I'll fold it into the picture.</li>
+<li><strong>NOT IMPLEMENTED — refresh tokens don't rotate.</strong> <code>refreshAccessToken()</code> verifies the existing refresh token and issues a new <em>access</em> token, but never issues a new refresh token. The same refresh token stays valid until it naturally expires or you explicitly log out.</li>
+<li><strong>NOT IMPLEMENTED — no update/delete for tasks or projects.</strong> Both <code>task.routes.ts</code> and <code>project.routes.ts</code> only define <code>GET</code> and <code>POST</code>. Editing or deleting either only exists as commented-out stub lines (<code>// update()</code>, <code>// delete()</code>) in the repository files.</li>
+<li><strong>DEAD CODE — confirmed by your own git history.</strong> <code>server/src/db/pool.ts</code> and <code>testConnection.ts</code> are unused leftovers from before commit <code>ab18348</code> (&quot;migrate from raw SQL to Prisma ORM&quot;).</li>
+<li><strong>PARTIALLY IMPLEMENTED — RBAC roles.</strong> Only <code>OWNER</code> and <code>MEMBER</code> are ever actually assigned by any code path (<code>createWorkspaceWithOwner</code>, <code>acceptInvitationService</code>). <code>ADMIN</code> and <code>VIEWER</code> exist in the documentation and the schema's type, but nothing in the app can currently produce them.</li>
+<li><strong>NOT IMPLEMENTED — role-based enforcement.</strong> Confirmed: no <code>requireRole</code> middleware or equivalent exists anywhere in <code>middleware/</code>, controllers, or services. <code>verifyWorkspaceMember()</code> fetches <code>.role</code> as part of the membership row it loads and never reads it.</li>
+<li><strong>NOT A REACHABLE ATTACK SURFACE YET — single-resource endpoints.</strong> &quot;Fetch someone else's specific task/project by ID&quot; isn't currently possible to even attempt, because no single-resource <code>GET</code>/<code>PATCH</code>/<code>DELETE</code> route exists for either projects or tasks. This will start to matter the moment those endpoints get built (see Phase 15).</li>
+</ol>
+<hr>
+<h1>Part 5 — Authentication Deep Dive</h1>
+<p>Part 3 already traced registration and login file-by-file. This section goes one level deeper: what's actually <em>inside</em> the tokens, and the precise line where authentication hands off to authorization.</p>
+<h2>Concept: The Access Token</h2>
+<p><strong>What is it?</strong> A signed JSON Web Token proving &quot;this request comes from an already-authenticated user,&quot; valid for a short window.</p>
+<p><strong>Actual code:</strong></p>
+<pre><code class="language-ts">// auth.service.ts — signing, at login
+const accessToken = jwt.sign({ sub: user.id }, jwtSecret, { expiresIn: &#34;15m&#34; });
+</code></pre>
+<pre><code class="language-ts">// requireAuth.ts — verifying, on every protected request
+const decoded = jwt.verify(token, jwtSecret) as JwtPayload; // JwtPayload = { sub: string }
+req.user = { id: decoded.sub };
+</code></pre>
+<p><strong>What's actually inside it:</strong> just <code>{ sub: &lt;userId&gt; }</code>, plus the standard <code>iat</code>/<code>exp</code> claims <code>jsonwebtoken</code> adds automatically. No name, no email, no role — anything else a controller needs, it looks up fresh from the database using <code>req.user.id</code>.</p>
+<p><strong>How it's signed:</strong> HS256 (HMAC, one shared secret — <code>JWT_SECRET</code>), not RS256. That's the right call for a single backend service that both signs and verifies its own tokens; RS256 earns its complexity when a <em>different</em> service needs to verify tokens without being trusted to issue them.</p>
+<p><strong>Why 15 minutes?</strong> Short enough that a leaked token is only dangerous for a small window — and short enough that you <em>need</em> a refresh mechanism for any real session, which is exactly why the next concept exists.</p>
+<p><strong>Failure case:</strong> malformed signature, wrong secret, and expired token all hit the same <code>catch</code> in <code>requireAuth.ts</code> and return the identical response:</p>
+<pre><code class="language-ts">try {
+  const decoded = jwt.verify(token, jwtSecret) as JwtPayload;
+  ...
+} catch {
+  throw unauthorized(&#34;Invalid or expired token&#34;); // 401 — no distinction given to the client
+}
+</code></pre>
+<p>Not distinguishing the failure reason to the client is a defensible security default, whether or not it was consciously chosen.</p>
+<p><strong>Alternative:</strong> server-side session cookies instead of JWTs. Trade-off: cookies need a shared session store (or sticky sessions) across multiple server instances; JWTs are stateless — any instance can verify one alone — but can't be revoked before they expire. That gap is exactly what the refresh token below is for.</p>
+<p><strong>Interview question:</strong> &quot;What's inside your JWT, and what would you never put in it?&quot; — Answer: just the user ID; never a password, never a role (unless you're fine with it being stale for up to 15 minutes), never anything sensitive — the payload is base64-encoded, not encrypted.</p>
+<p><strong>Practical exercise:</strong> decode one of your own access tokens at jwt.io and confirm it really only carries <code>sub</code>, <code>iat</code>, <code>exp</code>.</p>
+<h2>Concept: The Refresh Token</h2>
+<p><strong>What is it?</strong> A long-lived, opaque, revocable credential that mints new access tokens without re-entering a password.</p>
+<p><strong>Actual code:</strong></p>
+<pre><code class="language-ts">// auth.service.ts
+function generateRefreshToken() {
+  return crypto.randomBytes(32).toString(&#34;hex&#34;); // opaque — NOT a JWT
+}
+</code></pre>
+<pre><code class="language-ts">// refreshToken.repository.ts
+export async function createRefreshToken(userId, token, expiresAt) {
+  return prisma.refresh_tokens.create({ data: { user_id: userId, token, expires_at: expiresAt } });
+}
+</code></pre>
+<p><strong>Why opaque instead of a JWT?</strong> It's checked against the database on every use anyway (<code>findRefreshToken</code>), so there's no benefit to making it self-describing — and a random string leaks zero information if intercepted, unlike a JWT payload.</p>
+<p><strong>Where it's stored:</strong> server-side, in <code>refresh_tokens</code> (<code>user_id</code>, unique <code>token</code>, <code>expires_at</code>, nullable <code>revoked_at</code>). Client-side storage isn't visible anywhere in the uploaded frontend — consistent with the earlier finding that no login flow exists in the client code at all.</p>
+<p><strong>Expiration:</strong> 7 days. <strong>Revocation:</strong> yes — <code>revoked_at</code> is set by <code>revokeRefreshToken()</code>, called from <code>logoutUser()</code>, and both expiry and revocation are checked on every refresh:</p>
+<pre><code class="language-ts">if (storedToken.revoked_at) throw unauthorized(&#34;Invalid refresh token&#34;);
+if (storedToken.expires_at &lt;= new Date()) throw unauthorized(&#34;Invalid refresh token&#34;);
+</code></pre>
+<p><strong>Rotation: NOT implemented.</strong> <code>refreshAccessToken()</code> issues a new <em>access</em> token but never issues a new refresh token and never revokes the old one. <strong>Name this precisely in an interview, not just as &quot;it's insecure&quot;:</strong> if a refresh token is ever stolen, it stays fully valid for the rest of its 7-day life — usable by the attacker and the real user simultaneously — with nothing in the current code to detect or interrupt that. The standard fix, <em>rotation</em>, would issue a brand-new refresh token on every use and immediately revoke the one just spent, turning a stolen-and-reused token into a detectable collision.</p>
+<p><strong>Interview question:</strong> &quot;Why not skip refresh tokens and just use a longer-lived JWT?&quot; — Because a JWT can't be revoked before it expires. The refresh-token pattern buys you a revocation lever at the cost of one extra round trip.</p>
+<p><strong>Practical exercise (good Phase 15 candidate):</strong> implement rotation — on every successful <code>/auth/refresh</code>, revoke the incoming token and create + return a new one alongside the new access token.</p>
+<h2>Authentication vs. Authorization, precisely located in your code</h2>
+<pre><code class="language-text">Authentication = Who are you?      →  requireAuth.ts          (route-level, generic, runs first)
+Authorization  = Are you allowed?  →  verifyWorkspaceMember()  (service-level, resource-specific, runs second)
+</code></pre>
+<p><code>requireAuth</code> never looks at <em>which</em> workspace/project/task is being touched — it only confirms the JWT and sets <code>req.user.id</code>. <code>verifyWorkspaceMember</code> never re-checks the JWT — it trusts <code>req.user.id</code> is already legitimate and asks a narrower question: does <em>this</em> person have any relationship to <em>this</em> resource? Different questions, different layers — which is exactly why one produces 401 and the other 403.</p>
+<hr>
+<h1>Part 6 — Tenant Isolation Deep Dive</h1>
+<pre><code class="language-text">User
+ ↓  row in workspace_members, unique on (user_id, workspace_id)
+Workspace Membership
+ ↓
+Workspace
+ ↓  workspace_id FK
+Projects
+ ↓  project_id FK + redundant workspace_id FK
+Tasks
+</code></pre>
+<p>A &quot;tenant&quot; here is a workspace. Every project and task belongs to exactly one, and the whole security model exists to guarantee a user can only ever reach data belonging to a workspace they're actually in.</p>
+<h2>Concept: <code>verifyWorkspaceMember()</code></h2>
+<p><strong>Actual code:</strong></p>
+<pre><code class="language-ts">// project.service.ts — identical pattern in task.service.ts
+async function verifyWorkspaceMember(workspaceId: string, userId: string) {
+  const membership = await findWorkspaceMembership(workspaceId, userId);
+  if (!membership) {
+    throw forbidden(&#34;You are not a member of this workspace&#34;);
+  }
+}
+</code></pre>
+<pre><code class="language-ts">// workspace.repository.ts
+export async function findWorkspaceMembership(workspaceId: string, userId: string) {
+  return prisma.workspace_members.findUnique({
+    where: { user_id_workspace_id: { user_id: userId, workspace_id: workspaceId } },
+  });
+}
+</code></pre>
+<p><strong>Inputs:</strong> <code>workspaceId</code> (from the URL/query — always attacker-controllable, never trust it blindly) and <code>userId</code> (from <code>req.user.id</code>, set by <code>requireAuth</code> from the verified JWT — this one is trustworthy).</p>
+<p><strong>Database query:</strong> one indexed lookup on the compound unique key <code>(user_id, workspace_id)</code> — O(1), not a scan.</p>
+<p><strong>Result → failure → response:</strong> <code>null</code> → <code>throw forbidden(...)</code> → caught by <code>errorHandler</code> → <strong>403</strong>.</p>
+<p><strong>What happens after success:</strong> nothing extra — the function returns <code>void</code> and the caller proceeds. Notice what it <em>doesn't</em> do: it fetches the whole row, including <code>.role</code>, and <strong>discards it</strong>. That discarded field is exactly where RBAC hooks in (Part 7).</p>
+<p><strong>Why this design holds up even with the RBAC gap:</strong> the check lives in one function per resource type, called from every service method that touches it — not copy-pasted into a dozen controllers. Closing the RBAC gap means adding one more check inside (or right after) this function, not hunting for call sites.</p>
+<p><strong>Failure case today:</strong> nothing forces a developer adding a new route to remember to call this. It's a convention, not something the framework enforces.</p>
+<p><strong>Practical exercise:</strong> add a <code>console.log</code> right after the membership lookup and confirm, against your own running server, that a mismatched pair short-circuits before any Prisma write happens.</p>
+<h2>Attack scenarios — checked against the actual code, not assumed</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Attack</th>
+<th>Code path</th>
+<th>Check that fires</th>
+<th>Result</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>User A requests <code>GET /api/workspaces/&lt;workspace-B&gt;/projects</code></td>
+<td><code>getProjectsByWorkspace</code> → <code>verifyWorkspaceMember(B, A)</code></td>
+<td><code>findWorkspaceMembership</code> → <code>null</code></td>
+<td><strong>403</strong></td>
+<td>No row exists for <code>(A, B)</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Member of Workspace A passes a <code>projectId</code> that actually belongs to Workspace B, while claiming <code>workspaceId=A</code></td>
+<td><code>task.repository.findTasksByProject</code> — <code>WHERE project_id=? AND workspace_id=?</code></td>
+<td>The AND clause matches nothing</td>
+<td><strong>Empty array</strong> (not a leak, but also not an explicit error)</td>
+<td>Query-level filtering rather than a service-level guard — a <em>different</em> mechanism from <code>verifyWorkspaceMember</code>, worth knowing they're not the same thing</td>
+</tr>
+<tr>
+<td>3</td>
+<td>User A requests one specific task by ID from another workspace</td>
+<td>—</td>
+<td>—</td>
+<td><strong>Not reachable / UNCLEAR</strong> — no <code>GET /tasks/:taskId</code> or <code>PATCH</code> route exists at all</td>
+<td>Can't attack an endpoint that isn't there</td>
+</tr>
+<tr>
+<td>4</td>
+<td>User A blindly guesses a workspace UUID</td>
+<td>Same as #1</td>
+<td>Same 403</td>
+<td><strong>403</strong>, and separately near-impossible: workspace IDs are random UUIDv4s, not sequential integers</td>
+<td>Membership check is the real defense; UUIDs make blind enumeration pointless on top of it</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A legitimate member of Workspace A edits the URL to <strong>create</strong> a project inside Workspace B</td>
+<td><code>createProjectService(B, A, ...)</code> → <code>verifyWorkspaceMember(B, A)</code></td>
+<td>Same check</td>
+<td><strong>403</strong></td>
+<td>Confirms the guard applies identically to writes, not just reads</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The honest caveat that ties this whole table together:</strong> every attack above assumes bulk, workspace-scoped fetching (how every current <code>GET</code> works). The moment a single-resource endpoint exists (<code>GET /projects/:id</code>, likely once update/delete gets built in Phase 15), it will need its <strong>own</strong> explicit check that the specific ID actually belongs to the claimed workspace — <code>verifyWorkspaceMember</code> alone checks the workspace, never the specific resource ID.</p>
+<p><strong>Quick check:</strong></p>
+<ol>
+<li>What field on <code>workspace_members</code> decides whether this whole system returns 403 or lets the request through?</li>
+<li>Why is an empty array a <em>safe</em> response for attack #2, but leaking one field of the mismatched project would not be?</li>
+<li>What new check would a future <code>GET /projects/:projectId</code> need that today's endpoints don't?</li>
+</ol>
+<hr>
+<h1>Part 7 — RBAC Deep Dive</h1>
+<p>You mentioned you're building this right now, so this section stays diagnostic — what exists, precisely, today — rather than solving it for you. You'll get more out of writing the check yourself than reading mine.</p>
+<p><strong>The four documented roles vs. what the code can actually produce:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>In <code>RBAC-permission-matrix.md</code>?</th>
+<th>Ever actually assigned in code?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OWNER</code></td>
+<td>Yes</td>
+<td>Yes — <code>createWorkspaceWithOwner()</code></td>
+</tr>
+<tr>
+<td><code>ADMIN</code></td>
+<td>Yes</td>
+<td><strong>No</strong> — no code path writes it</td>
+</tr>
+<tr>
+<td><code>MEMBER</code></td>
+<td>Yes</td>
+<td>Yes — <code>acceptInvitationService()</code></td>
+</tr>
+<tr>
+<td><code>VIEWER</code></td>
+<td>Yes</td>
+<td><strong>No</strong> — no code path writes it</td>
+</tr>
+</tbody>
+</table>
+<p>Only two of the four designed roles are reachable through the app at all today. <code>role</code> is a plain string column with no database-level enum — nothing <em>stops</em> <code>ADMIN</code>/<code>VIEWER</code> from being written, but nothing currently does.</p>
+<p><strong>Permission matrix — designed vs. actually enforced:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Designed</th>
+<th>Actually enforced today</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View workspace / projects</td>
+<td>All roles</td>
+<td>Any member — role never checked</td>
+</tr>
+<tr>
+<td>Create project</td>
+<td>Owner, Admin, Member</td>
+<td>Any member, <strong>including a hypothetical Viewer</strong> — role never checked</td>
+</tr>
+<tr>
+<td>Update / delete project</td>
+<td>Owner, Admin (+Member for update)</td>
+<td><strong>Not implemented</strong> — no route exists</td>
+</tr>
+<tr>
+<td>Create task</td>
+<td>Owner, Admin, Member</td>
+<td>Any member — role never checked</td>
+</tr>
+<tr>
+<td>Update / delete task</td>
+<td>Owner, Admin, Member</td>
+<td><strong>Not implemented</strong> — no route exists</td>
+</tr>
+<tr>
+<td>Invite member</td>
+<td>Owner, Admin</td>
+<td>Any member — role never checked</td>
+</tr>
+<tr>
+<td>Remove member / change role</td>
+<td>Owner, Admin</td>
+<td><strong>Not implemented</strong> — no route exists</td>
+</tr>
+<tr>
+<td>Delete workspace / transfer ownership</td>
+<td>Owner only</td>
+<td><strong>Not implemented</strong> — no route exists</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Is there a <code>requireRole</code>?</strong> No — no such file under <code>middleware/</code>, and no <code>.role</code> comparison in any controller or service. The only place <code>.role</code> is <em>read</em> (not written) is the response mapping that lets <code>WorkspaceSwitcher</code>/<code>Badge</code> display it on the frontend — cosmetic, not a gate.</p>
+<p><strong>Where would enforcement hook in?</strong> The natural seam is inside or right after <code>verifyWorkspaceMember()</code> — it's already holding the membership row, <code>.role</code> included, before throwing it away. A role check needs: the membership row (already fetched), a way to express &quot;this action needs at least role X,&quot; and an ordering of the four roles so <code>OWNER</code> satisfies anything <code>ADMIN</code> does.</p>
+<p><strong>Why frontend-only checks would never be enough, concretely here:</strong> hiding the &quot;New Project&quot; button for a Viewer in React doesn't stop that Viewer from copying your <code>apiFetch</code> call and hitting <code>POST /api/workspaces/:id/projects</code> directly with their own valid token — which, per the table above, currently <em>succeeds</em>, because the backend never asks what their role is. Enforcement has to live where the request lands, not just where the button is drawn.</p>
+<p><strong>Interview question:</strong> &quot;Your docs say Viewers can't create projects. Can they, right now?&quot; — <em>&quot;Not by design, but yes, technically, today — the check only verifies membership, not role. That's the exact gap I'm closing, and I know exactly which function it goes in.&quot;</em></p>
+<hr>
+<h2>What's next</h2>
+<p><strong>Phase 5</strong> picks up the frontend: routing, components, state, forms, and a full component-by-component trace of exactly which UI reaches your real backend and which is still running on <code>client/src/data/</code>. <strong>Phase 6</strong> does the same for backend architecture — why five layers, what each one is forbidden from doing, and where this structure would start being overkill in a smaller app.</p>
+<p>Say <strong>&quot;continue&quot;</strong> for Phase 5, or name a phase number to jump ahead.</p>
+
+
+<!--claude-mermaid-runtime-begin:3477-->
+<style>.mermaid-diagram{margin-block:4px}.mermaid-diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}</style>
+<script src="/_runtime/mermaid-11.16.1.min.js"></script>
+<script>(function(){
+var CFG={"palettes":{"light":{"surface":"#f4efe4","text":"#42392e","line":"#8a7f6d","border":"#7a6c52","bg":"#fffdf8"},"dark":{"surface":"#262b34","text":"#f2f3f5","line":"#a8adb8","border":"#9aa4b8","bg":"#1f232b"}}};
+if(typeof mermaid==='undefined')return;
+var pres=Array.prototype.slice.call(document.querySelectorAll('pre.mermaid')).filter(function(p){if(p.hasAttribute('data-claude-mermaid-claimed'))return false;p.setAttribute('data-claude-mermaid-claimed','1');return true;});
+if(!pres.length)return;
+var mq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+var root=document.documentElement;
+var items=pres.map(function(pre){
+var mount=document.createElement('div');mount.className='mermaid-diagram';
+return {pre:pre,mount:mount,src:pre.textContent||''};
+});
+var seq=0;
+var renderGen=0;
+var lastKey='';
+function pageBg(fallback){
+var els=[document.body,document.documentElement];
+for(var i=0;i<els.length;i++){
+var c=els[i]&&getComputedStyle(els[i]).backgroundColor;
+if(c&&c!=='transparent'&&c!=='rgba(0, 0, 0, 0)')return c;
+}
+return fallback;
+}
+function render(){
+var theme=root.getAttribute('data-theme');
+var dark=theme==='dark'||(!!(mq&&mq.matches)&&theme!=='light');
+var pal=dark?CFG.palettes.dark:CFG.palettes.light;
+var bg=pageBg(pal.bg);
+var key=(dark?'d':'l')+'|'+bg;
+if(key===lastKey)return;
+lastKey=key;
+var gen=++renderGen;
+var font=getComputedStyle(document.body).fontFamily||'sans-serif';
+var nat={useMaxWidth:false};
+mermaid.initialize({
+startOnLoad:false,securityLevel:'strict',theme:'base',
+flowchart:nat,sequence:nat,er:nat,state:nat,class:nat,pie:nat,
+gantt:nat,journey:nat,timeline:nat,gitGraph:nat,mindmap:nat,xyChart:nat,
+quadrantChart:nat,sankey:nat,c4:nat,requirement:nat,block:nat,
+packet:nat,kanban:nat,architecture:nat,radar:nat,
+themeVariables:{background:bg,mainBkg:pal.surface,primaryColor:pal.surface,
+primaryTextColor:pal.text,lineColor:pal.line,primaryBorderColor:pal.border,
+nodeBorder:pal.border,clusterBorder:pal.border,edgeLabelBackground:bg,
+clusterBkg:'rgba(127,127,127,0.07)',titleColor:pal.text,
+darkMode:dark,rowOdd:bg,rowEven:'rgba(127,127,127,0.07)',
+attributeBackgroundColorOdd:bg,attributeBackgroundColorEven:'rgba(127,127,127,0.07)',
+fontSize:'16px',fontFamily:font},
+themeCSS:'.node rect, .node circle, .node polygon, .node path, .cluster rect { stroke-width: 2px; }'
+});
+items.forEach(function(it){
+var id='claude-mermaid-'+seq++;
+mermaid.render(id,it.src).then(function(r){
+if(gen!==renderGen)return;
+var prev=it.pre.previousElementSibling;
+if(prev&&prev.className==='mermaid-diagram'&&prev!==it.mount)return;
+it.mount.innerHTML=r.svg;
+if(!it.mount.parentNode)it.pre.parentNode.insertBefore(it.mount,it.pre);
+it.pre.style.display='none';
+},function(){
+var scratch=document.getElementById(id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+scratch=document.getElementById('d'+id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+if(gen!==renderGen)return;
+if(it.mount.parentNode)it.mount.parentNode.removeChild(it.mount);
+it.pre.style.display='';
+});
+});
+}
+render();
+if(mq&&mq.addEventListener)mq.addEventListener('change',render);
+if(typeof MutationObserver!=='undefined')new MutationObserver(render).observe(root,{attributes:true,attributeFilter:['data-theme']});
+})();</script>
+<!--claude-mermaid-runtime-end-->
+</body></html>
