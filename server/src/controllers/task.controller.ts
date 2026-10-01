@@ -1,10 +1,15 @@
 import type { RequestHandler } from "express";
-import type { CreateTaskBody } from "../schemas/task.schema.js";
+
+import type { CreateTaskBody, UpdateTaskBody } from "../schemas/task.schema.js";
+
 import {
   getTasksByProject,
   createTaskService,
+  updateTaskService,
 } from "../services/task.service.js";
+
 import { badRequest, unauthorized } from "../lib/AppError.js";
+
 import type { ApiResponse } from "../types/apiResponse.js";
 import type { Task } from "../types/task.js";
 
@@ -25,11 +30,7 @@ export const getTasks: RequestHandler = async (req, res) => {
     throw unauthorized("Authentication required");
   }
 
-  const projectTasks = await getTasksByProject(
-    projectId,
-    workspaceId,
-    userId,
-  );
+  const projectTasks = await getTasksByProject(projectId, workspaceId, userId);
 
   const response: ApiResponse<Task[]> = {
     success: true,
@@ -44,6 +45,7 @@ export const createTask: RequestHandler = async (req, res) => {
   const projectId = req.params.projectId;
   const workspaceId = req.query.workspaceId;
   const userId = req.user?.id;
+
   const { title, completed } = req.body as CreateTaskBody;
 
   if (typeof projectId !== "string") {
@@ -77,4 +79,39 @@ export const createTask: RequestHandler = async (req, res) => {
   };
 
   res.status(201).json(response);
+};
+
+export const updateTask: RequestHandler = async (req, res) => {
+  const taskId = req.params.taskId;
+  const userId = req.user?.id;
+
+  if (typeof taskId !== "string") {
+    throw badRequest("taskId is required");
+  }
+
+  if (!userId) {
+    throw unauthorized("Authentication required");
+  }
+
+  if (!req.workspace) {
+    throw badRequest("Workspace context is required");
+  }
+
+  const body = req.body as UpdateTaskBody;
+
+  const task = await updateTaskService(
+    taskId,
+    req.workspace.id,
+    userId,
+    req.workspace.role,
+    body,
+  );
+
+  const response: ApiResponse<typeof task> = {
+    success: true,
+    message: "Task updated successfully",
+    data: task,
+  };
+
+  res.json(response);
 };

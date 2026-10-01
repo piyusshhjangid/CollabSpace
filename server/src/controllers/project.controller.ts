@@ -2,6 +2,7 @@ import type { RequestHandler } from "express";
 import {
   getProjectsByWorkspace,
   createProjectService,
+  deleteProjectService,
 } from "../services/project.service.js";
 import type { CreateProjectBody } from "../schemas/project.schema.js";
 import { badRequest, unauthorized } from "../lib/AppError.js";
@@ -103,6 +104,36 @@ export const getProjectSummary: RequestHandler = async (req, res) => {
       projectId,
       taskCounts,
     },
+  };
+
+  res.json(response);
+};
+
+export const deleteProject: RequestHandler = async (
+  req,
+  res,
+) => {
+  const projectId = req.params.projectId;
+
+  if (typeof projectId !== "string") {
+    throw badRequest("Project ID is required");
+  }
+
+  if (!req.workspace) {
+    throw badRequest(
+      "Workspace context is required",
+    );
+  }
+
+  const result = await deleteProjectService(
+    projectId,
+    req.workspace.id,
+  );
+
+  const response: ApiResponse<typeof result> = {
+    success: true,
+    message: "Project deleted successfully",
+    data: result,
   };
 
   res.json(response);

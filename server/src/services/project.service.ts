@@ -1,6 +1,7 @@
 import {
   findProjectsByWorkspace,
   createProject,
+  deleteProject,
 } from "../repositories/project.repository.js";
 import { findWorkspaceMembership } from "../repositories/workspace.repository.js";
 import type { Project } from "../types/project.js";
@@ -42,4 +43,18 @@ export async function createProjectService(
   }
 
   return createProject(workspaceId, name, description);
+}
+
+export async function deleteProjectService(
+  projectId: string,
+  workspaceId: string,
+) {
+  try {
+    return await deleteProject(
+      projectId,
+      workspaceId,
+    );
+  } catch {
+    throw badRequest("Project not found");
+  }
 }

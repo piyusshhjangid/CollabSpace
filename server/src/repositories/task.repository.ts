@@ -107,3 +107,71 @@ export async function getTaskCountsByStatus(
     }))
     .sort((a, b) => a.status.localeCompare(b.status));
 }
+
+export async function findTaskForUpdate(
+  taskId: string,
+  workspaceId: string,
+) {
+  return prisma.tasks.findFirst({
+    where: {
+      id: taskId,
+      workspace_id: workspaceId,
+    },
+    select: {
+      id: true,
+      workspace_id: true,
+      project_id: true,
+      assigned_to: true,
+      title: true,
+      completed: true,
+      status: true,
+    },
+  });
+}
+
+export async function updateTask(
+  taskId: string,
+  workspaceId: string,
+  data: {
+    title?: string | undefined;
+    completed?: boolean | undefined;
+    status?: string | undefined;
+  },
+) {
+  const updateData: {
+    title?: string;
+    completed?: boolean;
+    status?: string;
+  } = {};
+
+  if (data.title !== undefined) {
+    updateData.title = data.title;
+  }
+
+  if (data.completed !== undefined) {
+    updateData.completed = data.completed;
+  }
+
+  if (data.status !== undefined) {
+    updateData.status = data.status;
+  }
+
+  const updated = await prisma.tasks.updateMany({
+    where: {
+      id: taskId,
+      workspace_id: workspaceId,
+    },
+    data: updateData,
+  });
+
+  if (updated.count === 0) {
+    throw new Error("Task not found");
+  }
+
+  return prisma.tasks.findFirst({
+    where: {
+      id: taskId,
+      workspace_id: workspaceId,
+    },
+  });
+}

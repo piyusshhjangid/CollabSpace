@@ -3,23 +3,27 @@ import {
   createTask,
   getOverdueTasks,
   getTaskCountsByStatus,
+  findTaskForUpdate,
+  updateTask,
 } from "../repositories/task.repository.js";
+
 import { findWorkspaceMembership } from "../repositories/workspace.repository.js";
+
 import type { Task } from "../types/task.js";
+
 import { badRequest, forbidden } from "../lib/AppError.js";
 
-async function verifyWorkspaceMember(
-  workspaceId: string,
-  userId: string,
-) {
-  const membership = await findWorkspaceMembership(
-    workspaceId,
-    userId,
-  );
+import type { Role } from "../types/role.js";
+import { canManageResource } from "../lib/resourceAuthorization.js";
+
+async function verifyWorkspaceMember(workspaceId: string, userId: string) {
+  const membership = await findWorkspaceMembership(workspaceId, userId);
 
   if (!membership) {
     throw forbidden("You are not a member of this workspace");
   }
+
+  return membership;
 }
 
 export async function getTasksByProject(
@@ -29,10 +33,7 @@ export async function getTasksByProject(
 ) {
   await verifyWorkspaceMember(workspaceId, userId);
 
-  return findTasksByProject(
-    projectId,
-    workspaceId,
-  );
+  return findTasksByProject(projectId, workspaceId);
 }
 
 export async function createTaskService(
@@ -64,6 +65,43 @@ export async function createTaskService(
   );
 }
 
+export async function updateTaskService(
+  taskId: string,
+  workspaceId: string,
+  userId: string,
+  role: Role,
+  data: {
+    title?: string | undefined;
+    completed?: boolean | undefined;
+    status?: string | undefined;
+  },
+) {
+  const task = await findTaskForUpdate(taskId, workspaceId);
+
+  if (!task) {
+    throw badRequest("Task not found");
+  }
+
+  const allowed = canManageResource(role, userId, task.assigned_to);
+
+  if (!allowed) {
+    throw forbidden("You can only update tasks assigned to you");
+  }
+
+  if (data.title !== undefined && data.title.trim() === "") {
+    throw badRequest("Task title is required");
+  }
+
+  const updated = await updateTask(taskId, workspaceId, data);
+
+  return {
+    id: updated?.id ?? task.id,
+    projectId: updated?.project_id ?? task.project_id,
+    title: updated?.title ?? task.title,
+    completed: updated?.completed ?? task.completed,
+  };
+}
+
 export async function getOverdueTasksService(
   workspaceId: string,
   userId: string,
@@ -80,8 +118,5 @@ export async function getTaskCountsByStatusService(
 ) {
   await verifyWorkspaceMember(workspaceId, userId);
 
-  return getTaskCountsByStatus(
-    projectId,
-    workspaceId,
-  );
+  return getTaskCountsByStatus(projectId, workspaceId);
 }

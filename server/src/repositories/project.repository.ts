@@ -41,8 +41,23 @@ export async function createProject(
   };
 }
 
-// findById()
+export async function deleteProject(
+  projectId: string,
+  workspaceId: string,
+) {
+  const deleted = await prisma.projects.deleteMany({
+    where: {
+      id: projectId,
+      workspace_id: workspaceId,
+    },
+  });
 
-// update()
+  if (deleted.count === 0) {
+    throw new Error("Project not found");
+  }
 
-// delete()
+  return {
+    id: projectId,
+    workspaceId,
+  };
+}
