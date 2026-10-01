@@ -6,6 +6,8 @@ import {
 } from "../controllers/invitation.controller.js";
 
 import { requireAuth } from "../middleware/requireAuth.js";
+import { workspaceContext } from "../middleware/workspaceContext.js";
+import { requireRole } from "../middleware/requireRole.js";
 
 import { validateBody } from "../middleware/validateBody.js";
 
@@ -19,6 +21,8 @@ const router = Router();
 router.post(
   "/workspaces/:workspaceId/invitations",
   requireAuth,
+  workspaceContext,
+  requireRole("ADMIN"),
   validateBody(CreateInvitationSchema),
   createInvitation,
 );

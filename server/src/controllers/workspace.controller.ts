@@ -4,6 +4,8 @@ import type { CreateWorkspaceBody } from "../schemas/workspace.schema.js";
 import {
   createWorkspaceService,
   getUserWorkspacesService,
+  removeWorkspaceMemberService,
+  deleteWorkspaceService,
 } from "../services/workspace.service.js";
 
 import {
@@ -13,7 +15,10 @@ import {
 
 import type { ApiResponse } from "../types/apiResponse.js";
 
-export const getWorkspaces: RequestHandler = async (req, res) => {
+export const getWorkspaces: RequestHandler = async (
+  req,
+  res,
+) => {
   const userId = req.user?.id;
 
   if (!userId) {
@@ -44,7 +49,10 @@ export const createWorkspace: RequestHandler<
 
   const { name } = req.body;
 
-  const workspace = await createWorkspaceService(userId, name);
+  const workspace = await createWorkspaceService(
+    userId,
+    name,
+  );
 
   const response: ApiResponse<typeof workspace> = {
     success: true,
@@ -73,6 +81,57 @@ export const getCurrentWorkspace: RequestHandler = async (
       workspaceId: req.workspace.id,
       role: req.workspace.role,
     },
+  };
+
+  res.json(response);
+};
+
+export const removeWorkspaceMember: RequestHandler = async (
+  req,
+  res,
+) => {
+  const workspaceId = req.params.workspaceId;
+  const targetUserId = req.params.userId;
+
+  if (
+    typeof workspaceId !== "string" ||
+    typeof targetUserId !== "string"
+  ) {
+    throw badRequest("Workspace ID and user ID are required");
+  }
+
+  const result = await removeWorkspaceMemberService(
+    workspaceId,
+    targetUserId,
+  );
+
+  const response: ApiResponse<typeof result> = {
+    success: true,
+    message: "Workspace member removed",
+    data: result,
+  };
+
+  res.json(response);
+};
+
+export const deleteWorkspace: RequestHandler = async (
+  req,
+  res,
+) => {
+  const workspaceId = req.params.workspaceId;
+
+  if (typeof workspaceId !== "string") {
+    throw badRequest("Workspace ID is required");
+  }
+
+  const result = await deleteWorkspaceService(
+    workspaceId,
+  );
+
+  const response: ApiResponse<typeof result> = {
+    success: true,
+    message: "Workspace deleted successfully",
+    data: result,
   };
 
   res.json(response);

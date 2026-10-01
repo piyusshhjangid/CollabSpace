@@ -69,3 +69,49 @@ export async function findWorkspaceMembership(
     },
   });
 }
+
+export async function removeWorkspaceMember(
+  workspaceId: string,
+  userId: string,
+) {
+  return prisma.workspace_members.deleteMany({
+    where: {
+      workspace_id: workspaceId,
+      user_id: userId,
+    },
+  });
+}
+
+export async function deleteWorkspace(workspaceId: string) {
+  return prisma.$transaction(async (tx) => {
+    await tx.tasks.deleteMany({
+      where: {
+        workspace_id: workspaceId,
+      },
+    });
+
+    await tx.projects.deleteMany({
+      where: {
+        workspace_id: workspaceId,
+      },
+    });
+
+    await tx.invitations.deleteMany({
+      where: {
+        workspace_id: workspaceId,
+      },
+    });
+
+    await tx.workspace_members.deleteMany({
+      where: {
+        workspace_id: workspaceId,
+      },
+    });
+
+    return tx.workspaces.delete({
+      where: {
+        id: workspaceId,
+      },
+    });
+  });
+}

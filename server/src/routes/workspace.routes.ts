@@ -4,16 +4,23 @@ import {
   getWorkspaces,
   createWorkspace,
   getCurrentWorkspace,
+  removeWorkspaceMember,
+  deleteWorkspace,
 } from "../controllers/workspace.controller.js";
 
 import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
+import { requireRole } from "../middleware/requireRole.js";
 import { validateBody } from "../middleware/validateBody.js";
 import { CreateWorkspaceSchema } from "../schemas/workspace.schema.js";
 
 const router = Router();
 
-router.get("/", requireAuth, getWorkspaces);
+router.get(
+  "/",
+  requireAuth,
+  getWorkspaces,
+);
 
 router.post(
   "/",
@@ -27,6 +34,22 @@ router.get(
   requireAuth,
   workspaceContext,
   getCurrentWorkspace,
+);
+
+router.delete(
+  "/:workspaceId/members/:userId",
+  requireAuth,
+  workspaceContext,
+  requireRole("ADMIN"),
+  removeWorkspaceMember,
+);
+
+router.delete(
+  "/:workspaceId",
+  requireAuth,
+  workspaceContext,
+  requireRole("OWNER"),
+  deleteWorkspace,
 );
 
 export default router;

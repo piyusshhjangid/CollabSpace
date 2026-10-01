@@ -1,9 +1,13 @@
 import {
   createWorkspaceWithOwner,
   findWorkspacesByUser,
+  findWorkspaceMembership,
+  removeWorkspaceMember,
+  deleteWorkspace,
 } from "../repositories/workspace.repository.js";
 
-import { badRequest } from "../lib/AppError.js";
+import { badRequest, forbidden } from "../lib/AppError.js";
+import { normalizeRole } from "../types/role.js";
 
 export async function createWorkspaceService(
   userId: string,
@@ -18,11 +22,19 @@ export async function createWorkspaceService(
     name.trim(),
   );
 
+  const role = normalizeRole(result.membership.role);
+
+  if (!role) {
+    throw new Error(
+      `Invalid workspace role: ${result.membership.role}`,
+    );
+  }
+
   return {
     id: result.workspace.id,
     name: result.workspace.name,
     createdAt: result.workspace.created_at,
-    role: result.membership.role,
+    role,
   };
 }
 
@@ -30,4 +42,48 @@ export async function getUserWorkspacesService(
   userId: string,
 ) {
   return findWorkspacesByUser(userId);
+}
+
+export async function removeWorkspaceMemberService(
+  workspaceId: string,
+  targetUserId: string,
+) {
+  const membership = await findWorkspaceMembership(
+    workspaceId,
+    targetUserId,
+  );
+
+  if (!membership) {
+    throw badRequest("Member not found");
+  }
+
+  const role = normalizeRole(membership.role);
+
+  if (!role) {
+    throw badRequest("Invalid workspace role");
+  }
+
+  if (role === "OWNER") {
+    throw forbidden("Workspace owner cannot be removed");
+  }
+
+  await removeWorkspaceMember(
+    workspaceId,
+    targetUserId,
+  );
+
+  return {
+    workspaceId,
+    userId: targetUserId,
+  };
+}
+
+export async function deleteWorkspaceService(
+  workspaceId: string,
+) {
+  await deleteWorkspace(workspaceId);
+
+  return {
+    workspaceId,
+  };
 }
