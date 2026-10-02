@@ -4,6 +4,8 @@ import { fetchWorkspaceRole, fetchWorkspaces } from "../../api/workspaces";
 import { useEffect, useState } from "react";
 import type { Workspace } from "../../types/workspace";
 import { WorkspaceContext } from "../../context/WorkspaceContext";
+import { useState, useEffect } from "react";
+import PermissionNotice from "../PermissionNotice";
 
 
 interface ShellProps {
@@ -12,6 +14,8 @@ interface ShellProps {
 
 export default function Shell({ children }: ShellProps) {
   const [workspaces, setWorkspaces] = useState<Workspace[]>([]);
+const [permissionMessage, setPermissionMessage] =
+  useState<string | null>(null);
   const [currentWorkspace, setCurrentWorkspace] =
     useState<Workspace | null>(null);
   const [loading, setLoading] = useState(true);
@@ -37,6 +41,31 @@ export default function Shell({ children }: ShellProps) {
 
     loadWorkspaces();
   }, []);
+
+useEffect(() => {
+  const handleForbidden = (event: Event) => {
+    const customEvent = event as CustomEvent<{
+      message?: string;
+    }>;
+
+    setPermissionMessage(
+      customEvent.detail?.message ??
+        "You don't have permission to perform this action.",
+    );
+  };
+
+  window.addEventListener(
+    "collabspace:forbidden",
+    handleForbidden,
+  );
+
+  return () => {
+    window.removeEventListener(
+      "collabspace:forbidden",
+      handleForbidden,
+    );
+  };
+}, []);
 
   useEffect(() => {
   if (!currentWorkspace) return;
@@ -114,6 +143,12 @@ export default function Shell({ children }: ShellProps) {
         workspaces,
       }}
     >
+{permissionMessage && (
+  <PermissionNotice
+    message={permissionMessage}
+    onClose={() => setPermissionMessage(null)}
+  />
+)}
       <div className="flex h-screen overflow-hidden">
         <SideBar />
 

@@ -5,10 +5,11 @@ import { Plus, Search } from "lucide-react";
 import { Button } from "../components/Button";
 import { useWorkspace } from "../context/WorkspaceContext";
 import type { Project } from "../types/project";
+import { usePermissions } from "../hooks/usePermissions";
 
 const ProjectPage = () => {
   const { currentWorkspace } = useWorkspace();
-
+  const permissions = usePermissions();
   const [projects, setProjects] = useState<Project[]>([]);
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
@@ -27,9 +28,7 @@ const ProjectPage = () => {
         setProjects(data);
       } catch (error) {
         setError(
-          error instanceof Error
-            ? error.message
-            : "Failed to load projects",
+          error instanceof Error ? error.message : "Failed to load projects",
         );
       } finally {
         setLoading(false);
@@ -69,14 +68,12 @@ const ProjectPage = () => {
           </p>
         </div>
 
-        <Button
-          variant="primary"
-          disabled={false}
-          onClick={() => setOpen(!open)}
-        >
-          <Plus size={18} />
-          New Project
-        </Button>
+        {permissions.canCreateProject && (
+          <Button variant="primary" onClick={() => setOpen(!open)}>
+            <Plus size={18} />
+            New Project
+          </Button>
+        )}
       </div>
 
       <div className="relative max-w-md">
