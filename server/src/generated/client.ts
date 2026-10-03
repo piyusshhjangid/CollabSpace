@@ -52,6 +52,11 @@ export type projects = Prisma.projectsModel
  */
 export type tasks = Prisma.tasksModel
 /**
+ * Model task_status_history
+ * 
+ */
+export type task_status_history = Prisma.task_status_historyModel
+/**
  * Model users
  * 
  */

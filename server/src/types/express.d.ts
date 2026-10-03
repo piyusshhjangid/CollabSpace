@@ -21,6 +21,7 @@ declare global {
         id: string;
         role: Role;
       };
+      requestId?: string;
     }
   }
 }

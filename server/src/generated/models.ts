@@ -10,6 +10,7 @@
  */
 export type * from './models/projects.js'
 export type * from './models/tasks.js'
+export type * from './models/task_status_history.js'
 export type * from './models/users.js'
 export type * from './models/workspace_members.js'
 export type * from './models/workspaces.js'

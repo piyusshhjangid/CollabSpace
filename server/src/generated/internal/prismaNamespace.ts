@@ -399,6 +399,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   projects: 'projects',
   tasks: 'tasks',
+  task_status_history: 'task_status_history',
   users: 'users',
   workspace_members: 'workspace_members',
   workspaces: 'workspaces',
@@ -419,7 +420,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "users" | "workspace_members" | "workspaces" | "refresh_tokens" | "invitations"
+    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "workspace_members" | "workspaces" | "refresh_tokens" | "invitations"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -568,6 +569,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.tasksCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.TasksCountAggregateOutputType> | number
+        }
+      }
+    }
+    task_status_history: {
+      payload: Prisma.$task_status_historyPayload<ExtArgs>
+      fields: Prisma.task_status_historyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.task_status_historyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.task_status_historyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        findFirst: {
+          args: Prisma.task_status_historyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.task_status_historyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        findMany: {
+          args: Prisma.task_status_historyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>[]
+        }
+        create: {
+          args: Prisma.task_status_historyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        createMany: {
+          args: Prisma.task_status_historyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.task_status_historyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>[]
+        }
+        delete: {
+          args: Prisma.task_status_historyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        update: {
+          args: Prisma.task_status_historyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        deleteMany: {
+          args: Prisma.task_status_historyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.task_status_historyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.task_status_historyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>[]
+        }
+        upsert: {
+          args: Prisma.task_status_historyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_status_historyPayload>
+        }
+        aggregate: {
+          args: Prisma.Task_status_historyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTask_status_history>
+        }
+        groupBy: {
+          args: Prisma.task_status_historyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_status_historyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.task_status_historyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_status_historyCountAggregateOutputType> | number
         }
       }
     }
@@ -999,11 +1074,26 @@ export const TasksScalarFieldEnum = {
   title: 'title',
   completed: 'completed',
   created_at: 'created_at',
+  updated_at: 'updated_at',
+  completed_at: 'completed_at',
   status: 'status',
   due_date: 'due_date'
 } as const
 
 export type TasksScalarFieldEnum = (typeof TasksScalarFieldEnum)[keyof typeof TasksScalarFieldEnum]
+
+
+export const Task_status_historyScalarFieldEnum = {
+  id: 'id',
+  task_id: 'task_id',
+  workspace_id: 'workspace_id',
+  from_status: 'from_status',
+  to_status: 'to_status',
+  changed_by: 'changed_by',
+  changed_at: 'changed_at'
+} as const
+
+export type Task_status_historyScalarFieldEnum = (typeof Task_status_historyScalarFieldEnum)[keyof typeof Task_status_historyScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {
@@ -1294,6 +1384,7 @@ export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaC
 export type GlobalOmitConfig = {
   projects?: Prisma.projectsOmit
   tasks?: Prisma.tasksOmit
+  task_status_history?: Prisma.task_status_historyOmit
   users?: Prisma.usersOmit
   workspace_members?: Prisma.workspace_membersOmit
   workspaces?: Prisma.workspacesOmit

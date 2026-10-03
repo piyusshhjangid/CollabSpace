@@ -9,9 +9,11 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import projectSummaryRouter from "./routes/project-summary.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import invitationRouter from "./routes/invitation.routes.js";
+import { requestId } from "./middleware/requestId.js";
 
 const app = express();
 
+app.use(requestId);
 app.use(requestLogger);
 app.use(
   express.json({

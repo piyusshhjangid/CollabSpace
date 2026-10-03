@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   projects: 'projects',
   tasks: 'tasks',
+  task_status_history: 'task_status_history',
   users: 'users',
   workspace_members: 'workspace_members',
   workspaces: 'workspaces',
@@ -95,11 +96,26 @@ export const TasksScalarFieldEnum = {
   title: 'title',
   completed: 'completed',
   created_at: 'created_at',
+  updated_at: 'updated_at',
+  completed_at: 'completed_at',
   status: 'status',
   due_date: 'due_date'
 } as const
 
 export type TasksScalarFieldEnum = (typeof TasksScalarFieldEnum)[keyof typeof TasksScalarFieldEnum]
+
+
+export const Task_status_historyScalarFieldEnum = {
+  id: 'id',
+  task_id: 'task_id',
+  workspace_id: 'workspace_id',
+  from_status: 'from_status',
+  to_status: 'to_status',
+  changed_by: 'changed_by',
+  changed_at: 'changed_at'
+} as const
+
+export type Task_status_historyScalarFieldEnum = (typeof Task_status_historyScalarFieldEnum)[keyof typeof Task_status_historyScalarFieldEnum]
 
 
 export const UsersScalarFieldEnum = {

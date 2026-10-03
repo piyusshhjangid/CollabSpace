@@ -30,12 +30,55 @@ export const getTasks: RequestHandler = async (req, res) => {
     throw unauthorized("Authentication required");
   }
 
-  const projectTasks = await getTasksByProject(projectId, workspaceId, userId);
+  const rawLimit = req.query.limit;
+  const rawCursor = req.query.cursor;
 
-  const response: ApiResponse<Task[]> = {
+  let limit = 20;
+
+  if (rawLimit !== undefined) {
+    if (typeof rawLimit !== "string") {
+      throw badRequest("Invalid limit");
+    }
+
+    const parsedLimit = Number(rawLimit);
+
+    if (
+      !Number.isInteger(parsedLimit) ||
+      parsedLimit < 1 ||
+      parsedLimit > 100
+    ) {
+      throw badRequest("limit must be an integer between 1 and 100");
+    }
+
+    limit = parsedLimit;
+  }
+
+  const cursor =
+    typeof rawCursor === "string" ? rawCursor : undefined;
+
+  const result = await getTasksByProject(
+    projectId,
+    workspaceId,
+    userId,
+    limit,
+    cursor,
+  );
+
+  const response: ApiResponse<Task[]> & {
+    meta: {
+      limit: number;
+      nextCursor: string | null;
+      hasMore: boolean;
+    };
+  } = {
     success: true,
     message: "Tasks fetched",
-    data: projectTasks,
+    data: result.items,
+    meta: {
+      limit,
+      nextCursor: result.nextCursor,
+      hasMore: result.hasMore,
+    },
   };
 
   res.json(response);

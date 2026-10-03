@@ -30,10 +30,17 @@ export async function getTasksByProject(
   projectId: string,
   workspaceId: string,
   userId: string,
+  limit: number,
+  cursor?: string,
 ) {
   await verifyWorkspaceMember(workspaceId, userId);
 
-  return findTasksByProject(projectId, workspaceId);
+  return findTasksByProject(
+    projectId,
+    workspaceId,
+    limit,
+    cursor,
+  );
 }
 
 export async function createTaskService(
@@ -92,7 +99,7 @@ export async function updateTaskService(
     throw badRequest("Task title is required");
   }
 
-  const updated = await updateTask(taskId, workspaceId, data);
+  const updated = await updateTask(taskId, workspaceId, userId, data);
 
   return {
     id: updated?.id ?? task.id,

@@ -1,21 +1,58 @@
 import { prisma } from "../db/prisma.js";
+import {
+  decodeTaskCursor,
+  encodeTaskCursor,
+} from "../lib/taskCursor.js";
 
 export async function findTasksByProject(
   projectId: string,
   workspaceId: string,
+  limit: number,
+  cursor?: string,
 ) {
+  const decodedCursor = cursor ? decodeTaskCursor(cursor) : undefined;
+
   const tasks = await prisma.tasks.findMany({
     where: {
       project_id: projectId,
       workspace_id: workspaceId,
+      ...(decodedCursor
+        ? {
+            OR: [
+              {
+                created_at: {
+                  lt: new Date(decodedCursor.createdAt),
+                },
+              },
+              {
+                created_at: new Date(decodedCursor.createdAt),
+                id: {
+                  lt: decodedCursor.id,
+                },
+              },
+            ],
+          }
+        : {}),
     },
+    orderBy: [
+      {
+        created_at: "desc",
+      },
+      {
+        id: "desc",
+      },
+    ],
+    take: limit + 1,
     include: {
       users: true,
       projects: true,
     },
   });
 
-  return tasks.map((task) => ({
+  const hasMore = tasks.length > limit;
+  const pageTasks = hasMore ? tasks.slice(0, limit) : tasks;
+
+  const items = pageTasks.map((task) => ({
     id: task.id,
     projectId: task.project_id,
     title: task.title,
@@ -23,6 +60,22 @@ export async function findTasksByProject(
     project: task.projects.name,
     assigned_to: task.users?.name ?? null,
   }));
+
+  const lastTask = pageTasks[pageTasks.length - 1];
+
+  const nextCursor =
+    hasMore && lastTask
+      ? encodeTaskCursor({
+          createdAt: lastTask.created_at.toISOString(),
+          id: lastTask.id,
+        })
+      : null;
+
+  return {
+    items,
+    nextCursor,
+    hasMore,
+  };
 }
 
 export async function createTask(
@@ -132,46 +185,89 @@ export async function findTaskForUpdate(
 export async function updateTask(
   taskId: string,
   workspaceId: string,
+  changedBy: string,
   data: {
     title?: string | undefined;
     completed?: boolean | undefined;
     status?: string | undefined;
   },
 ) {
-  const updateData: {
-    title?: string;
-    completed?: boolean;
-    status?: string;
-  } = {};
+  return prisma.$transaction(async (tx) => {
+    const currentTask = await tx.tasks.findFirst({
+      where: {
+        id: taskId,
+        workspace_id: workspaceId,
+      },
+      select: {
+        id: true,
+        workspace_id: true,
+        project_id: true,
+        assigned_to: true,
+        title: true,
+        completed: true,
+        status: true,
+      },
+    });
 
-  if (data.title !== undefined) {
-    updateData.title = data.title;
-  }
+    if (!currentTask) {
+      throw new Error("Task not found");
+    }
 
-  if (data.completed !== undefined) {
-    updateData.completed = data.completed;
-  }
+    const updateData: {
+      title?: string;
+      completed?: boolean;
+      completed_at?: Date | null;
+      status?: string;
+    } = {};
 
-  if (data.status !== undefined) {
-    updateData.status = data.status;
-  }
+    if (data.title !== undefined) {
+      updateData.title = data.title;
+    }
 
-  const updated = await prisma.tasks.updateMany({
-    where: {
-      id: taskId,
-      workspace_id: workspaceId,
-    },
-    data: updateData,
-  });
+    if (data.completed !== undefined) {
+      updateData.completed = data.completed;
+      updateData.completed_at = data.completed ? new Date() : null;
+    }
 
-  if (updated.count === 0) {
-    throw new Error("Task not found");
-  }
+    if (data.status !== undefined) {
+      updateData.status = data.status;
+    }
 
-  return prisma.tasks.findFirst({
-    where: {
-      id: taskId,
-      workspace_id: workspaceId,
-    },
+    const statusChanged =
+      data.status !== undefined && data.status !== currentTask.status;
+
+    const updated = await tx.tasks.updateMany({
+      where: {
+        id: taskId,
+        workspace_id: workspaceId,
+        ...(statusChanged
+          ? { status: currentTask.status }
+          : {}),
+      },
+      data: updateData,
+    });
+
+    if (updated.count === 0) {
+      throw new Error("Task was modified by another request");
+    }
+
+    if (statusChanged) {
+      await tx.task_status_history.create({
+        data: {
+          task_id: currentTask.id,
+          workspace_id: currentTask.workspace_id,
+          from_status: currentTask.status,
+          to_status: data.status!,
+          changed_by: changedBy,
+        },
+      });
+    }
+
+    return tx.tasks.findFirst({
+      where: {
+        id: taskId,
+        workspace_id: workspaceId,
+      },
+    });
   });
 }
