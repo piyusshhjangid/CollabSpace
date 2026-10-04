@@ -10,6 +10,7 @@ import {
   createRefreshToken,
   findRefreshToken,
   revokeRefreshToken,
+  rotateRefreshToken,
 } from "../repositories/refreshToken.repository.js";
 
 function generateRefreshToken() {
@@ -29,7 +30,11 @@ export async function registerUser(
 
   const passwordHash = await bcrypt.hash(password, 12);
 
-  const user = await createUser(name, email, passwordHash);
+  const user = await createUser(
+    name,
+    email,
+    passwordHash,
+  );
 
   return {
     id: user.id,
@@ -39,14 +44,20 @@ export async function registerUser(
   };
 }
 
-export async function loginUser(email: string, password: string) {
+export async function loginUser(
+  email: string,
+  password: string,
+) {
   const user = await findUserByEmail(email);
 
   if (!user) {
     throw unauthorized("Invalid email or password");
   }
 
-  const passwordMatches = await bcrypt.compare(password, user.password_hash);
+  const passwordMatches = await bcrypt.compare(
+    password,
+    user.password_hash,
+  );
 
   if (!passwordMatches) {
     throw unauthorized("Invalid email or password");
@@ -55,7 +66,9 @@ export async function loginUser(email: string, password: string) {
   const jwtSecret = process.env.JWT_SECRET;
 
   if (!jwtSecret) {
-    throw new Error("JWT_SECRET is not configured");
+    throw new Error(
+      "JWT_SECRET is not configured",
+    );
   }
 
   const accessToken = jwt.sign(
@@ -70,9 +83,15 @@ export async function loginUser(email: string, password: string) {
 
   const refreshToken = generateRefreshToken();
 
-  const refreshTokenExpiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const refreshTokenExpiresAt = new Date(
+    Date.now() + 7 * 24 * 60 * 60 * 1000,
+  );
 
-  await createRefreshToken(user.id, refreshToken, refreshTokenExpiresAt);
+  await createRefreshToken(
+    user.id,
+    refreshToken,
+    refreshTokenExpiresAt,
+  );
 
   return {
     accessToken,
@@ -85,30 +104,36 @@ export async function loginUser(email: string, password: string) {
   };
 }
 
-export async function refreshAccessToken(refreshToken: string) {
-  const storedToken = await findRefreshToken(refreshToken);
-
-  if (!storedToken) {
-    throw unauthorized("Invalid refresh token");
-  }
-
-  if (storedToken.revoked_at) {
-    throw unauthorized("Invalid refresh token");
-  }
-
-  if (storedToken.expires_at <= new Date()) {
-    throw unauthorized("Invalid refresh token");
-  }
-
+export async function refreshAccessToken(
+  refreshToken: string,
+) {
   const jwtSecret = process.env.JWT_SECRET;
 
   if (!jwtSecret) {
-    throw new Error("JWT_SECRET is not configured");
+    throw new Error(
+      "JWT_SECRET is not configured",
+    );
+  }
+
+  const nextRefreshToken = generateRefreshToken();
+
+  const nextRefreshTokenExpiresAt = new Date(
+    Date.now() + 7 * 24 * 60 * 60 * 1000,
+  );
+
+  const rotated = await rotateRefreshToken(
+    refreshToken,
+    nextRefreshToken,
+    nextRefreshTokenExpiresAt,
+  );
+
+  if (!rotated) {
+    throw unauthorized("Invalid refresh token");
   }
 
   const accessToken = jwt.sign(
     {
-      sub: storedToken.user_id,
+      sub: rotated.userId,
     },
     jwtSecret,
     {
@@ -118,11 +143,15 @@ export async function refreshAccessToken(refreshToken: string) {
 
   return {
     accessToken,
+    refreshToken: nextRefreshToken,
   };
 }
 
-export async function logoutUser(refreshToken: string) {
-  const storedToken = await findRefreshToken(refreshToken);
+export async function logoutUser(
+  refreshToken: string,
+) {
+  const storedToken =
+    await findRefreshToken(refreshToken);
 
   if (!storedToken) {
     return;

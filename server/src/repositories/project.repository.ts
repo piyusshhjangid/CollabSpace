@@ -1,5 +1,21 @@
 import { prisma } from "../db/prisma.js";
 
+export async function findProjectByWorkspace(
+  projectId: string,
+  workspaceId: string,
+) {
+  return prisma.projects.findFirst({
+    where: {
+      id: projectId,
+      workspace_id: workspaceId,
+    },
+    select: {
+      id: true,
+      workspace_id: true,
+    },
+  });
+}
+
 export async function findProjectsByWorkspace(workspaceId: string) {
   const projects = await prisma.projects.findMany({
     where: {
