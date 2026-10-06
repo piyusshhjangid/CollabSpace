@@ -12,6 +12,7 @@ import {
   revokeRefreshToken,
   rotateRefreshToken,
 } from "../repositories/refreshToken.repository.js";
+import { writeAuditLog } from "./audit.service.js";
 
 function generateRefreshToken() {
   return crypto.randomBytes(32).toString("hex");
@@ -35,6 +36,16 @@ export async function registerUser(
     email,
     passwordHash,
   );
+
+  await writeAuditLog({
+    actorId: user.id,
+    action: "AUTH_REGISTER",
+    targetType: "USER",
+    targetId: user.id,
+    metadata: {
+      email: user.email,
+    },
+  });
 
   return {
     id: user.id,
@@ -92,6 +103,16 @@ export async function loginUser(
     refreshToken,
     refreshTokenExpiresAt,
   );
+
+  await writeAuditLog({
+    actorId: user.id,
+    action: "AUTH_LOGIN",
+    targetType: "USER",
+    targetId: user.id,
+    metadata: {
+      email: user.email,
+    },
+  });
 
   return {
     accessToken,
@@ -162,4 +183,12 @@ export async function logoutUser(
   }
 
   await revokeRefreshToken(refreshToken);
+
+  await writeAuditLog({
+    actorId: storedToken.user_id,
+    action: "AUTH_LOGOUT",
+    targetType: "USER",
+    targetId: storedToken.user_id,
+    metadata: {},
+  });
 }

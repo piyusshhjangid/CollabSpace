@@ -8,6 +8,7 @@ import {
 
 import { badRequest, forbidden } from "../lib/AppError.js";
 import { normalizeRole } from "../types/role.js";
+import { writeAuditLog } from "./audit.service.js";
 
 export async function createWorkspaceService(
   userId: string,
@@ -30,6 +31,19 @@ export async function createWorkspaceService(
     );
   }
 
+  await writeAuditLog({
+    workspaceId: result.workspace.id,
+    actorId: userId,
+    action: "WORKSPACE_CREATED",
+    targetType: "WORKSPACE",
+    targetId: result.workspace.id,
+    metadata: {
+      name: result.workspace.name,
+    },
+  });
+
+
+
   return {
     id: result.workspace.id,
     name: result.workspace.name,
@@ -47,6 +61,7 @@ export async function getUserWorkspacesService(
 export async function removeWorkspaceMemberService(
   workspaceId: string,
   targetUserId: string,
+  actorUserId: string,
 ) {
   const membership = await findWorkspaceMembership(
     workspaceId,
@@ -72,7 +87,17 @@ export async function removeWorkspaceMemberService(
     targetUserId,
   );
 
-  return {
+
+  await writeAuditLog({
+    workspaceId,
+    actorId: actorUserId,
+    action: "MEMBER_REMOVED",
+    targetType: "WORKSPACE_MEMBER",
+    targetId: targetUserId,
+    metadata: {},
+  });
+
+return {
     workspaceId,
     userId: targetUserId,
   };
@@ -80,7 +105,18 @@ export async function removeWorkspaceMemberService(
 
 export async function deleteWorkspaceService(
   workspaceId: string,
+  actorUserId: string,
 ) {
+  await writeAuditLog({
+    workspaceId,
+    actorId: actorUserId,
+    action: "WORKSPACE_DELETED",
+    targetType: "WORKSPACE",
+    targetId: workspaceId,
+    metadata: {},
+  });
+
+
   await deleteWorkspace(workspaceId);
 
   return {

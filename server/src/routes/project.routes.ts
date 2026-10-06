@@ -1,4 +1,4 @@
-import { Router } from "express";
+﻿import { Router } from "express";
 
 import {
   getProjects,
@@ -8,9 +8,9 @@ import {
 
 import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
-import { requireRole } from "../middleware/requireRole.js";
-
+import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
+
 import { CreateProjectSchema } from "../schemas/project.schema.js";
 
 const router = Router({ mergeParams: true });
@@ -26,6 +26,7 @@ router.post(
   "/",
   requireAuth,
   workspaceContext,
+  requirePermission("CREATE_PROJECT"),
   validateBody(CreateProjectSchema),
   createProject,
 );
@@ -34,7 +35,7 @@ router.delete(
   "/:projectId",
   requireAuth,
   workspaceContext,
-  requireRole("ADMIN"),
+  requirePermission("DELETE_PROJECT"),
   deleteProject,
 );
 

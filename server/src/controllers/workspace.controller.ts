@@ -100,9 +100,32 @@ export const removeWorkspaceMember: RequestHandler = async (
     throw badRequest("Workspace ID and user ID are required");
   }
 
+  const actorUserId = req.user?.id;
+
+
+
+  if (!actorUserId) {
+
+
+    throw unauthorized("Authentication required");
+
+
+  }
+
+
+
   const result = await removeWorkspaceMemberService(
+
+
     workspaceId,
+
+
     targetUserId,
+
+
+    actorUserId,
+
+
   );
 
   const response: ApiResponse<typeof result> = {
@@ -124,8 +147,29 @@ export const deleteWorkspace: RequestHandler = async (
     throw badRequest("Workspace ID is required");
   }
 
+  const actorUserId = req.user?.id;
+
+
+
+  if (!actorUserId) {
+
+
+    throw unauthorized("Authentication required");
+
+
+  }
+
+
+
   const result = await deleteWorkspaceService(
+
+
     workspaceId,
+
+
+    actorUserId,
+
+
   );
 
   const response: ApiResponse<typeof result> = {

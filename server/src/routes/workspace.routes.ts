@@ -1,4 +1,4 @@
-import { Router } from "express";
+﻿import { Router } from "express";
 
 import {
   getWorkspaces,
@@ -10,8 +10,9 @@ import {
 
 import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
-import { requireRole } from "../middleware/requireRole.js";
+import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
+
 import { CreateWorkspaceSchema } from "../schemas/workspace.schema.js";
 
 const router = Router();
@@ -40,7 +41,7 @@ router.delete(
   "/:workspaceId/members/:userId",
   requireAuth,
   workspaceContext,
-  requireRole("ADMIN"),
+  requirePermission("REMOVE_MEMBER"),
   removeWorkspaceMember,
 );
 
@@ -48,7 +49,7 @@ router.delete(
   "/:workspaceId",
   requireAuth,
   workspaceContext,
-  requireRole("OWNER"),
+  requirePermission("DELETE_WORKSPACE"),
   deleteWorkspace,
 );
 

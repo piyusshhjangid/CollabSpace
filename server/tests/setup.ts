@@ -30,6 +30,7 @@ const { prisma } = await import("../src/db/prisma.js");
 
 beforeEach(async () => {
   await prisma.$transaction([
+    prisma.audit_log.deleteMany(),
     prisma.task_status_history.deleteMany(),
     prisma.tasks.deleteMany(),
     prisma.invitations.deleteMany(),

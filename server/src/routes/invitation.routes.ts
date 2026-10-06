@@ -1,4 +1,4 @@
-import { Router } from "express";
+﻿import { Router } from "express";
 
 import {
   createInvitation,
@@ -7,8 +7,7 @@ import {
 
 import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
-import { requireRole } from "../middleware/requireRole.js";
-
+import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
 
 import {
@@ -22,7 +21,7 @@ router.post(
   "/workspaces/:workspaceId/invitations",
   requireAuth,
   workspaceContext,
-  requireRole("ADMIN"),
+  requirePermission("INVITE_MEMBERS"),
   validateBody(CreateInvitationSchema),
   createInvitation,
 );

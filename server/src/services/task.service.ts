@@ -16,6 +16,7 @@ import { badRequest, forbidden } from "../lib/AppError.js";
 
 import type { Role } from "../types/role.js";
 import { canManageResource } from "../lib/resourceAuthorization.js";
+import { writeAuditLog } from "./audit.service.js";
 
 async function verifyWorkspaceMember(
   workspaceId: string,
@@ -97,13 +98,29 @@ export async function createTaskService(
   };
 
   try {
-    return await createTask(
+    const createdTask = await createTask(
       task.projectId,
       workspaceId,
       task.title,
       String(task.completed),
       task.id,
     );
+
+
+    await writeAuditLog({
+      workspaceId,
+      actorId: userId,
+      action: "TASK_CREATED",
+      targetType: "TASK",
+      targetId: createdTask.id,
+      metadata: {
+        projectId: task.projectId,
+        title: task.title,
+      },
+    });
+
+
+    return createdTask;
   } catch (error) {
     if (
       error instanceof Error &&
@@ -162,7 +179,20 @@ export async function updateTaskService(
     data,
   );
 
-  return {
+
+  await writeAuditLog({
+    workspaceId,
+    actorId: userId,
+    action: "TASK_UPDATED",
+    targetType: "TASK",
+    targetId: taskId,
+    metadata: {
+      projectId: task.project_id,
+      changedFields: Object.keys(data),
+    },
+  });
+
+return {
     id: updated?.id ?? task.id,
     projectId: updated?.project_id ?? task.project_id,
     title: updated?.title ?? task.title,

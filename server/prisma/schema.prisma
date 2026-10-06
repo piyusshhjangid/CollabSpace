@@ -78,8 +78,8 @@ model workspace_members {
   workspace_id String     @db.Uuid
   role         String     @default("member")
   created_at   DateTime   @default(now()) @db.Timestamptz(6)
-  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users        users      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
 
   @@unique([user_id, workspace_id])
 }
@@ -103,7 +103,7 @@ model refresh_tokens {
   created_at DateTime  @default(now()) @db.Timestamptz(6)
   revoked_at DateTime? @db.Timestamptz(6)
 
-  users users @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  users users @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([user_id], map: "idx_refresh_tokens_user_id")
   @@index([token], map: "idx_refresh_tokens_token")
@@ -125,4 +125,19 @@ model invitations {
   @@index([workspace_id], map: "idx_invitations_workspace_id")
   @@index([email], map: "idx_invitations_email")
   @@index([token], map: "idx_invitations_token")
+}
+
+model audit_log {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String?  @db.Uuid
+  actor_id     String?  @db.Uuid
+  action       String
+  target_type  String
+  target_id    String?
+  metadata     Json
+  created_at   DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([workspace_id, created_at], map: "idx_audit_log_workspace_created")
+  @@index([actor_id, created_at], map: "idx_audit_log_actor_created")
+  @@index([action, created_at], map: "idx_audit_log_action_created")
 }

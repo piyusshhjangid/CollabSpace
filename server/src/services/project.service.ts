@@ -6,6 +6,7 @@ import {
 import { findWorkspaceMembership } from "../repositories/workspace.repository.js";
 import type { Project } from "../types/project.js";
 import { badRequest, forbidden } from "../lib/AppError.js";
+import { writeAuditLog } from "./audit.service.js";
 
 async function verifyWorkspaceMember(
   workspaceId: string,
@@ -42,18 +43,50 @@ export async function createProjectService(
     throw badRequest("Project name is required");
   }
 
-  return createProject(workspaceId, name, description);
+  const project = await createProject(
+      workspaceId,
+      name,
+      description,
+    );
+
+
+
+  await writeAuditLog({
+      workspaceId,
+      actorId: userId,
+      action: "PROJECT_CREATED",
+      targetType: "PROJECT",
+      targetId: project.id,
+      metadata: {
+        name: project.name,
+      },
+    });
+
+
+
+  return project;
 }
 
 export async function deleteProjectService(
   projectId: string,
   workspaceId: string,
+  userId: string,
 ) {
-  try {
-    return await deleteProject(
+  try {    const result = await deleteProject(
       projectId,
       workspaceId,
     );
+
+    await writeAuditLog({
+      workspaceId,
+      actorId: userId,
+      action: "PROJECT_DELETED",
+      targetType: "PROJECT",
+      targetId: projectId,
+      metadata: {},
+    });
+
+    return result;
   } catch {
     throw badRequest("Project not found");
   }

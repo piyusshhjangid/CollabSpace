@@ -1,4 +1,4 @@
-import { Router } from "express";
+﻿import { Router } from "express";
 
 import {
   getTasks,
@@ -8,6 +8,7 @@ import {
 
 import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
+import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
 
 import {
@@ -28,6 +29,7 @@ router.post(
   "/",
   requireAuth,
   workspaceContext,
+  requirePermission("CREATE_TASK"),
   validateBody(CreateTaskSchema),
   createTask,
 );
@@ -36,6 +38,7 @@ router.patch(
   "/:taskId",
   requireAuth,
   workspaceContext,
+  requirePermission("UPDATE_OWN_TASK"),
   validateBody(UpdateTaskSchema),
   updateTask,
 );

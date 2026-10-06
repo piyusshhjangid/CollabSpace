@@ -125,9 +125,32 @@ export const deleteProject: RequestHandler = async (
     );
   }
 
+  const userId = req.user?.id;
+
+
+
+  if (!userId) {
+
+
+    throw unauthorized("Authentication required");
+
+
+  }
+
+
+
   const result = await deleteProjectService(
+
+
     projectId,
+
+
     req.workspace.id,
+
+
+    userId,
+
+
   );
 
   const response: ApiResponse<typeof result> = {

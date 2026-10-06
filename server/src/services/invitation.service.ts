@@ -9,6 +9,7 @@ import {
   findWorkspaceMembership,
 } from "../repositories/workspace.repository.js";
 import { badRequest, forbidden } from "../lib/AppError.js";
+import { writeAuditLog } from "./audit.service.js";
 
 function generateInvitationToken() {
   return crypto.randomBytes(32).toString("hex");
@@ -44,9 +45,17 @@ export async function createInvitationService(
     expiresAt,
   );
 
-  console.log(
-    `Invitation created for ${email}: ${token}`,
-  );
+  await writeAuditLog({
+    workspaceId,
+    actorId: userId,
+    action: "INVITATION_CREATED",
+    targetType: "INVITATION",
+    targetId: invitation.id,
+    metadata: {
+      email: invitation.email,
+      expiresAt: invitation.expires_at,
+    },
+  });
 
   return {
     id: invitation.id,
@@ -100,6 +109,18 @@ export async function acceptInvitationService(
   }
 
   await acceptInvitation(invitation.id);
+
+
+  await writeAuditLog({
+    workspaceId: invitation.workspace_id,
+    actorId: userId,
+    action: "INVITATION_ACCEPTED",
+    targetType: "INVITATION",
+    targetId: invitation.id,
+    metadata: {
+      invitedEmail: invitation.email,
+    },
+  });
 
   return {
     workspaceId: invitation.workspace_id,
