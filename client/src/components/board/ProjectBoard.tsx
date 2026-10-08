@@ -1,23 +1,44 @@
-import KanbanColumn from "./KanbanColumn";
-import { Folder } from "lucide-react";
-import { useState } from "react";
+﻿import { useMemo, useState } from "react";
 import type { TaskFilters } from "../../types/filters";
 import type { Task } from "../../types/task";
-import { fetchTasks } from "../../data/fakeapi";
-import TaskModal from "./TaskModal";
+import { useTasks } from "../../hooks/useTasks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../store/hooks";
+import {
+  closeTaskModal,
+  openTaskModal,
+} from "../../store/slices/uiSlice";
 import BoardToolbar from "./BoardToolbar";
+import KanbanColumn from "./KanbanColumn";
+import TaskModal from "./TaskModal";
 
-const statuses = ["TODO", "IN_PROGRESS", "DONE"] as const;
+interface ProjectBoardProps {
+  workspaceId: string;
+  projectId: string;
+}
 
-const ProjectBoard = () => {
-  const response = fetchTasks();
-  const tasks = response.data || [];
+export default function ProjectBoard({
+  workspaceId,
+  projectId,
+}: ProjectBoardProps) {
+  const dispatch = useAppDispatch();
 
-  const [boardTasks, setBoardTasks] = useState(tasks);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const isTaskModalOpen = useAppSelector(
+    (state) => state.ui.isTaskModalOpen,
+  );
 
-  const [draggedTask, setDraggedTask] = useState<Task | null>(null);
+  const selectedTaskId = useAppSelector(
+    (state) => state.ui.selectedTaskId,
+  );
+
+  const {
+    data: tasks = [],
+    isLoading,
+    isError,
+    error,
+  } = useTasks(workspaceId, projectId);
 
   const [filters, setFilters] = useState<TaskFilters>({
     search: "",
@@ -25,102 +46,119 @@ const ProjectBoard = () => {
     assignee: "",
   });
 
-  if (response.error) {
+  const selectedTask = useMemo(
+    () =>
+      tasks.find(
+        (task) => task.id === selectedTaskId,
+      ) ?? null,
+    [tasks, selectedTaskId],
+  );
+
+  const filteredTasks = useMemo(() => {
+    return tasks.filter((task) => {
+      const matchesSearch =
+        filters.search === "" ||
+        task.title
+          .toLowerCase()
+          .includes(filters.search.toLowerCase()) ||
+        task.description
+          .toLowerCase()
+          .includes(filters.search.toLowerCase()) ||
+        task.project.name
+          .toLowerCase()
+          .includes(filters.search.toLowerCase());
+
+      const matchesPriority =
+        filters.priority === "ALL" ||
+        task.priority === filters.priority;
+
+      const matchesAssignee =
+        filters.assignee === "" ||
+        task.assigneeName === filters.assignee;
+
+      return (
+        matchesSearch &&
+        matchesPriority &&
+        matchesAssignee
+      );
+    });
+  }, [tasks, filters]);
+
+  const openTask = (task: Task) => {
+    dispatch(openTaskModal(task.id));
+  };
+
+  const handleDragStart = (_task: Task) => {
+    // Mutation layer comes after the Day 49 read architecture.
+  };
+
+  const handleDrop = (_status: Task["status"]) => {
+    // Optimistic updates are intentionally deferred on Day 49.
+  };
+
+  const handleSaveTask = (_updatedTask: Task) => {
+    dispatch(closeTaskModal());
+  };
+
+  const handleCloseTaskModal = () => {
+    dispatch(closeTaskModal());
+  };
+
+  if (isLoading) {
     return (
-      <div className="rounded-xl border border-red-300 bg-red-50 p-4 text-red-600">
-        {response.error}
+      <div className="flex min-h-[300px] items-center justify-center">
+        Loading tasks...
       </div>
     );
   }
 
-  const filteredTasks = boardTasks.filter((task) => {
-    const matchesSearch =
-      task.title.toLowerCase().includes(filters.search.toLowerCase()) ||
-      task.project.name.toLowerCase().includes(filters.search.toLowerCase());
-
-    const matchesPriority =
-      filters.priority === "ALL" || task.priority === filters.priority;
-
-    const matchesAssignee =
-      filters.assignee === "" || task.assigneeName === filters.assignee;
-
-    return matchesSearch && matchesPriority && matchesAssignee;
-  });
-
-  const openTask = (task: Task) => {
-    setSelectedTask(task);
-    setIsModalOpen(true);
-  };
-
-  const handleDragStart = (task: Task) => {
-    setDraggedTask(task);
-  };
-
-  const handleDrop = (status: Task["status"]) => {
-    if (!draggedTask) return;
-
-    setBoardTasks((prev) =>
-      prev.map((task) =>
-        task.id === draggedTask.id ? { ...task, status } : task,
-      ),
+  if (isError) {
+    return (
+      <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+        {error instanceof Error
+          ? error.message
+          : "Failed to load tasks."}
+      </div>
     );
-
-    setDraggedTask(null);
-  };
-
-  const handleSaveTask = (updatedTask: Task) => {
-    setBoardTasks((prev) =>
-      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task)),
-    );
-
-    setIsModalOpen(false);
-  };
+  }
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex flex-row items-center justify-between w-full mb-4">
-        <div className="flex items-center gap-3">
-          <div className="text-violet-600 bg-violet-100 rounded-md px-2 py-2">
-            <Folder size={28} />
-          </div>
-          <div className="flex flex-col items-start">
-            <h1 className="text-xl font-bold text-zinc-900 ">My Tasks</h1>
-            <p className="text-zinc-600 tracking-tighter ">
-              Track and manage all tasks across projects.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="mb-4 flex w-full">
-        <BoardToolbar
-          filters={filters}
-          setFilters={setFilters}
-          tasks={boardTasks}
-          onCreateTask={() => {
-            console.log("Create Task");
-          }}
-        />
-      </div>
-      <div className="bg-white rounded-xl shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4 p-6 overflow-x-auto">
-        {statuses.map((status) => (
+    <div className="space-y-4">
+      <BoardToolbar
+        tasks={tasks}
+        filters={filters}
+        setFilters={setFilters}
+        onCreateTask={() => {
+          console.log("Create Task");
+        }}
+      />
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {(
+          ["TODO", "IN_PROGRESS", "DONE"] as const
+        ).map((status) => (
           <KanbanColumn
-            onTaskClick={openTask}
             key={status}
             status={status}
-            tasks={filteredTasks}
+            tasks={filteredTasks.filter(
+              (task) => task.status === status,
+            )}
+            onTaskClick={openTask}
             onDragStart={handleDragStart}
             onDrop={handleDrop}
           />
         ))}
       </div>
+
       <TaskModal
-        open={isModalOpen}
+        open={
+          isTaskModalOpen &&
+          selectedTask !== null
+        }
         task={selectedTask}
-        onClose={() => setIsModalOpen(false)}
+        onClose={handleCloseTaskModal}
         onSave={handleSaveTask}
       />
     </div>
   );
-};
-
-export default ProjectBoard;
+}

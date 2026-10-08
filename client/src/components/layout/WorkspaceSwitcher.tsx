@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Badge from "../Badge";
 import type { Workspace } from "../../types/workspace";
@@ -6,7 +6,7 @@ import type { Workspace } from "../../types/workspace";
 interface WorkspaceSwitcherProps {
   currentWorkspace: Workspace;
   setCurrentWorkspace: React.Dispatch<
-    React.SetStateAction<Workspace>
+    React.SetStateAction<Workspace | null>
   >;
   workspaces: Workspace[];
 }

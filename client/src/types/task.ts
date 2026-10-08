@@ -1,10 +1,10 @@
-import type { Project } from "./project";
+﻿import type { Project } from "./project";
 
 export type TaskStatus = "TODO" | "IN_PROGRESS" | "DONE";
 export type TaskPriority = "Low" | "Medium" | "High" | "Urgent";
 
 export interface Task {
-  id: number;
+  id: string;
   title: string;
   description: string;
   status: TaskStatus;

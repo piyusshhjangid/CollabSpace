@@ -1,7 +1,8 @@
-export type WorkspaceRole = "OWNER" | "ADMIN" | "MEMBER" | "VIEWER";
+﻿export type WorkspaceRole = "OWNER" | "ADMIN" | "MEMBER" | "VIEWER";
 
 export interface Workspace {
-  id: number;
+  id: string;
   name: string;
   role: WorkspaceRole;
 }
+

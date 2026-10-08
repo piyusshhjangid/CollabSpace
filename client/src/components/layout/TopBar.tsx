@@ -1,10 +1,10 @@
-import type { Workspace } from "../../types/workspace";
+﻿import type { Workspace } from "../../types/workspace";
 import WorkspaceSwitcher from "./WorkspaceSwitcher";
 
 interface TopBarProps {
   currentWorkspace: Workspace;
   setCurrentWorkspace: React.Dispatch<
-    React.SetStateAction<Workspace>
+    React.SetStateAction<Workspace | null>
   >;
   workspaces: Workspace[];
 }
