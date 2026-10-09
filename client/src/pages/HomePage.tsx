@@ -3,7 +3,10 @@ import RecentProjects from "../components/home/RecentProjects";
 import StatCard from "../components/home/StatCard";
 import { ClipboardList, Folder, Users, TrendingUp } from "lucide-react";
 
+import { useAuth } from "../hooks/useAuth";
+
 export default function HomePage() {
+  const { user } = useAuth();
   const hour = new Date().getHours();
 
   const greeting =
@@ -12,7 +15,7 @@ export default function HomePage() {
     <div>
       <div className="px-4 mb-8">
         <h1 className="text-3xl text-zinc-900 font-bold">
-          {greeting}, Piyush 👋
+          {greeting}, {user?.name || "there"} 👋
         </h1>
         <p className="text-zinc-500">
           Welcome back to CollabSpace. Manage your projects and stay productive.

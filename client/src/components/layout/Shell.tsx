@@ -1,4 +1,5 @@
-﻿import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import PermissionNotice from "../PermissionNotice";
@@ -11,13 +12,16 @@ import {
   useAppSelector,
 } from "../../store/hooks";
 import { setCurrentWorkspaceId } from "../../store/slices/uiSlice";
+import { useAuth } from "../../hooks/useAuth";
+import { Building2, LogOut, Loader2, AlertCircle } from "lucide-react";
 
 interface ShellProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export default function Shell({ children }: ShellProps) {
   const dispatch = useAppDispatch();
+  const { logout } = useAuth();
 
   const currentWorkspaceId = useAppSelector(
     (state) => state.ui.currentWorkspaceId,
@@ -28,6 +32,7 @@ export default function Shell({ children }: ShellProps) {
     isLoading,
     isError,
     error,
+    refetch,
   } = useWorkspaces();
 
   const [permissionMessage, setPermissionMessage] =
@@ -123,21 +128,43 @@ export default function Shell({ children }: ShellProps) {
 
   if (isLoading) {
     return (
-      <div className="flex h-screen items-center justify-center bg-zinc-100">
-        <p className="text-zinc-500">
-          Loading workspaces...
-        </p>
+      <div className="flex h-screen items-center justify-center bg-zinc-50">
+        <div className="flex flex-col items-center gap-3">
+          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+          <p className="text-sm text-zinc-500">Loading workspaces...</p>
+        </div>
       </div>
     );
   }
 
   if (isError) {
     return (
-      <div className="flex h-screen items-center justify-center bg-zinc-100">
-        <div className="rounded-xl border border-red-300 bg-red-50 p-4 text-red-600">
-          {error instanceof Error
-            ? error.message
-            : "Failed to load workspaces"}
+      <div className="flex h-screen items-center justify-center bg-zinc-50 px-4">
+        <div className="w-full max-w-md rounded-2xl border border-red-200 bg-white p-6 shadow-sm text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600">
+            <AlertCircle className="h-6 w-6" />
+          </div>
+          <h2 className="mt-4 text-base font-semibold text-zinc-900">
+            Failed to Load Workspaces
+          </h2>
+          <p className="mt-2 text-xs text-zinc-500">
+            {error instanceof Error ? error.message : "An unexpected error occurred while loading workspaces."}
+          </p>
+          <div className="mt-6 flex justify-center gap-3">
+            <button
+              onClick={() => refetch()}
+              className="rounded-lg bg-zinc-900 px-4 py-2 text-xs font-medium text-white transition hover:bg-zinc-800"
+            >
+              Retry
+            </button>
+            <button
+              onClick={() => logout()}
+              className="flex items-center gap-1.5 rounded-lg border border-zinc-200 px-4 py-2 text-xs font-medium text-zinc-700 transition hover:bg-zinc-50"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>Sign out</span>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -145,10 +172,28 @@ export default function Shell({ children }: ShellProps) {
 
   if (!workspaceForUi) {
     return (
-      <div className="flex h-screen items-center justify-center bg-zinc-100">
-        <p className="text-zinc-500">
-          No workspaces available.
-        </p>
+      <div className="flex h-screen items-center justify-center bg-zinc-50 px-4">
+        <div className="w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+            <Building2 className="h-6 w-6" />
+          </div>
+          <h2 className="mt-4 text-lg font-semibold text-zinc-900">
+            No Workspace Found
+          </h2>
+          <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+            Your account is authenticated, but you are not currently a member of any workspace.
+            Please contact your organization administrator for an invitation link.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={() => logout()}
+              className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-700 shadow-sm transition hover:bg-zinc-50 hover:text-red-600"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>Sign out of CollabSpace</span>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -179,7 +224,7 @@ export default function Shell({ children }: ShellProps) {
           />
 
           <main className="flex-1 overflow-y-auto bg-zinc-100 p-6">
-            {children}
+            {children ?? <Outlet />}
           </main>
         </div>
       </div>

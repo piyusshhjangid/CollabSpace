@@ -61,6 +61,7 @@ export async function createInvitationService(
     id: invitation.id,
     email: invitation.email,
     expiresAt: invitation.expires_at,
+    token: invitation.token,
   };
 }
 
