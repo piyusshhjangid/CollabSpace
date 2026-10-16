@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import PermissionNotice from "../PermissionNotice";
@@ -13,7 +13,7 @@ import {
 } from "../../store/hooks";
 import { setCurrentWorkspaceId } from "../../store/slices/uiSlice";
 import { useAuth } from "../../hooks/useAuth";
-import { Building2, LogOut, Loader2, AlertCircle } from "lucide-react";
+import { LogOut, Loader2, AlertCircle } from "lucide-react";
 
 interface ShellProps {
   children?: ReactNode;
@@ -171,31 +171,8 @@ export default function Shell({ children }: ShellProps) {
   }
 
   if (!workspaceForUi) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-zinc-50 px-4">
-        <div className="w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-            <Building2 className="h-6 w-6" />
-          </div>
-          <h2 className="mt-4 text-lg font-semibold text-zinc-900">
-            No Workspace Found
-          </h2>
-          <p className="mt-2 text-xs leading-relaxed text-zinc-500">
-            Your account is authenticated, but you are not currently a member of any workspace.
-            Please contact your organization administrator for an invitation link.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <button
-              onClick={() => logout()}
-              className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-700 shadow-sm transition hover:bg-zinc-50 hover:text-red-600"
-            >
-              <LogOut className="h-3.5 w-3.5" />
-              <span>Sign out of CollabSpace</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+    // Authenticated but not in any workspace — send to onboarding
+    return <Navigate to="/onboarding" replace />;
   }
 
   return (

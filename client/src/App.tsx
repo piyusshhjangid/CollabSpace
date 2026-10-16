@@ -5,8 +5,10 @@ import ProjectsPage from "./pages/ProjectPage";
 import TasksPage from "./pages/TasksPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
+import OnboardingPage from "./pages/OnboardingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GuestRoute from "./components/auth/GuestRoute";
+import OnboardingRoute from "./components/auth/OnboardingRoute";
 
 const App = () => {
   return (
@@ -59,6 +61,16 @@ const App = () => {
                 <TasksPage />
               </Shell>
             </ProtectedRoute>
+          }
+        />
+
+        {/* Onboarding: authenticated users without a workspace land here */}
+        <Route
+          path="/onboarding"
+          element={
+            <OnboardingRoute>
+              <OnboardingPage />
+            </OnboardingRoute>
           }
         />
 
