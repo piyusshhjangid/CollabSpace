@@ -30,6 +30,7 @@ export default function Shell({ children }: ShellProps) {
   const {
     data: workspaces = [],
     isLoading,
+    isFetching,
     isError,
     error,
     refetch,
@@ -38,7 +39,15 @@ export default function Shell({ children }: ShellProps) {
   const [permissionMessage, setPermissionMessage] =
     useState<string | null>(null);
 
+  // We are waiting for workspace data if initial load is running, or if a refetch is in progress while list is empty
+  const isWorkspacesPending = isLoading || (isFetching && workspaces.length === 0);
+
   useEffect(() => {
+    // If workspace list is actively loading/fetching and currently empty, do not reset or make selection decisions yet
+    if (isWorkspacesPending) {
+      return;
+    }
+
     if (workspaces.length === 0) {
       if (currentWorkspaceId !== null) {
         dispatch(setCurrentWorkspaceId(null));
@@ -53,7 +62,7 @@ export default function Shell({ children }: ShellProps) {
     if (!selectedWorkspaceExists) {
       dispatch(setCurrentWorkspaceId(workspaces[0].id));
     }
-  }, [workspaces, currentWorkspaceId, dispatch]);
+  }, [workspaces, currentWorkspaceId, isWorkspacesPending, dispatch]);
 
   const currentWorkspace = useMemo<Workspace | null>(() => {
     if (!currentWorkspaceId) {
@@ -126,12 +135,12 @@ export default function Shell({ children }: ShellProps) {
     );
   };
 
-  if (isLoading) {
+  if (isWorkspacesPending) {
     return (
       <div className="flex h-screen items-center justify-center bg-zinc-50">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-          <p className="text-sm text-zinc-500">Loading workspaces...</p>
+          <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
+          <p className="text-sm font-medium text-zinc-600">Loading workspaces...</p>
         </div>
       </div>
     );
@@ -171,7 +180,20 @@ export default function Shell({ children }: ShellProps) {
   }
 
   if (!workspaceForUi) {
-    // Authenticated but not in any workspace — send to onboarding
+    // If a workspace ID was recently selected or a query is actively refetching,
+    // wait for the selection to resolve rather than prematurely kicking the user to onboarding.
+    if (currentWorkspaceId || isFetching) {
+      return (
+        <div className="flex h-screen items-center justify-center bg-zinc-50">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
+            <p className="text-sm font-medium text-zinc-600">Selecting workspace...</p>
+          </div>
+        </div>
+      );
+    }
+
+    // Confirmed authenticated user with zero accessible workspaces
     return <Navigate to="/onboarding" replace />;
   }
 

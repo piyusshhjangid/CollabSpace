@@ -4,6 +4,7 @@ import { useAppDispatch } from "../store/hooks";
 import { setCurrentWorkspaceId } from "../store/slices/uiSlice";
 import { workspaceRoleKeys } from "./useWorkspaceRole";
 import { projectKeys } from "./useProjects";
+import type { Workspace } from "../types/workspace";
 
 export const workspaceKeys = {
   all: ["workspaces"] as const,
@@ -18,8 +19,11 @@ export function useWorkspaces() {
 
 /**
  * Mutation to create a new workspace.
- * On success, invalidates the workspace list and selects the newly created workspace.
- * OWNER role is assigned by the backend; never by the client.
+ * On success:
+ * 1. Seeds the TanStack Query cache immediately so subsequent renders see the new workspace.
+ * 2. Seeds the workspace role cache for the creator with trusted backend-assigned OWNER role.
+ * 3. Sets current workspace in Redux.
+ * 4. Refetches workspace list from the server to guarantee canonical consistency.
  */
 export function useCreateWorkspace() {
   const queryClient = useQueryClient();
@@ -27,21 +31,38 @@ export function useCreateWorkspace() {
 
   return useMutation({
     mutationFn: (name: string) => createWorkspace({ name }),
-    onSuccess: (newWorkspace) => {
-      // Invalidate workspace list so it re-fetches with the new workspace included
-      queryClient.invalidateQueries({ queryKey: workspaceKeys.all });
-      // Also invalidate role cache for clean state
-      queryClient.invalidateQueries({ queryKey: workspaceRoleKeys.all });
-      // Select the new workspace immediately
+    onSuccess: async (newWorkspace) => {
+      // 1. Immediately seed the workspace list cache with the created workspace
+      queryClient.setQueryData<Workspace[]>(workspaceKeys.all, (oldWorkspaces = []) => {
+        const exists = oldWorkspaces.some((w) => w.id === newWorkspace.id);
+        if (exists) return oldWorkspaces;
+        return [...oldWorkspaces, newWorkspace];
+      });
+
+      // 2. Immediately seed role cache for creator (OWNER assigned by backend)
+      queryClient.setQueryData(
+        workspaceRoleKeys.detail(newWorkspace.id),
+        newWorkspace.role,
+      );
+
+      // 3. Immediately select the new workspace in Redux
       dispatch(setCurrentWorkspaceId(newWorkspace.id));
+
+      // 4. Refetch workspaces query to ensure complete synchronization with backend
+      await queryClient.refetchQueries({
+        queryKey: workspaceKeys.all,
+      });
     },
   });
 }
 
 /**
  * Mutation to accept an invitation token.
- * On success, invalidates workspace list so the newly joined workspace appears.
- * Role is determined by backend invitation logic; never by the client.
+ * On success:
+ * 1. Seeds role cache for the joined workspace.
+ * 2. Sets current workspace in Redux.
+ * 3. Refetches workspace list so the newly joined workspace is populated.
+ * 4. Invalidates project and task caches.
  */
 export function useAcceptInvitation() {
   const queryClient = useQueryClient();
@@ -49,19 +70,25 @@ export function useAcceptInvitation() {
 
   return useMutation({
     mutationFn: (token: string) => acceptInvitation({ token }),
-    onSuccess: (result) => {
-      // Invalidate workspace list to include the newly joined workspace
-      queryClient.invalidateQueries({ queryKey: workspaceKeys.all });
-      // Invalidate role cache for this workspace
-      queryClient.invalidateQueries({
-        queryKey: workspaceRoleKeys.detail(result.workspaceId),
+    onSuccess: async (result) => {
+      // 1. Seed role cache with member role returned by server
+      queryClient.setQueryData(
+        workspaceRoleKeys.detail(result.workspaceId),
+        result.role,
+      );
+
+      // 2. Immediately select the joined workspace in Redux
+      dispatch(setCurrentWorkspaceId(result.workspaceId));
+
+      // 3. Refetch workspace list from backend
+      await queryClient.refetchQueries({
+        queryKey: workspaceKeys.all,
       });
-      // Invalidate project cache for this workspace
+
+      // 4. Invalidate project caches for this workspace
       queryClient.invalidateQueries({
         queryKey: projectKeys.workspace(result.workspaceId),
       });
-      // Select the newly joined workspace
-      dispatch(setCurrentWorkspaceId(result.workspaceId));
     },
   });
 }

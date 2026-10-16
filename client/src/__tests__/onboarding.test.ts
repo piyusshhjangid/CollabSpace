@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { createWorkspace, acceptInvitation } from "../api/workspaces";
+import { ApiError } from "../lib/api";
 import type { AuthUser } from "../types/auth";
 import type { Workspace } from "../types/workspace";
 
@@ -43,6 +44,19 @@ describe("Onboarding & Workspace API Integration", () => {
     );
   });
 
+  it("fails gracefully and throws ApiError when workspace creation receives backend validation error", async () => {
+    globalThis.fetch = vi.fn().mockResolvedValue({
+      ok: false,
+      status: 400,
+      headers: new Headers({ "content-type": "application/json" }),
+      json: async () => ({
+        message: "Workspace name is required",
+      }),
+    });
+
+    await expect(createWorkspace({ name: "" })).rejects.toThrow(ApiError);
+  });
+
   it("acceptInvitation sends trimmed token and returns workspaceId and role", async () => {
     globalThis.fetch = vi.fn().mockResolvedValue({
       ok: true,
@@ -77,7 +91,6 @@ describe("Onboarding & Workspace API Integration", () => {
       email: "jordan@example.com",
     };
 
-    // User entity contains identity only, no role
     expect((user as unknown as Record<string, unknown>).role).toBeUndefined();
     expect(user.id).toBe("u-999");
     expect(user.email).toBe("jordan@example.com");
@@ -89,7 +102,6 @@ describe("Onboarding & Workspace API Integration", () => {
       { id: "ws-2", name: "Team Beta", role: "MEMBER" },
     ];
 
-    // Same user holds different roles per workspace
     const alpha = workspaces.find((w) => w.id === "ws-1");
     const beta = workspaces.find((w) => w.id === "ws-2");
 
@@ -97,16 +109,119 @@ describe("Onboarding & Workspace API Integration", () => {
     expect(beta?.role).toBe("MEMBER");
   });
 
-  it("determines onboarding navigation requirement based on workspace count", () => {
-    const shouldGoToOnboarding = (workspaces: Workspace[] | undefined, isLoading: boolean) => {
-      if (isLoading) return false;
-      return !workspaces || workspaces.length === 0;
+  it("determines onboarding route guard behavior correctly", () => {
+    const checkOnboardingAccess = (
+      isAuthenticated: boolean,
+      workspaces: Workspace[],
+      hasInviteToken: boolean,
+    ): "LOGIN" | "HOME" | "ONBOARDING" => {
+      if (!isAuthenticated) return "LOGIN";
+      if (workspaces.length > 0 && !hasInviteToken) return "HOME";
+      return "ONBOARDING";
     };
 
-    expect(shouldGoToOnboarding([], true)).toBe(false); // still loading
-    expect(shouldGoToOnboarding([], false)).toBe(true); // loaded and 0 workspaces -> onboarding
+    // Unauthenticated -> Login
+    expect(checkOnboardingAccess(false, [], false)).toBe("LOGIN");
+    // Authenticated + 0 workspaces -> Onboarding
+    expect(checkOnboardingAccess(true, [], false)).toBe("ONBOARDING");
+    // Authenticated + existing workspaces -> Home
     expect(
-      shouldGoToOnboarding([{ id: "ws-1", name: "Alpha", role: "OWNER" }], false),
-    ).toBe(false); // has workspace -> stay in app
+      checkOnboardingAccess(true, [{ id: "w-1", name: "W1", role: "MEMBER" }], false),
+    ).toBe("HOME");
+    // Authenticated + existing workspaces BUT has invite token -> Onboarding to accept
+    expect(
+      checkOnboardingAccess(true, [{ id: "w-1", name: "W1", role: "MEMBER" }], true),
+    ).toBe("ONBOARDING");
+  });
+
+  it("prevents stale redirect loops in Shell by checking isWorkspacesPending and selected workspace status", () => {
+    const shouldRedirectToOnboarding = ({
+      workspaces,
+      isLoading,
+      isFetching,
+      currentWorkspaceId,
+      workspaceForUi,
+    }: {
+      workspaces: Workspace[];
+      isLoading: boolean;
+      isFetching: boolean;
+      currentWorkspaceId: string | null;
+      workspaceForUi: Workspace | null;
+    }): boolean => {
+      const isWorkspacesPending = isLoading || (isFetching && workspaces.length === 0);
+      if (isWorkspacesPending) return false;
+      if (!workspaceForUi) {
+        if (currentWorkspaceId || isFetching) return false;
+        return true;
+      }
+      return false;
+    };
+
+    // Case 1: Initial load running -> NO redirect
+    expect(
+      shouldRedirectToOnboarding({
+        workspaces: [],
+        isLoading: true,
+        isFetching: true,
+        currentWorkspaceId: null,
+        workspaceForUi: null,
+      }),
+    ).toBe(false);
+
+    // Case 2: Post-creation refetch in flight with currentWorkspaceId set -> NO redirect
+    expect(
+      shouldRedirectToOnboarding({
+        workspaces: [],
+        isLoading: false,
+        isFetching: true,
+        currentWorkspaceId: "ws-created-123",
+        workspaceForUi: null,
+      }),
+    ).toBe(false);
+
+    // Case 3: Confirmed zero workspaces, not fetching -> Redirect to onboarding
+    expect(
+      shouldRedirectToOnboarding({
+        workspaces: [],
+        isLoading: false,
+        isFetching: false,
+        currentWorkspaceId: null,
+        workspaceForUi: null,
+      }),
+    ).toBe(true);
+
+    // Case 4: Workspace is resolved and active -> NO redirect
+    const activeWs: Workspace = { id: "ws-1", name: "Alpha", role: "OWNER" };
+    expect(
+      shouldRedirectToOnboarding({
+        workspaces: [activeWs],
+        isLoading: false,
+        isFetching: false,
+        currentWorkspaceId: "ws-1",
+        workspaceForUi: activeWs,
+      }),
+    ).toBe(false);
+  });
+
+  it("immediately updates cache upon creation so synchronous renders resolve active workspace", () => {
+    let cache: Workspace[] = [];
+    const newWs: Workspace = {
+      id: "ws-created-999",
+      name: "New Engineering Space",
+      role: "OWNER",
+    };
+
+    // Cache seeding updater function matching useCreateWorkspace
+    const seedUpdater = (oldWorkspaces: Workspace[] = []) => {
+      const exists = oldWorkspaces.some((w) => w.id === newWs.id);
+      if (exists) return oldWorkspaces;
+      return [...oldWorkspaces, newWs];
+    };
+
+    cache = seedUpdater(cache);
+
+    expect(cache).toHaveLength(1);
+    expect(cache[0].id).toBe("ws-created-999");
+    expect(cache[0].role).toBe("OWNER");
   });
 });

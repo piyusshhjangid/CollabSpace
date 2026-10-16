@@ -40,7 +40,7 @@ const TopBar: React.FC<TopBarProps> = ({
       <div className="flex items-center gap-4">
         {user && (
           <div className="hidden sm:flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-700 font-semibold text-xs">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 text-purple-700 font-semibold text-xs">
               {user.name ? user.name.charAt(0).toUpperCase() : <User className="h-4 w-4" />}
             </div>
             <div className="text-left text-xs">
