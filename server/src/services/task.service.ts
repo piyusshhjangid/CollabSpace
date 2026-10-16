@@ -11,6 +11,7 @@ import { findWorkspaceMembership } from "../repositories/workspace.repository.js
 import { findProjectByWorkspace } from "../repositories/project.repository.js";
 
 import type { Task } from "../types/task.js";
+import type { TaskStatus } from "../schemas/task.schema.js";
 
 import { badRequest, forbidden } from "../lib/AppError.js";
 
@@ -78,6 +79,7 @@ export async function createTaskService(
   userId: string,
   title: string,
   completed: boolean | undefined,
+  status: "TODO" | "IN_PROGRESS" | "DONE" | undefined = undefined,
 ) {
   await verifyWorkspaceMember(workspaceId, userId);
 
@@ -90,11 +92,14 @@ export async function createTaskService(
     throw badRequest("Task title is required");
   }
 
+  const resolvedStatus = status ?? (completed ? "DONE" : "TODO");
+
   const task: Task = {
     id: `t${Date.now()}`,
     projectId,
     title,
-    completed: completed ?? false,
+    completed: resolvedStatus === "DONE",
+    status: resolvedStatus,
   };
 
   try {
@@ -104,6 +109,7 @@ export async function createTaskService(
       task.title,
       String(task.completed),
       task.id,
+      status ?? (task.completed ? "DONE" : "TODO"),
     );
 
 
@@ -141,7 +147,7 @@ export async function updateTaskService(
   data: {
     title?: string | undefined;
     completed?: boolean | undefined;
-    status?: string | undefined;
+    status?: TaskStatus | undefined;
   },
 ) {
   const task = await findTaskForUpdate(
@@ -192,11 +198,12 @@ export async function updateTaskService(
     },
   });
 
-return {
+  return {
     id: updated?.id ?? task.id,
     projectId: updated?.project_id ?? task.project_id,
     title: updated?.title ?? task.title,
     completed: updated?.completed ?? task.completed,
+    status: updated?.status ?? task.status,
   };
 }
 
@@ -226,3 +233,4 @@ export async function getTaskCountsByStatusService(
     workspaceId,
   );
 }
+

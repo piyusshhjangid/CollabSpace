@@ -1,4 +1,12 @@
-import { z } from "zod";
+﻿import { z } from "zod";
+
+export const TaskStatusSchema = z.enum([
+  "TODO",
+  "IN_PROGRESS",
+  "DONE",
+]);
+
+export type TaskStatus = z.infer<typeof TaskStatusSchema>;
 
 export const CreateTaskSchema = z.object({
   title: z
@@ -9,6 +17,8 @@ export const CreateTaskSchema = z.object({
   completed: z
     .boolean()
     .optional(),
+
+  status: TaskStatusSchema.optional(),
 });
 
 export type CreateTaskBody = z.infer<typeof CreateTaskSchema>;
@@ -25,11 +35,7 @@ export const UpdateTaskSchema = z
       .boolean()
       .optional(),
 
-    status: z
-      .string()
-      .trim()
-      .min(1, "Task status is required")
-      .optional(),
+    status: TaskStatusSchema.optional(),
   })
   .refine(
     (body) =>

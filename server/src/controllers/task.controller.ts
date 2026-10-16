@@ -1,6 +1,10 @@
 import type { RequestHandler } from "express";
 
-import type { CreateTaskBody, UpdateTaskBody } from "../schemas/task.schema.js";
+import {
+  TaskStatusSchema,
+  type CreateTaskBody,
+  type UpdateTaskBody,
+} from "../schemas/task.schema.js";
 
 import {
   getTasksByProject,
@@ -64,6 +68,11 @@ export const getTasks: RequestHandler = async (req, res) => {
     cursor,
   );
 
+  const items: Task[] = result.items.map((item) => ({
+    ...item,
+    status: TaskStatusSchema.parse(item.status),
+  }));
+
   const response: ApiResponse<Task[]> & {
     meta: {
       limit: number;
@@ -73,7 +82,7 @@ export const getTasks: RequestHandler = async (req, res) => {
   } = {
     success: true,
     message: "Tasks fetched",
-    data: result.items,
+    data: items,
     meta: {
       limit,
       nextCursor: result.nextCursor,
@@ -89,7 +98,7 @@ export const createTask: RequestHandler = async (req, res) => {
   const workspaceId = req.query.workspaceId;
   const userId = req.user?.id;
 
-  const { title, completed } = req.body as CreateTaskBody;
+  const { title, completed, status } = req.body as CreateTaskBody;
 
   if (typeof projectId !== "string") {
     throw badRequest("projectId is required");
@@ -113,12 +122,16 @@ export const createTask: RequestHandler = async (req, res) => {
     userId,
     title,
     completed,
+    status,
   );
 
   const response: ApiResponse<Task> = {
     success: true,
     message: "Task created successfully",
-    data: task,
+    data: {
+      ...task,
+      status: TaskStatusSchema.parse(task.status),
+    },
   };
 
   res.status(201).json(response);
@@ -153,7 +166,10 @@ export const updateTask: RequestHandler = async (req, res) => {
   const response: ApiResponse<typeof task> = {
     success: true,
     message: "Task updated successfully",
-    data: task,
+    data: {
+      ...task,
+      status: TaskStatusSchema.parse(task.status),
+    },
   };
 
   res.json(response);

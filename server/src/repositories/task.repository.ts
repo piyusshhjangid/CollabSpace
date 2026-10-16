@@ -57,6 +57,7 @@ export async function findTasksByProject(
     projectId: task.project_id,
     title: task.title,
     completed: task.completed,
+    status: task.status,
     project: task.projects.name,
     assigned_to: task.users?.name ?? null,
   }));
@@ -84,6 +85,7 @@ export async function createTask(
   title: string,
   completed: string,
   _id: string,
+  status: "TODO" | "IN_PROGRESS" | "DONE" = "TODO",
 ) {
   const project = await prisma.projects.findFirst({
     where: {
@@ -105,6 +107,7 @@ export async function createTask(
       workspace_id: workspaceId,
       title,
       completed: completed === "true",
+      status,
     },
   });
 
@@ -112,6 +115,7 @@ export async function createTask(
     id: task.id,
     projectId: task.project_id,
     title: task.title,
+    status: task.status,
     completed: task.completed,
   };
 }
@@ -189,7 +193,7 @@ export async function updateTask(
   data: {
     title?: string | undefined;
     completed?: boolean | undefined;
-    status?: string | undefined;
+    status?: "TODO" | "IN_PROGRESS" | "DONE" | undefined;
   },
 ) {
   return prisma.$transaction(async (tx) => {
@@ -213,6 +217,17 @@ export async function updateTask(
       throw new Error("Task not found");
     }
 
+    const nextStatus =
+      data.status !== undefined
+        ? data.status
+        : data.completed !== undefined
+          ? data.completed
+            ? "DONE"
+            : "TODO"
+          : currentTask.status;
+
+    const statusChanged = nextStatus !== currentTask.status;
+
     const updateData: {
       title?: string;
       completed?: boolean;
@@ -224,25 +239,18 @@ export async function updateTask(
       updateData.title = data.title;
     }
 
-    if (data.completed !== undefined) {
-      updateData.completed = data.completed;
-      updateData.completed_at = data.completed ? new Date() : null;
+    if (data.status !== undefined || data.completed !== undefined) {
+      updateData.status = nextStatus;
+      updateData.completed = nextStatus === "DONE";
+      updateData.completed_at =
+        nextStatus === "DONE" ? new Date() : null;
     }
-
-    if (data.status !== undefined) {
-      updateData.status = data.status;
-    }
-
-    const statusChanged =
-      data.status !== undefined && data.status !== currentTask.status;
 
     const updated = await tx.tasks.updateMany({
       where: {
         id: taskId,
         workspace_id: workspaceId,
-        ...(statusChanged
-          ? { status: currentTask.status }
-          : {}),
+        ...(statusChanged ? { status: currentTask.status } : {}),
       },
       data: updateData,
     });
@@ -257,7 +265,7 @@ export async function updateTask(
           task_id: currentTask.id,
           workspace_id: currentTask.workspace_id,
           from_status: currentTask.status,
-          to_status: data.status!,
+          to_status: nextStatus,
           changed_by: changedBy,
         },
       });
