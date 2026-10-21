@@ -9,6 +9,7 @@ import OnboardingPage from "./pages/OnboardingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GuestRoute from "./components/auth/GuestRoute";
 import OnboardingRoute from "./components/auth/OnboardingRoute";
+import ExecutionPage from "./pages/ExecutionPage";
 
 const App = () => {
   return (
@@ -63,6 +64,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/execution" element={<ProtectedRoute><Shell><ExecutionPage /></Shell></ProtectedRoute>} />
 
         {/* Onboarding: authenticated users without a workspace land here */}
         <Route

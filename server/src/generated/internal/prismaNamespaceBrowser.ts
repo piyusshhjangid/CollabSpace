@@ -56,6 +56,14 @@ export const ModelName = {
   task_status_history: 'task_status_history',
   users: 'users',
   workspace_members: 'workspace_members',
+  outcomes: 'outcomes',
+  goals: 'goals',
+  milestones: 'milestones',
+  task_dependencies: 'task_dependencies',
+  delivery_contracts: 'delivery_contracts',
+  execution_plans: 'execution_plans',
+  execution_plan_tasks: 'execution_plan_tasks',
+  workspace_event_counters: 'workspace_event_counters',
   workspaces: 'workspaces',
   refresh_tokens: 'refresh_tokens',
   invitations: 'invitations',
@@ -83,7 +91,8 @@ export const ProjectsScalarFieldEnum = {
   workspace_id: 'workspace_id',
   name: 'name',
   description: 'description',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  outcome_id: 'outcome_id'
 } as const
 
 export type ProjectsScalarFieldEnum = (typeof ProjectsScalarFieldEnum)[keyof typeof ProjectsScalarFieldEnum]
@@ -139,6 +148,113 @@ export const Workspace_membersScalarFieldEnum = {
 } as const
 
 export type Workspace_membersScalarFieldEnum = (typeof Workspace_membersScalarFieldEnum)[keyof typeof Workspace_membersScalarFieldEnum]
+
+
+export const OutcomesScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  name: 'name',
+  description: 'description',
+  success_criteria: 'success_criteria',
+  target_date: 'target_date',
+  owner_id: 'owner_id',
+  created_by: 'created_by',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type OutcomesScalarFieldEnum = (typeof OutcomesScalarFieldEnum)[keyof typeof OutcomesScalarFieldEnum]
+
+
+export const GoalsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  outcome_id: 'outcome_id',
+  name: 'name',
+  success_criteria: 'success_criteria',
+  target_date: 'target_date',
+  created_at: 'created_at'
+} as const
+
+export type GoalsScalarFieldEnum = (typeof GoalsScalarFieldEnum)[keyof typeof GoalsScalarFieldEnum]
+
+
+export const MilestonesScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  goal_id: 'goal_id',
+  name: 'name',
+  due_date: 'due_date',
+  status: 'status',
+  created_at: 'created_at'
+} as const
+
+export type MilestonesScalarFieldEnum = (typeof MilestonesScalarFieldEnum)[keyof typeof MilestonesScalarFieldEnum]
+
+
+export const Task_dependenciesScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  predecessor_task_id: 'predecessor_task_id',
+  successor_task_id: 'successor_task_id',
+  dependency_type: 'dependency_type',
+  created_by: 'created_by',
+  created_at: 'created_at'
+} as const
+
+export type Task_dependenciesScalarFieldEnum = (typeof Task_dependenciesScalarFieldEnum)[keyof typeof Task_dependenciesScalarFieldEnum]
+
+
+export const Delivery_contractsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  outcome_id: 'outcome_id',
+  version: 'version',
+  scope: 'scope',
+  deadline: 'deadline',
+  constraints: 'constraints',
+  acceptance_criteria: 'acceptance_criteria',
+  owner_id: 'owner_id',
+  created_by: 'created_by',
+  created_at: 'created_at'
+} as const
+
+export type Delivery_contractsScalarFieldEnum = (typeof Delivery_contractsScalarFieldEnum)[keyof typeof Delivery_contractsScalarFieldEnum]
+
+
+export const Execution_plansScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  outcome_id: 'outcome_id',
+  contract_id: 'contract_id',
+  version: 'version',
+  created_by: 'created_by',
+  created_at: 'created_at'
+} as const
+
+export type Execution_plansScalarFieldEnum = (typeof Execution_plansScalarFieldEnum)[keyof typeof Execution_plansScalarFieldEnum]
+
+
+export const Execution_plan_tasksScalarFieldEnum = {
+  id: 'id',
+  plan_id: 'plan_id',
+  task_id: 'task_id',
+  planned_start: 'planned_start',
+  planned_end: 'planned_end',
+  duration_days: 'duration_days',
+  order_index: 'order_index'
+} as const
+
+export type Execution_plan_tasksScalarFieldEnum = (typeof Execution_plan_tasksScalarFieldEnum)[keyof typeof Execution_plan_tasksScalarFieldEnum]
+
+
+export const Workspace_event_countersScalarFieldEnum = {
+  workspace_id: 'workspace_id',
+  sequence: 'sequence'
+} as const
+
+export type Workspace_event_countersScalarFieldEnum = (typeof Workspace_event_countersScalarFieldEnum)[keyof typeof Workspace_event_countersScalarFieldEnum]
 
 
 export const WorkspacesScalarFieldEnum = {

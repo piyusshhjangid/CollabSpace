@@ -171,6 +171,13 @@ export type workspacesWhereInput = {
   workspace_members?: Prisma.Workspace_membersListRelationFilter
   invitations?: Prisma.InvitationsListRelationFilter
   task_status_history?: Prisma.Task_status_historyListRelationFilter
+  outcomes?: Prisma.OutcomesListRelationFilter
+  goals?: Prisma.GoalsListRelationFilter
+  milestones?: Prisma.MilestonesListRelationFilter
+  task_dependencies?: Prisma.Task_dependenciesListRelationFilter
+  delivery_contracts?: Prisma.Delivery_contractsListRelationFilter
+  execution_plans?: Prisma.Execution_plansListRelationFilter
+  event_counter?: Prisma.XOR<Prisma.Workspace_event_countersNullableScalarRelationFilter, Prisma.workspace_event_countersWhereInput> | null
 }
 
 export type workspacesOrderByWithRelationInput = {
@@ -182,6 +189,13 @@ export type workspacesOrderByWithRelationInput = {
   workspace_members?: Prisma.workspace_membersOrderByRelationAggregateInput
   invitations?: Prisma.invitationsOrderByRelationAggregateInput
   task_status_history?: Prisma.task_status_historyOrderByRelationAggregateInput
+  outcomes?: Prisma.outcomesOrderByRelationAggregateInput
+  goals?: Prisma.goalsOrderByRelationAggregateInput
+  milestones?: Prisma.milestonesOrderByRelationAggregateInput
+  task_dependencies?: Prisma.task_dependenciesOrderByRelationAggregateInput
+  delivery_contracts?: Prisma.delivery_contractsOrderByRelationAggregateInput
+  execution_plans?: Prisma.execution_plansOrderByRelationAggregateInput
+  event_counter?: Prisma.workspace_event_countersOrderByWithRelationInput
 }
 
 export type workspacesWhereUniqueInput = Prisma.AtLeast<{
@@ -196,6 +210,13 @@ export type workspacesWhereUniqueInput = Prisma.AtLeast<{
   workspace_members?: Prisma.Workspace_membersListRelationFilter
   invitations?: Prisma.InvitationsListRelationFilter
   task_status_history?: Prisma.Task_status_historyListRelationFilter
+  outcomes?: Prisma.OutcomesListRelationFilter
+  goals?: Prisma.GoalsListRelationFilter
+  milestones?: Prisma.MilestonesListRelationFilter
+  task_dependencies?: Prisma.Task_dependenciesListRelationFilter
+  delivery_contracts?: Prisma.Delivery_contractsListRelationFilter
+  execution_plans?: Prisma.Execution_plansListRelationFilter
+  event_counter?: Prisma.XOR<Prisma.Workspace_event_countersNullableScalarRelationFilter, Prisma.workspace_event_countersWhereInput> | null
 }, "id">
 
 export type workspacesOrderByWithAggregationInput = {
@@ -225,6 +246,13 @@ export type workspacesCreateInput = {
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateInput = {
@@ -236,6 +264,13 @@ export type workspacesUncheckedCreateInput = {
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUpdateInput = {
@@ -247,6 +282,13 @@ export type workspacesUpdateInput = {
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateInput = {
@@ -258,6 +300,13 @@ export type workspacesUncheckedUpdateInput = {
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateManyInput = {
@@ -357,6 +406,104 @@ export type workspacesUpdateOneRequiredWithoutWorkspace_membersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutWorkspace_membersInput, Prisma.workspacesUpdateWithoutWorkspace_membersInput>, Prisma.workspacesUncheckedUpdateWithoutWorkspace_membersInput>
 }
 
+export type workspacesCreateNestedOneWithoutOutcomesInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutOutcomesInput, Prisma.workspacesUncheckedCreateWithoutOutcomesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutOutcomesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutOutcomesNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutOutcomesInput, Prisma.workspacesUncheckedCreateWithoutOutcomesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutOutcomesInput
+  upsert?: Prisma.workspacesUpsertWithoutOutcomesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutOutcomesInput, Prisma.workspacesUpdateWithoutOutcomesInput>, Prisma.workspacesUncheckedUpdateWithoutOutcomesInput>
+}
+
+export type workspacesCreateNestedOneWithoutGoalsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutGoalsInput, Prisma.workspacesUncheckedCreateWithoutGoalsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutGoalsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutGoalsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutGoalsInput, Prisma.workspacesUncheckedCreateWithoutGoalsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutGoalsInput
+  upsert?: Prisma.workspacesUpsertWithoutGoalsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutGoalsInput, Prisma.workspacesUpdateWithoutGoalsInput>, Prisma.workspacesUncheckedUpdateWithoutGoalsInput>
+}
+
+export type workspacesCreateNestedOneWithoutMilestonesInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutMilestonesInput, Prisma.workspacesUncheckedCreateWithoutMilestonesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutMilestonesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutMilestonesNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutMilestonesInput, Prisma.workspacesUncheckedCreateWithoutMilestonesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutMilestonesInput
+  upsert?: Prisma.workspacesUpsertWithoutMilestonesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutMilestonesInput, Prisma.workspacesUpdateWithoutMilestonesInput>, Prisma.workspacesUncheckedUpdateWithoutMilestonesInput>
+}
+
+export type workspacesCreateNestedOneWithoutTask_dependenciesInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedCreateWithoutTask_dependenciesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_dependenciesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutTask_dependenciesNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedCreateWithoutTask_dependenciesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_dependenciesInput
+  upsert?: Prisma.workspacesUpsertWithoutTask_dependenciesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutTask_dependenciesInput, Prisma.workspacesUpdateWithoutTask_dependenciesInput>, Prisma.workspacesUncheckedUpdateWithoutTask_dependenciesInput>
+}
+
+export type workspacesCreateNestedOneWithoutDelivery_contractsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedCreateWithoutDelivery_contractsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutDelivery_contractsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutDelivery_contractsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedCreateWithoutDelivery_contractsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutDelivery_contractsInput
+  upsert?: Prisma.workspacesUpsertWithoutDelivery_contractsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutDelivery_contractsInput, Prisma.workspacesUpdateWithoutDelivery_contractsInput>, Prisma.workspacesUncheckedUpdateWithoutDelivery_contractsInput>
+}
+
+export type workspacesCreateNestedOneWithoutExecution_plansInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_plansInput, Prisma.workspacesUncheckedCreateWithoutExecution_plansInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_plansInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExecution_plansNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_plansInput, Prisma.workspacesUncheckedCreateWithoutExecution_plansInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_plansInput
+  upsert?: Prisma.workspacesUpsertWithoutExecution_plansInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExecution_plansInput, Prisma.workspacesUpdateWithoutExecution_plansInput>, Prisma.workspacesUncheckedUpdateWithoutExecution_plansInput>
+}
+
+export type workspacesCreateNestedOneWithoutEvent_counterInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutEvent_counterInput, Prisma.workspacesUncheckedCreateWithoutEvent_counterInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutEvent_counterInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutEvent_counterNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutEvent_counterInput, Prisma.workspacesUncheckedCreateWithoutEvent_counterInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutEvent_counterInput
+  upsert?: Prisma.workspacesUpsertWithoutEvent_counterInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutEvent_counterInput, Prisma.workspacesUpdateWithoutEvent_counterInput>, Prisma.workspacesUncheckedUpdateWithoutEvent_counterInput>
+}
+
 export type workspacesCreateNestedOneWithoutInvitationsInput = {
   create?: Prisma.XOR<Prisma.workspacesCreateWithoutInvitationsInput, Prisma.workspacesUncheckedCreateWithoutInvitationsInput>
   connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutInvitationsInput
@@ -379,6 +526,13 @@ export type workspacesCreateWithoutProjectsInput = {
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutProjectsInput = {
@@ -389,6 +543,13 @@ export type workspacesUncheckedCreateWithoutProjectsInput = {
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutProjectsInput = {
@@ -415,6 +576,13 @@ export type workspacesUpdateWithoutProjectsInput = {
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutProjectsInput = {
@@ -425,6 +593,13 @@ export type workspacesUncheckedUpdateWithoutProjectsInput = {
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTasksInput = {
@@ -435,6 +610,13 @@ export type workspacesCreateWithoutTasksInput = {
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTasksInput = {
@@ -445,6 +627,13 @@ export type workspacesUncheckedCreateWithoutTasksInput = {
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTasksInput = {
@@ -471,6 +660,13 @@ export type workspacesUpdateWithoutTasksInput = {
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTasksInput = {
@@ -481,6 +677,13 @@ export type workspacesUncheckedUpdateWithoutTasksInput = {
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_status_historyInput = {
@@ -491,6 +694,13 @@ export type workspacesCreateWithoutTask_status_historyInput = {
   tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
@@ -501,6 +711,13 @@ export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_status_historyInput = {
@@ -527,6 +744,13 @@ export type workspacesUpdateWithoutTask_status_historyInput = {
   tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
@@ -537,6 +761,13 @@ export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutWorkspace_membersInput = {
@@ -547,6 +778,13 @@ export type workspacesCreateWithoutWorkspace_membersInput = {
   tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
@@ -557,6 +795,13 @@ export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
   invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutWorkspace_membersInput = {
@@ -583,6 +828,13 @@ export type workspacesUpdateWithoutWorkspace_membersInput = {
   tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
@@ -593,6 +845,601 @@ export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
   invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutOutcomesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutOutcomesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutOutcomesInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutOutcomesInput, Prisma.workspacesUncheckedCreateWithoutOutcomesInput>
+}
+
+export type workspacesUpsertWithoutOutcomesInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutOutcomesInput, Prisma.workspacesUncheckedUpdateWithoutOutcomesInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutOutcomesInput, Prisma.workspacesUncheckedCreateWithoutOutcomesInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutOutcomesInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutOutcomesInput, Prisma.workspacesUncheckedUpdateWithoutOutcomesInput>
+}
+
+export type workspacesUpdateWithoutOutcomesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutOutcomesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutGoalsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutGoalsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutGoalsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutGoalsInput, Prisma.workspacesUncheckedCreateWithoutGoalsInput>
+}
+
+export type workspacesUpsertWithoutGoalsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutGoalsInput, Prisma.workspacesUncheckedUpdateWithoutGoalsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutGoalsInput, Prisma.workspacesUncheckedCreateWithoutGoalsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutGoalsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutGoalsInput, Prisma.workspacesUncheckedUpdateWithoutGoalsInput>
+}
+
+export type workspacesUpdateWithoutGoalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutGoalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutMilestonesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutMilestonesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutMilestonesInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutMilestonesInput, Prisma.workspacesUncheckedCreateWithoutMilestonesInput>
+}
+
+export type workspacesUpsertWithoutMilestonesInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutMilestonesInput, Prisma.workspacesUncheckedUpdateWithoutMilestonesInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutMilestonesInput, Prisma.workspacesUncheckedCreateWithoutMilestonesInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutMilestonesInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutMilestonesInput, Prisma.workspacesUncheckedUpdateWithoutMilestonesInput>
+}
+
+export type workspacesUpdateWithoutMilestonesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutMilestonesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutTask_dependenciesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutTask_dependenciesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutTask_dependenciesInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedCreateWithoutTask_dependenciesInput>
+}
+
+export type workspacesUpsertWithoutTask_dependenciesInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedUpdateWithoutTask_dependenciesInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedCreateWithoutTask_dependenciesInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutTask_dependenciesInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_dependenciesInput, Prisma.workspacesUncheckedUpdateWithoutTask_dependenciesInput>
+}
+
+export type workspacesUpdateWithoutTask_dependenciesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutTask_dependenciesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutDelivery_contractsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutDelivery_contractsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutDelivery_contractsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedCreateWithoutDelivery_contractsInput>
+}
+
+export type workspacesUpsertWithoutDelivery_contractsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedUpdateWithoutDelivery_contractsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedCreateWithoutDelivery_contractsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutDelivery_contractsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutDelivery_contractsInput, Prisma.workspacesUncheckedUpdateWithoutDelivery_contractsInput>
+}
+
+export type workspacesUpdateWithoutDelivery_contractsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutDelivery_contractsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExecution_plansInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExecution_plansInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExecution_plansInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_plansInput, Prisma.workspacesUncheckedCreateWithoutExecution_plansInput>
+}
+
+export type workspacesUpsertWithoutExecution_plansInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_plansInput, Prisma.workspacesUncheckedUpdateWithoutExecution_plansInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_plansInput, Prisma.workspacesUncheckedCreateWithoutExecution_plansInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExecution_plansInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_plansInput, Prisma.workspacesUncheckedUpdateWithoutExecution_plansInput>
+}
+
+export type workspacesUpdateWithoutExecution_plansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExecution_plansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutEvent_counterInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutEvent_counterInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutEvent_counterInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutEvent_counterInput, Prisma.workspacesUncheckedCreateWithoutEvent_counterInput>
+}
+
+export type workspacesUpsertWithoutEvent_counterInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutEvent_counterInput, Prisma.workspacesUncheckedUpdateWithoutEvent_counterInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutEvent_counterInput, Prisma.workspacesUncheckedCreateWithoutEvent_counterInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutEvent_counterInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutEvent_counterInput, Prisma.workspacesUncheckedUpdateWithoutEvent_counterInput>
+}
+
+export type workspacesUpdateWithoutEvent_counterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutEvent_counterInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutInvitationsInput = {
@@ -603,6 +1450,13 @@ export type workspacesCreateWithoutInvitationsInput = {
   tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
   workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutInvitationsInput = {
@@ -613,6 +1467,13 @@ export type workspacesUncheckedCreateWithoutInvitationsInput = {
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
   workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
   task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutInvitationsInput = {
@@ -639,6 +1500,13 @@ export type workspacesUpdateWithoutInvitationsInput = {
   tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
   workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutInvitationsInput = {
@@ -649,6 +1517,13 @@ export type workspacesUncheckedUpdateWithoutInvitationsInput = {
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
   workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
 }
 
 
@@ -662,6 +1537,12 @@ export type WorkspacesCountOutputType = {
   workspace_members: number
   invitations: number
   task_status_history: number
+  outcomes: number
+  goals: number
+  milestones: number
+  task_dependencies: number
+  delivery_contracts: number
+  execution_plans: number
 }
 
 export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -670,6 +1551,12 @@ export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extens
   workspace_members?: boolean | WorkspacesCountOutputTypeCountWorkspace_membersArgs
   invitations?: boolean | WorkspacesCountOutputTypeCountInvitationsArgs
   task_status_history?: boolean | WorkspacesCountOutputTypeCountTask_status_historyArgs
+  outcomes?: boolean | WorkspacesCountOutputTypeCountOutcomesArgs
+  goals?: boolean | WorkspacesCountOutputTypeCountGoalsArgs
+  milestones?: boolean | WorkspacesCountOutputTypeCountMilestonesArgs
+  task_dependencies?: boolean | WorkspacesCountOutputTypeCountTask_dependenciesArgs
+  delivery_contracts?: boolean | WorkspacesCountOutputTypeCountDelivery_contractsArgs
+  execution_plans?: boolean | WorkspacesCountOutputTypeCountExecution_plansArgs
 }
 
 /**
@@ -717,6 +1604,48 @@ export type WorkspacesCountOutputTypeCountTask_status_historyArgs<ExtArgs extend
   where?: Prisma.task_status_historyWhereInput
 }
 
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountOutcomesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.outcomesWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountGoalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.goalsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountMilestonesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.milestonesWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountTask_dependenciesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.task_dependenciesWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountDelivery_contractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.delivery_contractsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExecution_plansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_plansWhereInput
+}
+
 
 export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -727,6 +1656,13 @@ export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   workspace_members?: boolean | Prisma.workspaces$workspace_membersArgs<ExtArgs>
   invitations?: boolean | Prisma.workspaces$invitationsArgs<ExtArgs>
   task_status_history?: boolean | Prisma.workspaces$task_status_historyArgs<ExtArgs>
+  outcomes?: boolean | Prisma.workspaces$outcomesArgs<ExtArgs>
+  goals?: boolean | Prisma.workspaces$goalsArgs<ExtArgs>
+  milestones?: boolean | Prisma.workspaces$milestonesArgs<ExtArgs>
+  task_dependencies?: boolean | Prisma.workspaces$task_dependenciesArgs<ExtArgs>
+  delivery_contracts?: boolean | Prisma.workspaces$delivery_contractsArgs<ExtArgs>
+  execution_plans?: boolean | Prisma.workspaces$execution_plansArgs<ExtArgs>
+  event_counter?: boolean | Prisma.workspaces$event_counterArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaces"]>
 
@@ -755,6 +1691,13 @@ export type workspacesInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   workspace_members?: boolean | Prisma.workspaces$workspace_membersArgs<ExtArgs>
   invitations?: boolean | Prisma.workspaces$invitationsArgs<ExtArgs>
   task_status_history?: boolean | Prisma.workspaces$task_status_historyArgs<ExtArgs>
+  outcomes?: boolean | Prisma.workspaces$outcomesArgs<ExtArgs>
+  goals?: boolean | Prisma.workspaces$goalsArgs<ExtArgs>
+  milestones?: boolean | Prisma.workspaces$milestonesArgs<ExtArgs>
+  task_dependencies?: boolean | Prisma.workspaces$task_dependenciesArgs<ExtArgs>
+  delivery_contracts?: boolean | Prisma.workspaces$delivery_contractsArgs<ExtArgs>
+  execution_plans?: boolean | Prisma.workspaces$execution_plansArgs<ExtArgs>
+  event_counter?: boolean | Prisma.workspaces$event_counterArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type workspacesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -768,6 +1711,13 @@ export type $workspacesPayload<ExtArgs extends runtime.Types.Extensions.Internal
     workspace_members: Prisma.$workspace_membersPayload<ExtArgs>[]
     invitations: Prisma.$invitationsPayload<ExtArgs>[]
     task_status_history: Prisma.$task_status_historyPayload<ExtArgs>[]
+    outcomes: Prisma.$outcomesPayload<ExtArgs>[]
+    goals: Prisma.$goalsPayload<ExtArgs>[]
+    milestones: Prisma.$milestonesPayload<ExtArgs>[]
+    task_dependencies: Prisma.$task_dependenciesPayload<ExtArgs>[]
+    delivery_contracts: Prisma.$delivery_contractsPayload<ExtArgs>[]
+    execution_plans: Prisma.$execution_plansPayload<ExtArgs>[]
+    event_counter: Prisma.$workspace_event_countersPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1172,6 +2122,13 @@ export interface Prisma__workspacesClient<T, Null = never, ExtArgs extends runti
   workspace_members<T extends Prisma.workspaces$workspace_membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$workspace_membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$workspace_membersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invitations<T extends Prisma.workspaces$invitationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$invitationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   task_status_history<T extends Prisma.workspaces$task_status_historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_status_historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_status_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  outcomes<T extends Prisma.workspaces$outcomesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$outcomesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$outcomesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  goals<T extends Prisma.workspaces$goalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$goalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$goalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  milestones<T extends Prisma.workspaces$milestonesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$milestonesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$milestonesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  task_dependencies<T extends Prisma.workspaces$task_dependenciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_dependenciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_dependenciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  delivery_contracts<T extends Prisma.workspaces$delivery_contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$delivery_contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$delivery_contractsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_plans<T extends Prisma.workspaces$execution_plansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_plansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_plansPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  event_counter<T extends Prisma.workspaces$event_counterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$event_counterArgs<ExtArgs>>): Prisma.Prisma__workspace_event_countersClient<runtime.Types.Result.GetResult<Prisma.$workspace_event_countersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1714,6 +2671,169 @@ export type workspaces$task_status_historyArgs<ExtArgs extends runtime.Types.Ext
   take?: number
   skip?: number
   distinct?: Prisma.Task_status_historyScalarFieldEnum | Prisma.Task_status_historyScalarFieldEnum[]
+}
+
+/**
+ * workspaces.outcomes
+ */
+export type workspaces$outcomesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the outcomes
+   */
+  select?: Prisma.outcomesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the outcomes
+   */
+  omit?: Prisma.outcomesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.outcomesInclude<ExtArgs> | null
+  where?: Prisma.outcomesWhereInput
+  orderBy?: Prisma.outcomesOrderByWithRelationInput | Prisma.outcomesOrderByWithRelationInput[]
+  cursor?: Prisma.outcomesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OutcomesScalarFieldEnum | Prisma.OutcomesScalarFieldEnum[]
+}
+
+/**
+ * workspaces.goals
+ */
+export type workspaces$goalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the goals
+   */
+  select?: Prisma.goalsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the goals
+   */
+  omit?: Prisma.goalsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.goalsInclude<ExtArgs> | null
+  where?: Prisma.goalsWhereInput
+  orderBy?: Prisma.goalsOrderByWithRelationInput | Prisma.goalsOrderByWithRelationInput[]
+  cursor?: Prisma.goalsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GoalsScalarFieldEnum | Prisma.GoalsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.milestones
+ */
+export type workspaces$milestonesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the milestones
+   */
+  select?: Prisma.milestonesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the milestones
+   */
+  omit?: Prisma.milestonesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.milestonesInclude<ExtArgs> | null
+  where?: Prisma.milestonesWhereInput
+  orderBy?: Prisma.milestonesOrderByWithRelationInput | Prisma.milestonesOrderByWithRelationInput[]
+  cursor?: Prisma.milestonesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MilestonesScalarFieldEnum | Prisma.MilestonesScalarFieldEnum[]
+}
+
+/**
+ * workspaces.task_dependencies
+ */
+export type workspaces$task_dependenciesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the task_dependencies
+   */
+  select?: Prisma.task_dependenciesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the task_dependencies
+   */
+  omit?: Prisma.task_dependenciesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.task_dependenciesInclude<ExtArgs> | null
+  where?: Prisma.task_dependenciesWhereInput
+  orderBy?: Prisma.task_dependenciesOrderByWithRelationInput | Prisma.task_dependenciesOrderByWithRelationInput[]
+  cursor?: Prisma.task_dependenciesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Task_dependenciesScalarFieldEnum | Prisma.Task_dependenciesScalarFieldEnum[]
+}
+
+/**
+ * workspaces.delivery_contracts
+ */
+export type workspaces$delivery_contractsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the delivery_contracts
+   */
+  select?: Prisma.delivery_contractsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the delivery_contracts
+   */
+  omit?: Prisma.delivery_contractsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.delivery_contractsInclude<ExtArgs> | null
+  where?: Prisma.delivery_contractsWhereInput
+  orderBy?: Prisma.delivery_contractsOrderByWithRelationInput | Prisma.delivery_contractsOrderByWithRelationInput[]
+  cursor?: Prisma.delivery_contractsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Delivery_contractsScalarFieldEnum | Prisma.Delivery_contractsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.execution_plans
+ */
+export type workspaces$execution_plansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_plans
+   */
+  select?: Prisma.execution_plansSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_plans
+   */
+  omit?: Prisma.execution_plansOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_plansInclude<ExtArgs> | null
+  where?: Prisma.execution_plansWhereInput
+  orderBy?: Prisma.execution_plansOrderByWithRelationInput | Prisma.execution_plansOrderByWithRelationInput[]
+  cursor?: Prisma.execution_plansWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_plansScalarFieldEnum | Prisma.Execution_plansScalarFieldEnum[]
+}
+
+/**
+ * workspaces.event_counter
+ */
+export type workspaces$event_counterArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the workspace_event_counters
+   */
+  select?: Prisma.workspace_event_countersSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the workspace_event_counters
+   */
+  omit?: Prisma.workspace_event_countersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.workspace_event_countersInclude<ExtArgs> | null
+  where?: Prisma.workspace_event_countersWhereInput
 }
 
 /**

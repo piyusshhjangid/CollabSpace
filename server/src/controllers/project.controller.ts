@@ -3,6 +3,7 @@ import {
   getProjectsByWorkspace,
   createProjectService,
   deleteProjectService,
+  setProjectOutcomeService,
 } from "../services/project.service.js";
 import type { CreateProjectBody } from "../schemas/project.schema.js";
 import { badRequest, unauthorized } from "../lib/AppError.js";
@@ -39,7 +40,7 @@ export const getProjects: RequestHandler = async (req, res) => {
 export const createProject: RequestHandler = async (req, res) => {
   const workspaceId = req.params.workspaceId;
   const userId = req.user?.id;
-  const { name, description } = req.body;
+  const { name, description, outcomeId } = req.body;
 
   if (typeof workspaceId !== "string") {
     throw badRequest("Workspace ID is required");
@@ -58,6 +59,7 @@ export const createProject: RequestHandler = async (req, res) => {
     userId,
     name,
     description,
+    outcomeId,
   );
 
   const response: ApiResponse<Project> = {
@@ -159,5 +161,13 @@ export const deleteProject: RequestHandler = async (
     data: result,
   };
 
+  res.json(response);
+};
+
+export const updateProjectOutcome: RequestHandler = async (req, res) => {
+  const projectId = req.params.projectId;
+  if (typeof projectId !== "string" || !req.workspace) throw badRequest("Project and workspace are required");
+  const data = await setProjectOutcomeService(projectId, req.workspace.id, req.body.outcomeId);
+  const response: ApiResponse<typeof data> = { success: true, message: "Project outcome updated", data };
   res.json(response);
 };

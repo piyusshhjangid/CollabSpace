@@ -5,6 +5,7 @@ import type { Project } from "../types/project";
 interface ApiProject {
   id: string;
   workspaceId: string;
+  outcomeId?: string;
   name: string;
   description?: string;
   createdAt: string;
@@ -25,6 +26,7 @@ export async function fetchProjects(
 
   return response.data.map((project) => ({
     id: project.id,
+    outcomeId: project.outcomeId,
     name: project.name,
     icon: FolderKanban,
     description: project.description ?? "No description",

@@ -1,37 +1,25 @@
 import { NavLink } from "react-router-dom";
+import { Boxes, Sparkles } from "lucide-react";
 import { NavItems } from "../../types/navigation";
-import { Menu } from "lucide-react";
 
 export default function Sidebar() {
-  return (
-    <aside className="w-56 border-r border-zinc-300 bg-gray-50 ">
-      <div className="w-56 h-16 border-b gap-3 flex flex-row items-center border-zinc-300">
-        <button className="rounded-lg p-2 ml-4 transition hover:bg-zinc-200">
-          <Menu size={20} className="text-black" />
-        </button>
-        <h1 className="font-bold text-2xl mr-3 text-zinc-800">CollabSpace</h1>
-      </div>
-      <nav className=" flex flex-col gap-2 py-3 px-3 justify-between">
-        {NavItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <NavLink
-              to={item.path}
-              key={item.path}
-              className={({ isActive }) =>
-                `flex items-center gap-2 rounded-lg px-4 py-1 transition ${
-                  isActive
-                    ? "bg-violet-100 text-violet-700 font-semibold"
-                    : "text-zinc-600 hover:bg-zinc-100"
-                }`
-              }
-            >
-              <Icon size={20} />
-              {item.label}
-            </NavLink>
-          );
-        })}
-      </nav>
-    </aside>
-  );
+  return <aside className="z-20 flex w-[68px] shrink-0 flex-col border-r border-slate-200/80 bg-white px-2.5 py-4 md:w-[248px] md:px-4">
+    <NavLink to="/" className="mb-8 flex items-center gap-3 rounded-xl px-1.5 py-1.5" aria-label="CollabSpace home">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-white shadow-sm"><Boxes size={20}/></span>
+      <span className="hidden min-w-0 md:block"><span className="block text-[15px] font-bold tracking-tight text-slate-900">CollabSpace</span><span className="block text-[10px] font-medium tracking-wide text-slate-400">TEAM WORK, IN SYNC</span></span>
+    </NavLink>
+    <div className="mb-2 hidden px-3 text-[9px] font-bold uppercase tracking-[.18em] text-slate-400 md:block">Workspace</div>
+    <nav aria-label="Main navigation" className="flex flex-col gap-1">
+      {NavItems.map((item) => {
+        const Icon = item.icon;
+        return <NavLink key={item.path} to={item.path} title={item.label} className={({ isActive }) => `group flex items-center justify-center gap-3 rounded-xl px-2.5 py-2.5 text-[13px] font-medium transition-colors md:justify-start md:px-3 ${isActive ? "bg-violet-50 text-violet-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}>
+          {({ isActive }) => <><Icon size={17} strokeWidth={isActive ? 2.25 : 1.9}/><span className="hidden md:block">{item.label}</span>{isActive && <span className="ml-auto hidden h-1.5 w-1.5 rounded-full bg-violet-600 md:block"/>}</>}
+        </NavLink>;
+      })}
+    </nav>
+    <div className="mt-auto hidden rounded-2xl bg-slate-950 p-4 text-white md:block">
+      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-400/15 text-violet-300"><Sparkles size={15}/></span>
+      <p className="mt-3 text-xs font-semibold">Build with clarity</p><p className="mt-1 text-[10px] leading-4 text-slate-400">Connect team goals to the work that gets them there.</p>
+    </div>
+  </aside>;
 }

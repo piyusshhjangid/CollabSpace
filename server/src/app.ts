@@ -10,6 +10,8 @@ import projectSummaryRouter from "./routes/project-summary.routes.js";
 import authRouter from "./routes/auth.routes.js";
 import invitationRouter from "./routes/invitation.routes.js";
 import { requestId } from "./middleware/requestId.js";
+import executionRouter from "./routes/execution.routes.js";
+import graphRouter from "./routes/graph.routes.js";
 
 const app = express();
 
@@ -32,6 +34,8 @@ interface PingQuery {
 }
 
 app.use("/api/projects", projectSummaryRouter);
+app.use("/api", executionRouter);
+app.use("/api", graphRouter);
 app.use("/api/workspaces", workspaceRouter);
 app.use("/api/workspaces/:workspaceId/projects", projectRouter);
 app.use("/api/projects/:projectId/tasks", taskRouter)

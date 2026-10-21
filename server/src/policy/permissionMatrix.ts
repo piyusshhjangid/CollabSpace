@@ -8,7 +8,9 @@ export type PermissionAction =
   | "DELETE_PROJECT"
   | "CREATE_TASK"
   | "UPDATE_OWN_TASK"
-  | "REMOVE_MEMBER";
+  | "REMOVE_MEMBER"
+  | "MANAGE_OUTCOMES"
+  | "MANAGE_DEPENDENCIES";
 
 export const permissionMatrix: Record<
   PermissionAction,
@@ -67,6 +69,20 @@ export const permissionMatrix: Record<
     OWNER: true,
     ADMIN: true,
     MEMBER: false,
+    VIEWER: false,
+  },
+
+  MANAGE_OUTCOMES: {
+    OWNER: true,
+    ADMIN: true,
+    MEMBER: true,
+    VIEWER: false,
+  },
+
+  MANAGE_DEPENDENCIES: {
+    OWNER: true,
+    ADMIN: true,
+    MEMBER: true,
     VIEWER: false,
   },
 };

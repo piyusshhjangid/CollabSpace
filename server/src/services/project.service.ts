@@ -2,11 +2,13 @@ import {
   findProjectsByWorkspace,
   createProject,
   deleteProject,
+  setProjectOutcome,
 } from "../repositories/project.repository.js";
 import { findWorkspaceMembership } from "../repositories/workspace.repository.js";
 import type { Project } from "../types/project.js";
 import { badRequest, forbidden } from "../lib/AppError.js";
 import { writeAuditLog } from "./audit.service.js";
+import { prisma } from "../db/prisma.js";
 
 async function verifyWorkspaceMember(
   workspaceId: string,
@@ -36,6 +38,7 @@ export async function createProjectService(
   userId: string,
   name: string,
   description: string | undefined,
+  outcomeId?: string,
 ) {
   await verifyWorkspaceMember(workspaceId, userId);
 
@@ -43,10 +46,15 @@ export async function createProjectService(
     throw badRequest("Project name is required");
   }
 
+  if (outcomeId && !(await prisma.outcomes.findFirst({ where: { id: outcomeId, workspace_id: workspaceId }, select: { id: true } }))) {
+    throw badRequest("Outcome not found in this workspace");
+  }
+
   const project = await createProject(
       workspaceId,
       name,
       description,
+      outcomeId,
     );
 
 
@@ -90,4 +98,11 @@ export async function deleteProjectService(
   } catch {
     throw badRequest("Project not found");
   }
+}
+
+export async function setProjectOutcomeService(projectId: string, workspaceId: string, outcomeId: string | null) {
+  if (outcomeId && !(await prisma.outcomes.findFirst({ where: { id: outcomeId, workspace_id: workspaceId }, select: { id: true } }))) {
+    throw badRequest("Outcome not found in this workspace");
+  }
+  return setProjectOutcome(projectId, workspaceId, outcomeId);
 }

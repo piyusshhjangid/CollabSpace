@@ -1,19 +1,8 @@
 import {
   Home,
   ListTodo,
-  Calendar,
-  Activity,
   FolderKanban,
-  Users,
-  FileText,
-  MessageSquare,
-  Bot,
-  BarChart3,
-  PieChart,
-  Settings,
-  User,
-  CreditCard,
-  HelpCircle
+  GitBranch
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -25,23 +14,8 @@ export interface NavItem {
 }
 
 export const NavItems: NavItem[] = [
-    //General
-  { label: "Home", icon: Home, path: "/" },
+  { label: "Overview", icon: Home, path: "/" },
   { label: "My Tasks", icon: ListTodo, path: "/tasks" },
-  { label: "Calendar", icon: Calendar, path: "/calendar" },
-  { label: "Activity", icon: Activity, path: "/activity" },
-  //Collabration
   { label: "Projects", icon: FolderKanban, path: "/projects" },
-  { label: "Teams", icon: Users, path: "/teams" },
-  { label: "Documents", icon: FileText, path: "/documents" },
-  { label: "Messages", icon: MessageSquare, path: "/messages" },
-  //Intelligence
-  { label: "AI Assistant", icon: Bot, path: "/assistant" },
-  { label: "Insights", icon: BarChart3, path: "/insights" },
-  { label: "Reports", icon: PieChart, path: "/reports" },
-  //Manage
-  { label: "Settings", icon: Settings, path: "/settings" },
-  { label: "Members", icon: User, path: "/members" },
-  { label: "Billing", icon: CreditCard, path: "/billing" },
-  { label: "Help & Support", icon: HelpCircle, path: "/support" },
+  { label: "Execution", icon: GitBranch, path: "/execution" },
 ];

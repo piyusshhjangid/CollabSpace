@@ -31,6 +31,7 @@ export async function findProjectsByWorkspace(workspaceId: string) {
     workspaceId: project.workspace_id,
     name: project.name,
     description: project.description ?? undefined,
+    outcomeId: project.outcome_id ?? undefined,
     createdAt: project.created_at,
   }));
 }
@@ -39,12 +40,14 @@ export async function createProject(
   workspaceId: string,
   name: string,
   description: string | undefined,
+  outcomeId?: string,
 ) {
   const project = await prisma.projects.create({
     data: {
       workspace_id: workspaceId,
       name,
       description: description ?? null,
+      outcome_id: outcomeId ?? null,
     },
   });
 
@@ -53,6 +56,7 @@ export async function createProject(
     workspaceId: project.workspace_id,
     name: project.name,
     description: project.description ?? undefined,
+    outcomeId: project.outcome_id ?? undefined,
     createdAt: project.created_at,
   };
 }
@@ -76,4 +80,10 @@ export async function deleteProject(
     id: projectId,
     workspaceId,
   };
+}
+
+export async function setProjectOutcome(projectId: string, workspaceId: string, outcomeId: string | null) {
+  const updated = await prisma.projects.updateMany({ where: { id: projectId, workspace_id: workspaceId }, data: { outcome_id: outcomeId } });
+  if (!updated.count) throw new Error("Project not found");
+  return { id: projectId, workspaceId, outcomeId };
 }

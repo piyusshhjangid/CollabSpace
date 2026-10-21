@@ -222,7 +222,7 @@ export default function Shell({ children }: ShellProps) {
             workspaces={workspaces}
           />
 
-          <main className="flex-1 overflow-y-auto bg-zinc-100 p-6">
+          <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[#f6f7fb] px-4 py-5 sm:px-6 sm:py-7">
             {children ?? <Outlet />}
           </main>
         </div>

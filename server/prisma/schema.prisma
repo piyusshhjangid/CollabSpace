@@ -15,6 +15,9 @@ model projects {
   created_at   DateTime   @default(now()) @db.Timestamptz(6)
   workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   tasks        tasks[]
+  outcome_id   String?    @db.Uuid
+  outcomes     outcomes?  @relation(fields: [outcome_id], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  dependencies task_dependencies[]
 }
 
 model tasks {
@@ -34,6 +37,9 @@ model tasks {
   projects       projects              @relation(fields: [project_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   workspaces     workspaces            @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   status_history task_status_history[]
+  outgoing_dependencies task_dependencies[] @relation("dependency_predecessor")
+  incoming_dependencies task_dependencies[] @relation("dependency_successor")
+  plan_snapshots execution_plan_tasks[]
 
   @@index([assigned_to], map: "idx_tasks_assigned_to")
   @@index([project_id], map: "idx_tasks_project_id")
@@ -84,6 +90,129 @@ model workspace_members {
   @@unique([user_id, workspace_id])
 }
 
+model outcomes {
+  id                  String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id        String               @db.Uuid
+  name                String
+  description         String?
+  success_criteria    Json
+  target_date         DateTime?            @db.Date
+  owner_id            String?              @db.Uuid
+  created_by          String               @db.Uuid
+  created_at          DateTime             @default(now()) @db.Timestamptz(6)
+  updated_at          DateTime             @default(now()) @updatedAt @db.Timestamptz(6)
+  workspaces          workspaces           @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  goals               goals[]
+  projects            projects[]
+  delivery_contracts  delivery_contracts[]
+  execution_plans     execution_plans[]
+
+  @@index([workspace_id, target_date], map: "idx_outcomes_workspace_target")
+}
+
+model goals {
+  id               String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id     String     @db.Uuid
+  outcome_id       String     @db.Uuid
+  name             String
+  success_criteria Json
+  target_date      DateTime?  @db.Date
+  created_at       DateTime   @default(now()) @db.Timestamptz(6)
+  outcomes         outcomes   @relation(fields: [outcome_id], references: [id], onDelete: Cascade)
+  workspaces       workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  milestones       milestones[]
+
+  @@index([workspace_id, outcome_id], map: "idx_goals_workspace_outcome")
+}
+
+model milestones {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String     @db.Uuid
+  goal_id      String     @db.Uuid
+  name         String
+  due_date     DateTime?  @db.Date
+  status       String     @default("UPCOMING")
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  goals        goals      @relation(fields: [goal_id], references: [id], onDelete: Cascade)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+
+  @@index([workspace_id, goal_id, due_date], map: "idx_milestones_workspace_goal_due")
+}
+
+model task_dependencies {
+  id                    String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id          String     @db.Uuid
+  project_id            String     @db.Uuid
+  predecessor_task_id   String     @db.Uuid
+  successor_task_id     String     @db.Uuid
+  dependency_type       String     @default("FINISH_TO_START")
+  created_by            String     @db.Uuid
+  created_at            DateTime   @default(now()) @db.Timestamptz(6)
+  workspaces            workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects              projects   @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  predecessor           tasks      @relation("dependency_predecessor", fields: [predecessor_task_id], references: [id], onDelete: Cascade)
+  successor             tasks      @relation("dependency_successor", fields: [successor_task_id], references: [id], onDelete: Cascade)
+
+  @@unique([predecessor_task_id, successor_task_id], map: "uq_task_dependency_edge")
+  @@index([workspace_id, project_id], map: "idx_task_dependencies_workspace_project")
+}
+
+model delivery_contracts {
+  id                  String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id        String     @db.Uuid
+  outcome_id          String     @db.Uuid
+  version             Int
+  scope               String
+  deadline            DateTime?  @db.Date
+  constraints         Json
+  acceptance_criteria Json
+  owner_id            String?    @db.Uuid
+  created_by          String     @db.Uuid
+  created_at          DateTime   @default(now()) @db.Timestamptz(6)
+  workspaces          workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  outcomes            outcomes   @relation(fields: [outcome_id], references: [id], onDelete: Cascade)
+
+  @@unique([outcome_id, version], map: "uq_delivery_contract_outcome_version")
+  @@index([workspace_id, outcome_id, version], map: "idx_contracts_workspace_outcome_version")
+}
+
+model execution_plans {
+  id                    String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id          String                  @db.Uuid
+  outcome_id            String                  @db.Uuid
+  contract_id           String?                 @db.Uuid
+  version               Int
+  created_by            String                  @db.Uuid
+  created_at            DateTime                @default(now()) @db.Timestamptz(6)
+  workspaces            workspaces              @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  outcomes              outcomes                @relation(fields: [outcome_id], references: [id], onDelete: Cascade)
+  tasks                 execution_plan_tasks[]
+
+  @@unique([outcome_id, version], map: "uq_execution_plan_outcome_version")
+  @@index([workspace_id, outcome_id, version], map: "idx_execution_plans_workspace_outcome_version")
+}
+
+model execution_plan_tasks {
+  id               String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  plan_id          String          @db.Uuid
+  task_id          String          @db.Uuid
+  planned_start    DateTime?       @db.Date
+  planned_end      DateTime?       @db.Date
+  duration_days    Int             @default(1)
+  order_index      Int
+  plans            execution_plans @relation(fields: [plan_id], references: [id], onDelete: Cascade)
+  tasks            tasks           @relation(fields: [task_id], references: [id], onDelete: Cascade)
+
+  @@unique([plan_id, task_id], map: "uq_execution_plan_task")
+  @@index([plan_id, order_index], map: "idx_execution_plan_tasks_order")
+}
+
+model workspace_event_counters {
+  workspace_id String     @id @db.Uuid
+  sequence     BigInt     @default(0)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+}
+
 model workspaces {
   id                  String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name                String
@@ -93,6 +222,13 @@ model workspaces {
   workspace_members   workspace_members[]
   invitations         invitations[]
   task_status_history task_status_history[]
+  outcomes            outcomes[]
+  goals               goals[]
+  milestones          milestones[]
+  task_dependencies   task_dependencies[]
+  delivery_contracts  delivery_contracts[]
+  execution_plans     execution_plans[]
+  event_counter       workspace_event_counters?
 }
 
 model refresh_tokens {
