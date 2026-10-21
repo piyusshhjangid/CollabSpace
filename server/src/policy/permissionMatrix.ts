@@ -3,6 +3,7 @@
 export type PermissionAction =
   | "VIEW"
   | "DELETE_WORKSPACE"
+  | "EDIT_WORKSPACE"
   | "INVITE_MEMBERS"
   | "CREATE_PROJECT"
   | "DELETE_PROJECT"
@@ -26,6 +27,13 @@ export const permissionMatrix: Record<
   DELETE_WORKSPACE: {
     OWNER: true,
     ADMIN: false,
+    MEMBER: false,
+    VIEWER: false,
+  },
+
+  EDIT_WORKSPACE: {
+    OWNER: true,
+    ADMIN: true,
     MEMBER: false,
     VIEWER: false,
   },

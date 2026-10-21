@@ -4,6 +4,8 @@ import {
   createInvitation,
   findInvitationByToken,
   acceptInvitation,
+  findWorkspaceInvitations,
+  revokeWorkspaceInvitation,
 } from "../repositories/invitation.repository.js";
 import {
   findWorkspaceMembership,
@@ -63,6 +65,25 @@ export async function createInvitationService(
     expiresAt: invitation.expires_at,
     token: invitation.token,
   };
+}
+
+export async function listWorkspaceInvitationsService(workspaceId: string) {
+  const invitations = await findWorkspaceInvitations(workspaceId);
+  return invitations.map((invitation) => ({
+    id: invitation.id,
+    email: invitation.email,
+    expiresAt: invitation.expires_at,
+    acceptedAt: invitation.accepted_at,
+    createdAt: invitation.created_at,
+    status: invitation.accepted_at ? "ACCEPTED" as const : invitation.expires_at <= new Date() ? "EXPIRED" as const : "PENDING" as const,
+  }));
+}
+
+export async function revokeWorkspaceInvitationService(workspaceId: string, invitationId: string, actorUserId: string) {
+  const result = await revokeWorkspaceInvitation(workspaceId, invitationId);
+  if (!result.count) throw badRequest("Invitation not found or already accepted");
+  await writeAuditLog({ workspaceId, actorId: actorUserId, action: "INVITATION_REVOKED", targetType: "INVITATION", targetId: invitationId, metadata: {} });
+  return { id: invitationId };
 }
 
 export async function acceptInvitationService(

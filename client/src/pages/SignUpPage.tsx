@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { ApiError } from "../lib/api";
 import {
@@ -12,6 +12,7 @@ import {
 
 export default function SignUpPage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { register } = useAuth();
 
   const [name, setName] = useState("");
@@ -101,6 +102,7 @@ export default function SignUpPage() {
       navigate("/login", {
         replace: true,
         state: {
+          from: (location.state as { from?: { pathname?: string; search?: string } })?.from,
           registeredEmail: email.trim(),
           registrationMessage:
             "Your account was created successfully! Please sign in with your credentials.",

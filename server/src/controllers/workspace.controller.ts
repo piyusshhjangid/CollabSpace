@@ -1,11 +1,12 @@
 import type { RequestHandler } from "express";
-import type { CreateWorkspaceBody } from "../schemas/workspace.schema.js";
+import type { CreateWorkspaceBody, UpdateWorkspaceBody } from "../schemas/workspace.schema.js";
 
 import {
   createWorkspaceService,
   getUserWorkspacesService,
   removeWorkspaceMemberService,
   deleteWorkspaceService,
+  updateWorkspaceService,
 } from "../services/workspace.service.js";
 
 import {
@@ -61,6 +62,16 @@ export const createWorkspace: RequestHandler<
   };
 
   res.status(201).json(response);
+};
+
+export const updateWorkspace: RequestHandler<{ workspaceId: string }, any, UpdateWorkspaceBody> = async (req, res) => {
+  const actorUserId = req.user?.id;
+  const workspaceId = req.params.workspaceId;
+  if (!actorUserId) throw unauthorized("Authentication required");
+  if (typeof workspaceId !== "string") throw badRequest("Workspace ID is required");
+  const result = await updateWorkspaceService(workspaceId, actorUserId, req.body.name);
+  const response: ApiResponse<typeof result> = { success: true, message: "Workspace updated successfully", data: result };
+  res.json(response);
 };
 
 export const getCurrentWorkspace: RequestHandler = async (

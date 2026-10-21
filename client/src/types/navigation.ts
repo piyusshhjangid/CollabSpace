@@ -2,7 +2,8 @@ import {
   Home,
   ListTodo,
   FolderKanban,
-  GitBranch
+  GitBranch,
+  Building2,
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -18,4 +19,5 @@ export const NavItems: NavItem[] = [
   { label: "My Tasks", icon: ListTodo, path: "/tasks" },
   { label: "Projects", icon: FolderKanban, path: "/projects" },
   { label: "Execution", icon: GitBranch, path: "/execution" },
+  { label: "Workspaces", icon: Building2, path: "/workspaces" },
 ];

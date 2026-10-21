@@ -97,9 +97,8 @@ export default function LoginPage() {
         password,
       });
 
-      const destination =
-        (location.state as { from?: { pathname?: string } })?.from?.pathname ||
-        "/";
+      const from = (location.state as { from?: { pathname?: string; search?: string } })?.from;
+      const destination = from ? `${from.pathname ?? "/"}${from.search ?? ""}` : "/";
 
       const safeDestination =
         destination.startsWith("/login") || destination.startsWith("/signup")
@@ -293,6 +292,7 @@ export default function LoginPage() {
             Don't have an account?{" "}
             <Link
               to="/signup"
+              state={{ from: (location.state as { from?: { pathname?: string; search?: string } })?.from }}
               className="font-semibold text-purple-600 hover:text-purple-700 hover:underline"
             >
               Create account

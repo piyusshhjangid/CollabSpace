@@ -1,4 +1,6 @@
 ﻿import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import type { TaskFilters } from "../../types/filters";
 import type { Task } from "../../types/task";
 import { useTasks } from "../../hooks/useTasks";
@@ -29,6 +31,7 @@ export default function ProjectBoard({
   canWrite = true,
 }: ProjectBoardProps) {
   const dispatch = useAppDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const isTaskModalOpen = useAppSelector(
     (state) => state.ui.isTaskModalOpen,
@@ -53,6 +56,13 @@ export default function ProjectBoard({
   const [draggedTask, setDraggedTask] = useState<Task | null>(null);
   const [isCreatingTask, setIsCreatingTask] = useState(false);
   const [newTaskTitle, setNewTaskTitle] = useState("");
+  useEffect(() => {
+    if (searchParams.get("newTask") !== "1") return;
+    setIsCreatingTask(true);
+    const next = new URLSearchParams(searchParams);
+    next.delete("newTask");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams, projectId]);
   const { create, update } = useTaskMutations(workspaceId, projectId, projectName);
 
   const selectedTask = useMemo(

@@ -1,4 +1,6 @@
 ﻿import { useState } from "react";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import ProjectCard from "../components/ProjectCard";
 import { Plus, Search } from "lucide-react";
@@ -11,12 +13,20 @@ import { projectKeys } from "../hooks/useProjects";
 
 const ProjectPage = () => {
   const { currentWorkspace } = useWorkspace();
+  const [searchParams, setSearchParams] = useSearchParams();
   const permissions = usePermissions();
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const queryClient = useQueryClient();
+  useEffect(() => {
+    if (searchParams.get("newProject") !== "1") return;
+    setOpen(true);
+    const next = new URLSearchParams(searchParams);
+    next.delete("newProject");
+    setSearchParams(next, { replace: true });
+  }, [searchParams, setSearchParams]);
   const createMutation = useMutation({
     mutationFn: () => createProject(currentWorkspace?.id ?? "", name.trim(), description.trim()),
     onSuccess: () => { void queryClient.invalidateQueries({ queryKey: projectKeys.workspace(currentWorkspace?.id ?? "") }); setName(""); setDescription(""); setOpen(false); },

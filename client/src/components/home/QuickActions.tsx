@@ -1,4 +1,4 @@
-import { Button } from "../Button"
+import { Link } from "react-router-dom";
 
 const QuickActions = () => {
   return (
@@ -7,18 +7,8 @@ const QuickActions = () => {
           <h2 className="text-lg font-bold text-zinc-900">Quick Actions</h2>
 
           <div className="flex flex-col gap-3 mt-2">
-            <Button
-              variant="primary"
-              onClick={() => console.log("New Task clicked")}
-            >
-              + New Task
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => console.log("New Project clicked")}
-            >
-              + New Project
-            </Button>
+            <Link to="/tasks?newTask=1" className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">+ New Task</Link>
+            <Link to="/projects?newProject=1" className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-violet-200 hover:bg-violet-50 focus:outline-none focus:ring-2 focus:ring-violet-500/30">+ New Project</Link>
           </div>
 
           <p className="mt-4 text-sm text-zinc-500 italic">

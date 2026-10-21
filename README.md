@@ -630,11 +630,13 @@ server/.env
 Example:
 
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/collabspace
+DATABASE_URL=postgresql://postgres:YOUR_POSTGRES_PASSWORD@localhost:5432/collabspace
 PORT=5000
 ```
 
 Never commit `.env`.
+
+If the server reports Prisma `P1000`, PostgreSQL rejected the username or password in `DATABASE_URL`. Replace `YOUR_POSTGRES_PASSWORD` in `server/.env` with the password configured for your local PostgreSQL `postgres` account. If the password contains URL-reserved characters, percent-encode them. Then, from `server`, run `npx prisma migrate deploy` and `npm run dev`.
 
 Create `server/.env.example` for documenting required variables:
 

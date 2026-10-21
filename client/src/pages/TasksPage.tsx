@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import ProjectBoard from "../components/board/ProjectBoard";
 import { useWorkspace } from "../context/WorkspaceContext";
 import { useProjects } from "../hooks/useProjects";
@@ -73,10 +73,10 @@ const TasksPage = () => {
 
   if (projects.length === 0) {
     return (
-      <div className="flex h-80 items-center justify-center">
-        <p className="text-zinc-500">
-          No projects found in this workspace.
-        </p>
+      <div className="flex min-h-[24rem] flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-6 text-center">
+        <h2 className="text-lg font-semibold text-slate-900">Start with a project</h2>
+        <p className="mt-2 max-w-md text-sm text-slate-500">Tasks live inside projects, so create one first and then add your first task.</p>
+        <Link to="/projects?newProject=1" className="mt-5 rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-violet-700">Create a project</Link>
       </div>
     );
   }

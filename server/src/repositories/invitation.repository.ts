@@ -18,6 +18,20 @@ export async function createInvitation(
   });
 }
 
+export async function findWorkspaceInvitations(workspaceId: string) {
+  return prisma.invitations.findMany({
+    where: { workspace_id: workspaceId },
+    select: { id: true, email: true, expires_at: true, accepted_at: true, created_at: true },
+    orderBy: { created_at: "desc" },
+  });
+}
+
+export async function revokeWorkspaceInvitation(workspaceId: string, invitationId: string) {
+  return prisma.invitations.deleteMany({
+    where: { id: invitationId, workspace_id: workspaceId, accepted_at: null },
+  });
+}
+
 export async function findInvitationByToken(token: string) {
   return prisma.invitations.findUnique({
     where: {

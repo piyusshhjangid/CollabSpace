@@ -4,6 +4,7 @@ import {
   findWorkspaceMembership,
   removeWorkspaceMember,
   deleteWorkspace,
+  updateWorkspace,
 } from "../repositories/workspace.repository.js";
 
 import { badRequest, forbidden } from "../lib/AppError.js";
@@ -56,6 +57,13 @@ export async function getUserWorkspacesService(
   userId: string,
 ) {
   return findWorkspacesByUser(userId);
+}
+
+export async function updateWorkspaceService(workspaceId: string, actorUserId: string, name: string) {
+  if (!name.trim()) throw badRequest("Workspace name is required");
+  const updated = await updateWorkspace(workspaceId, name.trim());
+  await writeAuditLog({ workspaceId, actorId: actorUserId, action: "WORKSPACE_UPDATED", targetType: "WORKSPACE", targetId: workspaceId, metadata: { name: updated.name } });
+  return { id: updated.id, name: updated.name };
 }
 
 export async function removeWorkspaceMemberService(

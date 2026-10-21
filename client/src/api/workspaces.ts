@@ -33,6 +33,21 @@ export async function fetchWorkspaces(): Promise<Workspace[]> {
   return response.data;
 }
 
+export async function updateWorkspace(workspaceId: string, name: string): Promise<Pick<BackendWorkspace, "id" | "name">> {
+  const response = await apiFetch<ApiResponse<Pick<BackendWorkspace, "id" | "name">>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}`,
+    { method: "PATCH", body: JSON.stringify({ name: name.trim() }) },
+  );
+  return response.data;
+}
+
+export async function deleteWorkspace(workspaceId: string): Promise<void> {
+  await apiFetch<ApiResponse<{ workspaceId: string }>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}`,
+    { method: "DELETE" },
+  );
+}
+
 // --- Workspace Role ---
 interface CurrentWorkspaceRole {
   workspaceId: string;
@@ -65,4 +80,42 @@ export async function acceptInvitation(payload: {
     },
   );
   return response.data;
+}
+
+export interface WorkspaceInvitation {
+  id: string;
+  email: string;
+  expiresAt: string;
+  acceptedAt: string | null;
+  createdAt: string;
+  status: "PENDING" | "EXPIRED" | "ACCEPTED";
+}
+
+export interface CreatedInvitation {
+  id: string;
+  email: string;
+  expiresAt: string;
+  token: string;
+}
+
+export async function createInvitation(workspaceId: string, email: string): Promise<CreatedInvitation> {
+  const response = await apiFetch<ApiResponse<CreatedInvitation>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}/invitations`,
+    { method: "POST", body: JSON.stringify({ email: email.trim() }) },
+  );
+  return response.data;
+}
+
+export async function fetchWorkspaceInvitations(workspaceId: string): Promise<WorkspaceInvitation[]> {
+  const response = await apiFetch<ApiResponse<WorkspaceInvitation[]>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}/invitations`,
+  );
+  return response.data;
+}
+
+export async function revokeInvitation(workspaceId: string, invitationId: string): Promise<void> {
+  await apiFetch<ApiResponse<{ id: string }>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}/invitations/${encodeURIComponent(invitationId)}`,
+    { method: "DELETE" },
+  );
 }

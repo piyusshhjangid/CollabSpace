@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { Navigate, useSearchParams } from "react-router-dom";
+import { Navigate, useLocation, useSearchParams } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { useWorkspaces } from "../../hooks/useWorkspaces";
 import { Loader2 } from "lucide-react";
@@ -16,6 +16,7 @@ interface OnboardingRouteProps {
  */
 export default function OnboardingRoute({ children }: OnboardingRouteProps) {
   const { isAuthenticated, isInitializing } = useAuth();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
   const hasToken = Boolean(searchParams.get("token"));
   const { data: workspaces = [], isLoading } = useWorkspaces();
@@ -32,7 +33,7 @@ export default function OnboardingRoute({ children }: OnboardingRouteProps) {
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // If user already belongs to workspaces and is not trying to accept an invitation token,

@@ -28,7 +28,7 @@ const TopBar: React.FC<TopBarProps> = ({
   };
 
   return (
-    <header className="flex h-16 items-center justify-between border-b border-zinc-200 bg-white px-6">
+    <header className="relative z-40 flex h-16 shrink-0 items-center justify-between border-b border-zinc-200 bg-white px-4 sm:px-6">
       <div className="flex items-center gap-4">
         <WorkspaceSwitcher
           currentWorkspace={currentWorkspace}

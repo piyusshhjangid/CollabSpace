@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Boxes, Sparkles } from "lucide-react";
+import { Boxes } from "lucide-react";
 import { NavItems } from "../../types/navigation";
 
 export default function Sidebar() {
@@ -12,14 +12,10 @@ export default function Sidebar() {
     <nav aria-label="Main navigation" className="flex flex-col gap-1">
       {NavItems.map((item) => {
         const Icon = item.icon;
-        return <NavLink key={item.path} to={item.path} title={item.label} className={({ isActive }) => `group flex items-center justify-center gap-3 rounded-xl px-2.5 py-2.5 text-[13px] font-medium transition-colors md:justify-start md:px-3 ${isActive ? "bg-violet-50 text-violet-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}>
+        return <NavLink end={item.path === "/"} key={item.path} to={item.path} title={item.label} className={({ isActive }) => `group flex items-center justify-center gap-3 rounded-xl px-2.5 py-2.5 text-[13px] font-medium transition-colors md:justify-start md:px-3 ${isActive ? "bg-violet-50 text-violet-700" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}>
           {({ isActive }) => <><Icon size={17} strokeWidth={isActive ? 2.25 : 1.9}/><span className="hidden md:block">{item.label}</span>{isActive && <span className="ml-auto hidden h-1.5 w-1.5 rounded-full bg-violet-600 md:block"/>}</>}
         </NavLink>;
       })}
     </nav>
-    <div className="mt-auto hidden rounded-2xl bg-slate-950 p-4 text-white md:block">
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-400/15 text-violet-300"><Sparkles size={15}/></span>
-      <p className="mt-3 text-xs font-semibold">Build with clarity</p><p className="mt-1 text-[10px] leading-4 text-slate-400">Connect team goals to the work that gets them there.</p>
-    </div>
   </aside>;
 }

@@ -8,11 +8,34 @@ import type {
 import {
   createInvitationService,
   acceptInvitationService,
+  listWorkspaceInvitationsService,
+  revokeWorkspaceInvitationService,
 } from "../services/invitation.service.js";
 
 import { unauthorized } from "../lib/AppError.js";
+import { badRequest } from "../lib/AppError.js";
 
 import type { ApiResponse } from "../types/apiResponse.js";
+
+export const listWorkspaceInvitations: RequestHandler = async (req, res) => {
+  const workspaceId = req.workspace?.id;
+  if (!workspaceId) throw badRequest("Workspace context is required");
+  const invitations = await listWorkspaceInvitationsService(workspaceId);
+  const response: ApiResponse<typeof invitations> = { success: true, message: "Invitations fetched", data: invitations };
+  res.json(response);
+};
+
+export const revokeWorkspaceInvitation: RequestHandler = async (req, res) => {
+  const workspaceId = req.workspace?.id;
+  const actorUserId = req.user?.id;
+  const invitationId = req.params.invitationId;
+  if (!workspaceId) throw badRequest("Workspace context is required");
+  if (!actorUserId) throw unauthorized("Authentication required");
+  if (typeof invitationId !== "string") throw badRequest("Invitation ID is required");
+  const result = await revokeWorkspaceInvitationService(workspaceId, invitationId, actorUserId);
+  const response: ApiResponse<typeof result> = { success: true, message: "Invitation revoked", data: result };
+  res.json(response);
+};
 
 export const createInvitation: RequestHandler<
   { workspaceId: string },

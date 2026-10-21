@@ -10,6 +10,7 @@ import OnboardingPage from "./pages/OnboardingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GuestRoute from "./components/auth/GuestRoute";
 import OnboardingRoute from "./components/auth/OnboardingRoute";
+import WorkspaceManagementPage from "./pages/WorkspaceManagementPage";
 const ExecutionPage = lazy(() => import("./pages/ExecutionPage"));
 
 const App = () => {
@@ -65,6 +66,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/workspaces" element={<ProtectedRoute><Shell><WorkspaceManagementPage /></Shell></ProtectedRoute>} />
         <Route path="/execution" element={<ProtectedRoute><Shell><Suspense fallback={<div className="flex h-80 items-center justify-center text-sm text-slate-500">Loading execution view…</div>}><ExecutionPage /></Suspense></Shell></ProtectedRoute>} />
 
         {/* Onboarding: authenticated users without a workspace land here */}

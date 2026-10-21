@@ -56,6 +56,10 @@ export async function createWorkspaceWithOwner(
   });
 }
 
+export async function updateWorkspace(workspaceId: string, name: string) {
+  return prisma.workspaces.update({ where: { id: workspaceId }, data: { name } });
+}
+
 export async function findWorkspaceMembership(
   workspaceId: string,
   userId: string,

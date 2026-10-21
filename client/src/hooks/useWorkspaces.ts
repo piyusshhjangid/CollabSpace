@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchWorkspaces, createWorkspace, acceptInvitation } from "../api/workspaces";
+import { fetchWorkspaces, createWorkspace, acceptInvitation, updateWorkspace, deleteWorkspace, createInvitation, fetchWorkspaceInvitations, revokeInvitation } from "../api/workspaces";
 import { useAppDispatch } from "../store/hooks";
 import { setCurrentWorkspaceId } from "../store/slices/uiSlice";
 import { workspaceRoleKeys } from "./useWorkspaceRole";
@@ -8,6 +8,7 @@ import type { Workspace } from "../types/workspace";
 
 export const workspaceKeys = {
   all: ["workspaces"] as const,
+  invitations: (workspaceId: string) => ["workspace-invitations", workspaceId] as const,
 };
 
 export function useWorkspaces() {
@@ -90,5 +91,53 @@ export function useAcceptInvitation() {
         queryKey: projectKeys.workspace(result.workspaceId),
       });
     },
+  });
+}
+
+export function useUpdateWorkspace() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, name }: { id: string; name: string }) => updateWorkspace(id, name),
+    onSuccess: (updated) => {
+      queryClient.setQueryData<Workspace[]>(workspaceKeys.all, (items = []) => items.map((item) => item.id === updated.id ? { ...item, name: updated.name } : item));
+    },
+  });
+}
+
+export function useDeleteWorkspace() {
+  const queryClient = useQueryClient();
+  const dispatch = useAppDispatch();
+  return useMutation({
+    mutationFn: (workspaceId: string) => deleteWorkspace(workspaceId),
+    onSuccess: async (_result, workspaceId) => {
+      const remaining = queryClient.getQueryData<Workspace[]>(workspaceKeys.all)?.filter((workspace) => workspace.id !== workspaceId) ?? [];
+      dispatch(setCurrentWorkspaceId(remaining[0]?.id ?? null));
+      await queryClient.invalidateQueries({ queryKey: workspaceKeys.all });
+      queryClient.removeQueries({ queryKey: workspaceKeys.invitations(workspaceId) });
+    },
+  });
+}
+
+export function useWorkspaceInvitations(workspaceId: string | null, enabled: boolean) {
+  return useQuery({
+    queryKey: workspaceKeys.invitations(workspaceId ?? ""),
+    queryFn: () => fetchWorkspaceInvitations(workspaceId!),
+    enabled: Boolean(workspaceId) && enabled,
+  });
+}
+
+export function useCreateInvitation(workspaceId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (email: string) => createInvitation(workspaceId, email),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: workspaceKeys.invitations(workspaceId) }),
+  });
+}
+
+export function useRevokeInvitation(workspaceId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (invitationId: string) => revokeInvitation(workspaceId, invitationId),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: workspaceKeys.invitations(workspaceId) }),
   });
 }
