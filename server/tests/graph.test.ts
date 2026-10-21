@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ancestors, buildGraph, criticalPath, descendants, topologicalSort } from "./graph.js";
+import { ancestors, buildGraph, criticalPath, depthFirstDescendants, descendants, topologicalSort } from "../src/lib/graph/graph.js";
 
 describe("execution graph algorithms", () => {
   const graph = buildGraph(["a", "b", "c", "d", "e", "f"], [
@@ -9,6 +9,8 @@ describe("execution graph algorithms", () => {
   it("finds ancestors and descendants without including the start node", () => {
     expect(ancestors(graph, "d")).toEqual(["c", "a", "b"]);
     expect(descendants(graph, "b")).toEqual(["c", "e", "d", "f"]);
+    expect(depthFirstDescendants(graph, "b")).toEqual(["c", "d", "e", "f"]);
+    expect(descendants(graph, "missing")).toEqual([]);
   });
   it("returns a stable topological ordering and reports cycles", () => {
     const result = topologicalSort(graph);
@@ -23,5 +25,12 @@ describe("execution graph algorithms", () => {
     expect(result.duration).toBe(6);
     expect(result.criticalTaskIds).toEqual(["a", "c", "d"]);
     expect(result.slack.a).toBe(0);
+  });
+  it("applies non finish-to-start dependency timing rules", () => {
+    const graph = buildGraph(["review", "release"], [{ from: "review", to: "release", type: "FINISH_TO_FINISH" }]);
+    const result = criticalPath(graph, { review: 3, release: 1 });
+    expect(result.duration).toBe(3);
+    expect(result.earliestFinish.release).toBe(3);
+    expect(result.criticalTaskIds).toEqual(["review", "release"]);
   });
 });

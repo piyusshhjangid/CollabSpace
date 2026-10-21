@@ -1,16 +1,26 @@
 ﻿import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import ProjectCard from "../components/ProjectCard";
 import { Plus, Search } from "lucide-react";
 import { Button } from "../components/Button";
 import { useWorkspace } from "../context/WorkspaceContext";
 import { useProjects } from "../hooks/useProjects";
 import { usePermissions } from "../hooks/usePermissions";
+import { createProject } from "../api/projects";
+import { projectKeys } from "../hooks/useProjects";
 
 const ProjectPage = () => {
   const { currentWorkspace } = useWorkspace();
   const permissions = usePermissions();
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const queryClient = useQueryClient();
+  const createMutation = useMutation({
+    mutationFn: () => createProject(currentWorkspace?.id ?? "", name.trim(), description.trim()),
+    onSuccess: () => { void queryClient.invalidateQueries({ queryKey: projectKeys.workspace(currentWorkspace?.id ?? "") }); setName(""); setDescription(""); setOpen(false); },
+  });
 
   const {
     data: projects = [],
@@ -66,6 +76,16 @@ const ProjectPage = () => {
           </Button>
         )}
       </div>
+
+      {open && <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/30 px-4 backdrop-blur-sm" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
+        <form role="dialog" aria-modal="true" aria-labelledby="new-project-title" onSubmit={(event) => { event.preventDefault(); createMutation.mutate(); }} className="w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl">
+          <h2 id="new-project-title" className="text-xl font-semibold text-slate-900">Create a project</h2><p className="mt-1 text-sm text-slate-500">Start with a focused workspace for related tasks.</p>
+          <label className="mt-5 block text-xs font-semibold text-slate-700">Project name<input autoFocus required maxLength={120} value={name} onChange={(event) => setName(event.target.value)} placeholder="e.g. Product launch" className="mt-2 w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"/></label>
+          <label className="mt-4 block text-xs font-semibold text-slate-700">Description <span className="font-normal text-slate-400">(optional)</span><textarea maxLength={1000} value={description} onChange={(event) => setDescription(event.target.value)} rows={3} placeholder="What is this project aiming to deliver?" className="mt-2 w-full resize-y rounded-lg border border-slate-200 px-3 py-2.5 text-sm font-normal outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"/></label>
+          {createMutation.isError && <p role="alert" className="mt-3 text-xs text-rose-600">{createMutation.error.message}</p>}
+          <div className="mt-5 flex justify-end gap-2"><Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button><Button type="submit" variant="primary" disabled={!name.trim() || createMutation.isPending}>{createMutation.isPending ? "Creating…" : "Create project"}</Button></div>
+        </form>
+      </div>}
 
       <div className="relative max-w-md">
         <Search

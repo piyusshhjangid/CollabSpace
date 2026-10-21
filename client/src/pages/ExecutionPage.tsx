@@ -42,6 +42,7 @@ export default function ExecutionPage() {
   const queryClient = useQueryClient();
   const { data: projects = [] } = useProjects(workspaceId);
   const [projectId, setProjectId] = useState("");
+  const [dependencyType, setDependencyType] = useState("FINISH_TO_START");
   const [outcomeName, setOutcomeName] = useState("");
   const [outcomeCriteria, setOutcomeCriteria] = useState("");
   const [outcomeDate, setOutcomeDate] = useState("");
@@ -57,12 +58,13 @@ export default function ExecutionPage() {
   const outcomes = outcomesQuery.data ?? [];
   const selectedProject = projects.find((project) => project.id === projectId);
   const graph = graphQuery.data;
+  const linkedOutcome = outcomes.find((outcome) => outcome.id === graph?.outcomeId);
   const createOutcome = useExecutionMutation(workspaceId, projectId, setNotice, (body: unknown) => addOutcome(workspaceId, body));
   const createGoal = useExecutionMutation(workspaceId, projectId, setNotice, (input: { outcomeId: string; name: string }) => addGoal(workspaceId, input.outcomeId, { name: input.name, successCriteria: [] }));
   const createMilestone = useExecutionMutation(workspaceId, projectId, setNotice, (input: { goalId: string; name: string }) => addMilestone(workspaceId, input.goalId, { name: input.name }));
   const createContract = useExecutionMutation(workspaceId, projectId, setNotice, (input: { outcomeId: string; body: unknown }) => addContract(workspaceId, input.outcomeId, input.body));
   const createPlan = useExecutionMutation(workspaceId, projectId, setNotice, (input: { outcomeId: string; body: unknown }) => addPlan(workspaceId, input.outcomeId, input.body));
-  const createDependency = useExecutionMutation(workspaceId, projectId, setNotice, (input: { predecessorTaskId: string; successorTaskId: string }) => addDependency(workspaceId, projectId, input));
+  const createDependency = useExecutionMutation(workspaceId, projectId, setNotice, (input: { predecessorTaskId: string; successorTaskId: string; dependencyType: string }) => addDependency(workspaceId, projectId, input));
   const deleteDependency = useExecutionMutation(workspaceId, projectId, setNotice, (dependencyId: string) => removeDependency(workspaceId, projectId, dependencyId));
   const linkOutcome = useMutation({ mutationFn: (outcomeId: string | null) => linkProjectOutcome(workspaceId, projectId, outcomeId), onSuccess: () => { void queryClient.invalidateQueries({ queryKey: projectKeys.workspace(workspaceId) }); void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) }); }, onError: (error) => setNotice(apiMessage(error)) });
 
@@ -82,8 +84,7 @@ export default function ExecutionPage() {
     socket.on("connect_error", () => setLive(false));
     socket.on("execution:event", (event: { sequence: number }) => {
       const current = queryClient.getQueryData<ExecutionGraph>(executionKeys.graph(workspaceId, projectId));
-      if (!current || event.sequence !== current.sequence + 1) void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
-      else void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
+      if (!current || event.sequence !== current.sequence) void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
     });
     return () => { socket.emit("workspace:leave", { workspaceId }); socket.disconnect(); setLive(false); };
   }, [workspaceId, projectId, queryClient]);
@@ -115,16 +116,31 @@ export default function ExecutionPage() {
   }, [graph, canWrite]);
 
   const onConnect = (connection: Connection) => {
-    if (connection.source && connection.target) createDependency.mutate({ predecessorTaskId: connection.source, successorTaskId: connection.target });
+    if (connection.source && connection.target) createDependency.mutate({ predecessorTaskId: connection.source, successorTaskId: connection.target, dependencyType });
   };
   const savePlan = () => {
-    if (!graph?.outcomeId || !graph.tasks.length) return;
-    const start = new Date();
-    start.setHours(0, 0, 0, 0);
-    const tasks = graph.tasks.map((task, index) => {
-      const taskStart = new Date(start); taskStart.setDate(start.getDate() + index);
-      const taskEnd = new Date(taskStart); taskEnd.setDate(taskStart.getDate() + Math.max(0, task.durationDays - 1));
-      return { taskId: task.id, plannedStart: taskStart.toISOString().slice(0, 10), plannedEnd: taskEnd.toISOString().slice(0, 10), durationDays: task.durationDays };
+    if (!graph?.outcomeId || !linkedOutcome?.delivery_contracts.length || !graph.tasks.length) return;
+    const today = new Date();
+    const dateAtOffset = (offset: number) => new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() + offset)).toISOString().slice(0, 10);
+    const taskById = new Map(graph.tasks.map((task) => [task.id, task]));
+    const startOffsetByTask = new Map<string, number>();
+    const finishOffset = new Map<string, number>();
+    const tasks = graph.executionOrder.flatMap((taskId) => {
+      const task = taskById.get(taskId);
+      if (!task) return [];
+      const duration = Math.max(1, task.durationDays);
+      const startOffset = Math.max(0, ...graph.edges.filter((edge) => edge.to === taskId).map((edge) => {
+        const predecessorStart = startOffsetByTask.get(edge.from) ?? 0;
+        const predecessorFinish = finishOffset.get(edge.from) ?? 0;
+        if (edge.type === "START_TO_START") return predecessorStart;
+        if (edge.type === "FINISH_TO_FINISH") return predecessorFinish - duration;
+        if (edge.type === "START_TO_FINISH") return predecessorStart - duration;
+        return predecessorFinish;
+      }));
+      const finish = startOffset + duration;
+      startOffsetByTask.set(taskId, startOffset);
+      finishOffset.set(taskId, finish);
+      return [{ taskId, plannedStart: dateAtOffset(startOffset), plannedEnd: dateAtOffset(finish - 1), durationDays: duration }];
     });
     createPlan.mutate({ outcomeId: graph.outcomeId, body: { tasks } });
   };
@@ -149,9 +165,10 @@ export default function ExecutionPage() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 px-5 py-4 sm:px-6">
           <div><div className="flex items-center gap-2"><GitBranch size={17} className="text-violet-600"/><h2 className="font-semibold text-slate-900">Live execution graph</h2></div><p className="mt-1 text-xs text-slate-500">Connect task handles to add dependencies. Violet marks the critical path.</p></div>
           <div className="flex items-center gap-2"><select aria-label="Select project" value={projectId} onChange={(event) => setProjectId(event.target.value)} className="max-w-[190px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"><option value="">Choose project</option>{projects.map((project) => <option key={project.id} value={project.id}>{project.name}</option>)}</select>
-            {canWrite && graph?.outcomeId && <button onClick={savePlan} disabled={createPlan.isPending || !graph.tasks.length} className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50"><Save size={14}/>{createPlan.isPending ? "Saving…" : "Snapshot plan"}</button>}</div>
+            {canWrite && projectId && <select aria-label="New dependency type" value={dependencyType} onChange={(event) => setDependencyType(event.target.value)} className="max-w-[125px] rounded-lg border border-slate-200 bg-white px-2 py-2 text-[10px] font-medium text-slate-600 outline-none focus:border-violet-400"><option value="FINISH_TO_START">Finish → Start</option><option value="START_TO_START">Start → Start</option><option value="FINISH_TO_FINISH">Finish → Finish</option><option value="START_TO_FINISH">Start → Finish</option></select>}
+            {canWrite && graph?.outcomeId && <button onClick={savePlan} title={!linkedOutcome?.delivery_contracts.length ? "Set a delivery baseline before snapshotting a plan" : "Save an immutable schedule version"} disabled={createPlan.isPending || !graph.tasks.length || !linkedOutcome?.delivery_contracts.length} className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50"><Save size={14}/>{createPlan.isPending ? "Saving…" : "Snapshot plan"}</button>}</div>
         </div>
-        {!projects.length ? <Empty title="Create a project first" body="Your execution graph will appear once this workspace has project tasks."/> : graphQuery.isLoading ? <div className="flex h-[360px] items-center justify-center text-sm text-slate-400">Loading execution graph…</div> : graphQuery.isError ? <Empty title="We couldn't load the graph" body={apiMessage(graphQuery.error)}/> : !graph?.tasks.length ? <Empty title="A clear path starts with tasks" body="Add tasks to this project, then connect the work that depends on other work."/> : <div className="h-[440px] bg-[radial-gradient(#cbd5e1_0.75px,transparent_0.75px)] [background-size:18px_18px] sm:h-[540px]"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onConnect={onConnect} nodesConnectable={canWrite} nodesDraggable={false} fitView fitViewOptions={{ padding: .22 }} minZoom={.35} maxZoom={1.5} proOptions={{ hideAttribution: true }}><Background color="#94a3b8" gap={18} size={1}/><MiniMap pannable zoomable nodeColor={(node) => (node.data?.critical ? "#8b5cf6" : "#cbd5e1")} className="!rounded-xl !border !border-slate-200 !bg-white"/><Controls className="!overflow-hidden !rounded-xl !border-slate-200 !bg-white !shadow-sm"/></ReactFlow></div>}
+        {!projects.length ? <Empty title="Create a project first" body="Your execution graph will appear once this workspace has project tasks."/> : graphQuery.isLoading ? <div className="flex h-[360px] items-center justify-center text-sm text-slate-400">Loading execution graph…</div> : graphQuery.isError ? <Empty title="We couldn't load the graph" body={apiMessage(graphQuery.error)}/> : !graph?.tasks.length ? <Empty title="A clear path starts with tasks" body="Add tasks to this project, then connect the work that depends on other work."/> : <div className="h-[440px] bg-[radial-gradient(#cbd5e1_0.75px,transparent_0.75px)] [background-size:18px_18px] sm:h-[540px]"><ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} onConnect={onConnect} nodesConnectable={canWrite} nodesDraggable={false} fitView fitViewOptions={{ padding: .22 }} minZoom={.35} maxZoom={1.5}><Background color="#94a3b8" gap={18} size={1}/><MiniMap pannable zoomable nodeColor={(node) => (node.data?.critical ? "#8b5cf6" : "#cbd5e1")} className="!rounded-xl !border !border-slate-200 !bg-white"/><Controls className="!overflow-hidden !rounded-xl !border-slate-200 !bg-white !shadow-sm"/></ReactFlow></div>}
         {!!graph?.edges.length && <div className="flex flex-wrap gap-2 border-t border-slate-100 px-5 py-3">{graph.edges.map((edge) => <span key={edge.id} className="inline-flex items-center gap-2 rounded-lg bg-slate-50 px-2.5 py-1.5 text-[10px] text-slate-600"><span className="max-w-28 truncate">{graph.tasks.find((task) => task.id === edge.from)?.title}</span><ArrowRight size={12} className="text-violet-500"/><span className="max-w-28 truncate">{graph.tasks.find((task) => task.id === edge.to)?.title}</span>{canWrite && <button title="Remove dependency" onClick={() => deleteDependency.mutate(edge.id)} className="ml-1 rounded p-0.5 text-slate-400 hover:bg-rose-100 hover:text-rose-600"><Trash2 size={12}/></button>}</span>)}</div>}
       </div>
 
@@ -160,7 +177,7 @@ export default function ExecutionPage() {
           <div className="mb-4 flex items-center justify-between"><div><div className="flex items-center gap-2"><Target size={17} className="text-violet-600"/><h2 className="font-semibold text-slate-900">Delivery outcomes</h2></div><p className="mt-1 text-xs text-slate-500">The result your team is building toward.</p></div><span className="rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-bold text-violet-700">{outcomes.length} tracked</span></div>
           {canWrite && <form className="mb-5 space-y-2.5 rounded-xl bg-slate-50 p-3.5" onSubmit={(event) => { event.preventDefault(); if (!outcomeName.trim()) return; createOutcome.mutate({ name: outcomeName, successCriteria: criteriaList(outcomeCriteria), targetDate: outcomeDate || null }); setOutcomeName(""); setOutcomeCriteria(""); setOutcomeDate(""); }}>
             <input aria-label="Outcome name" value={outcomeName} onChange={(e) => setOutcomeName(e.target.value)} placeholder="e.g. Launch a reliable onboarding flow" className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-xs outline-none focus:border-violet-400" required maxLength={120}/>
-            <textarea aria-label="Success criteria" value={outcomeCriteria} onChange={(e) => setOutcomeCriteria(e.target.value)} placeholder="Success criteria, one per line" rows={2} className="w-full resize-y rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs outline-none focus:border-violet-400" />
+            <textarea aria-label="Success criteria" value={outcomeCriteria} onChange={(e) => setOutcomeCriteria(e.target.value)} placeholder="Success criteria, one per line" rows={2} className="w-full resize-y rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs outline-none focus:border-violet-400" required />
             <div className="flex gap-2"><input aria-label="Outcome target date" type="date" value={outcomeDate} onChange={(e) => setOutcomeDate(e.target.value)} className="min-w-0 flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600"/><button disabled={createOutcome.isPending} className="inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-3 py-2 text-xs font-semibold text-white hover:bg-violet-700 disabled:opacity-50"><Plus size={14}/>Add outcome</button></div>
           </form>}
           {outcomesQuery.isLoading ? <p className="py-6 text-center text-xs text-slate-400">Loading outcomes…</p> : outcomes.length === 0 ? <div className="rounded-xl border border-dashed border-slate-200 px-4 py-8 text-center"><Target size={22} className="mx-auto text-slate-300"/><p className="mt-2 text-xs font-medium text-slate-600">No outcomes yet</p><p className="mt-1 text-[11px] text-slate-400">Start with a measurable result, then break it into goals.</p></div> : <div className="space-y-3">{outcomes.map((outcome) => {

@@ -9,6 +9,7 @@ interface KanbanColumnProps {
   onTaskClick: (task: Task) => void;
   onDragStart: (task: Task) => void;
   onDrop: (status: TaskStatus) => void;
+  readOnly?: boolean;
 }
 
 const statusConfig = {
@@ -35,6 +36,7 @@ export default function KanbanColumn({
   onTaskClick,
   onDragStart,
   onDrop,
+  readOnly = false,
 }: KanbanColumnProps) {
   const filteredTasks = tasks.filter((task) => task.status === status);
   const config = statusConfig[status];
@@ -96,6 +98,7 @@ export default function KanbanColumn({
               task={task}
               onClick={onTaskClick}
               onDragStart={onDragStart}
+              readOnly={readOnly}
             />
           ))
         )}

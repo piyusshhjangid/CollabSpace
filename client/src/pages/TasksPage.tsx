@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProjectBoard from "../components/board/ProjectBoard";
 import { useWorkspace } from "../context/WorkspaceContext";
 import { useProjects } from "../hooks/useProjects";
 
 const TasksPage = () => {
   const { currentWorkspace } = useWorkspace();
+  const [searchParams] = useSearchParams();
 
   const {
     data: projects = [],
@@ -14,10 +16,16 @@ const TasksPage = () => {
   } = useProjects(currentWorkspace?.id ?? null);
 
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
-    null,
+    () => searchParams.get("projectId"),
   );
 
   useEffect(() => {
+    const requestedProjectId = searchParams.get("projectId");
+    if (requestedProjectId && projects.some((project) => project.id === requestedProjectId)) {
+      setSelectedProjectId(requestedProjectId);
+      return;
+    }
+
     if (!selectedProjectId && projects.length > 0) {
       setSelectedProjectId(projects[0].id);
       return;
@@ -34,7 +42,7 @@ const TasksPage = () => {
     if (projects.length === 0) {
       setSelectedProjectId(null);
     }
-  }, [projects, selectedProjectId]);
+  }, [projects, selectedProjectId, searchParams]);
 
   if (!currentWorkspace) {
     return (
@@ -100,6 +108,8 @@ const TasksPage = () => {
       <ProjectBoard
         workspaceId={currentWorkspace.id}
         projectId={selectedProjectId}
+        projectName={projects.find((project) => project.id === selectedProjectId)?.name}
+        canWrite={currentWorkspace.role !== "VIEWER"}
       />
     </div>
   );

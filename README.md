@@ -406,9 +406,7 @@ GET    /api/projects/:projectId/summary
 
 ## Authentication
 
-Authentication endpoints are being added as part of the current authentication phase.
-
-Planned:
+Authentication supports registration, login, refresh-token rotation, logout, and protected routes.
 
 ```text
 POST   /auth/register
@@ -417,9 +415,9 @@ POST   /auth/login
 
 ---
 
-# 🔐 Authentication Direction
+# 🔐 Authentication and Authorization
 
-The authentication layer is being built incrementally.
+Passwords are hashed with bcrypt. Access tokens are short-lived JWTs and refresh tokens are rotated and revoked server-side. Workspace membership is resolved on the server for each protected request; tenant IDs supplied by clients are never treated as authorization.
 
 The registration flow is designed around:
 
@@ -443,7 +441,7 @@ PostgreSQL
 
 Passwords must never be stored in plaintext.
 
-The authentication implementation will later expand to include:
+Protected workspace actions use the role permission matrix and resource ownership checks:
 
 ```text
 Registration
@@ -507,38 +505,43 @@ Protected Routes
 - [x] Shared Prisma Client
 - [x] Data Layer Review
 
-## 🚧 Phase 4 — Authentication
+## ✅ Phase 4 — Authentication + Multi-Tenancy
 
-- [ ] User Registration
-- [ ] Password Hashing with bcrypt
-- [ ] Login
-- [ ] JWT Authentication
-- [ ] Access Tokens
-- [ ] Refresh Tokens
-- [ ] Protected Routes
-- [ ] Tenant Isolation
+- [x] Registration, bcrypt password hashing, and login
+- [x] JWT access tokens and rotating refresh tokens
+- [x] Protected routes and workspace membership checks
+- [x] Tenant isolation across workspace resources
 
-## 🔜 Phase 5 — Authorization
+## ✅ Phase 5 — RBAC + Authorization
 
-- [ ] Workspace Roles
-- [ ] Role-Based Access Control
-- [ ] Permissions
-- [ ] Protected Resources
-- [ ] Authorization Middleware
+- [x] Owner, admin, member, and viewer roles
+- [x] Role-based permission matrix and middleware
+- [x] Resource ownership checks and audit logging
 
-## 🔮 Future
+## ✅ Phase 6 — Frontend Architecture + Execution Model (Days 46–52)
 
-- [ ] AI Assistant
-- [ ] File Uploads
-- [ ] Team Chat
-- [ ] Notifications
-- [ ] Real-time Collaboration
-- [ ] Activity Feed
-- [ ] Advanced Search
-- [ ] AI-powered Productivity
-- [ ] Docker
-- [ ] CI/CD
-- [ ] Production Deployment
+- [x] Redux Toolkit for small client-only UI state
+- [x] Workspace-aware TanStack Query server-state caching
+- [x] Optimistic task updates with rollback on failure
+- [x] Outcome, goal, and milestone CRUD
+- [x] Tenant-safe task dependencies with cycle prevention
+- [x] Append-only, versioned delivery contracts and execution plans
+
+## ✅ Phase 7 — Execution Graph + Real-Time (Days 53–60)
+
+- [x] Pure graph traversal, topological sort, cycle reporting, and critical path/slack
+- [x] Interactive execution graph with dependency editing and critical-path highlighting
+- [x] Authenticated Socket.IO connections and membership-checked workspace rooms
+- [x] Monotonic workspace event sequence and reconnect/refetch recovery
+- [x] Live graph updates for task and dependency changes
+
+## 🔜 Next — Days 61–100
+
+- [ ] Redis and measured performance improvements
+- [ ] Background jobs and GitHub webhook evidence
+- [ ] Delivery truth, forecast, and drift engine
+- [ ] Grounded AI analysis and safe tool calling
+- [ ] Docker, CI/CD, and Internship Release 1.0
 
 ---
 
@@ -567,10 +570,13 @@ Protected Routes
 | Database Indexes | ✅ |
 | Prisma ORM | ✅ |
 | Repository Migration | ✅ |
-| Authentication | 🚧 |
-| Password Hashing | 🚧 |
-| JWT | ⏳ |
-| RBAC | ⏳ |
+| Authentication | ✅ |
+| Password Hashing | ✅ |
+| JWT + Refresh Tokens | ✅ |
+| RBAC + Tenant Isolation | ✅ |
+| Outcomes + Baselines | ✅ |
+| Dependency DAG + Critical Path | ✅ |
+| Live Execution Graph | ✅ |
 | AI Assistant | ⏳ |
 | Real-time Collaboration | ⏳ |
 | Docker | ⏳ |

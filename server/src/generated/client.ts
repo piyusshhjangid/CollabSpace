@@ -24,7 +24,7 @@ export * as $Enums from './enums.js'
 export * from "./enums.js"
 /**
  * ## Prisma Client
- * 
+ *
  * Type-safe database client for TypeScript
  * @example
  * ```
@@ -101,6 +101,11 @@ export type execution_plans = Prisma.execution_plansModel
  * 
  */
 export type execution_plan_tasks = Prisma.execution_plan_tasksModel
+/**
+ * Model execution_plan_edges
+ * 
+ */
+export type execution_plan_edges = Prisma.execution_plan_edgesModel
 /**
  * Model workspace_event_counters
  * 

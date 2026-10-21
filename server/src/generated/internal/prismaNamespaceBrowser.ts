@@ -63,6 +63,7 @@ export const ModelName = {
   delivery_contracts: 'delivery_contracts',
   execution_plans: 'execution_plans',
   execution_plan_tasks: 'execution_plan_tasks',
+  execution_plan_edges: 'execution_plan_edges',
   workspace_event_counters: 'workspace_event_counters',
   workspaces: 'workspaces',
   refresh_tokens: 'refresh_tokens',
@@ -240,6 +241,7 @@ export const Execution_plan_tasksScalarFieldEnum = {
   id: 'id',
   plan_id: 'plan_id',
   task_id: 'task_id',
+  task_title: 'task_title',
   planned_start: 'planned_start',
   planned_end: 'planned_end',
   duration_days: 'duration_days',
@@ -247,6 +249,19 @@ export const Execution_plan_tasksScalarFieldEnum = {
 } as const
 
 export type Execution_plan_tasksScalarFieldEnum = (typeof Execution_plan_tasksScalarFieldEnum)[keyof typeof Execution_plan_tasksScalarFieldEnum]
+
+
+export const Execution_plan_edgesScalarFieldEnum = {
+  id: 'id',
+  plan_id: 'plan_id',
+  predecessor_task_id: 'predecessor_task_id',
+  predecessor_title: 'predecessor_title',
+  successor_task_id: 'successor_task_id',
+  successor_title: 'successor_title',
+  dependency_type: 'dependency_type'
+} as const
+
+export type Execution_plan_edgesScalarFieldEnum = (typeof Execution_plan_edgesScalarFieldEnum)[keyof typeof Execution_plan_edgesScalarFieldEnum]
 
 
 export const Workspace_event_countersScalarFieldEnum = {

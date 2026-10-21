@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import type { ApiResponse } from "../types/apiResponse.js";
 import { badRequest, unauthorized } from "../lib/AppError.js";
-import { createContract, createDependency, createExecutionPlan, createGoal, createMilestone, createOutcome, deleteDependency, getExecutionGraph, listOutcomes } from "../services/execution.service.js";
+import { createContract, createDependency, createExecutionPlan, createGoal, createMilestone, createOutcome, deleteDependency, deleteGoal, deleteMilestone, deleteOutcome, getExecutionGraph, listOutcomes, updateGoal, updateMilestone, updateOutcome } from "../services/execution.service.js";
 import { publishExecutionEvent } from "../realtime/server.js";
 
 function context(req: Parameters<RequestHandler>[0]) {
@@ -29,13 +29,37 @@ export const postOutcome: RequestHandler = async (req, res) => {
   const { workspaceId, userId } = context(req);
   send(res, "Outcome created", await createOutcome(workspaceId, userId, req.body), 201);
 };
+export const patchOutcome: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Outcome updated", await updateOutcome(workspaceId, userId, param(req, "outcomeId"), req.body));
+};
+export const removeOutcome: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Outcome deleted", await deleteOutcome(workspaceId, userId, param(req, "outcomeId")));
+};
 export const postGoal: RequestHandler = async (req, res) => {
   const { workspaceId, userId } = context(req);
   send(res, "Goal created", await createGoal(workspaceId, userId, param(req, "outcomeId"), req.body), 201);
 };
+export const patchGoal: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Goal updated", await updateGoal(workspaceId, userId, param(req, "goalId"), req.body));
+};
+export const removeGoal: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Goal deleted", await deleteGoal(workspaceId, userId, param(req, "goalId")));
+};
 export const postMilestone: RequestHandler = async (req, res) => {
   const { workspaceId, userId } = context(req);
   send(res, "Milestone created", await createMilestone(workspaceId, userId, param(req, "goalId"), req.body), 201);
+};
+export const patchMilestone: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Milestone updated", await updateMilestone(workspaceId, userId, param(req, "milestoneId"), req.body));
+};
+export const removeMilestone: RequestHandler = async (req, res) => {
+  const { workspaceId, userId } = context(req);
+  send(res, "Milestone deleted", await deleteMilestone(workspaceId, userId, param(req, "milestoneId")));
 };
 export const postContract: RequestHandler = async (req, res) => {
   const { workspaceId, userId } = context(req);

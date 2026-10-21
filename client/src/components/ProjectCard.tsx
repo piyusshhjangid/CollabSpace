@@ -1,4 +1,5 @@
 import { ArrowRight, CalendarDays, CheckSquare } from "lucide-react";
+import { Link } from "react-router-dom";
 import Badge from "./Badge";
 import type { Project } from "../types/project";
 
@@ -58,7 +59,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
-        <button
+        <Link
+          to={`/tasks?projectId=${encodeURIComponent(project.id)}`}
           aria-label={`Open ${project.name}`}
           className="mt-5 flex w-full items-center justify-between rounded-lg bg-zinc-100 px-4 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-violet-600 hover:text-white"
         >
@@ -67,7 +69,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             size={18}
             className="transition-transform group-hover:translate-x-1"
           />
-        </button>
+        </Link>
       </div>
     </article>
   );

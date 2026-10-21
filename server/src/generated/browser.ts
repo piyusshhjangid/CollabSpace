@@ -6,7 +6,7 @@
 /*
  * This file should be your main import to use Prisma-related types and utilities in a browser. 
  * Use it to get access to models, enums, and input types.
- * 
+ *
  * This file does not contain a `PrismaClient` class, nor several other helpers that are intended as server-side only.
  * See `client.ts` for the standard, server-side entry point.
  *
@@ -77,6 +77,11 @@ export type execution_plans = Prisma.execution_plansModel
  * 
  */
 export type execution_plan_tasks = Prisma.execution_plan_tasksModel
+/**
+ * Model execution_plan_edges
+ * 
+ */
+export type execution_plan_edges = Prisma.execution_plan_edgesModel
 /**
  * Model workspace_event_counters
  * 

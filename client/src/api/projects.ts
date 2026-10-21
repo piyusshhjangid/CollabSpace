@@ -6,6 +6,7 @@ interface ApiProject {
   id: string;
   workspaceId: string;
   outcomeId?: string;
+  taskCount?: number;
   name: string;
   description?: string;
   createdAt: string;
@@ -30,8 +31,16 @@ export async function fetchProjects(
     name: project.name,
     icon: FolderKanban,
     description: project.description ?? "No description",
-    taskCount: 0,
+    taskCount: project.taskCount ?? 0,
     updatedAt: project.createdAt,
     status: "ACTIVE",
   }));
+}
+
+export async function createProject(workspaceId: string, name: string, description: string) {
+  const response = await apiFetch<ApiResponse<ApiProject>>(`/api/workspaces/${encodeURIComponent(workspaceId)}/projects`, {
+    method: "POST",
+    body: JSON.stringify({ name, description }),
+  });
+  return response.data;
 }

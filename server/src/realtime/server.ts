@@ -37,20 +37,24 @@ export function configureRealtimeAuth(server: Server) {
   server.on("connection", (socket) => {
     const joined = new Set<string>();
     socket.on("workspace:join", async (payload: unknown, acknowledge?: (result: { ok: boolean; sequence?: number; message?: string }) => void) => {
-      const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;
-      if (typeof workspaceId !== "string" || !/^[0-9a-f-]{36}$/i.test(workspaceId)) {
-        acknowledge?.({ ok: false, message: "Invalid workspace" });
-        return;
+      try {
+        const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;
+        if (typeof workspaceId !== "string" || !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(workspaceId)) {
+          acknowledge?.({ ok: false, message: "Invalid workspace" });
+          return;
+        }
+        const membership = await prisma.workspace_members.findFirst({ where: { workspace_id: workspaceId, user_id: socket.data.userId }, select: { id: true } });
+        if (!membership) {
+          acknowledge?.({ ok: false, message: "Workspace access denied" });
+          return;
+        }
+        await socket.join(workspaceRoom(workspaceId));
+        joined.add(workspaceId);
+        const counter = await prisma.workspace_event_counters.findUnique({ where: { workspace_id: workspaceId }, select: { sequence: true } });
+        acknowledge?.({ ok: true, sequence: Number(counter?.sequence ?? 0) });
+      } catch {
+        acknowledge?.({ ok: false, message: "Workspace subscription unavailable" });
       }
-      const membership = await prisma.workspace_members.findFirst({ where: { workspace_id: workspaceId, user_id: socket.data.userId }, select: { id: true } });
-      if (!membership) {
-        acknowledge?.({ ok: false, message: "Workspace access denied" });
-        return;
-      }
-      await socket.join(workspaceRoom(workspaceId));
-      joined.add(workspaceId);
-      const counter = await prisma.workspace_event_counters.findUnique({ where: { workspace_id: workspaceId }, select: { sequence: true } });
-      acknowledge?.({ ok: true, sequence: Number(counter?.sequence ?? 0) });
     });
     socket.on("workspace:leave", (payload: unknown) => {
       const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;

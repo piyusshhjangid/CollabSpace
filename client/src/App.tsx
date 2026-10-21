@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Shell from "./components/layout/Shell";
 import HomePage from "./pages/HomePage";
@@ -9,7 +10,7 @@ import OnboardingPage from "./pages/OnboardingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import GuestRoute from "./components/auth/GuestRoute";
 import OnboardingRoute from "./components/auth/OnboardingRoute";
-import ExecutionPage from "./pages/ExecutionPage";
+const ExecutionPage = lazy(() => import("./pages/ExecutionPage"));
 
 const App = () => {
   return (
@@ -64,7 +65,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/execution" element={<ProtectedRoute><Shell><ExecutionPage /></Shell></ProtectedRoute>} />
+        <Route path="/execution" element={<ProtectedRoute><Shell><Suspense fallback={<div className="flex h-80 items-center justify-center text-sm text-slate-500">Loading execution view…</div>}><ExecutionPage /></Suspense></Shell></ProtectedRoute>} />
 
         {/* Onboarding: authenticated users without a workspace land here */}
         <Route

@@ -409,6 +409,7 @@ export const ModelName = {
   delivery_contracts: 'delivery_contracts',
   execution_plans: 'execution_plans',
   execution_plan_tasks: 'execution_plan_tasks',
+  execution_plan_edges: 'execution_plan_edges',
   workspace_event_counters: 'workspace_event_counters',
   workspaces: 'workspaces',
   refresh_tokens: 'refresh_tokens',
@@ -429,7 +430,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log"
+    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "execution_plan_edges" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1321,6 +1322,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    execution_plan_edges: {
+      payload: Prisma.$execution_plan_edgesPayload<ExtArgs>
+      fields: Prisma.execution_plan_edgesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.execution_plan_edgesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.execution_plan_edgesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        findFirst: {
+          args: Prisma.execution_plan_edgesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.execution_plan_edgesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        findMany: {
+          args: Prisma.execution_plan_edgesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>[]
+        }
+        create: {
+          args: Prisma.execution_plan_edgesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        createMany: {
+          args: Prisma.execution_plan_edgesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.execution_plan_edgesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>[]
+        }
+        delete: {
+          args: Prisma.execution_plan_edgesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        update: {
+          args: Prisma.execution_plan_edgesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        deleteMany: {
+          args: Prisma.execution_plan_edgesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.execution_plan_edgesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.execution_plan_edgesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>[]
+        }
+        upsert: {
+          args: Prisma.execution_plan_edgesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_plan_edgesPayload>
+        }
+        aggregate: {
+          args: Prisma.Execution_plan_edgesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecution_plan_edges>
+        }
+        groupBy: {
+          args: Prisma.execution_plan_edgesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Execution_plan_edgesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.execution_plan_edgesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Execution_plan_edgesCountAggregateOutputType> | number
+        }
+      }
+    }
     workspace_event_counters: {
       payload: Prisma.$workspace_event_countersPayload<ExtArgs>
       fields: Prisma.workspace_event_countersFieldRefs
@@ -1884,6 +1959,7 @@ export const Execution_plan_tasksScalarFieldEnum = {
   id: 'id',
   plan_id: 'plan_id',
   task_id: 'task_id',
+  task_title: 'task_title',
   planned_start: 'planned_start',
   planned_end: 'planned_end',
   duration_days: 'duration_days',
@@ -1891,6 +1967,19 @@ export const Execution_plan_tasksScalarFieldEnum = {
 } as const
 
 export type Execution_plan_tasksScalarFieldEnum = (typeof Execution_plan_tasksScalarFieldEnum)[keyof typeof Execution_plan_tasksScalarFieldEnum]
+
+
+export const Execution_plan_edgesScalarFieldEnum = {
+  id: 'id',
+  plan_id: 'plan_id',
+  predecessor_task_id: 'predecessor_task_id',
+  predecessor_title: 'predecessor_title',
+  successor_task_id: 'successor_task_id',
+  successor_title: 'successor_title',
+  dependency_type: 'dependency_type'
+} as const
+
+export type Execution_plan_edgesScalarFieldEnum = (typeof Execution_plan_edgesScalarFieldEnum)[keyof typeof Execution_plan_edgesScalarFieldEnum]
 
 
 export const Workspace_event_countersScalarFieldEnum = {
@@ -2249,6 +2338,7 @@ export type GlobalOmitConfig = {
   delivery_contracts?: Prisma.delivery_contractsOmit
   execution_plans?: Prisma.execution_plansOmit
   execution_plan_tasks?: Prisma.execution_plan_tasksOmit
+  execution_plan_edges?: Prisma.execution_plan_edgesOmit
   workspace_event_counters?: Prisma.workspace_event_countersOmit
   workspaces?: Prisma.workspacesOmit
   refresh_tokens?: Prisma.refresh_tokensOmit

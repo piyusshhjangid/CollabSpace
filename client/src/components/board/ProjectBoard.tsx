@@ -13,15 +13,20 @@ import {
 import BoardToolbar from "./BoardToolbar";
 import KanbanColumn from "./KanbanColumn";
 import TaskModal from "./TaskModal";
+import { useTaskMutations } from "../../hooks/useTaskMutations";
 
 interface ProjectBoardProps {
   workspaceId: string;
   projectId: string;
+  projectName?: string;
+  canWrite?: boolean;
 }
 
 export default function ProjectBoard({
   workspaceId,
   projectId,
+  projectName = "Project",
+  canWrite = true,
 }: ProjectBoardProps) {
   const dispatch = useAppDispatch();
 
@@ -45,6 +50,10 @@ export default function ProjectBoard({
     priority: "ALL",
     assignee: "",
   });
+  const [draggedTask, setDraggedTask] = useState<Task | null>(null);
+  const [isCreatingTask, setIsCreatingTask] = useState(false);
+  const [newTaskTitle, setNewTaskTitle] = useState("");
+  const { create, update } = useTaskMutations(workspaceId, projectId, projectName);
 
   const selectedTask = useMemo(
     () =>
@@ -88,16 +97,17 @@ export default function ProjectBoard({
     dispatch(openTaskModal(task.id));
   };
 
-  const handleDragStart = (_task: Task) => {
-    // Mutation layer comes after the Day 49 read architecture.
+  const handleDragStart = (task: Task) => setDraggedTask(task);
+
+  const handleDrop = (status: Task["status"]) => {
+    if (draggedTask && draggedTask.status !== status) {
+      update.mutate({ taskId: draggedTask.id, changes: { status } });
+    }
+    setDraggedTask(null);
   };
 
-  const handleDrop = (_status: Task["status"]) => {
-    // Optimistic updates are intentionally deferred on Day 49.
-  };
-
-  const handleSaveTask = (_updatedTask: Task) => {
-    dispatch(closeTaskModal());
+  const handleSaveTask = (updatedTask: Task) => {
+    update.mutate({ taskId: updatedTask.id, changes: { title: updatedTask.title, status: updatedTask.status } }, { onSuccess: () => dispatch(closeTaskModal()) });
   };
 
   const handleCloseTaskModal = () => {
@@ -126,12 +136,19 @@ export default function ProjectBoard({
     <div className="space-y-4">
       <BoardToolbar
         tasks={tasks}
+        canCreateTask={canWrite}
         filters={filters}
         setFilters={setFilters}
         onCreateTask={() => {
-          console.log("Create Task");
+          setIsCreatingTask((value) => !value);
         }}
       />
+
+      {isCreatingTask && <form className="flex flex-col gap-2 rounded-xl border border-violet-100 bg-white p-3 shadow-sm sm:flex-row" onSubmit={(event) => { event.preventDefault(); if (!newTaskTitle.trim()) return; create.mutate(newTaskTitle.trim(), { onSuccess: () => { setNewTaskTitle(""); setIsCreatingTask(false); } }); }}>
+        <input autoFocus aria-label="New task title" value={newTaskTitle} onChange={(event) => setNewTaskTitle(event.target.value)} placeholder="Give this task a clear, actionable title" maxLength={200} className="min-w-0 flex-1 rounded-lg border border-zinc-200 px-3 py-2 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100" />
+        <button type="submit" disabled={!newTaskTitle.trim() || create.isPending} className="rounded-lg bg-violet-600 px-4 py-2 text-xs font-semibold text-white hover:bg-violet-700 disabled:opacity-50">{create.isPending ? "Adding…" : "Add task"}</button>
+      </form>}
+      {(create.isError || update.isError) && <p role="alert" className="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">{(create.error ?? update.error)?.message ?? "Could not save this change."} Your previous task data has been restored.</p>}
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {(
@@ -146,6 +163,7 @@ export default function ProjectBoard({
             onTaskClick={openTask}
             onDragStart={handleDragStart}
             onDrop={handleDrop}
+            readOnly={!canWrite}
           />
         ))}
       </div>
@@ -158,6 +176,7 @@ export default function ProjectBoard({
         task={selectedTask}
         onClose={handleCloseTaskModal}
         onSave={handleSaveTask}
+        isSaving={update.isPending}
       />
     </div>
   );

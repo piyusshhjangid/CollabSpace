@@ -187,6 +187,7 @@ model execution_plans {
   workspaces            workspaces              @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
   outcomes              outcomes                @relation(fields: [outcome_id], references: [id], onDelete: Cascade)
   tasks                 execution_plan_tasks[]
+  edges                 execution_plan_edges[]
 
   @@unique([outcome_id, version], map: "uq_execution_plan_outcome_version")
   @@index([workspace_id, outcome_id, version], map: "idx_execution_plans_workspace_outcome_version")
@@ -195,16 +196,31 @@ model execution_plans {
 model execution_plan_tasks {
   id               String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   plan_id          String          @db.Uuid
-  task_id          String          @db.Uuid
+  task_id          String?         @db.Uuid
+  task_title       String
   planned_start    DateTime?       @db.Date
   planned_end      DateTime?       @db.Date
   duration_days    Int             @default(1)
   order_index      Int
   plans            execution_plans @relation(fields: [plan_id], references: [id], onDelete: Cascade)
-  tasks            tasks           @relation(fields: [task_id], references: [id], onDelete: Cascade)
+  tasks            tasks?          @relation(fields: [task_id], references: [id], onDelete: SetNull)
 
   @@unique([plan_id, task_id], map: "uq_execution_plan_task")
   @@index([plan_id, order_index], map: "idx_execution_plan_tasks_order")
+}
+
+model execution_plan_edges {
+  id                    String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  plan_id               String          @db.Uuid
+  predecessor_task_id   String          @db.Uuid
+  predecessor_title     String
+  successor_task_id     String          @db.Uuid
+  successor_title       String
+  dependency_type       String
+  plans                 execution_plans @relation(fields: [plan_id], references: [id], onDelete: Cascade)
+
+  @@unique([plan_id, predecessor_task_id, successor_task_id], map: "uq_execution_plan_edge")
+  @@index([plan_id], map: "idx_execution_plan_edges_plan")
 }
 
 model workspace_event_counters {

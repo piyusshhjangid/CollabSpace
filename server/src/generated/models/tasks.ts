@@ -486,6 +486,11 @@ export type TasksScalarRelationFilter = {
   isNot?: Prisma.tasksWhereInput
 }
 
+export type TasksNullableScalarRelationFilter = {
+  is?: Prisma.tasksWhereInput | null
+  isNot?: Prisma.tasksWhereInput | null
+}
+
 export type tasksCreateNestedManyWithoutProjectsInput = {
   create?: Prisma.XOR<Prisma.tasksCreateWithoutProjectsInput, Prisma.tasksUncheckedCreateWithoutProjectsInput> | Prisma.tasksCreateWithoutProjectsInput[] | Prisma.tasksUncheckedCreateWithoutProjectsInput[]
   connectOrCreate?: Prisma.tasksCreateOrConnectWithoutProjectsInput | Prisma.tasksCreateOrConnectWithoutProjectsInput[]
@@ -626,10 +631,12 @@ export type tasksCreateNestedOneWithoutPlan_snapshotsInput = {
   connect?: Prisma.tasksWhereUniqueInput
 }
 
-export type tasksUpdateOneRequiredWithoutPlan_snapshotsNestedInput = {
+export type tasksUpdateOneWithoutPlan_snapshotsNestedInput = {
   create?: Prisma.XOR<Prisma.tasksCreateWithoutPlan_snapshotsInput, Prisma.tasksUncheckedCreateWithoutPlan_snapshotsInput>
   connectOrCreate?: Prisma.tasksCreateOrConnectWithoutPlan_snapshotsInput
   upsert?: Prisma.tasksUpsertWithoutPlan_snapshotsInput
+  disconnect?: Prisma.tasksWhereInput | boolean
+  delete?: Prisma.tasksWhereInput | boolean
   connect?: Prisma.tasksWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.tasksUpdateToOneWithWhereWithoutPlan_snapshotsInput, Prisma.tasksUpdateWithoutPlan_snapshotsInput>, Prisma.tasksUncheckedUpdateWithoutPlan_snapshotsInput>
 }

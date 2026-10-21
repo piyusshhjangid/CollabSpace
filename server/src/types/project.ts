@@ -3,4 +3,5 @@ export interface Project {
     workspaceId: string;
     name: String;
     description: string | undefined
+    taskCount?: number;
 }

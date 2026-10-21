@@ -6,7 +6,7 @@ const date = z.iso.date().nullable().optional();
 export const CreateOutcomeSchema = z.object({
   name: z.string().trim().min(1).max(120),
   description: z.string().trim().max(2000).optional(),
-  successCriteria: criteria.default([]),
+  successCriteria: criteria.min(1),
   targetDate: date,
   ownerId: z.uuid().nullable().optional(),
 });
@@ -18,7 +18,11 @@ export const CreateGoalSchema = z.object({
 export const CreateMilestoneSchema = z.object({
   name: z.string().trim().min(1).max(120),
   dueDate: date,
+  status: z.enum(["UPCOMING", "IN_PROGRESS", "DONE"]).optional(),
 });
+export const UpdateOutcomeSchema = CreateOutcomeSchema.partial().refine((body) => Object.keys(body).length > 0, "At least one field is required");
+export const UpdateGoalSchema = CreateGoalSchema.partial().refine((body) => Object.keys(body).length > 0, "At least one field is required");
+export const UpdateMilestoneSchema = CreateMilestoneSchema.partial().refine((body) => Object.keys(body).length > 0, "At least one field is required");
 export const CreateContractSchema = z.object({
   scope: z.string().trim().min(1).max(4000),
   deadline: date,

@@ -1,104 +1,20 @@
 import { useState } from "react";
-import { Folder } from "lucide-react";
-import Badge from "./Badge";
+import { ArrowUpRight, FolderKanban } from "lucide-react";
 import type { Task } from "../types/task";
 
-interface TaskCardProps {
-  task: Task;
-  onClick: (task: Task) => void;
-  onDragStart: (task: Task) => void;
-}
+interface TaskCardProps { task: Task; onClick: (task: Task) => void; onDragStart: (task: Task) => void; readOnly?: boolean; }
+const statusStyle: Record<Task["status"], string> = {
+  TODO: "bg-slate-100 text-slate-600",
+  IN_PROGRESS: "bg-blue-50 text-blue-700",
+  DONE: "bg-emerald-50 text-emerald-700",
+};
+const statusLabel: Record<Task["status"], string> = { TODO: "To do", IN_PROGRESS: "In progress", DONE: "Done" };
 
-const PriorityColors = {
-  Low: "green",
-  Medium: "blue",
-  High: "yellow",
-  Urgent: "red",
-} as const;
-
-function formatDueDate(date: string) {
-  const target = new Date(date).getTime();
-  const now = Date.now();
-  const diff = target - now;
-
-  const mins = Math.floor(diff / 60000);
-  const hours = Math.floor(diff / 3600000);
-  const days = Math.floor(diff / 86400000);
-
-  if (diff <= 0) {
-    const overdueDays = Math.abs(days);
-    if (overdueDays < 1) return "⚠️ Past due (today)";
-    if (overdueDays >= 1) return "⚠️ Overdue";
-  }
-
-  if (mins < 60) return `⏳ Due in ${mins} min`;
-  if (hours < 24) return `⏳ Due in ${hours} hr`;
-  if (days === 1) return "📅 Due tomorrow";
-  if (days <= 7) return `📅 Due in ${days} days`;
-
-  const options: Intl.DateTimeFormatOptions = {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  };
-  return `📅 Due on ${new Date(date).toLocaleDateString(undefined, options)}`;
-}
-
-export default function TaskCard({ task, onClick, onDragStart }: TaskCardProps) {
+export default function TaskCard({ task, onClick, onDragStart, readOnly = false }: TaskCardProps) {
   const [dragging, setDragging] = useState(false);
-
-  return (
-    <article
-      draggable
-      onDragStart={() => {
-        setDragging(true);
-        onDragStart(task);
-      }}
-      onDragEnd={() => setDragging(false)}
-      onClick={() => onClick(task)}
-      className={`group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-300 
-        ${dragging ? "cursor-grabbing opacity-50 rotate-1 scale-[1.02]" : "cursor-grab opacity-100"} 
-        hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl`}
-    >
-      <div className="flex flex-row items-center gap-2 mb-2">
-        <Folder size={16} className="text-violet-500" />
-        <h1 className="text-xs font-semibold uppercase tracking-wide text-purple-500">
-          {task.project.name}
-        </h1>
-      </div>
-
-      <div className="flex items-start justify-between">
-        <div className="flex w-full items-center justify-between">
-          <h2 className="cursor-pointer font-semibold hover:text-violet-600 transition text-gray-700">
-            {task.title}
-          </h2>
-          <Badge color={PriorityColors[task.priority]}>{task.priority}</Badge>
-        </div>
-      </div>
-
-      <div className="mt-3">
-        <p className="line-clamp-2 text-sm leading-6 text-zinc-500">
-          {task.description}
-        </p>
-      </div>
-
-      <div className="mt-auto pt-3">
-        <div className="flex items-center justify-between border-t border-zinc-200 pt-2 text-sm text-zinc-600">
-          <div className="flex items-center gap-3">
-            <img
-              src={task.assigneeAvatar}
-              className="h-8 w-8 rounded-full"
-              alt={task.assigneeName}
-            />
-            <h3 className="text-[16px] font-normal text-zinc-600 tracking-tight">
-              {task.assigneeName}
-            </h3>
-          </div>
-          <div className="flex items-center gap-2">
-            {formatDueDate(task.dueDate)}
-          </div>
-        </div>
-      </div>
-    </article>
-  );
+  return <article draggable={!readOnly} onDragStart={() => { if (!readOnly) { setDragging(true); onDragStart(task); } }} onDragEnd={() => setDragging(false)} onClick={() => { if (!readOnly) onClick(task); }} onKeyDown={(event) => { if (!readOnly && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); onClick(task); } }} role={readOnly ? "article" : "button"} tabIndex={readOnly ? undefined : 0} aria-label={!readOnly ? `Edit ${task.title}` : undefined} className={`group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition ${readOnly ? "" : "cursor-grab hover:-translate-y-0.5 hover:border-violet-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-violet-200"} ${dragging ? "rotate-1 opacity-50" : ""}`}>
+    <div className="flex items-start justify-between gap-3"><h3 className="text-sm font-semibold leading-5 text-slate-800 transition group-hover:text-violet-700">{task.title}</h3><span className={`shrink-0 rounded-full px-2 py-1 text-[9px] font-semibold ${statusStyle[task.status]}`}>{statusLabel[task.status]}</span></div>
+    {task.description && <p className="mt-2 line-clamp-2 text-xs leading-5 text-slate-500">{task.description}</p>}
+    <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-[10px] text-slate-400"><span className="inline-flex min-w-0 items-center gap-1.5"><FolderKanban size={12} className="shrink-0 text-violet-500"/><span className="truncate">{task.project.name}</span></span><ArrowUpRight size={13} className="text-slate-300 transition group-hover:text-violet-500"/></div>
+  </article>;
 }

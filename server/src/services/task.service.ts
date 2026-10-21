@@ -110,6 +110,7 @@ export async function createTaskService(
       String(task.completed),
       task.id,
       status ?? (task.completed ? "DONE" : "TODO"),
+      userId,
     );
 
 

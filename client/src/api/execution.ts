@@ -7,6 +7,7 @@ export interface ExecutionGraph {
   projectId: string;
   outcomeId: string | null;
   sequence: number;
+  executionOrder: string[];
   tasks: { id: string; title: string; status: string; completed: boolean; dueDate: string | null; durationDays: number }[];
   edges: { id: string; from: string; to: string; type: string }[];
   criticalPath: { duration: number; criticalTaskIds: string[]; earliestFinish: Record<string, number>; slack: Record<string, number> };

@@ -59,6 +59,7 @@ export async function findTasksByProject(
     completed: task.completed,
     status: task.status,
     project: task.projects.name,
+    dueDate: task.due_date,
     assigned_to: task.users?.name ?? null,
   }));
 
@@ -86,6 +87,7 @@ export async function createTask(
   completed: string,
   _id: string,
   status: "TODO" | "IN_PROGRESS" | "DONE" = "TODO",
+  assignedTo?: string,
 ) {
   const project = await prisma.projects.findFirst({
     where: {
@@ -108,6 +110,7 @@ export async function createTask(
       title,
       completed: completed === "true",
       status,
+      assigned_to: assignedTo ?? null,
     },
   });
 

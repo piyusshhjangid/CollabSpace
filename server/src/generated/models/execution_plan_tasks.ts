@@ -40,6 +40,7 @@ export type Execution_plan_tasksMinAggregateOutputType = {
   id: string | null
   plan_id: string | null
   task_id: string | null
+  task_title: string | null
   planned_start: Date | null
   planned_end: Date | null
   duration_days: number | null
@@ -50,6 +51,7 @@ export type Execution_plan_tasksMaxAggregateOutputType = {
   id: string | null
   plan_id: string | null
   task_id: string | null
+  task_title: string | null
   planned_start: Date | null
   planned_end: Date | null
   duration_days: number | null
@@ -60,6 +62,7 @@ export type Execution_plan_tasksCountAggregateOutputType = {
   id: number
   plan_id: number
   task_id: number
+  task_title: number
   planned_start: number
   planned_end: number
   duration_days: number
@@ -82,6 +85,7 @@ export type Execution_plan_tasksMinAggregateInputType = {
   id?: true
   plan_id?: true
   task_id?: true
+  task_title?: true
   planned_start?: true
   planned_end?: true
   duration_days?: true
@@ -92,6 +96,7 @@ export type Execution_plan_tasksMaxAggregateInputType = {
   id?: true
   plan_id?: true
   task_id?: true
+  task_title?: true
   planned_start?: true
   planned_end?: true
   duration_days?: true
@@ -102,6 +107,7 @@ export type Execution_plan_tasksCountAggregateInputType = {
   id?: true
   plan_id?: true
   task_id?: true
+  task_title?: true
   planned_start?: true
   planned_end?: true
   duration_days?: true
@@ -198,7 +204,8 @@ export type execution_plan_tasksGroupByArgs<ExtArgs extends runtime.Types.Extens
 export type Execution_plan_tasksGroupByOutputType = {
   id: string
   plan_id: string
-  task_id: string
+  task_id: string | null
+  task_title: string
   planned_start: Date | null
   planned_end: Date | null
   duration_days: number
@@ -231,19 +238,21 @@ export type execution_plan_tasksWhereInput = {
   NOT?: Prisma.execution_plan_tasksWhereInput | Prisma.execution_plan_tasksWhereInput[]
   id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
   plan_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
-  task_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
+  task_id?: Prisma.UuidNullableFilter<"execution_plan_tasks"> | string | null
+  task_title?: Prisma.StringFilter<"execution_plan_tasks"> | string
   planned_start?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   planned_end?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   duration_days?: Prisma.IntFilter<"execution_plan_tasks"> | number
   order_index?: Prisma.IntFilter<"execution_plan_tasks"> | number
   plans?: Prisma.XOR<Prisma.Execution_plansScalarRelationFilter, Prisma.execution_plansWhereInput>
-  tasks?: Prisma.XOR<Prisma.TasksScalarRelationFilter, Prisma.tasksWhereInput>
+  tasks?: Prisma.XOR<Prisma.TasksNullableScalarRelationFilter, Prisma.tasksWhereInput> | null
 }
 
 export type execution_plan_tasksOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   plan_id?: Prisma.SortOrder
-  task_id?: Prisma.SortOrder
+  task_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  task_title?: Prisma.SortOrder
   planned_start?: Prisma.SortOrderInput | Prisma.SortOrder
   planned_end?: Prisma.SortOrderInput | Prisma.SortOrder
   duration_days?: Prisma.SortOrder
@@ -259,19 +268,21 @@ export type execution_plan_tasksWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.execution_plan_tasksWhereInput[]
   NOT?: Prisma.execution_plan_tasksWhereInput | Prisma.execution_plan_tasksWhereInput[]
   plan_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
-  task_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
+  task_id?: Prisma.UuidNullableFilter<"execution_plan_tasks"> | string | null
+  task_title?: Prisma.StringFilter<"execution_plan_tasks"> | string
   planned_start?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   planned_end?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   duration_days?: Prisma.IntFilter<"execution_plan_tasks"> | number
   order_index?: Prisma.IntFilter<"execution_plan_tasks"> | number
   plans?: Prisma.XOR<Prisma.Execution_plansScalarRelationFilter, Prisma.execution_plansWhereInput>
-  tasks?: Prisma.XOR<Prisma.TasksScalarRelationFilter, Prisma.tasksWhereInput>
+  tasks?: Prisma.XOR<Prisma.TasksNullableScalarRelationFilter, Prisma.tasksWhereInput> | null
 }, "id" | "plan_id_task_id">
 
 export type execution_plan_tasksOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   plan_id?: Prisma.SortOrder
-  task_id?: Prisma.SortOrder
+  task_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  task_title?: Prisma.SortOrder
   planned_start?: Prisma.SortOrderInput | Prisma.SortOrder
   planned_end?: Prisma.SortOrderInput | Prisma.SortOrder
   duration_days?: Prisma.SortOrder
@@ -289,7 +300,8 @@ export type execution_plan_tasksScalarWhereWithAggregatesInput = {
   NOT?: Prisma.execution_plan_tasksScalarWhereWithAggregatesInput | Prisma.execution_plan_tasksScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"execution_plan_tasks"> | string
   plan_id?: Prisma.UuidWithAggregatesFilter<"execution_plan_tasks"> | string
-  task_id?: Prisma.UuidWithAggregatesFilter<"execution_plan_tasks"> | string
+  task_id?: Prisma.UuidNullableWithAggregatesFilter<"execution_plan_tasks"> | string | null
+  task_title?: Prisma.StringWithAggregatesFilter<"execution_plan_tasks"> | string
   planned_start?: Prisma.DateTimeNullableWithAggregatesFilter<"execution_plan_tasks"> | Date | string | null
   planned_end?: Prisma.DateTimeNullableWithAggregatesFilter<"execution_plan_tasks"> | Date | string | null
   duration_days?: Prisma.IntWithAggregatesFilter<"execution_plan_tasks"> | number
@@ -298,18 +310,20 @@ export type execution_plan_tasksScalarWhereWithAggregatesInput = {
 
 export type execution_plan_tasksCreateInput = {
   id?: string
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
   order_index: number
   plans: Prisma.execution_plansCreateNestedOneWithoutTasksInput
-  tasks: Prisma.tasksCreateNestedOneWithoutPlan_snapshotsInput
+  tasks?: Prisma.tasksCreateNestedOneWithoutPlan_snapshotsInput
 }
 
 export type execution_plan_tasksUncheckedCreateInput = {
   id?: string
   plan_id: string
-  task_id: string
+  task_id?: string | null
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -318,18 +332,20 @@ export type execution_plan_tasksUncheckedCreateInput = {
 
 export type execution_plan_tasksUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   plans?: Prisma.execution_plansUpdateOneRequiredWithoutTasksNestedInput
-  tasks?: Prisma.tasksUpdateOneRequiredWithoutPlan_snapshotsNestedInput
+  tasks?: Prisma.tasksUpdateOneWithoutPlan_snapshotsNestedInput
 }
 
 export type execution_plan_tasksUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   plan_id?: Prisma.StringFieldUpdateOperationsInput | string
-  task_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -339,7 +355,8 @@ export type execution_plan_tasksUncheckedUpdateInput = {
 export type execution_plan_tasksCreateManyInput = {
   id?: string
   plan_id: string
-  task_id: string
+  task_id?: string | null
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -348,6 +365,7 @@ export type execution_plan_tasksCreateManyInput = {
 
 export type execution_plan_tasksUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -357,7 +375,8 @@ export type execution_plan_tasksUpdateManyMutationInput = {
 export type execution_plan_tasksUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   plan_id?: Prisma.StringFieldUpdateOperationsInput | string
-  task_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -383,6 +402,7 @@ export type execution_plan_tasksCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   plan_id?: Prisma.SortOrder
   task_id?: Prisma.SortOrder
+  task_title?: Prisma.SortOrder
   planned_start?: Prisma.SortOrder
   planned_end?: Prisma.SortOrder
   duration_days?: Prisma.SortOrder
@@ -398,6 +418,7 @@ export type execution_plan_tasksMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   plan_id?: Prisma.SortOrder
   task_id?: Prisma.SortOrder
+  task_title?: Prisma.SortOrder
   planned_start?: Prisma.SortOrder
   planned_end?: Prisma.SortOrder
   duration_days?: Prisma.SortOrder
@@ -408,6 +429,7 @@ export type execution_plan_tasksMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   plan_id?: Prisma.SortOrder
   task_id?: Prisma.SortOrder
+  task_title?: Prisma.SortOrder
   planned_start?: Prisma.SortOrder
   planned_end?: Prisma.SortOrder
   duration_days?: Prisma.SortOrder
@@ -505,6 +527,7 @@ export type execution_plan_tasksUncheckedUpdateManyWithoutPlansNestedInput = {
 
 export type execution_plan_tasksCreateWithoutTasksInput = {
   id?: string
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -515,6 +538,7 @@ export type execution_plan_tasksCreateWithoutTasksInput = {
 export type execution_plan_tasksUncheckedCreateWithoutTasksInput = {
   id?: string
   plan_id: string
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -553,7 +577,8 @@ export type execution_plan_tasksScalarWhereInput = {
   NOT?: Prisma.execution_plan_tasksScalarWhereInput | Prisma.execution_plan_tasksScalarWhereInput[]
   id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
   plan_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
-  task_id?: Prisma.UuidFilter<"execution_plan_tasks"> | string
+  task_id?: Prisma.UuidNullableFilter<"execution_plan_tasks"> | string | null
+  task_title?: Prisma.StringFilter<"execution_plan_tasks"> | string
   planned_start?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   planned_end?: Prisma.DateTimeNullableFilter<"execution_plan_tasks"> | Date | string | null
   duration_days?: Prisma.IntFilter<"execution_plan_tasks"> | number
@@ -562,16 +587,18 @@ export type execution_plan_tasksScalarWhereInput = {
 
 export type execution_plan_tasksCreateWithoutPlansInput = {
   id?: string
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
   order_index: number
-  tasks: Prisma.tasksCreateNestedOneWithoutPlan_snapshotsInput
+  tasks?: Prisma.tasksCreateNestedOneWithoutPlan_snapshotsInput
 }
 
 export type execution_plan_tasksUncheckedCreateWithoutPlansInput = {
   id?: string
-  task_id: string
+  task_id?: string | null
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -607,6 +634,7 @@ export type execution_plan_tasksUpdateManyWithWhereWithoutPlansInput = {
 export type execution_plan_tasksCreateManyTasksInput = {
   id?: string
   plan_id: string
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -615,6 +643,7 @@ export type execution_plan_tasksCreateManyTasksInput = {
 
 export type execution_plan_tasksUpdateWithoutTasksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -625,6 +654,7 @@ export type execution_plan_tasksUpdateWithoutTasksInput = {
 export type execution_plan_tasksUncheckedUpdateWithoutTasksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   plan_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -634,6 +664,7 @@ export type execution_plan_tasksUncheckedUpdateWithoutTasksInput = {
 export type execution_plan_tasksUncheckedUpdateManyWithoutTasksInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   plan_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -642,7 +673,8 @@ export type execution_plan_tasksUncheckedUpdateManyWithoutTasksInput = {
 
 export type execution_plan_tasksCreateManyPlansInput = {
   id?: string
-  task_id: string
+  task_id?: string | null
+  task_title: string
   planned_start?: Date | string | null
   planned_end?: Date | string | null
   duration_days?: number
@@ -651,16 +683,18 @@ export type execution_plan_tasksCreateManyPlansInput = {
 
 export type execution_plan_tasksUpdateWithoutPlansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  tasks?: Prisma.tasksUpdateOneRequiredWithoutPlan_snapshotsNestedInput
+  tasks?: Prisma.tasksUpdateOneWithoutPlan_snapshotsNestedInput
 }
 
 export type execution_plan_tasksUncheckedUpdateWithoutPlansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  task_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -669,7 +703,8 @@ export type execution_plan_tasksUncheckedUpdateWithoutPlansInput = {
 
 export type execution_plan_tasksUncheckedUpdateManyWithoutPlansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  task_id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  task_title?: Prisma.StringFieldUpdateOperationsInput | string
   planned_start?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   planned_end?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   duration_days?: Prisma.IntFieldUpdateOperationsInput | number
@@ -682,72 +717,77 @@ export type execution_plan_tasksSelect<ExtArgs extends runtime.Types.Extensions.
   id?: boolean
   plan_id?: boolean
   task_id?: boolean
+  task_title?: boolean
   planned_start?: boolean
   planned_end?: boolean
   duration_days?: boolean
   order_index?: boolean
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }, ExtArgs["result"]["execution_plan_tasks"]>
 
 export type execution_plan_tasksSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   plan_id?: boolean
   task_id?: boolean
+  task_title?: boolean
   planned_start?: boolean
   planned_end?: boolean
   duration_days?: boolean
   order_index?: boolean
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }, ExtArgs["result"]["execution_plan_tasks"]>
 
 export type execution_plan_tasksSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   plan_id?: boolean
   task_id?: boolean
+  task_title?: boolean
   planned_start?: boolean
   planned_end?: boolean
   duration_days?: boolean
   order_index?: boolean
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }, ExtArgs["result"]["execution_plan_tasks"]>
 
 export type execution_plan_tasksSelectScalar = {
   id?: boolean
   plan_id?: boolean
   task_id?: boolean
+  task_title?: boolean
   planned_start?: boolean
   planned_end?: boolean
   duration_days?: boolean
   order_index?: boolean
 }
 
-export type execution_plan_tasksOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "plan_id" | "task_id" | "planned_start" | "planned_end" | "duration_days" | "order_index", ExtArgs["result"]["execution_plan_tasks"]>
+export type execution_plan_tasksOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "plan_id" | "task_id" | "task_title" | "planned_start" | "planned_end" | "duration_days" | "order_index", ExtArgs["result"]["execution_plan_tasks"]>
 export type execution_plan_tasksInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }
 export type execution_plan_tasksIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }
 export type execution_plan_tasksIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   plans?: boolean | Prisma.execution_plansDefaultArgs<ExtArgs>
-  tasks?: boolean | Prisma.tasksDefaultArgs<ExtArgs>
+  tasks?: boolean | Prisma.execution_plan_tasks$tasksArgs<ExtArgs>
 }
 
 export type $execution_plan_tasksPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "execution_plan_tasks"
   objects: {
     plans: Prisma.$execution_plansPayload<ExtArgs>
-    tasks: Prisma.$tasksPayload<ExtArgs>
+    tasks: Prisma.$tasksPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     plan_id: string
-    task_id: string
+    task_id: string | null
+    task_title: string
     planned_start: Date | null
     planned_end: Date | null
     duration_days: number
@@ -1147,7 +1187,7 @@ readonly fields: execution_plan_tasksFieldRefs;
 export interface Prisma__execution_plan_tasksClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   plans<T extends Prisma.execution_plansDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.execution_plansDefaultArgs<ExtArgs>>): Prisma.Prisma__execution_plansClient<runtime.Types.Result.GetResult<Prisma.$execution_plansPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  tasks<T extends Prisma.tasksDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasksDefaultArgs<ExtArgs>>): Prisma.Prisma__tasksClient<runtime.Types.Result.GetResult<Prisma.$tasksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  tasks<T extends Prisma.execution_plan_tasks$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.execution_plan_tasks$tasksArgs<ExtArgs>>): Prisma.Prisma__tasksClient<runtime.Types.Result.GetResult<Prisma.$tasksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1180,6 +1220,7 @@ export interface execution_plan_tasksFieldRefs {
   readonly id: Prisma.FieldRef<"execution_plan_tasks", 'String'>
   readonly plan_id: Prisma.FieldRef<"execution_plan_tasks", 'String'>
   readonly task_id: Prisma.FieldRef<"execution_plan_tasks", 'String'>
+  readonly task_title: Prisma.FieldRef<"execution_plan_tasks", 'String'>
   readonly planned_start: Prisma.FieldRef<"execution_plan_tasks", 'DateTime'>
   readonly planned_end: Prisma.FieldRef<"execution_plan_tasks", 'DateTime'>
   readonly duration_days: Prisma.FieldRef<"execution_plan_tasks", 'Int'>
@@ -1582,6 +1623,25 @@ export type execution_plan_tasksDeleteManyArgs<ExtArgs extends runtime.Types.Ext
    * Limit how many execution_plan_tasks to delete.
    */
   limit?: number
+}
+
+/**
+ * execution_plan_tasks.tasks
+ */
+export type execution_plan_tasks$tasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the tasks
+   */
+  select?: Prisma.tasksSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the tasks
+   */
+  omit?: Prisma.tasksOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.tasksInclude<ExtArgs> | null
+  where?: Prisma.tasksWhereInput
 }
 
 /**

@@ -235,6 +235,7 @@ export type execution_plansWhereInput = {
   workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
   outcomes?: Prisma.XOR<Prisma.OutcomesScalarRelationFilter, Prisma.outcomesWhereInput>
   tasks?: Prisma.Execution_plan_tasksListRelationFilter
+  edges?: Prisma.Execution_plan_edgesListRelationFilter
 }
 
 export type execution_plansOrderByWithRelationInput = {
@@ -248,6 +249,7 @@ export type execution_plansOrderByWithRelationInput = {
   workspaces?: Prisma.workspacesOrderByWithRelationInput
   outcomes?: Prisma.outcomesOrderByWithRelationInput
   tasks?: Prisma.execution_plan_tasksOrderByRelationAggregateInput
+  edges?: Prisma.execution_plan_edgesOrderByRelationAggregateInput
 }
 
 export type execution_plansWhereUniqueInput = Prisma.AtLeast<{
@@ -265,6 +267,7 @@ export type execution_plansWhereUniqueInput = Prisma.AtLeast<{
   workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
   outcomes?: Prisma.XOR<Prisma.OutcomesScalarRelationFilter, Prisma.outcomesWhereInput>
   tasks?: Prisma.Execution_plan_tasksListRelationFilter
+  edges?: Prisma.Execution_plan_edgesListRelationFilter
 }, "id" | "outcome_id_version">
 
 export type execution_plansOrderByWithAggregationInput = {
@@ -304,6 +307,7 @@ export type execution_plansCreateInput = {
   workspaces: Prisma.workspacesCreateNestedOneWithoutExecution_plansInput
   outcomes: Prisma.outcomesCreateNestedOneWithoutExecution_plansInput
   tasks?: Prisma.execution_plan_tasksCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansUncheckedCreateInput = {
@@ -315,6 +319,7 @@ export type execution_plansUncheckedCreateInput = {
   created_by: string
   created_at?: Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesUncheckedCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansUpdateInput = {
@@ -326,6 +331,7 @@ export type execution_plansUpdateInput = {
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutExecution_plansNestedInput
   outcomes?: Prisma.outcomesUpdateOneRequiredWithoutExecution_plansNestedInput
   tasks?: Prisma.execution_plan_tasksUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateInput = {
@@ -337,6 +343,7 @@ export type execution_plansUncheckedUpdateInput = {
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUncheckedUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansCreateManyInput = {
@@ -481,6 +488,20 @@ export type execution_plansUpdateOneRequiredWithoutTasksNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.execution_plansUpdateToOneWithWhereWithoutTasksInput, Prisma.execution_plansUpdateWithoutTasksInput>, Prisma.execution_plansUncheckedUpdateWithoutTasksInput>
 }
 
+export type execution_plansCreateNestedOneWithoutEdgesInput = {
+  create?: Prisma.XOR<Prisma.execution_plansCreateWithoutEdgesInput, Prisma.execution_plansUncheckedCreateWithoutEdgesInput>
+  connectOrCreate?: Prisma.execution_plansCreateOrConnectWithoutEdgesInput
+  connect?: Prisma.execution_plansWhereUniqueInput
+}
+
+export type execution_plansUpdateOneRequiredWithoutEdgesNestedInput = {
+  create?: Prisma.XOR<Prisma.execution_plansCreateWithoutEdgesInput, Prisma.execution_plansUncheckedCreateWithoutEdgesInput>
+  connectOrCreate?: Prisma.execution_plansCreateOrConnectWithoutEdgesInput
+  upsert?: Prisma.execution_plansUpsertWithoutEdgesInput
+  connect?: Prisma.execution_plansWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.execution_plansUpdateToOneWithWhereWithoutEdgesInput, Prisma.execution_plansUpdateWithoutEdgesInput>, Prisma.execution_plansUncheckedUpdateWithoutEdgesInput>
+}
+
 export type execution_plansCreateNestedManyWithoutWorkspacesInput = {
   create?: Prisma.XOR<Prisma.execution_plansCreateWithoutWorkspacesInput, Prisma.execution_plansUncheckedCreateWithoutWorkspacesInput> | Prisma.execution_plansCreateWithoutWorkspacesInput[] | Prisma.execution_plansUncheckedCreateWithoutWorkspacesInput[]
   connectOrCreate?: Prisma.execution_plansCreateOrConnectWithoutWorkspacesInput | Prisma.execution_plansCreateOrConnectWithoutWorkspacesInput[]
@@ -531,6 +552,7 @@ export type execution_plansCreateWithoutOutcomesInput = {
   created_at?: Date | string
   workspaces: Prisma.workspacesCreateNestedOneWithoutExecution_plansInput
   tasks?: Prisma.execution_plan_tasksCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansUncheckedCreateWithoutOutcomesInput = {
@@ -541,6 +563,7 @@ export type execution_plansUncheckedCreateWithoutOutcomesInput = {
   created_by: string
   created_at?: Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesUncheckedCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansCreateOrConnectWithoutOutcomesInput = {
@@ -590,6 +613,7 @@ export type execution_plansCreateWithoutTasksInput = {
   created_at?: Date | string
   workspaces: Prisma.workspacesCreateNestedOneWithoutExecution_plansInput
   outcomes: Prisma.outcomesCreateNestedOneWithoutExecution_plansInput
+  edges?: Prisma.execution_plan_edgesCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansUncheckedCreateWithoutTasksInput = {
@@ -600,6 +624,7 @@ export type execution_plansUncheckedCreateWithoutTasksInput = {
   version: number
   created_by: string
   created_at?: Date | string
+  edges?: Prisma.execution_plan_edgesUncheckedCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansCreateOrConnectWithoutTasksInput = {
@@ -626,6 +651,7 @@ export type execution_plansUpdateWithoutTasksInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutExecution_plansNestedInput
   outcomes?: Prisma.outcomesUpdateOneRequiredWithoutExecution_plansNestedInput
+  edges?: Prisma.execution_plan_edgesUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateWithoutTasksInput = {
@@ -636,6 +662,67 @@ export type execution_plansUncheckedUpdateWithoutTasksInput = {
   version?: Prisma.IntFieldUpdateOperationsInput | number
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  edges?: Prisma.execution_plan_edgesUncheckedUpdateManyWithoutPlansNestedInput
+}
+
+export type execution_plansCreateWithoutEdgesInput = {
+  id?: string
+  contract_id?: string | null
+  version: number
+  created_by: string
+  created_at?: Date | string
+  workspaces: Prisma.workspacesCreateNestedOneWithoutExecution_plansInput
+  outcomes: Prisma.outcomesCreateNestedOneWithoutExecution_plansInput
+  tasks?: Prisma.execution_plan_tasksCreateNestedManyWithoutPlansInput
+}
+
+export type execution_plansUncheckedCreateWithoutEdgesInput = {
+  id?: string
+  workspace_id: string
+  outcome_id: string
+  contract_id?: string | null
+  version: number
+  created_by: string
+  created_at?: Date | string
+  tasks?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutPlansInput
+}
+
+export type execution_plansCreateOrConnectWithoutEdgesInput = {
+  where: Prisma.execution_plansWhereUniqueInput
+  create: Prisma.XOR<Prisma.execution_plansCreateWithoutEdgesInput, Prisma.execution_plansUncheckedCreateWithoutEdgesInput>
+}
+
+export type execution_plansUpsertWithoutEdgesInput = {
+  update: Prisma.XOR<Prisma.execution_plansUpdateWithoutEdgesInput, Prisma.execution_plansUncheckedUpdateWithoutEdgesInput>
+  create: Prisma.XOR<Prisma.execution_plansCreateWithoutEdgesInput, Prisma.execution_plansUncheckedCreateWithoutEdgesInput>
+  where?: Prisma.execution_plansWhereInput
+}
+
+export type execution_plansUpdateToOneWithWhereWithoutEdgesInput = {
+  where?: Prisma.execution_plansWhereInput
+  data: Prisma.XOR<Prisma.execution_plansUpdateWithoutEdgesInput, Prisma.execution_plansUncheckedUpdateWithoutEdgesInput>
+}
+
+export type execution_plansUpdateWithoutEdgesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  contract_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutExecution_plansNestedInput
+  outcomes?: Prisma.outcomesUpdateOneRequiredWithoutExecution_plansNestedInput
+  tasks?: Prisma.execution_plan_tasksUpdateManyWithoutPlansNestedInput
+}
+
+export type execution_plansUncheckedUpdateWithoutEdgesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  outcome_id?: Prisma.StringFieldUpdateOperationsInput | string
+  contract_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  version?: Prisma.IntFieldUpdateOperationsInput | number
+  created_by?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansCreateWithoutWorkspacesInput = {
@@ -646,6 +733,7 @@ export type execution_plansCreateWithoutWorkspacesInput = {
   created_at?: Date | string
   outcomes: Prisma.outcomesCreateNestedOneWithoutExecution_plansInput
   tasks?: Prisma.execution_plan_tasksCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansUncheckedCreateWithoutWorkspacesInput = {
@@ -656,6 +744,7 @@ export type execution_plansUncheckedCreateWithoutWorkspacesInput = {
   created_by: string
   created_at?: Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutPlansInput
+  edges?: Prisma.execution_plan_edgesUncheckedCreateNestedManyWithoutPlansInput
 }
 
 export type execution_plansCreateOrConnectWithoutWorkspacesInput = {
@@ -701,6 +790,7 @@ export type execution_plansUpdateWithoutOutcomesInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutExecution_plansNestedInput
   tasks?: Prisma.execution_plan_tasksUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateWithoutOutcomesInput = {
@@ -711,6 +801,7 @@ export type execution_plansUncheckedUpdateWithoutOutcomesInput = {
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUncheckedUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateManyWithoutOutcomesInput = {
@@ -739,6 +830,7 @@ export type execution_plansUpdateWithoutWorkspacesInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   outcomes?: Prisma.outcomesUpdateOneRequiredWithoutExecution_plansNestedInput
   tasks?: Prisma.execution_plan_tasksUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateWithoutWorkspacesInput = {
@@ -749,6 +841,7 @@ export type execution_plansUncheckedUpdateWithoutWorkspacesInput = {
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutPlansNestedInput
+  edges?: Prisma.execution_plan_edgesUncheckedUpdateManyWithoutPlansNestedInput
 }
 
 export type execution_plansUncheckedUpdateManyWithoutWorkspacesInput = {
@@ -767,10 +860,12 @@ export type execution_plansUncheckedUpdateManyWithoutWorkspacesInput = {
 
 export type Execution_plansCountOutputType = {
   tasks: number
+  edges: number
 }
 
 export type Execution_plansCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tasks?: boolean | Execution_plansCountOutputTypeCountTasksArgs
+  edges?: boolean | Execution_plansCountOutputTypeCountEdgesArgs
 }
 
 /**
@@ -790,6 +885,13 @@ export type Execution_plansCountOutputTypeCountTasksArgs<ExtArgs extends runtime
   where?: Prisma.execution_plan_tasksWhereInput
 }
 
+/**
+ * Execution_plansCountOutputType without action
+ */
+export type Execution_plansCountOutputTypeCountEdgesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_plan_edgesWhereInput
+}
+
 
 export type execution_plansSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -802,6 +904,7 @@ export type execution_plansSelect<ExtArgs extends runtime.Types.Extensions.Inter
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   outcomes?: boolean | Prisma.outcomesDefaultArgs<ExtArgs>
   tasks?: boolean | Prisma.execution_plans$tasksArgs<ExtArgs>
+  edges?: boolean | Prisma.execution_plans$edgesArgs<ExtArgs>
   _count?: boolean | Prisma.Execution_plansCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["execution_plans"]>
 
@@ -844,6 +947,7 @@ export type execution_plansInclude<ExtArgs extends runtime.Types.Extensions.Inte
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   outcomes?: boolean | Prisma.outcomesDefaultArgs<ExtArgs>
   tasks?: boolean | Prisma.execution_plans$tasksArgs<ExtArgs>
+  edges?: boolean | Prisma.execution_plans$edgesArgs<ExtArgs>
   _count?: boolean | Prisma.Execution_plansCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type execution_plansIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -861,6 +965,7 @@ export type $execution_plansPayload<ExtArgs extends runtime.Types.Extensions.Int
     workspaces: Prisma.$workspacesPayload<ExtArgs>
     outcomes: Prisma.$outcomesPayload<ExtArgs>
     tasks: Prisma.$execution_plan_tasksPayload<ExtArgs>[]
+    edges: Prisma.$execution_plan_edgesPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1267,6 +1372,7 @@ export interface Prisma__execution_plansClient<T, Null = never, ExtArgs extends 
   workspaces<T extends Prisma.workspacesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspacesDefaultArgs<ExtArgs>>): Prisma.Prisma__workspacesClient<runtime.Types.Result.GetResult<Prisma.$workspacesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   outcomes<T extends Prisma.outcomesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.outcomesDefaultArgs<ExtArgs>>): Prisma.Prisma__outcomesClient<runtime.Types.Result.GetResult<Prisma.$outcomesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   tasks<T extends Prisma.execution_plans$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.execution_plans$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_plan_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  edges<T extends Prisma.execution_plans$edgesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.execution_plans$edgesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_plan_edgesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1725,6 +1831,30 @@ export type execution_plans$tasksArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.Execution_plan_tasksScalarFieldEnum | Prisma.Execution_plan_tasksScalarFieldEnum[]
+}
+
+/**
+ * execution_plans.edges
+ */
+export type execution_plans$edgesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_plan_edges
+   */
+  select?: Prisma.execution_plan_edgesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_plan_edges
+   */
+  omit?: Prisma.execution_plan_edgesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_plan_edgesInclude<ExtArgs> | null
+  where?: Prisma.execution_plan_edgesWhereInput
+  orderBy?: Prisma.execution_plan_edgesOrderByWithRelationInput | Prisma.execution_plan_edgesOrderByWithRelationInput[]
+  cursor?: Prisma.execution_plan_edgesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_plan_edgesScalarFieldEnum | Prisma.Execution_plan_edgesScalarFieldEnum[]
 }
 
 /**

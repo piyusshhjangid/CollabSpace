@@ -70,16 +70,27 @@ CREATE TABLE "execution_plans" (
 CREATE INDEX "idx_execution_plans_workspace_outcome_version" ON "execution_plans"("workspace_id", "outcome_id", "version");
 
 CREATE TABLE "execution_plan_tasks" (
-  "id" UUID NOT NULL DEFAULT gen_random_uuid(), "plan_id" UUID NOT NULL, "task_id" UUID NOT NULL,
+  "id" UUID NOT NULL DEFAULT gen_random_uuid(), "plan_id" UUID NOT NULL, "task_id" UUID, "task_title" TEXT NOT NULL,
   "planned_start" DATE, "planned_end" DATE, "duration_days" INTEGER NOT NULL DEFAULT 1, "order_index" INTEGER NOT NULL,
   CONSTRAINT "execution_plan_tasks_pkey" PRIMARY KEY ("id"),
   CONSTRAINT "uq_execution_plan_task" UNIQUE ("plan_id", "task_id"),
   CONSTRAINT "execution_plan_tasks_plan_id_fkey" FOREIGN KEY ("plan_id") REFERENCES "execution_plans"("id") ON DELETE CASCADE,
-  CONSTRAINT "execution_plan_tasks_task_id_fkey" FOREIGN KEY ("task_id") REFERENCES "tasks"("id") ON DELETE CASCADE,
+  CONSTRAINT "execution_plan_tasks_task_id_fkey" FOREIGN KEY ("task_id") REFERENCES "tasks"("id") ON DELETE SET NULL,
   CONSTRAINT "execution_plan_tasks_dates_check" CHECK ("planned_end" IS NULL OR "planned_start" IS NULL OR "planned_end" >= "planned_start"),
   CONSTRAINT "execution_plan_tasks_duration_check" CHECK ("duration_days" > 0)
 );
 CREATE INDEX "idx_execution_plan_tasks_order" ON "execution_plan_tasks"("plan_id", "order_index");
+
+CREATE TABLE "execution_plan_edges" (
+  "id" UUID NOT NULL DEFAULT gen_random_uuid(), "plan_id" UUID NOT NULL,
+  "predecessor_task_id" UUID NOT NULL, "predecessor_title" TEXT NOT NULL,
+  "successor_task_id" UUID NOT NULL, "successor_title" TEXT NOT NULL,
+  "dependency_type" TEXT NOT NULL,
+  CONSTRAINT "execution_plan_edges_pkey" PRIMARY KEY ("id"),
+  CONSTRAINT "uq_execution_plan_edge" UNIQUE ("plan_id", "predecessor_task_id", "successor_task_id"),
+  CONSTRAINT "execution_plan_edges_plan_id_fkey" FOREIGN KEY ("plan_id") REFERENCES "execution_plans"("id") ON DELETE CASCADE
+);
+CREATE INDEX "idx_execution_plan_edges_plan" ON "execution_plan_edges"("plan_id");
 
 CREATE TABLE "workspace_event_counters" (
   "workspace_id" UUID NOT NULL, "sequence" BIGINT NOT NULL DEFAULT 0,

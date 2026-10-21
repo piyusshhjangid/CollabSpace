@@ -14,6 +14,10 @@ interface ApiTask {
   title: string;
   description?: string | null;
   completed: boolean;
+  status?: Task["status"];
+  project?: string;
+  dueDate?: string | null;
+  assigned_to?: string | null;
 }
 
 function mapTask(task: ApiTask): Task {
@@ -21,14 +25,14 @@ function mapTask(task: ApiTask): Task {
     id: task.id,
     title: task.title,
     description: task.description ?? "",
-    status: task.completed ? "DONE" : "TODO",
+    status: task.status ?? (task.completed ? "DONE" : "TODO"),
     priority: "Medium",
-    assigneeName: "Unassigned",
+    assigneeName: task.assigned_to ?? "Unassigned",
     assigneeAvatar: "",
-    dueDate: "",
+    dueDate: task.dueDate?.slice(0, 10) ?? "",
     project: {
       id: task.projectId,
-      name: "Project",
+      name: task.project ?? "Project",
       icon: FolderKanban,
       description: "",
       taskCount: 0,
@@ -47,4 +51,20 @@ export async function fetchTasks(
   );
 
   return response.data.map(mapTask);
+}
+
+export async function createTask(workspaceId: string, projectId: string, title: string) {
+  const response = await apiFetch<ApiResponse<ApiTask>>(
+    `/api/projects/${projectId}/tasks?workspaceId=${encodeURIComponent(workspaceId)}`,
+    { method: "POST", body: JSON.stringify({ title }) },
+  );
+  return mapTask(response.data);
+}
+
+export async function updateTask(workspaceId: string, projectId: string, taskId: string, changes: { title?: string; status?: Task["status"] }) {
+  const response = await apiFetch<ApiResponse<ApiTask>>(
+    `/api/projects/${projectId}/tasks/${taskId}?workspaceId=${encodeURIComponent(workspaceId)}`,
+    { method: "PATCH", body: JSON.stringify(changes) },
+  );
+  return mapTask(response.data);
 }

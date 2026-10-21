@@ -24,6 +24,7 @@ export async function findProjectsByWorkspace(workspaceId: string) {
     orderBy: {
       created_at: "desc",
     },
+    include: { _count: { select: { tasks: true } } },
   });
 
   return projects.map((project) => ({
@@ -32,6 +33,7 @@ export async function findProjectsByWorkspace(workspaceId: string) {
     name: project.name,
     description: project.description ?? undefined,
     outcomeId: project.outcome_id ?? undefined,
+    taskCount: project._count.tasks,
     createdAt: project.created_at,
   }));
 }
@@ -57,6 +59,7 @@ export async function createProject(
     name: project.name,
     description: project.description ?? undefined,
     outcomeId: project.outcome_id ?? undefined,
+    taskCount: 0,
     createdAt: project.created_at,
   };
 }

@@ -5,6 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -12,20 +13,22 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   disabled = false,
+  type = "button",
 }) => {
   const baseStyle =
-    "px-6 py-2 rounded-md font-medium transition-colors duration-200 flex items-center gap-2";
+    "inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300 disabled:cursor-not-allowed";
 
   const variantStyle = {
-    primary: "bg-purple-600 text-white hover:bg-purple-700 disabled:bg-purple-300",
+    primary: "bg-violet-600 text-white shadow-sm hover:bg-violet-700 disabled:bg-violet-300",
     secondary:
-      "bg-gray-100 text-blue-600 hover:bg-gray-200 border border-blue-400 disabled:bg-gray-200 disabled:text-gray-400",
-    danger: "bg-red-500 text-white hover:bg-red-600 disabled:bg-red-300",
+      "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 disabled:bg-slate-100 disabled:text-slate-400",
+    danger: "bg-rose-600 text-white hover:bg-rose-700 disabled:bg-rose-300",
   };
 
   return (
     <button
       className={`${baseStyle} ${variantStyle[variant]}`}
+      type={type}
       onClick={onClick}
       disabled={disabled}
     >
