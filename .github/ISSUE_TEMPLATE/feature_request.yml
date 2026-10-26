@@ -27,9 +27,9 @@ body:
     validations:
       required: true
   - type: input
-    id: handbook
+    id: roadmap
     attributes:
-      label: Handbook or roadmap reference
+      label: Roadmap reference
       description: Optional section or related issue.
     validations:
       required: false
