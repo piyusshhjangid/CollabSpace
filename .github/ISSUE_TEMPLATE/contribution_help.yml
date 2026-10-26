@@ -1,0 +1,26 @@
+name: Help me find a first contribution
+description: Ask a focused question about contributing or propose a small starter change.
+title: "[Contribution help]: "
+body:
+  - type: textarea
+    id: area
+    attributes:
+      label: Area you are interested in
+      description: For example, frontend, API, database, documentation, or security.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Related issue or idea
+      description: Link an issue, or describe a small change you would like to take on.
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed first step
+      description: Share how you might approach it and where you would like guidance.
+    validations:
+      required: false
+
