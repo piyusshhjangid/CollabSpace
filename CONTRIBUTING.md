@@ -7,7 +7,7 @@ Thanks for considering a contribution. This guide explains how to find work, run
 - Browse the open issues and choose one with a clear scope. Issues marked “good first issue” or “help wanted” are good starting points.
 - Comment on an issue before beginning a substantial change so contributors do not duplicate work. Small typo and documentation fixes can go straight to a pull request.
 - For a new feature or a broad design change, open an issue first and describe the user problem and proposed behavior.
-- The Internship Engineering Handbook is a target specification. Check the current code and issue acceptance criteria; a feature described in the handbook may not exist yet.
+- Check the current code and issue acceptance criteria before starting; a roadmap item may describe planned work rather than an existing feature.
 
 ## Set up the project
 
