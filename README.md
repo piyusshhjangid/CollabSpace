@@ -23,6 +23,7 @@
   <a href="#-tech-stack">Tech Stack</a> •
   <a href="#-database-architecture">Database</a> •
   <a href="#-roadmap">Roadmap</a> •
+  <a href="#-contributing">Contributing</a> •
   <a href="#-getting-started">Getting Started</a>
 </p>
 
@@ -772,25 +773,16 @@ The goal is to keep changes isolated, understandable, testable, and easy to revi
 
 # 🤝 Contributing
 
-Roadmap implementation notes for Days 61–70, including Redis, measurements, worker setup, and migration steps: [docs/days-61-70.md](docs/days-61-70.md).
+Contributions, bug reports, and thoughtful feedback are welcome. Start with the [contribution guide](CONTRIBUTING.md), browse [open issues](https://github.com/piyusshhjangid/CollabSpace/issues), and check the roadmap tracker before starting a larger change.
 
-Contributions, feedback, and ideas are welcome.
+The Internship Engineering Handbook describes the intended direction of the product; it is not a claim that every described feature is implemented. The code and issue acceptance criteria define the current work.
 
-```text
-Fork
-  ↓
-Create Branch
-  ↓
-Implement
-  ↓
-Test
-  ↓
-Commit
-  ↓
-Pull Request
-```
+- Report a bug or request a feature with the [issue forms](https://github.com/piyusshhjangid/CollabSpace/issues/new/choose).
+- Read the [Code of Conduct](CODE_OF_CONDUCT.md).
+- Report security issues privately using the instructions in [SECURITY.md](SECURITY.md).
+- Submit focused pull requests using the [pull request template](.github/PULL_REQUEST_TEMPLATE.md).
 
-For bugs and feature requests, open an Issue.
+New to the project? Look for issues marked “good first issue” or “help wanted,” or use the contribution help issue form to propose a small first change.
 
 ---
 
@@ -831,3 +823,4 @@ If you find **CollabSpace** interesting, consider giving the repository a ⭐ on
 Made with ❤️ by me using React, TypeScript, Node.js, Express, PostgreSQL and Prisma.
 
 </div>
+
