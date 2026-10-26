@@ -775,7 +775,7 @@ The goal is to keep changes isolated, understandable, testable, and easy to revi
 
 Contributions, bug reports, and thoughtful feedback are welcome. Start with the [contribution guide](CONTRIBUTING.md), browse [open issues](https://github.com/piyusshhjangid/CollabSpace/issues), and check the roadmap tracker before starting a larger change.
 
-The Internship Engineering Handbook describes the intended direction of the product; it is not a claim that every described feature is implemented. The code and issue acceptance criteria define the current work.
+The roadmap describes intended work; it does not mean every item is already implemented. Use the current code and issue acceptance criteria to understand the scope of active work.
 
 - Report a bug or request a feature with the [issue forms](https://github.com/piyusshhjangid/CollabSpace/issues/new/choose).
 - Read the [Code of Conduct](CODE_OF_CONDUCT.md).
