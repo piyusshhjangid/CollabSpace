@@ -784,8 +784,6 @@ The roadmap describes intended work; it does not mean every item is already impl
 
 New to the project? Look for issues marked “good first issue” or “help wanted,” or use the contribution help issue form to propose a small first change.
 
----
-
 # ⭐ Support
 
 If you find **CollabSpace** interesting, consider giving the repository a ⭐ on GitHub.
@@ -823,4 +821,3 @@ If you find **CollabSpace** interesting, consider giving the repository a ⭐ on
 Made with ❤️ by me using React, TypeScript, Node.js, Express, PostgreSQL and Prisma.
 
 </div>
-
