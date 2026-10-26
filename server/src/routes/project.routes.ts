@@ -11,6 +11,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
 import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
+import { idempotency } from "../middleware/idempotency.js";
 
 import { CreateProjectSchema, LinkProjectOutcomeSchema } from "../schemas/project.schema.js";
 
@@ -29,6 +30,7 @@ router.post(
   workspaceContext,
   requirePermission("CREATE_PROJECT"),
   validateBody(CreateProjectSchema),
+  idempotency,
   createProject,
 );
 

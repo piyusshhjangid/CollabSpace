@@ -54,9 +54,10 @@ export async function fetchTasks(
 }
 
 export async function createTask(workspaceId: string, projectId: string, title: string) {
+  const idempotencyKey = crypto.randomUUID();
   const response = await apiFetch<ApiResponse<ApiTask>>(
     `/api/projects/${projectId}/tasks?workspaceId=${encodeURIComponent(workspaceId)}`,
-    { method: "POST", body: JSON.stringify({ title }) },
+    { method: "POST", headers: { "Idempotency-Key": idempotencyKey }, body: JSON.stringify({ title }) },
   );
   return mapTask(response.data);
 }

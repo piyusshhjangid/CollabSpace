@@ -32,6 +32,7 @@ export type InvitationsMinAggregateOutputType = {
   token: string | null
   expires_at: Date | null
   accepted_at: Date | null
+  email_sent_at: Date | null
   created_at: Date | null
 }
 
@@ -43,6 +44,7 @@ export type InvitationsMaxAggregateOutputType = {
   token: string | null
   expires_at: Date | null
   accepted_at: Date | null
+  email_sent_at: Date | null
   created_at: Date | null
 }
 
@@ -54,6 +56,7 @@ export type InvitationsCountAggregateOutputType = {
   token: number
   expires_at: number
   accepted_at: number
+  email_sent_at: number
   created_at: number
   _all: number
 }
@@ -67,6 +70,7 @@ export type InvitationsMinAggregateInputType = {
   token?: true
   expires_at?: true
   accepted_at?: true
+  email_sent_at?: true
   created_at?: true
 }
 
@@ -78,6 +82,7 @@ export type InvitationsMaxAggregateInputType = {
   token?: true
   expires_at?: true
   accepted_at?: true
+  email_sent_at?: true
   created_at?: true
 }
 
@@ -89,6 +94,7 @@ export type InvitationsCountAggregateInputType = {
   token?: true
   expires_at?: true
   accepted_at?: true
+  email_sent_at?: true
   created_at?: true
   _all?: true
 }
@@ -173,6 +179,7 @@ export type InvitationsGroupByOutputType = {
   token: string
   expires_at: Date
   accepted_at: Date | null
+  email_sent_at: Date | null
   created_at: Date
   _count: InvitationsCountAggregateOutputType | null
   _min: InvitationsMinAggregateOutputType | null
@@ -205,6 +212,7 @@ export type invitationsWhereInput = {
   token?: Prisma.StringFilter<"invitations"> | string
   expires_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
   accepted_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
+  email_sent_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
   workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
@@ -218,6 +226,7 @@ export type invitationsOrderByWithRelationInput = {
   token?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   accepted_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  email_sent_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   workspaces?: Prisma.workspacesOrderByWithRelationInput
   users?: Prisma.usersOrderByWithRelationInput
@@ -234,6 +243,7 @@ export type invitationsWhereUniqueInput = Prisma.AtLeast<{
   email?: Prisma.StringFilter<"invitations"> | string
   expires_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
   accepted_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
+  email_sent_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
   workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
@@ -247,6 +257,7 @@ export type invitationsOrderByWithAggregationInput = {
   token?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   accepted_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  email_sent_at?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.invitationsCountOrderByAggregateInput
   _max?: Prisma.invitationsMaxOrderByAggregateInput
@@ -264,6 +275,7 @@ export type invitationsScalarWhereWithAggregatesInput = {
   token?: Prisma.StringWithAggregatesFilter<"invitations"> | string
   expires_at?: Prisma.DateTimeWithAggregatesFilter<"invitations"> | Date | string
   accepted_at?: Prisma.DateTimeNullableWithAggregatesFilter<"invitations"> | Date | string | null
+  email_sent_at?: Prisma.DateTimeNullableWithAggregatesFilter<"invitations"> | Date | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"invitations"> | Date | string
 }
 
@@ -273,6 +285,7 @@ export type invitationsCreateInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
   workspaces: Prisma.workspacesCreateNestedOneWithoutInvitationsInput
   users: Prisma.usersCreateNestedOneWithoutInvitations_sentInput
@@ -286,6 +299,7 @@ export type invitationsUncheckedCreateInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -295,6 +309,7 @@ export type invitationsUpdateInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutInvitationsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutInvitations_sentNestedInput
@@ -308,6 +323,7 @@ export type invitationsUncheckedUpdateInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -319,6 +335,7 @@ export type invitationsCreateManyInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -328,6 +345,7 @@ export type invitationsUpdateManyMutationInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -339,6 +357,7 @@ export type invitationsUncheckedUpdateManyInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -360,6 +379,7 @@ export type invitationsCountOrderByAggregateInput = {
   token?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   accepted_at?: Prisma.SortOrder
+  email_sent_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -371,6 +391,7 @@ export type invitationsMaxOrderByAggregateInput = {
   token?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   accepted_at?: Prisma.SortOrder
+  email_sent_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -382,6 +403,7 @@ export type invitationsMinOrderByAggregateInput = {
   token?: Prisma.SortOrder
   expires_at?: Prisma.SortOrder
   accepted_at?: Prisma.SortOrder
+  email_sent_at?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -475,6 +497,7 @@ export type invitationsCreateWithoutUsersInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
   workspaces: Prisma.workspacesCreateNestedOneWithoutInvitationsInput
 }
@@ -486,6 +509,7 @@ export type invitationsUncheckedCreateWithoutUsersInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -526,6 +550,7 @@ export type invitationsScalarWhereInput = {
   token?: Prisma.StringFilter<"invitations"> | string
   expires_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
   accepted_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
+  email_sent_at?: Prisma.DateTimeNullableFilter<"invitations"> | Date | string | null
   created_at?: Prisma.DateTimeFilter<"invitations"> | Date | string
 }
 
@@ -535,6 +560,7 @@ export type invitationsCreateWithoutWorkspacesInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
   users: Prisma.usersCreateNestedOneWithoutInvitations_sentInput
 }
@@ -546,6 +572,7 @@ export type invitationsUncheckedCreateWithoutWorkspacesInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -582,6 +609,7 @@ export type invitationsCreateManyUsersInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -591,6 +619,7 @@ export type invitationsUpdateWithoutUsersInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutInvitationsNestedInput
 }
@@ -602,6 +631,7 @@ export type invitationsUncheckedUpdateWithoutUsersInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -612,6 +642,7 @@ export type invitationsUncheckedUpdateManyWithoutUsersInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -622,6 +653,7 @@ export type invitationsCreateManyWorkspacesInput = {
   token: string
   expires_at: Date | string
   accepted_at?: Date | string | null
+  email_sent_at?: Date | string | null
   created_at?: Date | string
 }
 
@@ -631,6 +663,7 @@ export type invitationsUpdateWithoutWorkspacesInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.usersUpdateOneRequiredWithoutInvitations_sentNestedInput
 }
@@ -642,6 +675,7 @@ export type invitationsUncheckedUpdateWithoutWorkspacesInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -652,6 +686,7 @@ export type invitationsUncheckedUpdateManyWithoutWorkspacesInput = {
   token?: Prisma.StringFieldUpdateOperationsInput | string
   expires_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accepted_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_sent_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -665,6 +700,7 @@ export type invitationsSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   token?: boolean
   expires_at?: boolean
   accepted_at?: boolean
+  email_sent_at?: boolean
   created_at?: boolean
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -678,6 +714,7 @@ export type invitationsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   token?: boolean
   expires_at?: boolean
   accepted_at?: boolean
+  email_sent_at?: boolean
   created_at?: boolean
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -691,6 +728,7 @@ export type invitationsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   token?: boolean
   expires_at?: boolean
   accepted_at?: boolean
+  email_sent_at?: boolean
   created_at?: boolean
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -704,10 +742,11 @@ export type invitationsSelectScalar = {
   token?: boolean
   expires_at?: boolean
   accepted_at?: boolean
+  email_sent_at?: boolean
   created_at?: boolean
 }
 
-export type invitationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspace_id" | "invited_by" | "email" | "token" | "expires_at" | "accepted_at" | "created_at", ExtArgs["result"]["invitations"]>
+export type invitationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspace_id" | "invited_by" | "email" | "token" | "expires_at" | "accepted_at" | "email_sent_at" | "created_at", ExtArgs["result"]["invitations"]>
 export type invitationsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -735,6 +774,7 @@ export type $invitationsPayload<ExtArgs extends runtime.Types.Extensions.Interna
     token: string
     expires_at: Date
     accepted_at: Date | null
+    email_sent_at: Date | null
     created_at: Date
   }, ExtArgs["result"]["invitations"]>
   composites: {}
@@ -1168,6 +1208,7 @@ export interface invitationsFieldRefs {
   readonly token: Prisma.FieldRef<"invitations", 'String'>
   readonly expires_at: Prisma.FieldRef<"invitations", 'DateTime'>
   readonly accepted_at: Prisma.FieldRef<"invitations", 'DateTime'>
+  readonly email_sent_at: Prisma.FieldRef<"invitations", 'DateTime'>
   readonly created_at: Prisma.FieldRef<"invitations", 'DateTime'>
 }
     

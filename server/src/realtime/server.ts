@@ -1,11 +1,16 @@
 import type { Server } from "socket.io";
 import jwt from "jsonwebtoken";
 import { prisma } from "../db/prisma.js";
+import { removePresence, touchPresence } from "./presence.js";
 
 let io: Server | undefined;
 
 export function setRealtimeServer(server: Server) { io = server; }
 export function workspaceRoom(workspaceId: string) { return `workspace:${workspaceId}`; }
+
+function emitPresence(workspaceId: string, userIds: string[] | null) {
+  if (userIds) io?.to(workspaceRoom(workspaceId)).emit("workspace:presence", { workspaceId, userIds });
+}
 
 export async function publishExecutionEvent(workspaceId: string, resource: "task" | "dependency", action: "created" | "updated" | "deleted", id: string) {
   const counter = await prisma.workspace_event_counters.upsert({
@@ -36,6 +41,17 @@ export function configureRealtimeAuth(server: Server) {
 
   server.on("connection", (socket) => {
     const joined = new Set<string>();
+    const updatePresence = async (workspaceId: string, remove = false) => {
+      try {
+        const users = remove
+          ? await removePresence(workspaceId, socket.data.userId, socket.id)
+          : await touchPresence(workspaceId, socket.data.userId, socket.id);
+        emitPresence(workspaceId, users);
+      } catch {
+        // Presence is ephemeral and optional; Redis outages must not disconnect collaboration sockets.
+      }
+    };
+
     socket.on("workspace:join", async (payload: unknown, acknowledge?: (result: { ok: boolean; sequence?: number; message?: string }) => void) => {
       try {
         const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;
@@ -50,16 +66,29 @@ export function configureRealtimeAuth(server: Server) {
         }
         await socket.join(workspaceRoom(workspaceId));
         joined.add(workspaceId);
+        await updatePresence(workspaceId);
         const counter = await prisma.workspace_event_counters.findUnique({ where: { workspace_id: workspaceId }, select: { sequence: true } });
         acknowledge?.({ ok: true, sequence: Number(counter?.sequence ?? 0) });
       } catch {
         acknowledge?.({ ok: false, message: "Workspace subscription unavailable" });
       }
     });
+
+    socket.on("presence:heartbeat", (payload: unknown) => {
+      const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;
+      if (typeof workspaceId === "string" && joined.has(workspaceId)) void updatePresence(workspaceId);
+    });
+
     socket.on("workspace:leave", (payload: unknown) => {
       const workspaceId = payload && typeof payload === "object" && "workspaceId" in payload ? (payload as { workspaceId?: unknown }).workspaceId : undefined;
       if (typeof workspaceId !== "string" || !joined.delete(workspaceId)) return;
+      void updatePresence(workspaceId, true);
       void socket.leave(workspaceRoom(workspaceId));
+    });
+
+    socket.on("disconnect", () => {
+      for (const workspaceId of joined) void updatePresence(workspaceId, true);
+      joined.clear();
     });
   });
 }

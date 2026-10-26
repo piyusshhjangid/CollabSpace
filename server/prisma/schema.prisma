@@ -76,6 +76,22 @@ model users {
   refresh_tokens      refresh_tokens[]
   invitations_sent    invitations[]
   task_status_changes task_status_history[]
+  idempotency_records idempotency_records[]
+}
+
+model idempotency_records {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id         String    @db.Uuid
+  idempotency_key String    @db.VarChar(200)
+  request_hash    String    @db.VarChar(64)
+  state           String    @default("PROCESSING") @db.VarChar(16)
+  response_status Int?
+  response_body   Json?
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+  users           users     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, idempotency_key], map: "uq_idempotency_user_key")
+  @@index([created_at], map: "idx_idempotency_created_at")
 }
 
 model workspace_members {
@@ -269,6 +285,7 @@ model invitations {
   token        String    @unique
   expires_at   DateTime  @db.Timestamptz(6)
   accepted_at  DateTime? @db.Timestamptz(6)
+    email_sent_at DateTime? @db.Timestamptz(6)
   created_at   DateTime  @default(now()) @db.Timestamptz(6)
 
   workspaces workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)

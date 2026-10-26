@@ -55,6 +55,7 @@ export const ModelName = {
   tasks: 'tasks',
   task_status_history: 'task_status_history',
   users: 'users',
+  idempotency_records: 'idempotency_records',
   workspace_members: 'workspace_members',
   outcomes: 'outcomes',
   goals: 'goals',
@@ -138,6 +139,20 @@ export const UsersScalarFieldEnum = {
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+export const Idempotency_recordsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  idempotency_key: 'idempotency_key',
+  request_hash: 'request_hash',
+  state: 'state',
+  response_status: 'response_status',
+  response_body: 'response_body',
+  created_at: 'created_at'
+} as const
+
+export type Idempotency_recordsScalarFieldEnum = (typeof Idempotency_recordsScalarFieldEnum)[keyof typeof Idempotency_recordsScalarFieldEnum]
 
 
 export const Workspace_membersScalarFieldEnum = {
@@ -301,6 +316,7 @@ export const InvitationsScalarFieldEnum = {
   token: 'token',
   expires_at: 'expires_at',
   accepted_at: 'accepted_at',
+  email_sent_at: 'email_sent_at',
   created_at: 'created_at'
 } as const
 
@@ -327,6 +343,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const JsonNullValueInput = {

@@ -38,8 +38,10 @@ export async function fetchProjects(
 }
 
 export async function createProject(workspaceId: string, name: string, description: string) {
+  const idempotencyKey = crypto.randomUUID();
   const response = await apiFetch<ApiResponse<ApiProject>>(`/api/workspaces/${encodeURIComponent(workspaceId)}/projects`, {
     method: "POST",
+    headers: { "Idempotency-Key": idempotencyKey },
     body: JSON.stringify({ name, description }),
   });
   return response.data;

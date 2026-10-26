@@ -19,7 +19,7 @@ export * as $Enums from './enums.js'
 export * from './enums.js';
 /**
  * Model projects
- * 
+ *
  */
 export type projects = Prisma.projectsModel
 /**
@@ -37,6 +37,11 @@ export type task_status_history = Prisma.task_status_historyModel
  * 
  */
 export type users = Prisma.usersModel
+/**
+ * Model idempotency_records
+ *
+ */
+export type idempotency_records = Prisma.idempotency_recordsModel
 /**
  * Model workspace_members
  * 

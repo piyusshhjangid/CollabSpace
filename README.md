@@ -772,6 +772,8 @@ The goal is to keep changes isolated, understandable, testable, and easy to revi
 
 # 🤝 Contributing
 
+Roadmap implementation notes for Days 61–70, including Redis, measurements, worker setup, and migration steps: [docs/days-61-70.md](docs/days-61-70.md).
+
 Contributions, feedback, and ideas are welcome.
 
 ```text

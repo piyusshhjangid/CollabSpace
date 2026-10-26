@@ -12,6 +12,7 @@ import {
 } from "../repositories/workspace.repository.js";
 import { badRequest, forbidden } from "../lib/AppError.js";
 import { writeAuditLog } from "./audit.service.js";
+import { enqueueInvitationEmail } from "../queues/notifications.js";
 
 function generateInvitationToken() {
   return crypto.randomBytes(32).toString("hex");
@@ -58,6 +59,16 @@ export async function createInvitationService(
       expiresAt: invitation.expires_at,
     },
   });
+
+  const workspace = await prisma.workspaces.findUnique({ where: { id: workspaceId }, select: { name: true } });
+  if (workspace) {
+    try {
+      const queued = await enqueueInvitationEmail({ invitationId: invitation.id, email: invitation.email, workspaceName: workspace.name, token: invitation.token });
+      if (!queued) console.info("Invitation email queued only when REDIS_URL and SMTP_HOST are configured.");
+    } catch (error) {
+      console.warn("Invitation created, but its email could not be queued.", error instanceof Error ? error.message : "queue unavailable");
+    }
+  }
 
   return {
     id: invitation.id,

@@ -10,6 +10,7 @@ import { requireAuth } from "../middleware/requireAuth.js";
 import { workspaceContext } from "../middleware/workspaceContext.js";
 import { requirePermission } from "../middleware/requirePermission.js";
 import { validateBody } from "../middleware/validateBody.js";
+import { idempotency } from "../middleware/idempotency.js";
 
 import {
   CreateTaskSchema,
@@ -31,6 +32,7 @@ router.post(
   workspaceContext,
   requirePermission("CREATE_TASK"),
   validateBody(CreateTaskSchema),
+  idempotency,
   createTask,
 );
 

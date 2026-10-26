@@ -34,7 +34,7 @@ export * from "./enums.js"
  * // Fetch zero or more Projects
  * const projects = await prisma.projects.findMany()
  * ```
- * 
+ *
  * Read more in our [docs](https://pris.ly/d/client).
  */
 export const PrismaClient = $Class.getPrismaClientClass()
@@ -61,6 +61,11 @@ export type task_status_history = Prisma.task_status_historyModel
  * 
  */
 export type users = Prisma.usersModel
+/**
+ * Model idempotency_records
+ *
+ */
+export type idempotency_records = Prisma.idempotency_recordsModel
 /**
  * Model workspace_members
  * 

@@ -17,6 +17,7 @@ import { badRequest, unauthorized } from "../lib/AppError.js";
 import type { ApiResponse } from "../types/apiResponse.js";
 import type { Task } from "../types/task.js";
 import { publishExecutionEvent } from "../realtime/server.js";
+import { invalidateProjectSummaries } from "../cache/projectSummary.js";
 
 export const getTasks: RequestHandler = async (req, res) => {
   const projectId = req.params.projectId;
@@ -125,6 +126,7 @@ export const createTask: RequestHandler = async (req, res) => {
     completed,
     status,
   );
+  await invalidateProjectSummaries(workspaceId);
   await publishExecutionEvent(workspaceId, "task", "created", task.id).catch(() => null);
 
   const response: ApiResponse<Task> = {
@@ -164,6 +166,7 @@ export const updateTask: RequestHandler = async (req, res) => {
     req.workspace.role,
     body,
   );
+  await invalidateProjectSummaries(req.workspace.id);
   await publishExecutionEvent(req.workspace.id, "task", "updated", task.id).catch(() => null);
 
   const response: ApiResponse<typeof task> = {

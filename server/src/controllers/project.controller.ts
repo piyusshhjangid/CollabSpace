@@ -10,6 +10,8 @@ import { badRequest, unauthorized } from "../lib/AppError.js";
 import type { Project } from "../types/project.js";
 import type { ApiResponse } from "../types/apiResponse.js";
 import { getTaskCountsByStatusService } from "../services/task.service.js";
+import { getProjectSummaryCached } from "../cache/projectSummary.js";
+import { invalidateProjectSummaries } from "../cache/projectSummary.js";
 
 export const getProjects: RequestHandler = async (req, res) => {
   const workspaceId = req.params.workspaceId;
@@ -61,6 +63,7 @@ export const createProject: RequestHandler = async (req, res) => {
     description,
     outcomeId,
   );
+  await invalidateProjectSummaries(workspaceId);
 
   const response: ApiResponse<Project> = {
     success: true,
@@ -88,11 +91,11 @@ export const getProjectSummary: RequestHandler = async (req, res) => {
     throw unauthorized("Authentication required");
   }
 
-  const taskCounts = await getTaskCountsByStatusService(
-    projectId,
-    workspaceId,
-    userId,
+  const summary = await getProjectSummaryCached(workspaceId, projectId, () =>
+    getTaskCountsByStatusService(projectId, workspaceId, userId),
   );
+  res.setHeader("X-Summary-Cache", summary.cache);
+  res.setHeader("X-Summary-Elapsed-Ms", summary.elapsedMs.toFixed(2));
 
   const response: ApiResponse<{
     projectId: string;
@@ -104,7 +107,7 @@ export const getProjectSummary: RequestHandler = async (req, res) => {
     message: "Project summary fetched",
     data: {
       projectId,
-      taskCounts,
+      taskCounts: summary.value,
     },
   };
 
@@ -154,6 +157,7 @@ export const deleteProject: RequestHandler = async (
 
 
   );
+  await invalidateProjectSummaries(req.workspace.id);
 
   const response: ApiResponse<typeof result> = {
     success: true,
@@ -168,6 +172,7 @@ export const updateProjectOutcome: RequestHandler = async (req, res) => {
   const projectId = req.params.projectId;
   if (typeof projectId !== "string" || !req.workspace) throw badRequest("Project and workspace are required");
   const data = await setProjectOutcomeService(projectId, req.workspace.id, req.body.outcomeId);
+  await invalidateProjectSummaries(req.workspace.id);
   const response: ApiResponse<typeof data> = { success: true, message: "Project outcome updated", data };
   res.json(response);
 };

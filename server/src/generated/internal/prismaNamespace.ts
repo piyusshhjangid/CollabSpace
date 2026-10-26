@@ -401,6 +401,7 @@ export const ModelName = {
   tasks: 'tasks',
   task_status_history: 'task_status_history',
   users: 'users',
+  idempotency_records: 'idempotency_records',
   workspace_members: 'workspace_members',
   outcomes: 'outcomes',
   goals: 'goals',
@@ -430,7 +431,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "execution_plan_edges" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log"
+    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "idempotency_records" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "execution_plan_edges" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -727,6 +728,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.usersCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.UsersCountAggregateOutputType> | number
+        }
+      }
+    }
+    idempotency_records: {
+      payload: Prisma.$idempotency_recordsPayload<ExtArgs>
+      fields: Prisma.idempotency_recordsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.idempotency_recordsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.idempotency_recordsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        findFirst: {
+          args: Prisma.idempotency_recordsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.idempotency_recordsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        findMany: {
+          args: Prisma.idempotency_recordsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>[]
+        }
+        create: {
+          args: Prisma.idempotency_recordsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        createMany: {
+          args: Prisma.idempotency_recordsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.idempotency_recordsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>[]
+        }
+        delete: {
+          args: Prisma.idempotency_recordsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        update: {
+          args: Prisma.idempotency_recordsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        deleteMany: {
+          args: Prisma.idempotency_recordsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.idempotency_recordsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.idempotency_recordsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>[]
+        }
+        upsert: {
+          args: Prisma.idempotency_recordsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$idempotency_recordsPayload>
+        }
+        aggregate: {
+          args: Prisma.Idempotency_recordsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateIdempotency_records>
+        }
+        groupBy: {
+          args: Prisma.idempotency_recordsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Idempotency_recordsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.idempotency_recordsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Idempotency_recordsCountAggregateOutputType> | number
         }
       }
     }
@@ -1858,6 +1933,20 @@ export const UsersScalarFieldEnum = {
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
+export const Idempotency_recordsScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  idempotency_key: 'idempotency_key',
+  request_hash: 'request_hash',
+  state: 'state',
+  response_status: 'response_status',
+  response_body: 'response_body',
+  created_at: 'created_at'
+} as const
+
+export type Idempotency_recordsScalarFieldEnum = (typeof Idempotency_recordsScalarFieldEnum)[keyof typeof Idempotency_recordsScalarFieldEnum]
+
+
 export const Workspace_membersScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
@@ -2019,6 +2108,7 @@ export const InvitationsScalarFieldEnum = {
   token: 'token',
   expires_at: 'expires_at',
   accepted_at: 'accepted_at',
+  email_sent_at: 'email_sent_at',
   created_at: 'created_at'
 } as const
 
@@ -2045,6 +2135,14 @@ export const SortOrder = {
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
 export const JsonNullValueInput = {
@@ -2121,20 +2219,6 @@ export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'Json'
- */
-export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-/**
- * Reference to a field of type 'QueryMode'
- */
-export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -2145,6 +2229,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -2330,6 +2428,7 @@ export type GlobalOmitConfig = {
   tasks?: Prisma.tasksOmit
   task_status_history?: Prisma.task_status_historyOmit
   users?: Prisma.usersOmit
+  idempotency_records?: Prisma.idempotency_recordsOmit
   workspace_members?: Prisma.workspace_membersOmit
   outcomes?: Prisma.outcomesOmit
   goals?: Prisma.goalsOmit

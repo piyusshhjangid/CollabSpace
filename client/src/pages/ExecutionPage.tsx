@@ -51,6 +51,7 @@ export default function ExecutionPage() {
   const [contractDraft, setContractDraft] = useState<Record<string, { scope: string; criteria: string; deadline: string }>>({});
   const [notice, setNotice] = useState("");
   const [live, setLive] = useState(false);
+  const [onlineMembers, setOnlineMembers] = useState(0);
 
   useEffect(() => { if (!projectId && projects[0]) setProjectId(projects[0].id); }, [projectId, projects]);
   const graphQuery = useQuery({ queryKey: executionKeys.graph(workspaceId, projectId), queryFn: () => getExecutionGraph(workspaceId, projectId), enabled: Boolean(projectId) });
@@ -73,20 +74,29 @@ export default function ExecutionPage() {
     const token = getAccessToken();
     if (!token) return;
     const socket = io(import.meta.env.VITE_API_BASE_URL || "http://localhost:5000", { auth: { token }, reconnection: true, reconnectionAttempts: Infinity, reconnectionDelayMax: 5000 });
+    let heartbeat: ReturnType<typeof setInterval> | undefined;
     socket.on("connect", () => {
       setLive(true);
       socket.emit("workspace:join", { workspaceId }, (result: { ok: boolean; sequence?: number }) => {
-        if (result.ok) void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
+        if (result.ok) {
+          void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
+          if (heartbeat) clearInterval(heartbeat);
+          heartbeat = setInterval(() => socket.emit("presence:heartbeat", { workspaceId }), 10_000);
+          socket.emit("presence:heartbeat", { workspaceId });
+        }
       });
       void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
     });
     socket.on("disconnect", () => setLive(false));
     socket.on("connect_error", () => setLive(false));
+    socket.on("workspace:presence", (presence: { workspaceId: string; userIds: string[] }) => {
+      if (presence.workspaceId === workspaceId) setOnlineMembers(presence.userIds.length);
+    });
     socket.on("execution:event", (event: { sequence: number }) => {
       const current = queryClient.getQueryData<ExecutionGraph>(executionKeys.graph(workspaceId, projectId));
       if (!current || event.sequence !== current.sequence) void queryClient.invalidateQueries({ queryKey: executionKeys.graph(workspaceId, projectId) });
     });
-    return () => { socket.emit("workspace:leave", { workspaceId }); socket.disconnect(); setLive(false); };
+    return () => { if (heartbeat) clearInterval(heartbeat); socket.emit("workspace:leave", { workspaceId }); socket.disconnect(); setLive(false); setOnlineMembers(0); };
   }, [workspaceId, projectId, queryClient]);
 
   const { nodes, edges } = useMemo(() => {
@@ -151,7 +161,7 @@ export default function ExecutionPage() {
       <div className="relative flex flex-wrap items-end justify-between gap-6">
         <div><div className="mb-3 inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[.2em] text-violet-200"><GitBranch size={13}/> Delivery intelligence</div>
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Execution, connected.</h1><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">Turn outcomes into a living plan. See the work, dependencies and critical path move together.</p></div>
-        <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-300"><span className={`h-2 w-2 rounded-full ${live ? "bg-emerald-400 shadow-[0_0_10px_#34d399]" : "bg-slate-500"}`} />{live ? "Live updates on" : "Reconnecting"}</div>
+        <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-300"><span className={`h-2 w-2 rounded-full ${live ? "bg-emerald-400 shadow-[0_0_10px_#34d399]" : "bg-slate-500"}`} />{live ? `Live · ${onlineMembers} online` : "Reconnecting"}</div>
       </div>
       <div className="relative mt-7 grid grid-cols-2 gap-3 border-t border-white/10 pt-5 sm:grid-cols-4">
         <Metric label="Outcomes" value={outcomes.length} icon={<Target size={15}/>} /><Metric label="Graph tasks" value={graph?.tasks.length ?? 0} icon={<CircleDot size={15}/>} /><Metric label="Dependencies" value={graph?.edges.length ?? 0} icon={<GitBranch size={15}/>} /><Metric label="Critical path" value={graph ? `${graph.criticalPath.duration}d` : "—"} icon={<Activity size={15}/>} />
