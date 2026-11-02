@@ -6,7 +6,7 @@
 /*
  * This file should be your main import to use Prisma-related types and utilities in a browser. 
  * Use it to get access to models, enums, and input types.
- *
+ * 
  * This file does not contain a `PrismaClient` class, nor several other helpers that are intended as server-side only.
  * See `client.ts` for the standard, server-side entry point.
  *
@@ -19,7 +19,7 @@ export * as $Enums from './enums.js'
 export * from './enums.js';
 /**
  * Model projects
- *
+ * 
  */
 export type projects = Prisma.projectsModel
 /**
@@ -39,7 +39,7 @@ export type task_status_history = Prisma.task_status_historyModel
 export type users = Prisma.usersModel
 /**
  * Model idempotency_records
- *
+ * 
  */
 export type idempotency_records = Prisma.idempotency_recordsModel
 /**
@@ -112,3 +112,33 @@ export type invitations = Prisma.invitationsModel
  * 
  */
 export type audit_log = Prisma.audit_logModel
+/**
+ * Model github_integrations
+ * 
+ */
+export type github_integrations = Prisma.github_integrationsModel
+/**
+ * Model github_webhook_deliveries
+ * 
+ */
+export type github_webhook_deliveries = Prisma.github_webhook_deliveriesModel
+/**
+ * Model execution_events
+ * 
+ */
+export type execution_events = Prisma.execution_eventsModel
+/**
+ * Model task_evidence
+ * 
+ */
+export type task_evidence = Prisma.task_evidenceModel
+/**
+ * Model task_truth
+ * 
+ */
+export type task_truth = Prisma.task_truthModel
+/**
+ * Model ai_proposals
+ * 
+ */
+export type ai_proposals = Prisma.ai_proposalsModel

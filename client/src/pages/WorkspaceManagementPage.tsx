@@ -24,16 +24,12 @@ export default function WorkspaceManagementPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
   const [email, setEmail] = useState("");
-  const [inviteToken, setInviteToken] = useState(() => searchParams.get("token") ?? "");
+  const [manualInviteToken, setManualInviteToken] = useState<string | null>(null);
+  const inviteToken = manualInviteToken ?? searchParams.get("token") ?? "";
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const createdInvite = inviteMember.data;
   const inviteLink = useMemo(() => createdInvite ? `${window.location.origin}/onboarding?token=${encodeURIComponent(createdInvite.token)}` : "", [createdInvite]);
-
-  useEffect(() => {
-    const token = searchParams.get("token");
-    if (token) setInviteToken(token);
-  }, [searchParams]);
 
   const errorMessage = (error: unknown) => error instanceof ApiError || error instanceof Error ? error.message : "Something went wrong. Please try again.";
 
@@ -59,7 +55,10 @@ export default function WorkspaceManagementPage() {
     event.preventDefault();
     if (!inviteToken.trim()) return;
     acceptInvitation.mutate(inviteToken.trim(), { onSuccess: () => {
-      setInviteToken("");
+      setManualInviteToken("");
+      const next = new URLSearchParams(searchParams);
+      next.delete("token");
+      setSearchParams(next, { replace: true });
       const next = new URLSearchParams(searchParams);
       next.delete("token");
       setSearchParams(next, { replace: true });
@@ -136,7 +135,7 @@ export default function WorkspaceManagementPage() {
 
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="flex items-start gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-700"><Users size={18}/></span><div><h2 className="font-semibold text-slate-900">Join a workspace</h2><p className="mt-1 text-sm text-slate-500">Accept a teammate’s invitation and switch into the workspace right away.</p></div></div>
-          <form onSubmit={submitAcceptance} className="mt-5 space-y-3"><label htmlFor="workspace-invite-token" className="block text-xs font-semibold text-slate-700">Invitation link or token<input id="workspace-invite-token" value={inviteToken} onChange={(event) => { const value = event.target.value.trim(); try { setInviteToken(new URL(value).searchParams.get("token") ?? value); } catch { setInviteToken(value); } }} placeholder="Paste the invite link or token" className="mt-2 w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"/></label><button disabled={!inviteToken.trim() || acceptInvitation.isPending} className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{acceptInvitation.isPending ? <LoaderCircle className="animate-spin" size={16}/> : <ArrowRight size={16}/>}Join workspace</button></form>
+          <form onSubmit={submitAcceptance} className="mt-5 space-y-3"><label htmlFor="workspace-invite-token" className="block text-xs font-semibold text-slate-700">Invitation link or token<input id="workspace-invite-token" value={inviteToken} onChange={(event) => { const value = event.target.value.trim(); try { setManualInviteToken(new URL(value).searchParams.get("token") ?? value); } catch { setManualInviteToken(value); } }} placeholder="Paste the invite link or token" className="mt-2 w-full rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"/></label><button disabled={!inviteToken.trim() || acceptInvitation.isPending} className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{acceptInvitation.isPending ? <LoaderCircle className="animate-spin" size={16}/> : <ArrowRight size={16}/>}Join workspace</button></form>
           {acceptInvitation.isError && <p role="alert" className="mt-3 text-sm text-rose-600">{errorMessage(acceptInvitation.error)}</p>}
           {acceptInvitation.isSuccess && <p role="status" className="mt-3 rounded-xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">Invitation accepted. You’re now in the new workspace.</p>}
           <p className="mt-5 border-t border-slate-100 pt-4 text-xs leading-5 text-slate-400">Invitations are tied to your signed-in email and expire after 24 hours.</p>

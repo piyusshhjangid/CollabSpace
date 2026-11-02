@@ -1,4 +1,21 @@
 services:
+  postgres:
+    image: postgres:17-alpine
+    profiles: [app]
+    environment:
+      POSTGRES_DB: collabspace
+      POSTGRES_USER: collabspace
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the environment or root .env file}
+    ports:
+      - "5432:5432"
+    volumes:
+      - collabspace-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U collabspace -d collabspace"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+
   redis:
     image: redis:7.4-alpine
     command: ["redis-server", "--appendonly", "yes"]
@@ -12,5 +29,91 @@ services:
       timeout: 3s
       retries: 10
 
+  server:
+    profiles: [app]
+    build: ./server
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://collabspace:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the environment or root .env file}@postgres:5432/collabspace
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in the environment or root .env file}
+      REDIS_URL: redis://redis:6379
+      CLIENT_ORIGIN: ${CLIENT_ORIGIN:-http://localhost:8080}
+      TRUST_PROXY: ${TRUST_PROXY:-false}
+      SUMMARY_CACHE_DISABLED: ${SUMMARY_CACHE_DISABLED:-false}
+      GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      EMAIL_FROM: ${EMAIL_FROM:-CollabSpace <no-reply@example.com>}
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8080}
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5000/health/ready').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 10s
+      timeout: 4s
+      retries: 10
+      start_period: 20s
+
+  web:
+    profiles: [app]
+    build:
+      context: ./client
+      args:
+        VITE_API_BASE_URL: ""
+    ports:
+      - "8080:80"
+    depends_on:
+      server:
+        condition: service_healthy
+
+  github-worker:
+    profiles: [app]
+    build: ./server
+    command: ["npm", "run", "worker:github"]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://collabspace:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the environment or root .env file}@postgres:5432/collabspace
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      server:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  notification-worker:
+    profiles: [email]
+    build: ./server
+    command: ["npm", "run", "worker"]
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://collabspace:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the environment or root .env file}@postgres:5432/collabspace
+      REDIS_URL: redis://redis:6379
+      SMTP_HOST: ${SMTP_HOST:?Set SMTP_HOST to enable the notification worker}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      EMAIL_FROM: ${EMAIL_FROM:-CollabSpace <no-reply@example.com>}
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8080}
+    depends_on:
+      server:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
 volumes:
+  collabspace-postgres:
   collabspace-redis:

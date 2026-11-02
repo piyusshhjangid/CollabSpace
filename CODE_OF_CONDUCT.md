@@ -23,4 +23,3 @@ Report conduct concerns privately to the repository owner through the contact me
 Maintainers may edit or remove comments, close discussions, or restrict participation when needed to keep the project safe and constructive. Reports will be handled as privately as practical.
 
 This code applies to project spaces, issue and pull request discussions, and project-related events.
-

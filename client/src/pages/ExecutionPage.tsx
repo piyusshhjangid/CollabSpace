@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Background, Controls, Handle, MiniMap, Position, ReactFlow, type Connection, type Edge, type Node } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { io } from "socket.io-client";
 import { Activity, AlertCircle, ArrowDownRight, ArrowRight, Check, CircleDot, Clock3, GitBranch, Plus, Radio, Save, Target, Trash2 } from "lucide-react";
 import { useWorkspace } from "../context/WorkspaceContext";
+import { API_BASE_URL } from "../lib/api";
 import { useProjects } from "../hooks/useProjects";
 import { getAccessToken } from "../lib/authSession";
 import { addContract, addDependency, addGoal, addMilestone, addOutcome, addPlan, executionKeys, getExecutionGraph, getOutcomes, linkProjectOutcome, removeDependency, type ExecutionGraph } from "../api/execution";
@@ -41,7 +43,10 @@ export default function ExecutionPage() {
   const canWrite = currentWorkspace?.role !== "VIEWER";
   const queryClient = useQueryClient();
   const { data: projects = [] } = useProjects(workspaceId);
-  const [projectId, setProjectId] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedProjectId = searchParams.get("projectId");
+  const [selectedProjectId, setSelectedProjectId] = useState("");
+  const projectId = (projects.some((project) => project.id === requestedProjectId) ? requestedProjectId : selectedProjectId) || projects[0]?.id || "";
   const [dependencyType, setDependencyType] = useState("FINISH_TO_START");
   const [outcomeName, setOutcomeName] = useState("");
   const [outcomeCriteria, setOutcomeCriteria] = useState("");
@@ -53,7 +58,6 @@ export default function ExecutionPage() {
   const [live, setLive] = useState(false);
   const [onlineMembers, setOnlineMembers] = useState(0);
 
-  useEffect(() => { if (!projectId && projects[0]) setProjectId(projects[0].id); }, [projectId, projects]);
   const graphQuery = useQuery({ queryKey: executionKeys.graph(workspaceId, projectId), queryFn: () => getExecutionGraph(workspaceId, projectId), enabled: Boolean(projectId) });
   const outcomesQuery = useQuery({ queryKey: executionKeys.outcomes(workspaceId), queryFn: () => getOutcomes(workspaceId) });
   const outcomes = outcomesQuery.data ?? [];
@@ -73,7 +77,7 @@ export default function ExecutionPage() {
     if (!projectId) return;
     const token = getAccessToken();
     if (!token) return;
-    const socket = io(import.meta.env.VITE_API_BASE_URL || "http://localhost:5000", { auth: { token }, reconnection: true, reconnectionAttempts: Infinity, reconnectionDelayMax: 5000 });
+    const socket = io(API_BASE_URL, { auth: { token }, reconnection: true, reconnectionAttempts: Infinity, reconnectionDelayMax: 5000 });
     let heartbeat: ReturnType<typeof setInterval> | undefined;
     socket.on("connect", () => {
       setLive(true);
@@ -174,7 +178,7 @@ export default function ExecutionPage() {
       <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 px-5 py-4 sm:px-6">
           <div><div className="flex items-center gap-2"><GitBranch size={17} className="text-violet-600"/><h2 className="font-semibold text-slate-900">Live execution graph</h2></div><p className="mt-1 text-xs text-slate-500">Connect task handles to add dependencies. Violet marks the critical path.</p></div>
-          <div className="flex items-center gap-2"><select aria-label="Select project" value={projectId} onChange={(event) => setProjectId(event.target.value)} className="max-w-[190px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"><option value="">Choose project</option>{projects.map((project) => <option key={project.id} value={project.id}>{project.name}</option>)}</select>
+          <div className="flex items-center gap-2"><select aria-label="Select project" value={projectId} onChange={(event) => { setSelectedProjectId(event.target.value); setSearchParams({ projectId: event.target.value }); }} className="max-w-[190px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-700 outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"><option value="">Choose project</option>{projects.map((project) => <option key={project.id} value={project.id}>{project.name}</option>)}</select>
             {canWrite && projectId && <select aria-label="New dependency type" value={dependencyType} onChange={(event) => setDependencyType(event.target.value)} className="max-w-[125px] rounded-lg border border-slate-200 bg-white px-2 py-2 text-[10px] font-medium text-slate-600 outline-none focus:border-violet-400"><option value="FINISH_TO_START">Finish → Start</option><option value="START_TO_START">Start → Start</option><option value="FINISH_TO_FINISH">Finish → Finish</option><option value="START_TO_FINISH">Start → Finish</option></select>}
             {canWrite && graph?.outcomeId && <button onClick={savePlan} title={!linkedOutcome?.delivery_contracts.length ? "Set a delivery baseline before snapshotting a plan" : "Save an immutable schedule version"} disabled={createPlan.isPending || !graph.tasks.length || !linkedOutcome?.delivery_contracts.length} className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-violet-700 disabled:opacity-50"><Save size={14}/>{createPlan.isPending ? "Saving…" : "Snapshot plan"}</button>}</div>
         </div>

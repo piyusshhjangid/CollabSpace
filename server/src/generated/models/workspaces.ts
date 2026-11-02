@@ -178,6 +178,11 @@ export type workspacesWhereInput = {
   delivery_contracts?: Prisma.Delivery_contractsListRelationFilter
   execution_plans?: Prisma.Execution_plansListRelationFilter
   event_counter?: Prisma.XOR<Prisma.Workspace_event_countersNullableScalarRelationFilter, Prisma.workspace_event_countersWhereInput> | null
+  github_integrations?: Prisma.Github_integrationsListRelationFilter
+  execution_events?: Prisma.Execution_eventsListRelationFilter
+  task_evidence?: Prisma.Task_evidenceListRelationFilter
+  task_truth?: Prisma.Task_truthListRelationFilter
+  ai_proposals?: Prisma.Ai_proposalsListRelationFilter
 }
 
 export type workspacesOrderByWithRelationInput = {
@@ -196,6 +201,11 @@ export type workspacesOrderByWithRelationInput = {
   delivery_contracts?: Prisma.delivery_contractsOrderByRelationAggregateInput
   execution_plans?: Prisma.execution_plansOrderByRelationAggregateInput
   event_counter?: Prisma.workspace_event_countersOrderByWithRelationInput
+  github_integrations?: Prisma.github_integrationsOrderByRelationAggregateInput
+  execution_events?: Prisma.execution_eventsOrderByRelationAggregateInput
+  task_evidence?: Prisma.task_evidenceOrderByRelationAggregateInput
+  task_truth?: Prisma.task_truthOrderByRelationAggregateInput
+  ai_proposals?: Prisma.ai_proposalsOrderByRelationAggregateInput
 }
 
 export type workspacesWhereUniqueInput = Prisma.AtLeast<{
@@ -217,6 +227,11 @@ export type workspacesWhereUniqueInput = Prisma.AtLeast<{
   delivery_contracts?: Prisma.Delivery_contractsListRelationFilter
   execution_plans?: Prisma.Execution_plansListRelationFilter
   event_counter?: Prisma.XOR<Prisma.Workspace_event_countersNullableScalarRelationFilter, Prisma.workspace_event_countersWhereInput> | null
+  github_integrations?: Prisma.Github_integrationsListRelationFilter
+  execution_events?: Prisma.Execution_eventsListRelationFilter
+  task_evidence?: Prisma.Task_evidenceListRelationFilter
+  task_truth?: Prisma.Task_truthListRelationFilter
+  ai_proposals?: Prisma.Ai_proposalsListRelationFilter
 }, "id">
 
 export type workspacesOrderByWithAggregationInput = {
@@ -253,6 +268,11 @@ export type workspacesCreateInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateInput = {
@@ -271,6 +291,11 @@ export type workspacesUncheckedCreateInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUpdateInput = {
@@ -289,6 +314,11 @@ export type workspacesUpdateInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateInput = {
@@ -307,6 +337,11 @@ export type workspacesUncheckedUpdateInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateManyInput = {
@@ -348,6 +383,11 @@ export type workspacesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+}
+
+export type WorkspacesNullableScalarRelationFilter = {
+  is?: Prisma.workspacesWhereInput | null
+  isNot?: Prisma.workspacesWhereInput | null
 }
 
 export type workspacesCreateNestedOneWithoutProjectsInput = {
@@ -518,6 +558,78 @@ export type workspacesUpdateOneRequiredWithoutInvitationsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutInvitationsInput, Prisma.workspacesUpdateWithoutInvitationsInput>, Prisma.workspacesUncheckedUpdateWithoutInvitationsInput>
 }
 
+export type workspacesCreateNestedOneWithoutGithub_integrationsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedCreateWithoutGithub_integrationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutGithub_integrationsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneWithoutGithub_integrationsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedCreateWithoutGithub_integrationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutGithub_integrationsInput
+  upsert?: Prisma.workspacesUpsertWithoutGithub_integrationsInput
+  disconnect?: Prisma.workspacesWhereInput | boolean
+  delete?: Prisma.workspacesWhereInput | boolean
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutGithub_integrationsInput, Prisma.workspacesUpdateWithoutGithub_integrationsInput>, Prisma.workspacesUncheckedUpdateWithoutGithub_integrationsInput>
+}
+
+export type workspacesCreateNestedOneWithoutExecution_eventsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_eventsInput, Prisma.workspacesUncheckedCreateWithoutExecution_eventsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_eventsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExecution_eventsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_eventsInput, Prisma.workspacesUncheckedCreateWithoutExecution_eventsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_eventsInput
+  upsert?: Prisma.workspacesUpsertWithoutExecution_eventsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExecution_eventsInput, Prisma.workspacesUpdateWithoutExecution_eventsInput>, Prisma.workspacesUncheckedUpdateWithoutExecution_eventsInput>
+}
+
+export type workspacesCreateNestedOneWithoutTask_evidenceInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_evidenceInput, Prisma.workspacesUncheckedCreateWithoutTask_evidenceInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_evidenceInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutTask_evidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_evidenceInput, Prisma.workspacesUncheckedCreateWithoutTask_evidenceInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_evidenceInput
+  upsert?: Prisma.workspacesUpsertWithoutTask_evidenceInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutTask_evidenceInput, Prisma.workspacesUpdateWithoutTask_evidenceInput>, Prisma.workspacesUncheckedUpdateWithoutTask_evidenceInput>
+}
+
+export type workspacesCreateNestedOneWithoutTask_truthInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_truthInput, Prisma.workspacesUncheckedCreateWithoutTask_truthInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_truthInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutTask_truthNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutTask_truthInput, Prisma.workspacesUncheckedCreateWithoutTask_truthInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutTask_truthInput
+  upsert?: Prisma.workspacesUpsertWithoutTask_truthInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutTask_truthInput, Prisma.workspacesUpdateWithoutTask_truthInput>, Prisma.workspacesUncheckedUpdateWithoutTask_truthInput>
+}
+
+export type workspacesCreateNestedOneWithoutAi_proposalsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAi_proposalsInput, Prisma.workspacesUncheckedCreateWithoutAi_proposalsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAi_proposalsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutAi_proposalsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAi_proposalsInput, Prisma.workspacesUncheckedCreateWithoutAi_proposalsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAi_proposalsInput
+  upsert?: Prisma.workspacesUpsertWithoutAi_proposalsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutAi_proposalsInput, Prisma.workspacesUpdateWithoutAi_proposalsInput>, Prisma.workspacesUncheckedUpdateWithoutAi_proposalsInput>
+}
+
 export type workspacesCreateWithoutProjectsInput = {
   id?: string
   name: string
@@ -533,6 +645,11 @@ export type workspacesCreateWithoutProjectsInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutProjectsInput = {
@@ -550,6 +667,11 @@ export type workspacesUncheckedCreateWithoutProjectsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutProjectsInput = {
@@ -583,6 +705,11 @@ export type workspacesUpdateWithoutProjectsInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutProjectsInput = {
@@ -600,6 +727,11 @@ export type workspacesUncheckedUpdateWithoutProjectsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTasksInput = {
@@ -617,6 +749,11 @@ export type workspacesCreateWithoutTasksInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTasksInput = {
@@ -634,6 +771,11 @@ export type workspacesUncheckedCreateWithoutTasksInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTasksInput = {
@@ -667,6 +809,11 @@ export type workspacesUpdateWithoutTasksInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTasksInput = {
@@ -684,6 +831,11 @@ export type workspacesUncheckedUpdateWithoutTasksInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_status_historyInput = {
@@ -701,6 +853,11 @@ export type workspacesCreateWithoutTask_status_historyInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
@@ -718,6 +875,11 @@ export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_status_historyInput = {
@@ -751,6 +913,11 @@ export type workspacesUpdateWithoutTask_status_historyInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
@@ -768,6 +935,11 @@ export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutWorkspace_membersInput = {
@@ -785,6 +957,11 @@ export type workspacesCreateWithoutWorkspace_membersInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
@@ -802,6 +979,11 @@ export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutWorkspace_membersInput = {
@@ -835,6 +1017,11 @@ export type workspacesUpdateWithoutWorkspace_membersInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
@@ -852,6 +1039,11 @@ export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutOutcomesInput = {
@@ -869,6 +1061,11 @@ export type workspacesCreateWithoutOutcomesInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutOutcomesInput = {
@@ -886,6 +1083,11 @@ export type workspacesUncheckedCreateWithoutOutcomesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutOutcomesInput = {
@@ -919,6 +1121,11 @@ export type workspacesUpdateWithoutOutcomesInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutOutcomesInput = {
@@ -936,6 +1143,11 @@ export type workspacesUncheckedUpdateWithoutOutcomesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutGoalsInput = {
@@ -953,6 +1165,11 @@ export type workspacesCreateWithoutGoalsInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutGoalsInput = {
@@ -970,6 +1187,11 @@ export type workspacesUncheckedCreateWithoutGoalsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutGoalsInput = {
@@ -1003,6 +1225,11 @@ export type workspacesUpdateWithoutGoalsInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutGoalsInput = {
@@ -1020,6 +1247,11 @@ export type workspacesUncheckedUpdateWithoutGoalsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutMilestonesInput = {
@@ -1037,6 +1269,11 @@ export type workspacesCreateWithoutMilestonesInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutMilestonesInput = {
@@ -1054,6 +1291,11 @@ export type workspacesUncheckedCreateWithoutMilestonesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutMilestonesInput = {
@@ -1087,6 +1329,11 @@ export type workspacesUpdateWithoutMilestonesInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutMilestonesInput = {
@@ -1104,6 +1351,11 @@ export type workspacesUncheckedUpdateWithoutMilestonesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_dependenciesInput = {
@@ -1121,6 +1373,11 @@ export type workspacesCreateWithoutTask_dependenciesInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_dependenciesInput = {
@@ -1138,6 +1395,11 @@ export type workspacesUncheckedCreateWithoutTask_dependenciesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_dependenciesInput = {
@@ -1171,6 +1433,11 @@ export type workspacesUpdateWithoutTask_dependenciesInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_dependenciesInput = {
@@ -1188,6 +1455,11 @@ export type workspacesUncheckedUpdateWithoutTask_dependenciesInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutDelivery_contractsInput = {
@@ -1205,6 +1477,11 @@ export type workspacesCreateWithoutDelivery_contractsInput = {
   task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutDelivery_contractsInput = {
@@ -1222,6 +1499,11 @@ export type workspacesUncheckedCreateWithoutDelivery_contractsInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutDelivery_contractsInput = {
@@ -1255,6 +1537,11 @@ export type workspacesUpdateWithoutDelivery_contractsInput = {
   task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutDelivery_contractsInput = {
@@ -1272,6 +1559,11 @@ export type workspacesUncheckedUpdateWithoutDelivery_contractsInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutExecution_plansInput = {
@@ -1289,6 +1581,11 @@ export type workspacesCreateWithoutExecution_plansInput = {
   task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutExecution_plansInput = {
@@ -1306,6 +1603,11 @@ export type workspacesUncheckedCreateWithoutExecution_plansInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutExecution_plansInput = {
@@ -1339,6 +1641,11 @@ export type workspacesUpdateWithoutExecution_plansInput = {
   task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutExecution_plansInput = {
@@ -1356,6 +1663,11 @@ export type workspacesUncheckedUpdateWithoutExecution_plansInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutEvent_counterInput = {
@@ -1373,6 +1685,11 @@ export type workspacesCreateWithoutEvent_counterInput = {
   task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutEvent_counterInput = {
@@ -1390,6 +1707,11 @@ export type workspacesUncheckedCreateWithoutEvent_counterInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutEvent_counterInput = {
@@ -1423,6 +1745,11 @@ export type workspacesUpdateWithoutEvent_counterInput = {
   task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutEvent_counterInput = {
@@ -1440,6 +1767,11 @@ export type workspacesUncheckedUpdateWithoutEvent_counterInput = {
   task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutInvitationsInput = {
@@ -1457,6 +1789,11 @@ export type workspacesCreateWithoutInvitationsInput = {
   delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutInvitationsInput = {
@@ -1474,6 +1811,11 @@ export type workspacesUncheckedCreateWithoutInvitationsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
   execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
   event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutInvitationsInput = {
@@ -1507,6 +1849,11 @@ export type workspacesUpdateWithoutInvitationsInput = {
   delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutInvitationsInput = {
@@ -1524,6 +1871,531 @@ export type workspacesUncheckedUpdateWithoutInvitationsInput = {
   delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
   execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
   event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutGithub_integrationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutGithub_integrationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutGithub_integrationsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedCreateWithoutGithub_integrationsInput>
+}
+
+export type workspacesUpsertWithoutGithub_integrationsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedUpdateWithoutGithub_integrationsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedCreateWithoutGithub_integrationsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutGithub_integrationsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedUpdateWithoutGithub_integrationsInput>
+}
+
+export type workspacesUpdateWithoutGithub_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutGithub_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExecution_eventsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExecution_eventsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExecution_eventsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_eventsInput, Prisma.workspacesUncheckedCreateWithoutExecution_eventsInput>
+}
+
+export type workspacesUpsertWithoutExecution_eventsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_eventsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_eventsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_eventsInput, Prisma.workspacesUncheckedCreateWithoutExecution_eventsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExecution_eventsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_eventsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_eventsInput>
+}
+
+export type workspacesUpdateWithoutExecution_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExecution_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutTask_evidenceInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutTask_evidenceInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutTask_evidenceInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_evidenceInput, Prisma.workspacesUncheckedCreateWithoutTask_evidenceInput>
+}
+
+export type workspacesUpsertWithoutTask_evidenceInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_evidenceInput, Prisma.workspacesUncheckedUpdateWithoutTask_evidenceInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_evidenceInput, Prisma.workspacesUncheckedCreateWithoutTask_evidenceInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutTask_evidenceInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_evidenceInput, Prisma.workspacesUncheckedUpdateWithoutTask_evidenceInput>
+}
+
+export type workspacesUpdateWithoutTask_evidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutTask_evidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutTask_truthInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutTask_truthInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutTask_truthInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_truthInput, Prisma.workspacesUncheckedCreateWithoutTask_truthInput>
+}
+
+export type workspacesUpsertWithoutTask_truthInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_truthInput, Prisma.workspacesUncheckedUpdateWithoutTask_truthInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutTask_truthInput, Prisma.workspacesUncheckedCreateWithoutTask_truthInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutTask_truthInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutTask_truthInput, Prisma.workspacesUncheckedUpdateWithoutTask_truthInput>
+}
+
+export type workspacesUpdateWithoutTask_truthInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutTask_truthInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutAi_proposalsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutAi_proposalsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutAi_proposalsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAi_proposalsInput, Prisma.workspacesUncheckedCreateWithoutAi_proposalsInput>
+}
+
+export type workspacesUpsertWithoutAi_proposalsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutAi_proposalsInput, Prisma.workspacesUncheckedUpdateWithoutAi_proposalsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAi_proposalsInput, Prisma.workspacesUncheckedCreateWithoutAi_proposalsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutAi_proposalsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutAi_proposalsInput, Prisma.workspacesUncheckedUpdateWithoutAi_proposalsInput>
+}
+
+export type workspacesUpdateWithoutAi_proposalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutAi_proposalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 
@@ -1543,6 +2415,11 @@ export type WorkspacesCountOutputType = {
   task_dependencies: number
   delivery_contracts: number
   execution_plans: number
+  github_integrations: number
+  execution_events: number
+  task_evidence: number
+  task_truth: number
+  ai_proposals: number
 }
 
 export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1557,6 +2434,11 @@ export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extens
   task_dependencies?: boolean | WorkspacesCountOutputTypeCountTask_dependenciesArgs
   delivery_contracts?: boolean | WorkspacesCountOutputTypeCountDelivery_contractsArgs
   execution_plans?: boolean | WorkspacesCountOutputTypeCountExecution_plansArgs
+  github_integrations?: boolean | WorkspacesCountOutputTypeCountGithub_integrationsArgs
+  execution_events?: boolean | WorkspacesCountOutputTypeCountExecution_eventsArgs
+  task_evidence?: boolean | WorkspacesCountOutputTypeCountTask_evidenceArgs
+  task_truth?: boolean | WorkspacesCountOutputTypeCountTask_truthArgs
+  ai_proposals?: boolean | WorkspacesCountOutputTypeCountAi_proposalsArgs
 }
 
 /**
@@ -1646,6 +2528,41 @@ export type WorkspacesCountOutputTypeCountExecution_plansArgs<ExtArgs extends ru
   where?: Prisma.execution_plansWhereInput
 }
 
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountGithub_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.github_integrationsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExecution_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_eventsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountTask_evidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.task_evidenceWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountTask_truthArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.task_truthWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountAi_proposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ai_proposalsWhereInput
+}
+
 
 export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1663,6 +2580,11 @@ export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   delivery_contracts?: boolean | Prisma.workspaces$delivery_contractsArgs<ExtArgs>
   execution_plans?: boolean | Prisma.workspaces$execution_plansArgs<ExtArgs>
   event_counter?: boolean | Prisma.workspaces$event_counterArgs<ExtArgs>
+  github_integrations?: boolean | Prisma.workspaces$github_integrationsArgs<ExtArgs>
+  execution_events?: boolean | Prisma.workspaces$execution_eventsArgs<ExtArgs>
+  task_evidence?: boolean | Prisma.workspaces$task_evidenceArgs<ExtArgs>
+  task_truth?: boolean | Prisma.workspaces$task_truthArgs<ExtArgs>
+  ai_proposals?: boolean | Prisma.workspaces$ai_proposalsArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaces"]>
 
@@ -1698,6 +2620,11 @@ export type workspacesInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   delivery_contracts?: boolean | Prisma.workspaces$delivery_contractsArgs<ExtArgs>
   execution_plans?: boolean | Prisma.workspaces$execution_plansArgs<ExtArgs>
   event_counter?: boolean | Prisma.workspaces$event_counterArgs<ExtArgs>
+  github_integrations?: boolean | Prisma.workspaces$github_integrationsArgs<ExtArgs>
+  execution_events?: boolean | Prisma.workspaces$execution_eventsArgs<ExtArgs>
+  task_evidence?: boolean | Prisma.workspaces$task_evidenceArgs<ExtArgs>
+  task_truth?: boolean | Prisma.workspaces$task_truthArgs<ExtArgs>
+  ai_proposals?: boolean | Prisma.workspaces$ai_proposalsArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type workspacesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1718,6 +2645,11 @@ export type $workspacesPayload<ExtArgs extends runtime.Types.Extensions.Internal
     delivery_contracts: Prisma.$delivery_contractsPayload<ExtArgs>[]
     execution_plans: Prisma.$execution_plansPayload<ExtArgs>[]
     event_counter: Prisma.$workspace_event_countersPayload<ExtArgs> | null
+    github_integrations: Prisma.$github_integrationsPayload<ExtArgs>[]
+    execution_events: Prisma.$execution_eventsPayload<ExtArgs>[]
+    task_evidence: Prisma.$task_evidencePayload<ExtArgs>[]
+    task_truth: Prisma.$task_truthPayload<ExtArgs>[]
+    ai_proposals: Prisma.$ai_proposalsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2129,6 +3061,11 @@ export interface Prisma__workspacesClient<T, Null = never, ExtArgs extends runti
   delivery_contracts<T extends Prisma.workspaces$delivery_contractsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$delivery_contractsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$delivery_contractsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   execution_plans<T extends Prisma.workspaces$execution_plansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_plansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_plansPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   event_counter<T extends Prisma.workspaces$event_counterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$event_counterArgs<ExtArgs>>): Prisma.Prisma__workspace_event_countersClient<runtime.Types.Result.GetResult<Prisma.$workspace_event_countersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  github_integrations<T extends Prisma.workspaces$github_integrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$github_integrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$github_integrationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_events<T extends Prisma.workspaces$execution_eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_eventsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  task_evidence<T extends Prisma.workspaces$task_evidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_evidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_evidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  task_truth<T extends Prisma.workspaces$task_truthArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_truthArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_truthPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ai_proposals<T extends Prisma.workspaces$ai_proposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$ai_proposalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ai_proposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2834,6 +3771,126 @@ export type workspaces$event_counterArgs<ExtArgs extends runtime.Types.Extension
    */
   include?: Prisma.workspace_event_countersInclude<ExtArgs> | null
   where?: Prisma.workspace_event_countersWhereInput
+}
+
+/**
+ * workspaces.github_integrations
+ */
+export type workspaces$github_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the github_integrations
+   */
+  select?: Prisma.github_integrationsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the github_integrations
+   */
+  omit?: Prisma.github_integrationsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.github_integrationsInclude<ExtArgs> | null
+  where?: Prisma.github_integrationsWhereInput
+  orderBy?: Prisma.github_integrationsOrderByWithRelationInput | Prisma.github_integrationsOrderByWithRelationInput[]
+  cursor?: Prisma.github_integrationsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Github_integrationsScalarFieldEnum | Prisma.Github_integrationsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.execution_events
+ */
+export type workspaces$execution_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_events
+   */
+  select?: Prisma.execution_eventsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_events
+   */
+  omit?: Prisma.execution_eventsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_eventsInclude<ExtArgs> | null
+  where?: Prisma.execution_eventsWhereInput
+  orderBy?: Prisma.execution_eventsOrderByWithRelationInput | Prisma.execution_eventsOrderByWithRelationInput[]
+  cursor?: Prisma.execution_eventsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_eventsScalarFieldEnum | Prisma.Execution_eventsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.task_evidence
+ */
+export type workspaces$task_evidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the task_evidence
+   */
+  select?: Prisma.task_evidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the task_evidence
+   */
+  omit?: Prisma.task_evidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.task_evidenceInclude<ExtArgs> | null
+  where?: Prisma.task_evidenceWhereInput
+  orderBy?: Prisma.task_evidenceOrderByWithRelationInput | Prisma.task_evidenceOrderByWithRelationInput[]
+  cursor?: Prisma.task_evidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Task_evidenceScalarFieldEnum | Prisma.Task_evidenceScalarFieldEnum[]
+}
+
+/**
+ * workspaces.task_truth
+ */
+export type workspaces$task_truthArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the task_truth
+   */
+  select?: Prisma.task_truthSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the task_truth
+   */
+  omit?: Prisma.task_truthOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.task_truthInclude<ExtArgs> | null
+  where?: Prisma.task_truthWhereInput
+  orderBy?: Prisma.task_truthOrderByWithRelationInput | Prisma.task_truthOrderByWithRelationInput[]
+  cursor?: Prisma.task_truthWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Task_truthScalarFieldEnum | Prisma.Task_truthScalarFieldEnum[]
+}
+
+/**
+ * workspaces.ai_proposals
+ */
+export type workspaces$ai_proposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ai_proposals
+   */
+  select?: Prisma.ai_proposalsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ai_proposals
+   */
+  omit?: Prisma.ai_proposalsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ai_proposalsInclude<ExtArgs> | null
+  where?: Prisma.ai_proposalsWhereInput
+  orderBy?: Prisma.ai_proposalsOrderByWithRelationInput | Prisma.ai_proposalsOrderByWithRelationInput[]
+  cursor?: Prisma.ai_proposalsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Ai_proposalsScalarFieldEnum | Prisma.Ai_proposalsScalarFieldEnum[]
 }
 
 /**

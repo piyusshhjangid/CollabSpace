@@ -12,9 +12,8 @@ interface TaskModalProps {
 }
 
 export default function TaskModal({ open, task, onClose, onSave, isSaving = false }: TaskModalProps) {
-  const [formData, setFormData] = useState<Task | null>(null);
+  const [formData, setFormData] = useState<Task | null>(() => task);
   const [error, setError] = useState("");
-  useEffect(() => { if (task) { setFormData(task); setError(""); } }, [task]);
   useEffect(() => { if (!open) return; const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); }; window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey); }, [open, onClose]);
   if (!open || !task || !formData) return null;
   const handleSave = () => {

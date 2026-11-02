@@ -10,6 +10,7 @@ interface ApiResponse<T> {
 
 interface ApiTask {
   id: string;
+  taskKey?: string;
   projectId: string;
   title: string;
   description?: string | null;
@@ -23,6 +24,7 @@ interface ApiTask {
 function mapTask(task: ApiTask): Task {
   return {
     id: task.id,
+    taskKey: task.taskKey,
     title: task.title,
     description: task.description ?? "",
     status: task.status ?? (task.completed ? "DONE" : "TODO"),

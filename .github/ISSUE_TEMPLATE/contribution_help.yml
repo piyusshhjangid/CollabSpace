@@ -23,4 +23,3 @@ body:
       description: Share how you might approach it and where you would like guidance.
     validations:
       required: false
-

@@ -54,11 +54,11 @@ export default function ProjectBoard({
     assignee: "",
   });
   const [draggedTask, setDraggedTask] = useState<Task | null>(null);
-  const [isCreatingTask, setIsCreatingTask] = useState(false);
+  const [isCreatingTaskState, setIsCreatingTask] = useState(false);
+  const isCreatingTask = isCreatingTaskState || searchParams.get("newTask") === "1";
   const [newTaskTitle, setNewTaskTitle] = useState("");
   useEffect(() => {
     if (searchParams.get("newTask") !== "1") return;
-    setIsCreatingTask(true);
     const next = new URLSearchParams(searchParams);
     next.delete("newTask");
     setSearchParams(next, { replace: true });
@@ -179,6 +179,7 @@ export default function ProjectBoard({
       </div>
 
       <TaskModal
+        key={`${isTaskModalOpen ? "open" : "closed"}:${selectedTask?.id ?? "none"}`}
         open={
           isTaskModalOpen &&
           selectedTask !== null

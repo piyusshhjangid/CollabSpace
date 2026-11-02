@@ -11,4 +11,3 @@ Please do not report vulnerabilities in a public issue or pull request. Use GitH
 Include the affected area, the impact, steps to reproduce, and any safe proof of concept. Do not include real user data, credentials, or secrets.
 
 Please allow the maintainer time to investigate and coordinate a fix before sharing vulnerability details publicly.
-

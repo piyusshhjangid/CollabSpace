@@ -49,4 +49,3 @@ body:
       description: Redact secrets and personal data before posting.
     validations:
       required: false
-

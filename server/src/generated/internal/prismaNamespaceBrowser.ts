@@ -69,7 +69,13 @@ export const ModelName = {
   workspaces: 'workspaces',
   refresh_tokens: 'refresh_tokens',
   invitations: 'invitations',
-  audit_log: 'audit_log'
+  audit_log: 'audit_log',
+  github_integrations: 'github_integrations',
+  github_webhook_deliveries: 'github_webhook_deliveries',
+  execution_events: 'execution_events',
+  task_evidence: 'task_evidence',
+  task_truth: 'task_truth',
+  ai_proposals: 'ai_proposals'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -102,6 +108,7 @@ export type ProjectsScalarFieldEnum = (typeof ProjectsScalarFieldEnum)[keyof typ
 
 export const TasksScalarFieldEnum = {
   id: 'id',
+  task_key: 'task_key',
   project_id: 'project_id',
   workspace_id: 'workspace_id',
   assigned_to: 'assigned_to',
@@ -335,6 +342,108 @@ export const Audit_logScalarFieldEnum = {
 } as const
 
 export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof typeof Audit_logScalarFieldEnum]
+
+
+export const Github_integrationsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  repository: 'repository',
+  enabled: 'enabled',
+  created_by: 'created_by',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  workspacesId: 'workspacesId'
+} as const
+
+export type Github_integrationsScalarFieldEnum = (typeof Github_integrationsScalarFieldEnum)[keyof typeof Github_integrationsScalarFieldEnum]
+
+
+export const Github_webhook_deliveriesScalarFieldEnum = {
+  delivery_id: 'delivery_id',
+  repository: 'repository',
+  event_type: 'event_type',
+  status: 'status',
+  payload: 'payload',
+  received_at: 'received_at',
+  processed_at: 'processed_at',
+  error_code: 'error_code'
+} as const
+
+export type Github_webhook_deliveriesScalarFieldEnum = (typeof Github_webhook_deliveriesScalarFieldEnum)[keyof typeof Github_webhook_deliveriesScalarFieldEnum]
+
+
+export const Execution_eventsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  task_id: 'task_id',
+  integration_id: 'integration_id',
+  source: 'source',
+  external_id: 'external_id',
+  event_type: 'event_type',
+  action: 'action',
+  actor: 'actor',
+  title: 'title',
+  body: 'body',
+  url: 'url',
+  branch: 'branch',
+  occurred_at: 'occurred_at',
+  link_confidence: 'link_confidence',
+  metadata: 'metadata',
+  created_at: 'created_at'
+} as const
+
+export type Execution_eventsScalarFieldEnum = (typeof Execution_eventsScalarFieldEnum)[keyof typeof Execution_eventsScalarFieldEnum]
+
+
+export const Task_evidenceScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  task_id: 'task_id',
+  event_id: 'event_id',
+  evidence_type: 'evidence_type',
+  observed_status: 'observed_status',
+  confidence: 'confidence',
+  explanation: 'explanation',
+  provenance: 'provenance',
+  captured_at: 'captured_at',
+  created_at: 'created_at'
+} as const
+
+export type Task_evidenceScalarFieldEnum = (typeof Task_evidenceScalarFieldEnum)[keyof typeof Task_evidenceScalarFieldEnum]
+
+
+export const Task_truthScalarFieldEnum = {
+  task_id: 'task_id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  declared_status: 'declared_status',
+  observed_status: 'observed_status',
+  confidence: 'confidence',
+  explanation: 'explanation',
+  evidence_count: 'evidence_count',
+  reconciled_at: 'reconciled_at'
+} as const
+
+export type Task_truthScalarFieldEnum = (typeof Task_truthScalarFieldEnum)[keyof typeof Task_truthScalarFieldEnum]
+
+
+export const Ai_proposalsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  created_by: 'created_by',
+  kind: 'kind',
+  payload: 'payload',
+  status: 'status',
+  decided_by: 'decided_by',
+  created_at: 'created_at',
+  decided_at: 'decided_at'
+} as const
+
+export type Ai_proposalsScalarFieldEnum = (typeof Ai_proposalsScalarFieldEnum)[keyof typeof Ai_proposalsScalarFieldEnum]
 
 
 export const SortOrder = {

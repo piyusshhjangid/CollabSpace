@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import ProjectBoard from "../components/board/ProjectBoard";
 import { useWorkspace } from "../context/WorkspaceContext";
@@ -6,7 +5,7 @@ import { useProjects } from "../hooks/useProjects";
 
 const TasksPage = () => {
   const { currentWorkspace } = useWorkspace();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const {
     data: projects = [],
@@ -15,34 +14,8 @@ const TasksPage = () => {
     error,
   } = useProjects(currentWorkspace?.id ?? null);
 
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(
-    () => searchParams.get("projectId"),
-  );
-
-  useEffect(() => {
-    const requestedProjectId = searchParams.get("projectId");
-    if (requestedProjectId && projects.some((project) => project.id === requestedProjectId)) {
-      setSelectedProjectId(requestedProjectId);
-      return;
-    }
-
-    if (!selectedProjectId && projects.length > 0) {
-      setSelectedProjectId(projects[0].id);
-      return;
-    }
-
-    if (
-      selectedProjectId &&
-      projects.length > 0 &&
-      !projects.some((project) => project.id === selectedProjectId)
-    ) {
-      setSelectedProjectId(projects[0].id);
-    }
-
-    if (projects.length === 0) {
-      setSelectedProjectId(null);
-    }
-  }, [projects, selectedProjectId, searchParams]);
+  const requestedProjectId = searchParams.get("projectId");
+  const selectedProjectId = requestedProjectId && projects.some((project) => project.id === requestedProjectId) ? requestedProjectId : projects[0]?.id ?? null;
 
   if (!currentWorkspace) {
     return (
@@ -94,7 +67,7 @@ const TasksPage = () => {
 
         <select
           value={selectedProjectId}
-          onChange={(event) => setSelectedProjectId(event.target.value)}
+          onChange={(event) => setSearchParams({ projectId: event.target.value })}
           className="rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-700"
         >
           {projects.map((project) => (

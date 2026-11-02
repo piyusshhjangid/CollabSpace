@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useCreateWorkspace, useAcceptInvitation } from "../hooks/useWorkspaces";
 import { ApiError } from "../lib/api";
+import { Logo } from "../components/Logo";
 import {
-  Layers,
   Building2,
   Link2,
   LogOut,
@@ -113,14 +113,9 @@ export default function OnboardingPage() {
     <div className="min-h-screen bg-zinc-50 text-zinc-900 flex flex-col">
       {/* Top bar matching Shell TopBar */}
       <header className="flex h-16 items-center justify-between border-b border-zinc-200 bg-white px-6">
-        <div className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-600 text-white shadow-sm">
-            <Layers className="h-4 w-4" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-zinc-900">
-            CollabSpace
-          </span>
-        </div>
+        <Link to="/" className="inline-flex items-center">
+          <Logo size="sm" subtitle="Onboarding" />
+        </Link>
 
         <div className="flex items-center gap-4">
           {user && (

@@ -24,7 +24,7 @@ export * as $Enums from './enums.js'
 export * from "./enums.js"
 /**
  * ## Prisma Client
- *
+ * 
  * Type-safe database client for TypeScript
  * @example
  * ```
@@ -34,7 +34,7 @@ export * from "./enums.js"
  * // Fetch zero or more Projects
  * const projects = await prisma.projects.findMany()
  * ```
- *
+ * 
  * Read more in our [docs](https://pris.ly/d/client).
  */
 export const PrismaClient = $Class.getPrismaClientClass()
@@ -63,7 +63,7 @@ export type task_status_history = Prisma.task_status_historyModel
 export type users = Prisma.usersModel
 /**
  * Model idempotency_records
- *
+ * 
  */
 export type idempotency_records = Prisma.idempotency_recordsModel
 /**
@@ -136,3 +136,33 @@ export type invitations = Prisma.invitationsModel
  * 
  */
 export type audit_log = Prisma.audit_logModel
+/**
+ * Model github_integrations
+ * 
+ */
+export type github_integrations = Prisma.github_integrationsModel
+/**
+ * Model github_webhook_deliveries
+ * 
+ */
+export type github_webhook_deliveries = Prisma.github_webhook_deliveriesModel
+/**
+ * Model execution_events
+ * 
+ */
+export type execution_events = Prisma.execution_eventsModel
+/**
+ * Model task_evidence
+ * 
+ */
+export type task_evidence = Prisma.task_evidenceModel
+/**
+ * Model task_truth
+ * 
+ */
+export type task_truth = Prisma.task_truthModel
+/**
+ * Model ai_proposals
+ * 
+ */
+export type ai_proposals = Prisma.ai_proposalsModel

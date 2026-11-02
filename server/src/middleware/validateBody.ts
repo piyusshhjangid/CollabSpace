@@ -10,6 +10,8 @@ export function validateBody(schema: ZodSchema): RequestHandler {
       throw badRequest("Validation failed");
     }
 
+    req.body = result.data;
+
     next();
   };
 }

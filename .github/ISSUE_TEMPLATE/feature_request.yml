@@ -33,4 +33,3 @@ body:
       description: Optional section or related issue.
     validations:
       required: false
-

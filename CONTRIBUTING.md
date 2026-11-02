@@ -82,4 +82,3 @@ If a check cannot run because a local service or credential is unavailable, say 
 - Keep the pull request focused and update it in response to review.
 
 By submitting a contribution, you agree that it will be distributed under the repository's MIT license. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-

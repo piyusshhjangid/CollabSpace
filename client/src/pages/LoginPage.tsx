@@ -2,13 +2,13 @@ import { useState, type FormEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { ApiError } from "../lib/api";
+import { Logo } from "../components/Logo";
 import {
   Eye,
   EyeOff,
   Loader2,
   AlertCircle,
   CheckCircle2,
-  Layers,
 } from "lucide-react";
 
 const REMEMBERED_EMAIL_KEY = "collabspace_remembered_email";
@@ -130,14 +130,7 @@ export default function LoginPage() {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Brand header */}
         <div className="flex flex-col items-center">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white shadow-sm">
-              <Layers className="h-5 w-5" />
-            </div>
-            <span className="text-2xl font-bold tracking-tight text-zinc-900">
-              CollabSpace
-            </span>
-          </div>
+          <Logo size="lg" showSubtitle={false} className="justify-center" />
           <h1 className="mt-6 text-2xl font-bold tracking-tight text-zinc-900">
             Sign in to your account
           </h1>

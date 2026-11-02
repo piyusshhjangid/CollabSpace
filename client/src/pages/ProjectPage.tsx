@@ -17,12 +17,13 @@ const ProjectPage = () => {
   const permissions = usePermissions();
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
+  const requestedNewProject = searchParams.get("newProject") === "1";
+  const isProjectFormOpen = open || requestedNewProject;
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const queryClient = useQueryClient();
   useEffect(() => {
     if (searchParams.get("newProject") !== "1") return;
-    setOpen(true);
     const next = new URLSearchParams(searchParams);
     next.delete("newProject");
     setSearchParams(next, { replace: true });
@@ -87,7 +88,7 @@ const ProjectPage = () => {
         )}
       </div>
 
-      {open && <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/30 px-4 backdrop-blur-sm" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
+      {isProjectFormOpen && <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/30 px-4 backdrop-blur-sm" onMouseDown={(event) => { if (event.target === event.currentTarget) setOpen(false); }}>
         <form role="dialog" aria-modal="true" aria-labelledby="new-project-title" onSubmit={(event) => { event.preventDefault(); createMutation.mutate(); }} className="w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl">
           <h2 id="new-project-title" className="text-xl font-semibold text-slate-900">Create a project</h2><p className="mt-1 text-sm text-slate-500">Start with a focused workspace for related tasks.</p>
           <label className="mt-5 block text-xs font-semibold text-slate-700">Project name<input autoFocus required maxLength={120} value={name} onChange={(event) => setName(event.target.value)} placeholder="e.g. Product launch" className="mt-2 w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-100"/></label>

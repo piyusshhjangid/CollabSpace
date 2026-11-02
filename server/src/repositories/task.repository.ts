@@ -1,4 +1,5 @@
 import { prisma } from "../db/prisma.js";
+import { randomUUID } from "node:crypto";
 import {
   decodeTaskCursor,
   encodeTaskCursor,
@@ -54,6 +55,7 @@ export async function findTasksByProject(
 
   const items = pageTasks.map((task) => ({
     id: task.id,
+    taskKey: task.task_key,
     projectId: task.project_id,
     title: task.title,
     completed: task.completed,
@@ -103,8 +105,12 @@ export async function createTask(
     throw new Error("Project not found");
   }
 
+  const taskId = randomUUID();
+
   const task = await prisma.tasks.create({
     data: {
+      id: taskId,
+      task_key: `CS-${taskId.replaceAll("-", "").slice(0, 12).toUpperCase()}`,
       project_id: projectId,
       workspace_id: workspaceId,
       title,
@@ -116,6 +122,7 @@ export async function createTask(
 
   return {
     id: task.id,
+    taskKey: task.task_key,
     projectId: task.project_id,
     title: task.title,
     status: task.status,

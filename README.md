@@ -536,13 +536,15 @@ Protected Routes
 - [x] Monotonic workspace event sequence and reconnect/refetch recovery
 - [x] Live graph updates for task and dependency changes
 
-## 🔜 Next — Days 61–100
+## ✅ Phase 8 — Delivery Intelligence + Release Readiness (Days 61–100)
 
-- [ ] Redis and measured performance improvements
-- [ ] Background jobs and GitHub webhook evidence
-- [ ] Delivery truth, forecast, and drift engine
-- [ ] Grounded AI analysis and safe tool calling
-- [ ] Docker, CI/CD, and Internship Release 1.0
+- [x] Redis-backed summary caching, cache invalidation, and request measurements
+- [x] Background GitHub webhook processing with signature checks, deduplication, and normalized events
+- [x] Task evidence, reconciliation, and an execution timeline
+- [x] Deterministic delivery health, forecast ranges, schedule drift, and risk factors
+- [x] Grounded AI analysis with bounded context, validated output, citations, rate limits, and audit records
+- [x] Human-reviewed AI task proposals with permission-checked approval
+- [x] Docker services, CI workflow, health checks, structured logs, and release operations docs
 
 ---
 
@@ -578,10 +580,10 @@ Protected Routes
 | Outcomes + Baselines | ✅ |
 | Dependency DAG + Critical Path | ✅ |
 | Live Execution Graph | ✅ |
-| AI Assistant | ⏳ |
-| Real-time Collaboration | ⏳ |
-| Docker | ⏳ |
-| CI/CD | ⏳ |
+| Grounded AI Analysis (Optional Provider Key) | ✅ |
+| Real-time Collaboration | ✅ |
+| Docker | ✅ |
+| CI/CD | ✅ |
 | Deployment | ⏳ |
 
 ---
@@ -783,6 +785,8 @@ The roadmap describes intended work; it does not mean every item is already impl
 - Submit focused pull requests using the [pull request template](.github/PULL_REQUEST_TEMPLATE.md).
 
 New to the project? Look for issues marked “good first issue” or “help wanted,” or use the contribution help issue form to propose a small first change.
+
+---
 
 # ⭐ Support
 

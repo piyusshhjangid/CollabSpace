@@ -415,7 +415,13 @@ export const ModelName = {
   workspaces: 'workspaces',
   refresh_tokens: 'refresh_tokens',
   invitations: 'invitations',
-  audit_log: 'audit_log'
+  audit_log: 'audit_log',
+  github_integrations: 'github_integrations',
+  github_webhook_deliveries: 'github_webhook_deliveries',
+  execution_events: 'execution_events',
+  task_evidence: 'task_evidence',
+  task_truth: 'task_truth',
+  ai_proposals: 'ai_proposals'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -431,7 +437,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "idempotency_records" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "execution_plan_edges" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log"
+    modelProps: "projects" | "tasks" | "task_status_history" | "users" | "idempotency_records" | "workspace_members" | "outcomes" | "goals" | "milestones" | "task_dependencies" | "delivery_contracts" | "execution_plans" | "execution_plan_tasks" | "execution_plan_edges" | "workspace_event_counters" | "workspaces" | "refresh_tokens" | "invitations" | "audit_log" | "github_integrations" | "github_webhook_deliveries" | "execution_events" | "task_evidence" | "task_truth" | "ai_proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1841,6 +1847,450 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    github_integrations: {
+      payload: Prisma.$github_integrationsPayload<ExtArgs>
+      fields: Prisma.github_integrationsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.github_integrationsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.github_integrationsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        findFirst: {
+          args: Prisma.github_integrationsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.github_integrationsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        findMany: {
+          args: Prisma.github_integrationsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>[]
+        }
+        create: {
+          args: Prisma.github_integrationsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        createMany: {
+          args: Prisma.github_integrationsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.github_integrationsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>[]
+        }
+        delete: {
+          args: Prisma.github_integrationsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        update: {
+          args: Prisma.github_integrationsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        deleteMany: {
+          args: Prisma.github_integrationsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.github_integrationsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.github_integrationsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>[]
+        }
+        upsert: {
+          args: Prisma.github_integrationsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_integrationsPayload>
+        }
+        aggregate: {
+          args: Prisma.Github_integrationsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGithub_integrations>
+        }
+        groupBy: {
+          args: Prisma.github_integrationsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Github_integrationsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.github_integrationsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Github_integrationsCountAggregateOutputType> | number
+        }
+      }
+    }
+    github_webhook_deliveries: {
+      payload: Prisma.$github_webhook_deliveriesPayload<ExtArgs>
+      fields: Prisma.github_webhook_deliveriesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.github_webhook_deliveriesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.github_webhook_deliveriesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        findFirst: {
+          args: Prisma.github_webhook_deliveriesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.github_webhook_deliveriesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        findMany: {
+          args: Prisma.github_webhook_deliveriesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>[]
+        }
+        create: {
+          args: Prisma.github_webhook_deliveriesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        createMany: {
+          args: Prisma.github_webhook_deliveriesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.github_webhook_deliveriesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>[]
+        }
+        delete: {
+          args: Prisma.github_webhook_deliveriesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        update: {
+          args: Prisma.github_webhook_deliveriesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        deleteMany: {
+          args: Prisma.github_webhook_deliveriesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.github_webhook_deliveriesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.github_webhook_deliveriesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>[]
+        }
+        upsert: {
+          args: Prisma.github_webhook_deliveriesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$github_webhook_deliveriesPayload>
+        }
+        aggregate: {
+          args: Prisma.Github_webhook_deliveriesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGithub_webhook_deliveries>
+        }
+        groupBy: {
+          args: Prisma.github_webhook_deliveriesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Github_webhook_deliveriesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.github_webhook_deliveriesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Github_webhook_deliveriesCountAggregateOutputType> | number
+        }
+      }
+    }
+    execution_events: {
+      payload: Prisma.$execution_eventsPayload<ExtArgs>
+      fields: Prisma.execution_eventsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.execution_eventsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.execution_eventsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        findFirst: {
+          args: Prisma.execution_eventsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.execution_eventsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        findMany: {
+          args: Prisma.execution_eventsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>[]
+        }
+        create: {
+          args: Prisma.execution_eventsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        createMany: {
+          args: Prisma.execution_eventsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.execution_eventsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>[]
+        }
+        delete: {
+          args: Prisma.execution_eventsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        update: {
+          args: Prisma.execution_eventsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        deleteMany: {
+          args: Prisma.execution_eventsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.execution_eventsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.execution_eventsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>[]
+        }
+        upsert: {
+          args: Prisma.execution_eventsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$execution_eventsPayload>
+        }
+        aggregate: {
+          args: Prisma.Execution_eventsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateExecution_events>
+        }
+        groupBy: {
+          args: Prisma.execution_eventsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Execution_eventsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.execution_eventsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Execution_eventsCountAggregateOutputType> | number
+        }
+      }
+    }
+    task_evidence: {
+      payload: Prisma.$task_evidencePayload<ExtArgs>
+      fields: Prisma.task_evidenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.task_evidenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.task_evidenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        findFirst: {
+          args: Prisma.task_evidenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.task_evidenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        findMany: {
+          args: Prisma.task_evidenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>[]
+        }
+        create: {
+          args: Prisma.task_evidenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        createMany: {
+          args: Prisma.task_evidenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.task_evidenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>[]
+        }
+        delete: {
+          args: Prisma.task_evidenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        update: {
+          args: Prisma.task_evidenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        deleteMany: {
+          args: Prisma.task_evidenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.task_evidenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.task_evidenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>[]
+        }
+        upsert: {
+          args: Prisma.task_evidenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_evidencePayload>
+        }
+        aggregate: {
+          args: Prisma.Task_evidenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTask_evidence>
+        }
+        groupBy: {
+          args: Prisma.task_evidenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_evidenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.task_evidenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_evidenceCountAggregateOutputType> | number
+        }
+      }
+    }
+    task_truth: {
+      payload: Prisma.$task_truthPayload<ExtArgs>
+      fields: Prisma.task_truthFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.task_truthFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.task_truthFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        findFirst: {
+          args: Prisma.task_truthFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.task_truthFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        findMany: {
+          args: Prisma.task_truthFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>[]
+        }
+        create: {
+          args: Prisma.task_truthCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        createMany: {
+          args: Prisma.task_truthCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.task_truthCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>[]
+        }
+        delete: {
+          args: Prisma.task_truthDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        update: {
+          args: Prisma.task_truthUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        deleteMany: {
+          args: Prisma.task_truthDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.task_truthUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.task_truthUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>[]
+        }
+        upsert: {
+          args: Prisma.task_truthUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$task_truthPayload>
+        }
+        aggregate: {
+          args: Prisma.Task_truthAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTask_truth>
+        }
+        groupBy: {
+          args: Prisma.task_truthGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_truthGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.task_truthCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Task_truthCountAggregateOutputType> | number
+        }
+      }
+    }
+    ai_proposals: {
+      payload: Prisma.$ai_proposalsPayload<ExtArgs>
+      fields: Prisma.ai_proposalsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ai_proposalsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ai_proposalsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        findFirst: {
+          args: Prisma.ai_proposalsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ai_proposalsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        findMany: {
+          args: Prisma.ai_proposalsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>[]
+        }
+        create: {
+          args: Prisma.ai_proposalsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        createMany: {
+          args: Prisma.ai_proposalsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ai_proposalsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>[]
+        }
+        delete: {
+          args: Prisma.ai_proposalsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        update: {
+          args: Prisma.ai_proposalsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        deleteMany: {
+          args: Prisma.ai_proposalsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ai_proposalsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ai_proposalsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>[]
+        }
+        upsert: {
+          args: Prisma.ai_proposalsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ai_proposalsPayload>
+        }
+        aggregate: {
+          args: Prisma.Ai_proposalsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAi_proposals>
+        }
+        groupBy: {
+          args: Prisma.ai_proposalsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Ai_proposalsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ai_proposalsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Ai_proposalsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1894,6 +2344,7 @@ export type ProjectsScalarFieldEnum = (typeof ProjectsScalarFieldEnum)[keyof typ
 
 export const TasksScalarFieldEnum = {
   id: 'id',
+  task_key: 'task_key',
   project_id: 'project_id',
   workspace_id: 'workspace_id',
   assigned_to: 'assigned_to',
@@ -2127,6 +2578,108 @@ export const Audit_logScalarFieldEnum = {
 } as const
 
 export type Audit_logScalarFieldEnum = (typeof Audit_logScalarFieldEnum)[keyof typeof Audit_logScalarFieldEnum]
+
+
+export const Github_integrationsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  repository: 'repository',
+  enabled: 'enabled',
+  created_by: 'created_by',
+  created_at: 'created_at',
+  updated_at: 'updated_at',
+  workspacesId: 'workspacesId'
+} as const
+
+export type Github_integrationsScalarFieldEnum = (typeof Github_integrationsScalarFieldEnum)[keyof typeof Github_integrationsScalarFieldEnum]
+
+
+export const Github_webhook_deliveriesScalarFieldEnum = {
+  delivery_id: 'delivery_id',
+  repository: 'repository',
+  event_type: 'event_type',
+  status: 'status',
+  payload: 'payload',
+  received_at: 'received_at',
+  processed_at: 'processed_at',
+  error_code: 'error_code'
+} as const
+
+export type Github_webhook_deliveriesScalarFieldEnum = (typeof Github_webhook_deliveriesScalarFieldEnum)[keyof typeof Github_webhook_deliveriesScalarFieldEnum]
+
+
+export const Execution_eventsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  task_id: 'task_id',
+  integration_id: 'integration_id',
+  source: 'source',
+  external_id: 'external_id',
+  event_type: 'event_type',
+  action: 'action',
+  actor: 'actor',
+  title: 'title',
+  body: 'body',
+  url: 'url',
+  branch: 'branch',
+  occurred_at: 'occurred_at',
+  link_confidence: 'link_confidence',
+  metadata: 'metadata',
+  created_at: 'created_at'
+} as const
+
+export type Execution_eventsScalarFieldEnum = (typeof Execution_eventsScalarFieldEnum)[keyof typeof Execution_eventsScalarFieldEnum]
+
+
+export const Task_evidenceScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  task_id: 'task_id',
+  event_id: 'event_id',
+  evidence_type: 'evidence_type',
+  observed_status: 'observed_status',
+  confidence: 'confidence',
+  explanation: 'explanation',
+  provenance: 'provenance',
+  captured_at: 'captured_at',
+  created_at: 'created_at'
+} as const
+
+export type Task_evidenceScalarFieldEnum = (typeof Task_evidenceScalarFieldEnum)[keyof typeof Task_evidenceScalarFieldEnum]
+
+
+export const Task_truthScalarFieldEnum = {
+  task_id: 'task_id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  declared_status: 'declared_status',
+  observed_status: 'observed_status',
+  confidence: 'confidence',
+  explanation: 'explanation',
+  evidence_count: 'evidence_count',
+  reconciled_at: 'reconciled_at'
+} as const
+
+export type Task_truthScalarFieldEnum = (typeof Task_truthScalarFieldEnum)[keyof typeof Task_truthScalarFieldEnum]
+
+
+export const Ai_proposalsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  created_by: 'created_by',
+  kind: 'kind',
+  payload: 'payload',
+  status: 'status',
+  decided_by: 'decided_by',
+  created_at: 'created_at',
+  decided_at: 'decided_at'
+} as const
+
+export type Ai_proposalsScalarFieldEnum = (typeof Ai_proposalsScalarFieldEnum)[keyof typeof Ai_proposalsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2443,6 +2996,12 @@ export type GlobalOmitConfig = {
   refresh_tokens?: Prisma.refresh_tokensOmit
   invitations?: Prisma.invitationsOmit
   audit_log?: Prisma.audit_logOmit
+  github_integrations?: Prisma.github_integrationsOmit
+  github_webhook_deliveries?: Prisma.github_webhook_deliveriesOmit
+  execution_events?: Prisma.execution_eventsOmit
+  task_evidence?: Prisma.task_evidenceOmit
+  task_truth?: Prisma.task_truthOmit
+  ai_proposals?: Prisma.ai_proposalsOmit
 }
 
 /* Types for Logging */

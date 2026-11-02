@@ -21,4 +21,3 @@ For UI changes, add before/after screenshots or a short recording.
 ## Notes for reviewers
 
 Mention database migrations, security implications, known limitations, or follow-up work.
-

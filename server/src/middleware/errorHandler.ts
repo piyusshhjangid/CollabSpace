@@ -17,7 +17,12 @@ export function errorHandler(
     });
   }
 
-  console.error(`[${requestId}] Unexpected error:`, err);
+  console.error(JSON.stringify({
+    level: "error",
+    requestId,
+    name: err instanceof Error ? err.name : "UnknownError",
+    message: err instanceof Error ? err.message : "Unexpected error",
+  }));
 
   return res.status(500).json({
     message: "Internal Server Error",

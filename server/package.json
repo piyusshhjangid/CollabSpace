@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
     "test": "vitest run",
     "worker": "tsx src/workers/notification.worker.ts",
+    "worker:github": "tsx src/workers/github-events.worker.ts",
+    "db:generate": "prisma generate",
+    "db:migrate:deploy": "prisma migrate deploy",
     "jobs:dead-letters": "node scripts/list-dead-letters.mjs",
     "benchmark:summary": "node scripts/benchmark-project-summary.mjs",
     "postinstall": "prisma skills sync || exit 0"

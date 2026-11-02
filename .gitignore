@@ -1,0 +1,22 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+server/.env
+client/.env
+
+# Dependencies and build output
+node_modules/
+server/node_modules/
+client/node_modules/
+server/dist/
+client/dist/
+
+# Local logs and generated temporary reports
+*.log
+progress-preview-*.png
+roadmap.txt
+handbook.txt
+internship.txt
+handbook_extract.txt
+buildos-src/

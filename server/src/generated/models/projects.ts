@@ -194,6 +194,10 @@ export type projectsWhereInput = {
   tasks?: Prisma.TasksListRelationFilter
   outcomes?: Prisma.XOR<Prisma.OutcomesNullableScalarRelationFilter, Prisma.outcomesWhereInput> | null
   dependencies?: Prisma.Task_dependenciesListRelationFilter
+  execution_events?: Prisma.Execution_eventsListRelationFilter
+  task_evidence?: Prisma.Task_evidenceListRelationFilter
+  task_truth?: Prisma.Task_truthListRelationFilter
+  ai_proposals?: Prisma.Ai_proposalsListRelationFilter
 }
 
 export type projectsOrderByWithRelationInput = {
@@ -207,6 +211,10 @@ export type projectsOrderByWithRelationInput = {
   tasks?: Prisma.tasksOrderByRelationAggregateInput
   outcomes?: Prisma.outcomesOrderByWithRelationInput
   dependencies?: Prisma.task_dependenciesOrderByRelationAggregateInput
+  execution_events?: Prisma.execution_eventsOrderByRelationAggregateInput
+  task_evidence?: Prisma.task_evidenceOrderByRelationAggregateInput
+  task_truth?: Prisma.task_truthOrderByRelationAggregateInput
+  ai_proposals?: Prisma.ai_proposalsOrderByRelationAggregateInput
 }
 
 export type projectsWhereUniqueInput = Prisma.AtLeast<{
@@ -223,6 +231,10 @@ export type projectsWhereUniqueInput = Prisma.AtLeast<{
   tasks?: Prisma.TasksListRelationFilter
   outcomes?: Prisma.XOR<Prisma.OutcomesNullableScalarRelationFilter, Prisma.outcomesWhereInput> | null
   dependencies?: Prisma.Task_dependenciesListRelationFilter
+  execution_events?: Prisma.Execution_eventsListRelationFilter
+  task_evidence?: Prisma.Task_evidenceListRelationFilter
+  task_truth?: Prisma.Task_truthListRelationFilter
+  ai_proposals?: Prisma.Ai_proposalsListRelationFilter
 }, "id">
 
 export type projectsOrderByWithAggregationInput = {
@@ -258,6 +270,10 @@ export type projectsCreateInput = {
   tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
   outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUncheckedCreateInput = {
@@ -269,6 +285,10 @@ export type projectsUncheckedCreateInput = {
   outcome_id?: string | null
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUpdateInput = {
@@ -280,6 +300,10 @@ export type projectsUpdateInput = {
   tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
   outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateInput = {
@@ -291,6 +315,10 @@ export type projectsUncheckedUpdateInput = {
   outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsCreateManyInput = {
@@ -484,6 +512,62 @@ export type projectsUncheckedUpdateManyWithoutWorkspacesNestedInput = {
   deleteMany?: Prisma.projectsScalarWhereInput | Prisma.projectsScalarWhereInput[]
 }
 
+export type projectsCreateNestedOneWithoutExecution_eventsInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutExecution_eventsInput, Prisma.projectsUncheckedCreateWithoutExecution_eventsInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutExecution_eventsInput
+  connect?: Prisma.projectsWhereUniqueInput
+}
+
+export type projectsUpdateOneRequiredWithoutExecution_eventsNestedInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutExecution_eventsInput, Prisma.projectsUncheckedCreateWithoutExecution_eventsInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutExecution_eventsInput
+  upsert?: Prisma.projectsUpsertWithoutExecution_eventsInput
+  connect?: Prisma.projectsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.projectsUpdateToOneWithWhereWithoutExecution_eventsInput, Prisma.projectsUpdateWithoutExecution_eventsInput>, Prisma.projectsUncheckedUpdateWithoutExecution_eventsInput>
+}
+
+export type projectsCreateNestedOneWithoutTask_evidenceInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutTask_evidenceInput, Prisma.projectsUncheckedCreateWithoutTask_evidenceInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutTask_evidenceInput
+  connect?: Prisma.projectsWhereUniqueInput
+}
+
+export type projectsUpdateOneRequiredWithoutTask_evidenceNestedInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutTask_evidenceInput, Prisma.projectsUncheckedCreateWithoutTask_evidenceInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutTask_evidenceInput
+  upsert?: Prisma.projectsUpsertWithoutTask_evidenceInput
+  connect?: Prisma.projectsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.projectsUpdateToOneWithWhereWithoutTask_evidenceInput, Prisma.projectsUpdateWithoutTask_evidenceInput>, Prisma.projectsUncheckedUpdateWithoutTask_evidenceInput>
+}
+
+export type projectsCreateNestedOneWithoutTask_truthInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutTask_truthInput, Prisma.projectsUncheckedCreateWithoutTask_truthInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutTask_truthInput
+  connect?: Prisma.projectsWhereUniqueInput
+}
+
+export type projectsUpdateOneRequiredWithoutTask_truthNestedInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutTask_truthInput, Prisma.projectsUncheckedCreateWithoutTask_truthInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutTask_truthInput
+  upsert?: Prisma.projectsUpsertWithoutTask_truthInput
+  connect?: Prisma.projectsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.projectsUpdateToOneWithWhereWithoutTask_truthInput, Prisma.projectsUpdateWithoutTask_truthInput>, Prisma.projectsUncheckedUpdateWithoutTask_truthInput>
+}
+
+export type projectsCreateNestedOneWithoutAi_proposalsInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutAi_proposalsInput, Prisma.projectsUncheckedCreateWithoutAi_proposalsInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutAi_proposalsInput
+  connect?: Prisma.projectsWhereUniqueInput
+}
+
+export type projectsUpdateOneRequiredWithoutAi_proposalsNestedInput = {
+  create?: Prisma.XOR<Prisma.projectsCreateWithoutAi_proposalsInput, Prisma.projectsUncheckedCreateWithoutAi_proposalsInput>
+  connectOrCreate?: Prisma.projectsCreateOrConnectWithoutAi_proposalsInput
+  upsert?: Prisma.projectsUpsertWithoutAi_proposalsInput
+  connect?: Prisma.projectsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.projectsUpdateToOneWithWhereWithoutAi_proposalsInput, Prisma.projectsUpdateWithoutAi_proposalsInput>, Prisma.projectsUncheckedUpdateWithoutAi_proposalsInput>
+}
+
 export type projectsCreateWithoutTasksInput = {
   id?: string
   name: string
@@ -492,6 +576,10 @@ export type projectsCreateWithoutTasksInput = {
   workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
   outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUncheckedCreateWithoutTasksInput = {
@@ -502,6 +590,10 @@ export type projectsUncheckedCreateWithoutTasksInput = {
   created_at?: Date | string
   outcome_id?: string | null
   dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsCreateOrConnectWithoutTasksInput = {
@@ -528,6 +620,10 @@ export type projectsUpdateWithoutTasksInput = {
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
   outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateWithoutTasksInput = {
@@ -538,6 +634,10 @@ export type projectsUncheckedUpdateWithoutTasksInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsCreateWithoutOutcomesInput = {
@@ -548,6 +648,10 @@ export type projectsCreateWithoutOutcomesInput = {
   workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
   tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUncheckedCreateWithoutOutcomesInput = {
@@ -558,6 +662,10 @@ export type projectsUncheckedCreateWithoutOutcomesInput = {
   created_at?: Date | string
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsCreateOrConnectWithoutOutcomesInput = {
@@ -606,6 +714,10 @@ export type projectsCreateWithoutDependenciesInput = {
   workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
   tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
   outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUncheckedCreateWithoutDependenciesInput = {
@@ -616,6 +728,10 @@ export type projectsUncheckedCreateWithoutDependenciesInput = {
   created_at?: Date | string
   outcome_id?: string | null
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsCreateOrConnectWithoutDependenciesInput = {
@@ -642,6 +758,10 @@ export type projectsUpdateWithoutDependenciesInput = {
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
   tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
   outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateWithoutDependenciesInput = {
@@ -652,6 +772,10 @@ export type projectsUncheckedUpdateWithoutDependenciesInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsCreateWithoutWorkspacesInput = {
@@ -662,6 +786,10 @@ export type projectsCreateWithoutWorkspacesInput = {
   tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
   outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsUncheckedCreateWithoutWorkspacesInput = {
@@ -672,6 +800,10 @@ export type projectsUncheckedCreateWithoutWorkspacesInput = {
   outcome_id?: string | null
   tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
   dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
 }
 
 export type projectsCreateOrConnectWithoutWorkspacesInput = {
@@ -700,6 +832,294 @@ export type projectsUpdateManyWithWhereWithoutWorkspacesInput = {
   data: Prisma.XOR<Prisma.projectsUpdateManyMutationInput, Prisma.projectsUncheckedUpdateManyWithoutWorkspacesInput>
 }
 
+export type projectsCreateWithoutExecution_eventsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
+  outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsUncheckedCreateWithoutExecution_eventsInput = {
+  id?: string
+  workspace_id: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  outcome_id?: string | null
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsCreateOrConnectWithoutExecution_eventsInput = {
+  where: Prisma.projectsWhereUniqueInput
+  create: Prisma.XOR<Prisma.projectsCreateWithoutExecution_eventsInput, Prisma.projectsUncheckedCreateWithoutExecution_eventsInput>
+}
+
+export type projectsUpsertWithoutExecution_eventsInput = {
+  update: Prisma.XOR<Prisma.projectsUpdateWithoutExecution_eventsInput, Prisma.projectsUncheckedUpdateWithoutExecution_eventsInput>
+  create: Prisma.XOR<Prisma.projectsCreateWithoutExecution_eventsInput, Prisma.projectsUncheckedCreateWithoutExecution_eventsInput>
+  where?: Prisma.projectsWhereInput
+}
+
+export type projectsUpdateToOneWithWhereWithoutExecution_eventsInput = {
+  where?: Prisma.projectsWhereInput
+  data: Prisma.XOR<Prisma.projectsUpdateWithoutExecution_eventsInput, Prisma.projectsUncheckedUpdateWithoutExecution_eventsInput>
+}
+
+export type projectsUpdateWithoutExecution_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
+  outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsUncheckedUpdateWithoutExecution_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsCreateWithoutTask_evidenceInput = {
+  id?: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
+  outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsUncheckedCreateWithoutTask_evidenceInput = {
+  id?: string
+  workspace_id: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  outcome_id?: string | null
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsCreateOrConnectWithoutTask_evidenceInput = {
+  where: Prisma.projectsWhereUniqueInput
+  create: Prisma.XOR<Prisma.projectsCreateWithoutTask_evidenceInput, Prisma.projectsUncheckedCreateWithoutTask_evidenceInput>
+}
+
+export type projectsUpsertWithoutTask_evidenceInput = {
+  update: Prisma.XOR<Prisma.projectsUpdateWithoutTask_evidenceInput, Prisma.projectsUncheckedUpdateWithoutTask_evidenceInput>
+  create: Prisma.XOR<Prisma.projectsCreateWithoutTask_evidenceInput, Prisma.projectsUncheckedCreateWithoutTask_evidenceInput>
+  where?: Prisma.projectsWhereInput
+}
+
+export type projectsUpdateToOneWithWhereWithoutTask_evidenceInput = {
+  where?: Prisma.projectsWhereInput
+  data: Prisma.XOR<Prisma.projectsUpdateWithoutTask_evidenceInput, Prisma.projectsUncheckedUpdateWithoutTask_evidenceInput>
+}
+
+export type projectsUpdateWithoutTask_evidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
+  outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsUncheckedUpdateWithoutTask_evidenceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsCreateWithoutTask_truthInput = {
+  id?: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
+  outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsUncheckedCreateWithoutTask_truthInput = {
+  id?: string
+  workspace_id: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  outcome_id?: string | null
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsCreateOrConnectWithoutTask_truthInput = {
+  where: Prisma.projectsWhereUniqueInput
+  create: Prisma.XOR<Prisma.projectsCreateWithoutTask_truthInput, Prisma.projectsUncheckedCreateWithoutTask_truthInput>
+}
+
+export type projectsUpsertWithoutTask_truthInput = {
+  update: Prisma.XOR<Prisma.projectsUpdateWithoutTask_truthInput, Prisma.projectsUncheckedUpdateWithoutTask_truthInput>
+  create: Prisma.XOR<Prisma.projectsCreateWithoutTask_truthInput, Prisma.projectsUncheckedCreateWithoutTask_truthInput>
+  where?: Prisma.projectsWhereInput
+}
+
+export type projectsUpdateToOneWithWhereWithoutTask_truthInput = {
+  where?: Prisma.projectsWhereInput
+  data: Prisma.XOR<Prisma.projectsUpdateWithoutTask_truthInput, Prisma.projectsUncheckedUpdateWithoutTask_truthInput>
+}
+
+export type projectsUpdateWithoutTask_truthInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
+  outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsUncheckedUpdateWithoutTask_truthInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsCreateWithoutAi_proposalsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  workspaces: Prisma.workspacesCreateNestedOneWithoutProjectsInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutProjectsInput
+  outcomes?: Prisma.outcomesCreateNestedOneWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsUncheckedCreateWithoutAi_proposalsInput = {
+  id?: string
+  workspace_id: string
+  name: string
+  description?: string | null
+  created_at?: Date | string
+  outcome_id?: string | null
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutProjectsInput
+  dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutProjectsInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutProjectsInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutProjectsInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutProjectsInput
+}
+
+export type projectsCreateOrConnectWithoutAi_proposalsInput = {
+  where: Prisma.projectsWhereUniqueInput
+  create: Prisma.XOR<Prisma.projectsCreateWithoutAi_proposalsInput, Prisma.projectsUncheckedCreateWithoutAi_proposalsInput>
+}
+
+export type projectsUpsertWithoutAi_proposalsInput = {
+  update: Prisma.XOR<Prisma.projectsUpdateWithoutAi_proposalsInput, Prisma.projectsUncheckedUpdateWithoutAi_proposalsInput>
+  create: Prisma.XOR<Prisma.projectsCreateWithoutAi_proposalsInput, Prisma.projectsUncheckedCreateWithoutAi_proposalsInput>
+  where?: Prisma.projectsWhereInput
+}
+
+export type projectsUpdateToOneWithWhereWithoutAi_proposalsInput = {
+  where?: Prisma.projectsWhereInput
+  data: Prisma.XOR<Prisma.projectsUpdateWithoutAi_proposalsInput, Prisma.projectsUncheckedUpdateWithoutAi_proposalsInput>
+}
+
+export type projectsUpdateWithoutAi_proposalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
+  outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+}
+
+export type projectsUncheckedUpdateWithoutAi_proposalsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
+  dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+}
+
 export type projectsCreateManyOutcomesInput = {
   id?: string
   workspace_id: string
@@ -716,6 +1136,10 @@ export type projectsUpdateWithoutOutcomesInput = {
   workspaces?: Prisma.workspacesUpdateOneRequiredWithoutProjectsNestedInput
   tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateWithoutOutcomesInput = {
@@ -726,6 +1150,10 @@ export type projectsUncheckedUpdateWithoutOutcomesInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateManyWithoutOutcomesInput = {
@@ -752,6 +1180,10 @@ export type projectsUpdateWithoutWorkspacesInput = {
   tasks?: Prisma.tasksUpdateManyWithoutProjectsNestedInput
   outcomes?: Prisma.outcomesUpdateOneWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateWithoutWorkspacesInput = {
@@ -762,6 +1194,10 @@ export type projectsUncheckedUpdateWithoutWorkspacesInput = {
   outcome_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tasks?: Prisma.tasksUncheckedUpdateManyWithoutProjectsNestedInput
   dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutProjectsNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutProjectsNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutProjectsNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutProjectsNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutProjectsNestedInput
 }
 
 export type projectsUncheckedUpdateManyWithoutWorkspacesInput = {
@@ -780,11 +1216,19 @@ export type projectsUncheckedUpdateManyWithoutWorkspacesInput = {
 export type ProjectsCountOutputType = {
   tasks: number
   dependencies: number
+  execution_events: number
+  task_evidence: number
+  task_truth: number
+  ai_proposals: number
 }
 
 export type ProjectsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tasks?: boolean | ProjectsCountOutputTypeCountTasksArgs
   dependencies?: boolean | ProjectsCountOutputTypeCountDependenciesArgs
+  execution_events?: boolean | ProjectsCountOutputTypeCountExecution_eventsArgs
+  task_evidence?: boolean | ProjectsCountOutputTypeCountTask_evidenceArgs
+  task_truth?: boolean | ProjectsCountOutputTypeCountTask_truthArgs
+  ai_proposals?: boolean | ProjectsCountOutputTypeCountAi_proposalsArgs
 }
 
 /**
@@ -811,6 +1255,34 @@ export type ProjectsCountOutputTypeCountDependenciesArgs<ExtArgs extends runtime
   where?: Prisma.task_dependenciesWhereInput
 }
 
+/**
+ * ProjectsCountOutputType without action
+ */
+export type ProjectsCountOutputTypeCountExecution_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_eventsWhereInput
+}
+
+/**
+ * ProjectsCountOutputType without action
+ */
+export type ProjectsCountOutputTypeCountTask_evidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.task_evidenceWhereInput
+}
+
+/**
+ * ProjectsCountOutputType without action
+ */
+export type ProjectsCountOutputTypeCountTask_truthArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.task_truthWhereInput
+}
+
+/**
+ * ProjectsCountOutputType without action
+ */
+export type ProjectsCountOutputTypeCountAi_proposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ai_proposalsWhereInput
+}
+
 
 export type projectsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -823,6 +1295,10 @@ export type projectsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   tasks?: boolean | Prisma.projects$tasksArgs<ExtArgs>
   outcomes?: boolean | Prisma.projects$outcomesArgs<ExtArgs>
   dependencies?: boolean | Prisma.projects$dependenciesArgs<ExtArgs>
+  execution_events?: boolean | Prisma.projects$execution_eventsArgs<ExtArgs>
+  task_evidence?: boolean | Prisma.projects$task_evidenceArgs<ExtArgs>
+  task_truth?: boolean | Prisma.projects$task_truthArgs<ExtArgs>
+  ai_proposals?: boolean | Prisma.projects$ai_proposalsArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectsCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["projects"]>
 
@@ -863,6 +1339,10 @@ export type projectsInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   tasks?: boolean | Prisma.projects$tasksArgs<ExtArgs>
   outcomes?: boolean | Prisma.projects$outcomesArgs<ExtArgs>
   dependencies?: boolean | Prisma.projects$dependenciesArgs<ExtArgs>
+  execution_events?: boolean | Prisma.projects$execution_eventsArgs<ExtArgs>
+  task_evidence?: boolean | Prisma.projects$task_evidenceArgs<ExtArgs>
+  task_truth?: boolean | Prisma.projects$task_truthArgs<ExtArgs>
+  ai_proposals?: boolean | Prisma.projects$ai_proposalsArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectsCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type projectsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -881,6 +1361,10 @@ export type $projectsPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     tasks: Prisma.$tasksPayload<ExtArgs>[]
     outcomes: Prisma.$outcomesPayload<ExtArgs> | null
     dependencies: Prisma.$task_dependenciesPayload<ExtArgs>[]
+    execution_events: Prisma.$execution_eventsPayload<ExtArgs>[]
+    task_evidence: Prisma.$task_evidencePayload<ExtArgs>[]
+    task_truth: Prisma.$task_truthPayload<ExtArgs>[]
+    ai_proposals: Prisma.$ai_proposalsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1287,6 +1771,10 @@ export interface Prisma__projectsClient<T, Null = never, ExtArgs extends runtime
   tasks<T extends Prisma.projects$tasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$tasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   outcomes<T extends Prisma.projects$outcomesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$outcomesArgs<ExtArgs>>): Prisma.Prisma__outcomesClient<runtime.Types.Result.GetResult<Prisma.$outcomesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   dependencies<T extends Prisma.projects$dependenciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$dependenciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_dependenciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_events<T extends Prisma.projects$execution_eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$execution_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_eventsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  task_evidence<T extends Prisma.projects$task_evidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$task_evidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_evidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  task_truth<T extends Prisma.projects$task_truthArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$task_truthArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_truthPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ai_proposals<T extends Prisma.projects$ai_proposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.projects$ai_proposalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ai_proposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1787,6 +2275,102 @@ export type projects$dependenciesArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.Task_dependenciesScalarFieldEnum | Prisma.Task_dependenciesScalarFieldEnum[]
+}
+
+/**
+ * projects.execution_events
+ */
+export type projects$execution_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_events
+   */
+  select?: Prisma.execution_eventsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_events
+   */
+  omit?: Prisma.execution_eventsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_eventsInclude<ExtArgs> | null
+  where?: Prisma.execution_eventsWhereInput
+  orderBy?: Prisma.execution_eventsOrderByWithRelationInput | Prisma.execution_eventsOrderByWithRelationInput[]
+  cursor?: Prisma.execution_eventsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_eventsScalarFieldEnum | Prisma.Execution_eventsScalarFieldEnum[]
+}
+
+/**
+ * projects.task_evidence
+ */
+export type projects$task_evidenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the task_evidence
+   */
+  select?: Prisma.task_evidenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the task_evidence
+   */
+  omit?: Prisma.task_evidenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.task_evidenceInclude<ExtArgs> | null
+  where?: Prisma.task_evidenceWhereInput
+  orderBy?: Prisma.task_evidenceOrderByWithRelationInput | Prisma.task_evidenceOrderByWithRelationInput[]
+  cursor?: Prisma.task_evidenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Task_evidenceScalarFieldEnum | Prisma.Task_evidenceScalarFieldEnum[]
+}
+
+/**
+ * projects.task_truth
+ */
+export type projects$task_truthArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the task_truth
+   */
+  select?: Prisma.task_truthSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the task_truth
+   */
+  omit?: Prisma.task_truthOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.task_truthInclude<ExtArgs> | null
+  where?: Prisma.task_truthWhereInput
+  orderBy?: Prisma.task_truthOrderByWithRelationInput | Prisma.task_truthOrderByWithRelationInput[]
+  cursor?: Prisma.task_truthWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Task_truthScalarFieldEnum | Prisma.Task_truthScalarFieldEnum[]
+}
+
+/**
+ * projects.ai_proposals
+ */
+export type projects$ai_proposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ai_proposals
+   */
+  select?: Prisma.ai_proposalsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ai_proposals
+   */
+  omit?: Prisma.ai_proposalsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ai_proposalsInclude<ExtArgs> | null
+  where?: Prisma.ai_proposalsWhereInput
+  orderBy?: Prisma.ai_proposalsOrderByWithRelationInput | Prisma.ai_proposalsOrderByWithRelationInput[]
+  cursor?: Prisma.ai_proposalsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Ai_proposalsScalarFieldEnum | Prisma.Ai_proposalsScalarFieldEnum[]
 }
 
 /**
