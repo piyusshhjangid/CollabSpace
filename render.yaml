@@ -3,7 +3,7 @@ services:
     name: collabspace-app
     runtime: docker
     region: singapore
-    plan: 0.5c-512mb
+    plan: free
     dockerfilePath: ./Dockerfile.render
     dockerContext: .
     autoDeployTrigger: checksPass
@@ -37,38 +37,13 @@ services:
           envVarKey: RENDER_EXTERNAL_URL
       - key: JWT_SECRET
         generateValue: true
-      - key: GITHUB_WEBHOOK_SECRET
-        generateValue: true
-
-  - type: worker
-    name: collabspace-github-worker
-    runtime: docker
-    region: singapore
-    plan: 0.5c-512mb
-    dockerfilePath: ./Dockerfile.render
-    dockerContext: .
-    dockerCommand: npm run worker:github
-    autoDeployTrigger: checksPass
-    maxShutdownDelaySeconds: 120
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: collabspace-db
-          property: connectionString
-      - key: REDIS_URL
-        fromService:
-          type: keyvalue
-          name: collabspace-redis
-          property: connectionString
 
   - type: keyvalue
     name: collabspace-redis
     region: singapore
-    plan: 256mb
-    maxmemoryPolicy: noeviction
-    persistenceMode: journal-snapshot
+    plan: free
+    maxmemoryPolicy: allkeys-lru
+    persistenceMode: off
     ipAllowList: []
 
 databases:
@@ -76,7 +51,7 @@ databases:
     databaseName: collabspace
     user: collabspace
     region: singapore
-    plan: 0.1c-256mb
+    plan: free
     postgresMajorVersion: "17"
     ipAllowList: []
 
