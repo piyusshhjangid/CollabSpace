@@ -1,5 +1,7 @@
 import express from "express";
 import type { Request, Response } from "express";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import workspaceRouter from "./routes/workspace.routes.js";
 import projectRouter from "./routes/project.routes.js";
 import taskRouter from "./routes/task.routes.js"
@@ -38,7 +40,7 @@ app.use(
   }),
 );
 
-const allowedOrigins = (process.env.CORS_ORIGINS || process.env.CLIENT_ORIGIN || "http://localhost:5173").split(",").map((origin) => origin.trim()).filter(Boolean);
+export const allowedOrigins = (process.env.CORS_ORIGINS || process.env.CLIENT_ORIGIN || "http://localhost:5173").split(",").map((origin) => origin.trim()).filter(Boolean);
 app.use(cors({ origin: (origin, callback) => callback(null, !origin || allowedOrigins.includes(origin)), methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"], allowedHeaders: ["Content-Type", "Authorization", "Idempotency-Key"] }));
 
 interface PingQuery {
@@ -82,7 +84,25 @@ app.get("/api/ping", (req: Request<{}, {}, {}, PingQuery>, res: Response) => {
   });
 });
 
+const clientDirectory = join(process.cwd(), "public");
+const clientEntry = join(clientDirectory, "index.html");
+if (existsSync(clientEntry)) {
+  app.use(express.static(clientDirectory, { index: false, maxAge: "1y", immutable: true }));
+  app.use((req, res, next) => {
+    const serverRoutes = ["/api", "/auth", "/integrations", "/health"];
+    if (req.method !== "GET" || serverRoutes.some((route) => req.path === route || req.path.startsWith(`${route}/`))) {
+      next();
+      return;
+    }
+    res.setHeader("Cache-Control", "no-cache");
+    res.sendFile(clientEntry, (error) => {
+      if (error) next(error);
+    });
+  });
+}
+
 app.use(errorHandler);
 
 export default app;
 //made by piyush with love 
+
