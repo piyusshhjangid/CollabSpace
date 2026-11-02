@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ArrowRight, Building2, Check, Copy, Link2, LoaderCircle, Mail, MailPlus, Pencil, Plus, Trash2, Users, X } from "lucide-react";
 import { useWorkspace } from "../context/WorkspaceContext";
@@ -56,9 +56,6 @@ export default function WorkspaceManagementPage() {
     if (!inviteToken.trim()) return;
     acceptInvitation.mutate(inviteToken.trim(), { onSuccess: () => {
       setManualInviteToken("");
-      const next = new URLSearchParams(searchParams);
-      next.delete("token");
-      setSearchParams(next, { replace: true });
       const next = new URLSearchParams(searchParams);
       next.delete("token");
       setSearchParams(next, { replace: true });

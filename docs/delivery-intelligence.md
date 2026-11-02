@@ -11,6 +11,8 @@ CollabSpace keeps declared task status separate from observed delivery signals. 
 
 The API verifies `X-Hub-Signature-256` against the unmodified request bytes with a constant-time comparison, stores each `X-GitHub-Delivery` once, and acknowledges after queueing. The worker normalizes supported event types, stores a curated event record, links a task only when its `CS-...` key or UUID appears in branch/title/body/commit text, and adds evidence with explicit confidence. Raw webhook payloads are cleared from PostgreSQL after successful processing. Events without a task reference remain visible in the project timeline but do not affect task truth.
 
+Delayed and out-of-order deliveries keep the source event timestamp. Reconciliation recomputes truth from the recent evidence set using source confidence and age decay rather than applying events as a state-transition sequence. Competing signals can therefore produce `CONFLICT`; teams should use the timestamped timeline to review them.
+
 `GITHUB_WEBHOOK_SECRET` is configured once per API deployment; repository secrets are not saved in CollabSpace. For separate secret rotation per repository or GitHub App installation-token operations, deploy an integration gateway with encrypted per-installation credentials before adopting that model.
 
 ## Truth and evidence

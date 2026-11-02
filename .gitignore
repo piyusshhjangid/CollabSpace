@@ -15,8 +15,3 @@ client/dist/
 # Local logs and generated temporary reports
 *.log
 progress-preview-*.png
-roadmap.txt
-handbook.txt
-internship.txt
-handbook_extract.txt
-buildos-src/
