@@ -6,7 +6,7 @@ const date = z.iso.date().nullable().optional();
 export const CreateOutcomeSchema = z.object({
   name: z.string().trim().min(1).max(120),
   description: z.string().trim().max(2000).optional(),
-  successCriteria: criteria.min(1),
+  successCriteria: criteria.default([]),
   targetDate: date,
   ownerId: z.uuid().nullable().optional(),
 });

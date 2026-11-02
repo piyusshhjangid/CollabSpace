@@ -333,8 +333,7 @@ model github_integrations {
   created_by   String      @db.Uuid
   created_at   DateTime    @default(now()) @db.Timestamptz(6)
   updated_at   DateTime    @default(now()) @updatedAt @db.Timestamptz(6)
-  workspaces   workspaces? @relation(fields: [workspacesId], references: [id])
-  workspacesId String?     @db.Uuid
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@index([enabled], map: "idx_github_integration_enabled")
 }

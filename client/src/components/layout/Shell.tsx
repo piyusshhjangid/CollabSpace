@@ -22,6 +22,24 @@ interface ShellProps {
 export default function Shell({ children }: ShellProps) {
   const dispatch = useAppDispatch();
   const { logout } = useAuth();
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    try {
+      const savedTheme = localStorage.getItem("collabspace-theme");
+      return savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    document.documentElement.style.colorScheme = isDarkMode ? "dark" : "light";
+    try {
+      localStorage.setItem("collabspace-theme", isDarkMode ? "dark" : "light");
+    } catch {
+      // The active theme still applies when browser storage is unavailable.
+    }
+  }, [isDarkMode]);
 
   const currentWorkspaceId = useAppSelector(
     (state) => state.ui.currentWorkspaceId,
@@ -135,6 +153,18 @@ export default function Shell({ children }: ShellProps) {
     );
   };
 
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const shouldAnimate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (shouldAnimate) {
+      root.classList.add("theme-transitioning");
+      window.setTimeout(() => root.classList.remove("theme-transitioning"), 240);
+    }
+
+    setIsDarkMode((current) => !current);
+  };
+
   if (isWorkspacesPending) {
     return (
       <div className="flex h-screen items-center justify-center bg-zinc-50">
@@ -220,6 +250,8 @@ export default function Shell({ children }: ShellProps) {
             currentWorkspace={workspaceForUi}
             setCurrentWorkspace={setCurrentWorkspace}
             workspaces={workspaces}
+            isDarkMode={isDarkMode}
+            onToggleTheme={toggleTheme}
           />
 
           <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-[#f6f7fb] px-4 py-5 sm:px-6 sm:py-7">

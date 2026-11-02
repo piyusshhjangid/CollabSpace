@@ -3,6 +3,7 @@ import { FolderKanban } from "lucide-react";
 import { createTask, updateTask } from "../api/tasks";
 import type { Task } from "../types/task";
 import { taskKeys } from "./useTasks";
+import { workspaceOverviewKeys } from "./useWorkspaceOverview";
 
 export function useTaskMutations(workspaceId: string, projectId: string, projectName: string) {
   const queryClient = useQueryClient();
@@ -17,7 +18,10 @@ export function useTaskMutations(workspaceId: string, projectId: string, project
       return { previous };
     },
     onError: (_error, _title, context) => { if (context?.previous) queryClient.setQueryData(key, context.previous); },
-    onSettled: () => queryClient.invalidateQueries({ queryKey: key }),
+    onSettled: () => Promise.all([
+      queryClient.invalidateQueries({ queryKey: key }),
+      queryClient.invalidateQueries({ queryKey: workspaceOverviewKeys.detail(workspaceId) }),
+    ]),
   });
   const update = useMutation({
     mutationFn: ({ taskId, changes }: { taskId: string; changes: { title?: string; status?: Task["status"] } }) => updateTask(workspaceId, projectId, taskId, changes),
@@ -28,7 +32,10 @@ export function useTaskMutations(workspaceId: string, projectId: string, project
       return { previous };
     },
     onError: (_error, _variables, context) => { if (context?.previous) queryClient.setQueryData(key, context.previous); },
-    onSettled: () => queryClient.invalidateQueries({ queryKey: key }),
+    onSettled: () => Promise.all([
+      queryClient.invalidateQueries({ queryKey: key }),
+      queryClient.invalidateQueries({ queryKey: workspaceOverviewKeys.detail(workspaceId) }),
+    ]),
   });
   return { create, update };
 }

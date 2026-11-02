@@ -352,8 +352,7 @@ export const Github_integrationsScalarFieldEnum = {
   enabled: 'enabled',
   created_by: 'created_by',
   created_at: 'created_at',
-  updated_at: 'updated_at',
-  workspacesId: 'workspacesId'
+  updated_at: 'updated_at'
 } as const
 
 export type Github_integrationsScalarFieldEnum = (typeof Github_integrationsScalarFieldEnum)[keyof typeof Github_integrationsScalarFieldEnum]

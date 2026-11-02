@@ -4,6 +4,7 @@ import {
   getWorkspaces,
   createWorkspace,
   getCurrentWorkspace,
+  getWorkspaceOverview,
   removeWorkspaceMember,
   deleteWorkspace,
   updateWorkspace,
@@ -45,6 +46,13 @@ router.get(
   requireAuth,
   workspaceContext,
   getCurrentWorkspace,
+);
+
+router.get(
+  "/:workspaceId/overview",
+  requireAuth,
+  workspaceContext,
+  getWorkspaceOverview,
 );
 
 router.delete(

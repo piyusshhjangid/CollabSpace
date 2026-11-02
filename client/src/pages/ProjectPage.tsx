@@ -10,6 +10,7 @@ import { useProjects } from "../hooks/useProjects";
 import { usePermissions } from "../hooks/usePermissions";
 import { createProject } from "../api/projects";
 import { projectKeys } from "../hooks/useProjects";
+import { workspaceOverviewKeys } from "../hooks/useWorkspaceOverview";
 
 const ProjectPage = () => {
   const { currentWorkspace } = useWorkspace();
@@ -30,7 +31,7 @@ const ProjectPage = () => {
   }, [searchParams, setSearchParams]);
   const createMutation = useMutation({
     mutationFn: () => createProject(currentWorkspace?.id ?? "", name.trim(), description.trim()),
-    onSuccess: () => { void queryClient.invalidateQueries({ queryKey: projectKeys.workspace(currentWorkspace?.id ?? "") }); setName(""); setDescription(""); setOpen(false); },
+    onSuccess: () => { void queryClient.invalidateQueries({ queryKey: projectKeys.workspace(currentWorkspace?.id ?? "") }); void queryClient.invalidateQueries({ queryKey: workspaceOverviewKeys.detail(currentWorkspace?.id ?? "") }); setName(""); setDescription(""); setOpen(false); },
   });
 
   const {

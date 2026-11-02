@@ -74,6 +74,24 @@ export async function findWorkspaceMembership(
   });
 }
 
+export async function getWorkspaceOverviewCounts(workspaceId: string) {
+  const [taskCount, completedTaskCount, projectCount, memberCount] = await Promise.all([
+    prisma.tasks.count({ where: { workspace_id: workspaceId } }),
+    prisma.tasks.count({ where: { workspace_id: workspaceId, completed: true } }),
+    prisma.projects.count({ where: { workspace_id: workspaceId } }),
+    prisma.workspace_members.count({ where: { workspace_id: workspaceId } }),
+  ]);
+
+  return {
+    taskCount,
+    completedTaskCount,
+    openTaskCount: taskCount - completedTaskCount,
+    projectCount,
+    memberCount,
+    completionRate: taskCount ? Math.round((completedTaskCount / taskCount) * 100) : 0,
+  };
+}
+
 export async function removeWorkspaceMember(
   workspaceId: string,
   userId: string,

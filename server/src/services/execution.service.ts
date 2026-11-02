@@ -109,7 +109,7 @@ export async function createContract(workspaceId: string, userId: string, outcom
   if (!outcome) throw badRequest("Outcome not found");
   if (input.ownerId && !(await prisma.workspace_members.findFirst({ where: { workspace_id: workspaceId, user_id: input.ownerId } }))) throw badRequest("Contract owner must be a workspace member");
   return prisma.$transaction(async (tx) => {
-    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${outcomeId}))`;
+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${outcomeId}))`;
     const latest = await tx.delivery_contracts.findFirst({ where: { outcome_id: outcomeId, workspace_id: workspaceId }, orderBy: { version: "desc" }, select: { version: true } });
     return tx.delivery_contracts.create({ data: { workspace_id: workspaceId, outcome_id: outcomeId, version: (latest?.version ?? 0) + 1, scope: input.scope, deadline: asDate(input.deadline), constraints: input.constraints, acceptance_criteria: input.acceptanceCriteria, owner_id: input.ownerId ?? null, created_by: userId } });
   });
@@ -135,7 +135,7 @@ export async function createExecutionPlan(workspaceId: string, userId: string, o
   const planEdges = await prisma.task_dependencies.findMany({ where: { workspace_id: workspaceId, project_id: { in: [...projectIds] }, predecessor_task_id: { in: taskIds }, successor_task_id: { in: taskIds } } });
   for (const task of input.tasks) if (task.plannedStart && task.plannedEnd && task.plannedEnd < task.plannedStart) throw badRequest("Planned end must be on or after planned start");
   return prisma.$transaction(async (tx) => {
-    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${outcomeId}))`;
+    await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${outcomeId}))`;
     const latest = await tx.execution_plans.findFirst({ where: { outcome_id: outcomeId, workspace_id: workspaceId }, orderBy: { version: "desc" }, select: { version: true } });
     return tx.execution_plans.create({ data: { workspace_id: workspaceId, outcome_id: outcomeId, contract_id: contract.id, version: (latest?.version ?? 0) + 1, created_by: userId, tasks: { create: input.tasks.map((task, index) => ({ task_id: task.taskId, task_title: taskById.get(task.taskId)!.title, planned_start: asDate(task.plannedStart), planned_end: asDate(task.plannedEnd), duration_days: task.durationDays, order_index: index })) }, edges: { create: planEdges.map((edge) => ({ predecessor_task_id: edge.predecessor_task_id, predecessor_title: taskById.get(edge.predecessor_task_id)!.title, successor_task_id: edge.successor_task_id, successor_title: taskById.get(edge.successor_task_id)!.title, dependency_type: edge.dependency_type })) } }, include: { tasks: { orderBy: { order_index: "asc" } }, edges: true } });
   });
@@ -169,7 +169,7 @@ export async function createDependency(workspaceId: string, userId: string, proj
   if (input.predecessorTaskId === input.successorTaskId) throw badRequest("A task cannot depend on itself");
   try {
     return await prisma.$transaction(async (tx) => {
-      await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${projectId}))`;
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${projectId}))`;
       const tasks = await tx.tasks.findMany({ where: { project_id: projectId, workspace_id: workspaceId }, select: { id: true } });
       const taskIds = new Set(tasks.map((task) => task.id));
       if (!taskIds.has(input.predecessorTaskId) || !taskIds.has(input.successorTaskId)) throw badRequest("Both tasks must belong to this project and workspace");

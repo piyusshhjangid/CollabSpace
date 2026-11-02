@@ -33,7 +33,6 @@ export type Github_integrationsMinAggregateOutputType = {
   created_by: string | null
   created_at: Date | null
   updated_at: Date | null
-  workspacesId: string | null
 }
 
 export type Github_integrationsMaxAggregateOutputType = {
@@ -45,7 +44,6 @@ export type Github_integrationsMaxAggregateOutputType = {
   created_by: string | null
   created_at: Date | null
   updated_at: Date | null
-  workspacesId: string | null
 }
 
 export type Github_integrationsCountAggregateOutputType = {
@@ -57,7 +55,6 @@ export type Github_integrationsCountAggregateOutputType = {
   created_by: number
   created_at: number
   updated_at: number
-  workspacesId: number
   _all: number
 }
 
@@ -71,7 +68,6 @@ export type Github_integrationsMinAggregateInputType = {
   created_by?: true
   created_at?: true
   updated_at?: true
-  workspacesId?: true
 }
 
 export type Github_integrationsMaxAggregateInputType = {
@@ -83,7 +79,6 @@ export type Github_integrationsMaxAggregateInputType = {
   created_by?: true
   created_at?: true
   updated_at?: true
-  workspacesId?: true
 }
 
 export type Github_integrationsCountAggregateInputType = {
@@ -95,7 +90,6 @@ export type Github_integrationsCountAggregateInputType = {
   created_by?: true
   created_at?: true
   updated_at?: true
-  workspacesId?: true
   _all?: true
 }
 
@@ -180,7 +174,6 @@ export type Github_integrationsGroupByOutputType = {
   created_by: string
   created_at: Date
   updated_at: Date
-  workspacesId: string | null
   _count: Github_integrationsCountAggregateOutputType | null
   _min: Github_integrationsMinAggregateOutputType | null
   _max: Github_integrationsMaxAggregateOutputType | null
@@ -213,8 +206,7 @@ export type github_integrationsWhereInput = {
   created_by?: Prisma.UuidFilter<"github_integrations"> | string
   created_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
-  workspacesId?: Prisma.UuidNullableFilter<"github_integrations"> | string | null
-  workspaces?: Prisma.XOR<Prisma.WorkspacesNullableScalarRelationFilter, Prisma.workspacesWhereInput> | null
+  workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
 }
 
 export type github_integrationsOrderByWithRelationInput = {
@@ -226,7 +218,6 @@ export type github_integrationsOrderByWithRelationInput = {
   created_by?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  workspacesId?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaces?: Prisma.workspacesOrderByWithRelationInput
 }
 
@@ -242,8 +233,7 @@ export type github_integrationsWhereUniqueInput = Prisma.AtLeast<{
   created_by?: Prisma.UuidFilter<"github_integrations"> | string
   created_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
-  workspacesId?: Prisma.UuidNullableFilter<"github_integrations"> | string | null
-  workspaces?: Prisma.XOR<Prisma.WorkspacesNullableScalarRelationFilter, Prisma.workspacesWhereInput> | null
+  workspaces?: Prisma.XOR<Prisma.WorkspacesScalarRelationFilter, Prisma.workspacesWhereInput>
 }, "id" | "repository">
 
 export type github_integrationsOrderByWithAggregationInput = {
@@ -255,7 +245,6 @@ export type github_integrationsOrderByWithAggregationInput = {
   created_by?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  workspacesId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.github_integrationsCountOrderByAggregateInput
   _max?: Prisma.github_integrationsMaxOrderByAggregateInput
   _min?: Prisma.github_integrationsMinOrderByAggregateInput
@@ -273,19 +262,17 @@ export type github_integrationsScalarWhereWithAggregatesInput = {
   created_by?: Prisma.UuidWithAggregatesFilter<"github_integrations"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"github_integrations"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"github_integrations"> | Date | string
-  workspacesId?: Prisma.UuidNullableWithAggregatesFilter<"github_integrations"> | string | null
 }
 
 export type github_integrationsCreateInput = {
   id?: string
-  workspace_id: string
   project_id: string
   repository: string
   enabled?: boolean
   created_by: string
   created_at?: Date | string
   updated_at?: Date | string
-  workspaces?: Prisma.workspacesCreateNestedOneWithoutGithub_integrationsInput
+  workspaces: Prisma.workspacesCreateNestedOneWithoutGithub_integrationsInput
 }
 
 export type github_integrationsUncheckedCreateInput = {
@@ -297,19 +284,17 @@ export type github_integrationsUncheckedCreateInput = {
   created_by: string
   created_at?: Date | string
   updated_at?: Date | string
-  workspacesId?: string | null
 }
 
 export type github_integrationsUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
   project_id?: Prisma.StringFieldUpdateOperationsInput | string
   repository?: Prisma.StringFieldUpdateOperationsInput | string
   enabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workspaces?: Prisma.workspacesUpdateOneWithoutGithub_integrationsNestedInput
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutGithub_integrationsNestedInput
 }
 
 export type github_integrationsUncheckedUpdateInput = {
@@ -321,7 +306,6 @@ export type github_integrationsUncheckedUpdateInput = {
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workspacesId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type github_integrationsCreateManyInput = {
@@ -333,12 +317,10 @@ export type github_integrationsCreateManyInput = {
   created_by: string
   created_at?: Date | string
   updated_at?: Date | string
-  workspacesId?: string | null
 }
 
 export type github_integrationsUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
   project_id?: Prisma.StringFieldUpdateOperationsInput | string
   repository?: Prisma.StringFieldUpdateOperationsInput | string
   enabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -356,7 +338,6 @@ export type github_integrationsUncheckedUpdateManyInput = {
   created_by?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  workspacesId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type Github_integrationsListRelationFilter = {
@@ -378,7 +359,6 @@ export type github_integrationsCountOrderByAggregateInput = {
   created_by?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  workspacesId?: Prisma.SortOrder
 }
 
 export type github_integrationsMaxOrderByAggregateInput = {
@@ -390,7 +370,6 @@ export type github_integrationsMaxOrderByAggregateInput = {
   created_by?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  workspacesId?: Prisma.SortOrder
 }
 
 export type github_integrationsMinOrderByAggregateInput = {
@@ -402,7 +381,6 @@ export type github_integrationsMinOrderByAggregateInput = {
   created_by?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  workspacesId?: Prisma.SortOrder
 }
 
 export type github_integrationsCreateNestedManyWithoutWorkspacesInput = {
@@ -449,7 +427,6 @@ export type github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput =
 
 export type github_integrationsCreateWithoutWorkspacesInput = {
   id?: string
-  workspace_id: string
   project_id: string
   repository: string
   enabled?: boolean
@@ -460,7 +437,6 @@ export type github_integrationsCreateWithoutWorkspacesInput = {
 
 export type github_integrationsUncheckedCreateWithoutWorkspacesInput = {
   id?: string
-  workspace_id: string
   project_id: string
   repository: string
   enabled?: boolean
@@ -507,12 +483,10 @@ export type github_integrationsScalarWhereInput = {
   created_by?: Prisma.UuidFilter<"github_integrations"> | string
   created_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"github_integrations"> | Date | string
-  workspacesId?: Prisma.UuidNullableFilter<"github_integrations"> | string | null
 }
 
 export type github_integrationsCreateManyWorkspacesInput = {
   id?: string
-  workspace_id: string
   project_id: string
   repository: string
   enabled?: boolean
@@ -523,7 +497,6 @@ export type github_integrationsCreateManyWorkspacesInput = {
 
 export type github_integrationsUpdateWithoutWorkspacesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
   project_id?: Prisma.StringFieldUpdateOperationsInput | string
   repository?: Prisma.StringFieldUpdateOperationsInput | string
   enabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -534,7 +507,6 @@ export type github_integrationsUpdateWithoutWorkspacesInput = {
 
 export type github_integrationsUncheckedUpdateWithoutWorkspacesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
   project_id?: Prisma.StringFieldUpdateOperationsInput | string
   repository?: Prisma.StringFieldUpdateOperationsInput | string
   enabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -545,7 +517,6 @@ export type github_integrationsUncheckedUpdateWithoutWorkspacesInput = {
 
 export type github_integrationsUncheckedUpdateManyWithoutWorkspacesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
   project_id?: Prisma.StringFieldUpdateOperationsInput | string
   repository?: Prisma.StringFieldUpdateOperationsInput | string
   enabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -565,8 +536,7 @@ export type github_integrationsSelect<ExtArgs extends runtime.Types.Extensions.I
   created_by?: boolean
   created_at?: boolean
   updated_at?: boolean
-  workspacesId?: boolean
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["github_integrations"]>
 
 export type github_integrationsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -578,8 +548,7 @@ export type github_integrationsSelectCreateManyAndReturn<ExtArgs extends runtime
   created_by?: boolean
   created_at?: boolean
   updated_at?: boolean
-  workspacesId?: boolean
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["github_integrations"]>
 
 export type github_integrationsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -591,8 +560,7 @@ export type github_integrationsSelectUpdateManyAndReturn<ExtArgs extends runtime
   created_by?: boolean
   created_at?: boolean
   updated_at?: boolean
-  workspacesId?: boolean
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["github_integrations"]>
 
 export type github_integrationsSelectScalar = {
@@ -604,24 +572,23 @@ export type github_integrationsSelectScalar = {
   created_by?: boolean
   created_at?: boolean
   updated_at?: boolean
-  workspacesId?: boolean
 }
 
-export type github_integrationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspace_id" | "project_id" | "repository" | "enabled" | "created_by" | "created_at" | "updated_at" | "workspacesId", ExtArgs["result"]["github_integrations"]>
+export type github_integrationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspace_id" | "project_id" | "repository" | "enabled" | "created_by" | "created_at" | "updated_at", ExtArgs["result"]["github_integrations"]>
 export type github_integrationsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }
 export type github_integrationsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }
 export type github_integrationsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workspaces?: boolean | Prisma.github_integrations$workspacesArgs<ExtArgs>
+  workspaces?: boolean | Prisma.workspacesDefaultArgs<ExtArgs>
 }
 
 export type $github_integrationsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "github_integrations"
   objects: {
-    workspaces: Prisma.$workspacesPayload<ExtArgs> | null
+    workspaces: Prisma.$workspacesPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -632,7 +599,6 @@ export type $github_integrationsPayload<ExtArgs extends runtime.Types.Extensions
     created_by: string
     created_at: Date
     updated_at: Date
-    workspacesId: string | null
   }, ExtArgs["result"]["github_integrations"]>
   composites: {}
 }
@@ -1027,7 +993,7 @@ readonly fields: github_integrationsFieldRefs;
  */
 export interface Prisma__github_integrationsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  workspaces<T extends Prisma.github_integrations$workspacesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.github_integrations$workspacesArgs<ExtArgs>>): Prisma.Prisma__workspacesClient<runtime.Types.Result.GetResult<Prisma.$workspacesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  workspaces<T extends Prisma.workspacesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspacesDefaultArgs<ExtArgs>>): Prisma.Prisma__workspacesClient<runtime.Types.Result.GetResult<Prisma.$workspacesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1065,7 +1031,6 @@ export interface github_integrationsFieldRefs {
   readonly created_by: Prisma.FieldRef<"github_integrations", 'String'>
   readonly created_at: Prisma.FieldRef<"github_integrations", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"github_integrations", 'DateTime'>
-  readonly workspacesId: Prisma.FieldRef<"github_integrations", 'String'>
 }
     
 
@@ -1464,25 +1429,6 @@ export type github_integrationsDeleteManyArgs<ExtArgs extends runtime.Types.Exte
    * Limit how many github_integrations to delete.
    */
   limit?: number
-}
-
-/**
- * github_integrations.workspaces
- */
-export type github_integrations$workspacesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the workspaces
-   */
-  select?: Prisma.workspacesSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the workspaces
-   */
-  omit?: Prisma.workspacesOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.workspacesInclude<ExtArgs> | null
-  where?: Prisma.workspacesWhereInput
 }
 
 /**

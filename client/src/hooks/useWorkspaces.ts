@@ -5,6 +5,7 @@ import { setCurrentWorkspaceId } from "../store/slices/uiSlice";
 import { workspaceRoleKeys } from "./useWorkspaceRole";
 import { projectKeys } from "./useProjects";
 import type { Workspace } from "../types/workspace";
+import { workspaceOverviewKeys } from "./useWorkspaceOverview";
 
 export const workspaceKeys = {
   all: ["workspaces"] as const,
@@ -90,6 +91,9 @@ export function useAcceptInvitation() {
       queryClient.invalidateQueries({
         queryKey: projectKeys.workspace(result.workspaceId),
       });
+      queryClient.invalidateQueries({
+        queryKey: workspaceOverviewKeys.detail(result.workspaceId),
+      });
     },
   });
 }
@@ -114,6 +118,7 @@ export function useDeleteWorkspace() {
       dispatch(setCurrentWorkspaceId(remaining[0]?.id ?? null));
       await queryClient.invalidateQueries({ queryKey: workspaceKeys.all });
       queryClient.removeQueries({ queryKey: workspaceKeys.invitations(workspaceId) });
+      queryClient.removeQueries({ queryKey: workspaceOverviewKeys.detail(workspaceId) });
     },
   });
 }

@@ -5,6 +5,7 @@ import {
   removeWorkspaceMember,
   deleteWorkspace,
   updateWorkspace,
+  getWorkspaceOverviewCounts,
 } from "../repositories/workspace.repository.js";
 
 import { badRequest, forbidden } from "../lib/AppError.js";
@@ -57,6 +58,10 @@ export async function getUserWorkspacesService(
   userId: string,
 ) {
   return findWorkspacesByUser(userId);
+}
+
+export async function getWorkspaceOverviewService(workspaceId: string) {
+  return getWorkspaceOverviewCounts(workspaceId);
 }
 
 export async function updateWorkspaceService(workspaceId: string, actorUserId: string, name: string) {

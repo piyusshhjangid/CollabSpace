@@ -7,6 +7,7 @@ import {
   removeWorkspaceMemberService,
   deleteWorkspaceService,
   updateWorkspaceService,
+  getWorkspaceOverviewService,
 } from "../services/workspace.service.js";
 
 import {
@@ -92,6 +93,21 @@ export const getCurrentWorkspace: RequestHandler = async (
       workspaceId: req.workspace.id,
       role: req.workspace.role,
     },
+  };
+
+  res.json(response);
+};
+
+export const getWorkspaceOverview: RequestHandler = async (req, res) => {
+  if (!req.workspace) {
+    throw badRequest("Workspace context is required");
+  }
+
+  const data = await getWorkspaceOverviewService(req.workspace.id);
+  const response: ApiResponse<typeof data> = {
+    success: true,
+    message: "Workspace overview fetched",
+    data,
   };
 
   res.json(response);

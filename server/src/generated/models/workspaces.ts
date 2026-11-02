@@ -385,11 +385,6 @@ export type workspacesMinOrderByAggregateInput = {
   created_at?: Prisma.SortOrder
 }
 
-export type WorkspacesNullableScalarRelationFilter = {
-  is?: Prisma.workspacesWhereInput | null
-  isNot?: Prisma.workspacesWhereInput | null
-}
-
 export type workspacesCreateNestedOneWithoutProjectsInput = {
   create?: Prisma.XOR<Prisma.workspacesCreateWithoutProjectsInput, Prisma.workspacesUncheckedCreateWithoutProjectsInput>
   connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutProjectsInput
@@ -564,12 +559,10 @@ export type workspacesCreateNestedOneWithoutGithub_integrationsInput = {
   connect?: Prisma.workspacesWhereUniqueInput
 }
 
-export type workspacesUpdateOneWithoutGithub_integrationsNestedInput = {
+export type workspacesUpdateOneRequiredWithoutGithub_integrationsNestedInput = {
   create?: Prisma.XOR<Prisma.workspacesCreateWithoutGithub_integrationsInput, Prisma.workspacesUncheckedCreateWithoutGithub_integrationsInput>
   connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutGithub_integrationsInput
   upsert?: Prisma.workspacesUpsertWithoutGithub_integrationsInput
-  disconnect?: Prisma.workspacesWhereInput | boolean
-  delete?: Prisma.workspacesWhereInput | boolean
   connect?: Prisma.workspacesWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutGithub_integrationsInput, Prisma.workspacesUpdateWithoutGithub_integrationsInput>, Prisma.workspacesUncheckedUpdateWithoutGithub_integrationsInput>
 }

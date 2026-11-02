@@ -14,6 +14,22 @@ export interface BackendWorkspace {
   role: WorkspaceRole;
 }
 
+export interface WorkspaceOverview {
+  taskCount: number;
+  completedTaskCount: number;
+  openTaskCount: number;
+  projectCount: number;
+  memberCount: number;
+  completionRate: number;
+}
+
+export async function fetchWorkspaceOverview(workspaceId: string): Promise<WorkspaceOverview> {
+  const response = await apiFetch<ApiResponse<WorkspaceOverview>>(
+    `/api/workspaces/${encodeURIComponent(workspaceId)}/overview`,
+  );
+  return response.data;
+}
+
 export async function createWorkspace(payload: {
   name: string;
 }): Promise<BackendWorkspace> {

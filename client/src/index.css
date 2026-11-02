@@ -26,3 +26,412 @@
     scrollbar-color: rgba(0,0,0,0.3) transparent;
   }
 }
+
+:root {
+  --cs-flow-grid: #cbd5e1;
+  --cs-flow-link: #94a3b8;
+  --cs-flow-critical: #7c3aed;
+  --cs-flow-label-bg: #ffffff;
+  --cs-flow-label: #475569;
+}
+
+html.dark {
+  color-scheme: dark;
+  --cs-canvas: #0b1120;
+  --cs-surface: #111a2b;
+  --cs-surface-muted: #0e1728;
+  --cs-surface-raised: #18263a;
+  --cs-surface-hover: #202f45;
+  --cs-surface-hero: #141d31;
+  --cs-border: #2b3a50;
+  --cs-text-primary: #f3f6fc;
+  --cs-text-secondary: #c3cede;
+  --cs-text-muted: #93a2b6;
+  --cs-violet-wash: #251d3e;
+  --cs-violet-border: #4b3b73;
+  --cs-violet-text: #c4b2ff;
+  --cs-blue-wash: #152a47;
+  --cs-blue-border: #29456a;
+  --cs-blue-text: #9bcaff;
+  --cs-green-wash: #10352e;
+  --cs-green-border: #215a4b;
+  --cs-green-text: #75e0b7;
+  --cs-amber-wash: #382c13;
+  --cs-amber-border: #65501f;
+  --cs-amber-text: #f5cf73;
+  --cs-red-wash: #3b2029;
+  --cs-red-border: #713b49;
+  --cs-red-text: #ffa1b0;
+  --cs-primary-button: #684bd4;
+  --cs-primary-button-hover: #775be5;
+  --cs-shadow: rgb(0 0 0 / 0.28);
+  --cs-ring-offset: #0b1120;
+  --cs-flow-grid: #25324a;
+  --cs-flow-link: #7487a2;
+  --cs-flow-critical: #a78bfa;
+  --cs-flow-label-bg: #172238;
+  --cs-flow-label: #e2e8f0;
+  --tw-ring-offset-color: var(--cs-ring-offset);
+}
+
+html.dark body {
+  background-color: var(--cs-canvas);
+  color: var(--cs-text-secondary);
+}
+
+html.dark main,
+html.dark [class~="bg-[#f6f7fb]"] {
+  background-color: var(--cs-canvas);
+}
+
+/* Shared app surfaces */
+html.dark [class~="bg-white"] {
+  background-color: var(--cs-surface);
+}
+
+html.dark [class~="bg-slate-50"],
+html.dark [class~="bg-slate-50/70"],
+html.dark [class~="bg-slate-50/80"],
+html.dark [class~="bg-zinc-50"],
+html.dark [class~="bg-sky-50"] {
+  background-color: var(--cs-surface-muted);
+}
+
+html.dark [class~="bg-slate-100"],
+html.dark [class~="bg-zinc-100"],
+html.dark [class~="bg-zinc-200"] {
+  background-color: var(--cs-surface-raised);
+}
+
+html.dark [class~="bg-slate-800"],
+html.dark [class~="bg-zinc-800"] {
+  background-color: var(--cs-surface-hover);
+}
+
+html.dark [class~="bg-slate-950"],
+html.dark [class~="bg-zinc-900"] {
+  background-color: var(--cs-primary-button);
+}
+
+html.dark button[class~="bg-slate-950"]:hover,
+html.dark a[class~="bg-slate-950"]:hover,
+html.dark button[class~="bg-zinc-900"]:hover,
+html.dark [class~="hover:bg-slate-800"]:hover,
+html.dark [class~="hover:bg-zinc-800"]:hover {
+  background-color: var(--cs-primary-button-hover);
+}
+
+html.dark [class~="bg-slate-950/30"],
+html.dark [class~="bg-slate-950/35"] {
+  background-color: rgb(3 8 19 / 0.76);
+}
+
+html.dark section[class~="bg-slate-950"] {
+  background-color: var(--cs-surface-hero);
+}
+
+/* Tinted surfaces keep their meaning without glowing against the dark canvas. */
+html.dark [class~="bg-violet-50"],
+html.dark [class~="bg-violet-50/60"],
+html.dark [class~="bg-violet-50/70"],
+html.dark [class~="bg-violet-100"],
+html.dark [class~="bg-violet-300"],
+html.dark [class~="bg-purple-50"],
+html.dark [class~="bg-purple-100"],
+html.dark [class~="bg-purple-300"] {
+  background-color: var(--cs-violet-wash);
+}
+
+html.dark [class~="bg-blue-50"],
+html.dark [class~="bg-blue-100"] {
+  background-color: var(--cs-blue-wash);
+}
+
+html.dark [class~="bg-emerald-50"],
+html.dark [class~="bg-emerald-100"],
+html.dark [class~="bg-green-100"] {
+  background-color: var(--cs-green-wash);
+}
+
+html.dark [class~="bg-amber-50"],
+html.dark [class~="bg-amber-50/70"],
+html.dark [class~="bg-yellow-100"] {
+  background-color: var(--cs-amber-wash);
+}
+
+html.dark [class~="bg-red-50"],
+html.dark [class~="bg-red-100"],
+html.dark [class~="bg-rose-50"],
+html.dark [class~="bg-rose-300"] {
+  background-color: var(--cs-red-wash);
+}
+
+/* Borders and separators */
+html.dark [class~="border-slate-50"],
+html.dark [class~="border-slate-100"],
+html.dark [class~="border-slate-200"],
+html.dark [class~="border-slate-200/80"],
+html.dark [class~="border-slate-300"],
+html.dark [class~="border-zinc-100"],
+html.dark [class~="border-zinc-200"],
+html.dark [class~="border-zinc-300"],
+html.dark [class~="divide-slate-100"],
+html.dark [class~="divide-zinc-200"] {
+  border-color: var(--cs-border);
+}
+
+html.dark [class~="divide-slate-100"] > :not(:first-child),
+html.dark [class~="divide-zinc-200"] > :not(:first-child) {
+  border-color: var(--cs-border);
+}
+
+html.dark [class~="border-violet-100"],
+html.dark [class~="border-violet-200"],
+html.dark [class~="border-violet-300"],
+html.dark [class~="border-violet-400"] {
+  border-color: var(--cs-violet-border);
+}
+
+html.dark [class~="border-blue-200"] {
+  border-color: var(--cs-blue-border);
+}
+
+html.dark [class~="border-emerald-100"],
+html.dark [class~="border-emerald-200"],
+html.dark [class~="border-green-200"] {
+  border-color: var(--cs-green-border);
+}
+
+html.dark [class~="border-amber-100"],
+html.dark [class~="border-amber-200"],
+html.dark [class~="border-amber-300"],
+html.dark [class~="border-yellow-200"] {
+  border-color: var(--cs-amber-border);
+}
+
+html.dark [class~="border-red-200"],
+html.dark [class~="border-red-300"],
+html.dark [class~="border-red-400"],
+html.dark [class~="border-red-500"],
+html.dark [class~="border-rose-200"] {
+  border-color: var(--cs-red-border);
+}
+
+html.dark [class~="border-white"],
+html.dark [class~="border-white/10"] {
+  border-color: var(--cs-border);
+}
+
+/* Text hierarchy and semantic colors */
+html.dark [class~="text-slate-950"],
+html.dark [class~="text-slate-900"],
+html.dark [class~="text-zinc-900"] {
+  color: var(--cs-text-primary);
+}
+
+html.dark [class~="text-slate-800"],
+html.dark [class~="text-zinc-800"] {
+  color: #e3eaf4;
+}
+
+html.dark [class~="text-slate-700"],
+html.dark [class~="text-zinc-700"],
+html.dark [class~="text-slate-600"],
+html.dark [class~="text-zinc-600"] {
+  color: var(--cs-text-secondary);
+}
+
+html.dark [class~="text-slate-500"],
+html.dark [class~="text-slate-400"],
+html.dark [class~="text-zinc-500"],
+html.dark [class~="text-zinc-400"] {
+  color: var(--cs-text-muted);
+}
+
+html.dark [class~="text-violet-950"],
+html.dark [class~="text-violet-900"],
+html.dark [class~="text-violet-800"],
+html.dark [class~="text-violet-700"],
+html.dark [class~="text-violet-600"],
+html.dark [class~="text-violet-600/90"],
+html.dark [class~="text-violet-500"],
+html.dark [class~="text-purple-700"],
+html.dark [class~="text-purple-600"] {
+  color: var(--cs-violet-text);
+}
+
+html.dark [class~="text-blue-800"],
+html.dark [class~="text-blue-700"],
+html.dark [class~="text-blue-600"],
+html.dark [class~="text-sky-700"] {
+  color: var(--cs-blue-text);
+}
+
+html.dark [class~="text-emerald-900"],
+html.dark [class~="text-emerald-800"],
+html.dark [class~="text-emerald-700"],
+html.dark [class~="text-emerald-600"],
+html.dark [class~="text-green-800"],
+html.dark [class~="text-green-700"],
+html.dark [class~="text-green-600"] {
+  color: var(--cs-green-text);
+}
+
+html.dark [class~="text-amber-900"],
+html.dark [class~="text-amber-800"],
+html.dark [class~="text-amber-700"],
+html.dark [class~="text-amber-500"],
+html.dark [class~="text-yellow-800"],
+html.dark [class~="text-yellow-600"] {
+  color: var(--cs-amber-text);
+}
+
+html.dark [class~="text-red-900"],
+html.dark [class~="text-red-800"],
+html.dark [class~="text-red-700"],
+html.dark [class~="text-red-600"],
+html.dark [class~="text-red-500"],
+html.dark [class~="text-rose-700"],
+html.dark [class~="text-rose-600"],
+html.dark [class~="text-rose-500"] {
+  color: var(--cs-red-text);
+}
+
+/* Interactive states, focus indicators and form controls */
+html.dark [class~="hover:bg-slate-50"]:hover,
+html.dark [class~="hover:bg-zinc-50"]:hover,
+html.dark [class~="hover:bg-white"]:hover,
+html.dark [class~="hover:bg-slate-100"]:hover,
+html.dark [class~="hover:bg-zinc-100"]:hover,
+html.dark [class~="hover:bg-zinc-200"]:hover {
+  background-color: var(--cs-surface-hover);
+}
+
+html.dark [class~="hover:bg-violet-50"]:hover,
+html.dark [class~="hover:bg-violet-100"]:hover,
+html.dark [class~="hover:bg-purple-100"]:hover {
+  background-color: #302751;
+}
+
+html.dark [class~="hover:bg-red-50"]:hover,
+html.dark [class~="hover:bg-rose-50"]:hover {
+  background-color: #4a2732;
+}
+
+html.dark [class~="hover:text-slate-700"]:hover,
+html.dark [class~="hover:text-slate-900"]:hover,
+html.dark [class~="hover:text-zinc-700"]:hover {
+  color: var(--cs-text-primary);
+}
+
+html.dark [class~="ring-white"],
+html.dark [class~="ring-violet-100"],
+html.dark [class~="ring-violet-200"] {
+  --tw-ring-color: #32415b;
+}
+
+html.dark [class~="ring-violet-400"] {
+  --tw-ring-color: #8b73da;
+}
+
+html.dark [class~="focus:ring-violet-100"]:focus,
+html.dark [class~="focus:ring-violet-200"]:focus {
+  --tw-ring-color: #48366e;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark textarea,
+html.dark select {
+  background-color: var(--cs-surface);
+  border-color: var(--cs-border);
+  color: var(--cs-text-primary);
+  color-scheme: dark;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+html.dark [class*="placeholder:text-"]::placeholder {
+  color: #7889a1;
+  opacity: 1;
+}
+
+html.dark option {
+  background-color: var(--cs-surface);
+  color: var(--cs-text-primary);
+}
+
+html.dark [class~="disabled:bg-zinc-100"]:disabled {
+  background-color: #1a2537;
+}
+
+html.dark .scrollbar-thin {
+  scrollbar-color: #44536b var(--cs-surface-muted);
+}
+
+html.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #44536b;
+}
+
+html.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b;
+}
+
+html.dark .shadow-sm {
+  --tw-shadow-color: var(--cs-shadow);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2), 0 1px 2px rgb(0 0 0 / 0.16);
+}
+
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  --tw-shadow-color: rgb(0 0 0 / 0.4);
+  box-shadow: 0 20px 48px rgb(0 0 0 / 0.34);
+}
+
+html.dark .theme-toggle-thumb {
+  background-color: #f8fafc;
+  color: #6d28d9;
+}
+
+/* React Flow ships a few inline light colors, so theme its graph controls and labels here. */
+html.dark .react-flow__handle {
+  border-color: var(--cs-surface) !important;
+}
+
+html.dark .react-flow__controls-button {
+  background-color: var(--cs-surface) !important;
+  border-color: var(--cs-border) !important;
+  color: var(--cs-text-secondary) !important;
+}
+
+html.dark .react-flow__controls-button:hover {
+  background-color: var(--cs-surface-hover) !important;
+}
+
+html.dark .react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+html.dark .react-flow__edge-textbg {
+  fill: var(--cs-flow-label-bg) !important;
+}
+
+html.dark .react-flow__edge-text {
+  fill: var(--cs-flow-label) !important;
+}
+
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow, opacity, transform, backdrop-filter !important;
+  transition-duration: 200ms !important;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
