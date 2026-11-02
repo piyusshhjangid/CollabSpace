@@ -1,0 +1,12 @@
+.git
+.env
+.env.*
+**/.env
+**/.env.*
+**/node_modules
+**/dist
+**/.vite
+server/src/generated
+progress-preview-*.png
+*.log
+
