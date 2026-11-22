@@ -262,10 +262,9 @@ HTTP Response
 
 | Technology | Purpose |
 |---|---|
-| Gemini | AI capabilities |
-| OpenAI | AI capabilities |
-| RAG | Retrieval-augmented generation |
-| pgvector | Vector search |
+| Gemini | Optional, evidence-grounded delivery analysis and knowledge embeddings |
+| PostgreSQL full-text search | Workspace-scoped knowledge retrieval without an external model |
+| pgvector | Optional semantic knowledge search when the extension and embedding key are configured |
 
 ## DevOps
 
@@ -643,29 +642,11 @@ npm run dev
 
 ## Environment Variables
 
-Create:
-
-```text
-server/.env
-```
-
-Example:
-
-```env
-DATABASE_URL=postgresql://postgres:YOUR_POSTGRES_PASSWORD@localhost:5432/collabspace
-PORT=5000
-```
-
-Never commit `.env`.
+Copy `server/.env.example` to `server/.env`, then set at least `DATABASE_URL` and a long random `JWT_SECRET` for local development. Set `REDIS_URL` when running queue-backed workers; the GitHub, recovery, and integration workers need a reachable Redis service. Optional email, GitHub, Gemini, and provider integrations are documented in the example file. Never commit `.env`.
 
 If the server reports Prisma `P1000`, PostgreSQL rejected the username or password in `DATABASE_URL`. Replace `YOUR_POSTGRES_PASSWORD` in `server/.env` with the password configured for your local PostgreSQL `postgres` account. If the password contains URL-reserved characters, percent-encode them. Then, from `server`, run `npx prisma migrate deploy` and `npm run dev`.
 
-Create `server/.env.example` for documenting required variables:
-
-```env
-DATABASE_URL=
-PORT=5000
-```
+The example file lists the required and optional variables used by the server. Keep it current when adding configuration, and put only local secrets in `server/.env`.
 
 ---
 
@@ -794,7 +775,7 @@ The goal is to keep changes isolated, understandable, testable, and easy to revi
 
 # 🤝 Contributing
 
-Contributions, bug reports, and thoughtful feedback are welcome. Start with the [contribution guide](CONTRIBUTING.md), browse [open issues](https://github.com/piyusshhjangid/CollabSpace/issues), and check the roadmap tracker before starting a larger change.
+Contributions, bug reports, and thoughtful feedback are welcome. Start with the [contribution guide](CONTRIBUTING.md), browse [open issues](https://github.com/piyusshhjangid/CollabSpace/issues), and check the [roadmap tracker](https://github.com/piyusshhjangid/CollabSpace/issues/15) before starting a larger change.
 
 The roadmap describes intended work; it does not mean every item is already implemented. Use the current code and issue acceptance criteria to understand the scope of active work.
 
