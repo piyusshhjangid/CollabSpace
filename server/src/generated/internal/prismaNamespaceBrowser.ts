@@ -75,7 +75,22 @@ export const ModelName = {
   execution_events: 'execution_events',
   task_evidence: 'task_evidence',
   task_truth: 'task_truth',
-  ai_proposals: 'ai_proposals'
+  ai_proposals: 'ai_proposals',
+  execution_history_snapshots: 'execution_history_snapshots',
+  execution_scenarios: 'execution_scenarios',
+  execution_scenario_runs: 'execution_scenario_runs',
+  recovery_plans: 'recovery_plans',
+  agent_runs: 'agent_runs',
+  agent_run_steps: 'agent_run_steps',
+  knowledge_documents: 'knowledge_documents',
+  knowledge_chunks: 'knowledge_chunks',
+  external_integrations: 'external_integrations',
+  integration_events: 'integration_events',
+  integration_resource_links: 'integration_resource_links',
+  recovery_jobs: 'recovery_jobs',
+  ai_evaluations: 'ai_evaluations',
+  integration_oauth_states: 'integration_oauth_states',
+  integration_sync_jobs: 'integration_sync_jobs'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -443,6 +458,249 @@ export const Ai_proposalsScalarFieldEnum = {
 } as const
 
 export type Ai_proposalsScalarFieldEnum = (typeof Ai_proposalsScalarFieldEnum)[keyof typeof Ai_proposalsScalarFieldEnum]
+
+
+export const Execution_history_snapshotsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  captured_by: 'captured_by',
+  snapshot: 'snapshot',
+  created_at: 'created_at'
+} as const
+
+export type Execution_history_snapshotsScalarFieldEnum = (typeof Execution_history_snapshotsScalarFieldEnum)[keyof typeof Execution_history_snapshotsScalarFieldEnum]
+
+
+export const Execution_scenariosScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  created_by: 'created_by',
+  name: 'name',
+  changes: 'changes',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Execution_scenariosScalarFieldEnum = (typeof Execution_scenariosScalarFieldEnum)[keyof typeof Execution_scenariosScalarFieldEnum]
+
+
+export const Execution_scenario_runsScalarFieldEnum = {
+  id: 'id',
+  scenario_id: 'scenario_id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  input_hash: 'input_hash',
+  input_snapshot: 'input_snapshot',
+  result: 'result',
+  created_at: 'created_at'
+} as const
+
+export type Execution_scenario_runsScalarFieldEnum = (typeof Execution_scenario_runsScalarFieldEnum)[keyof typeof Execution_scenario_runsScalarFieldEnum]
+
+
+export const Recovery_plansScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  created_by: 'created_by',
+  name: 'name',
+  status: 'status',
+  root_cause: 'root_cause',
+  options: 'options',
+  selected_option_key: 'selected_option_key',
+  decided_by: 'decided_by',
+  decided_at: 'decided_at',
+  verification: 'verification',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Recovery_plansScalarFieldEnum = (typeof Recovery_plansScalarFieldEnum)[keyof typeof Recovery_plansScalarFieldEnum]
+
+
+export const Agent_runsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  requested_by: 'requested_by',
+  agent_type: 'agent_type',
+  status: 'status',
+  input: 'input',
+  result: 'result',
+  budget_limit: 'budget_limit',
+  budget_used: 'budget_used',
+  idempotency_key: 'idempotency_key',
+  created_at: 'created_at',
+  finished_at: 'finished_at'
+} as const
+
+export type Agent_runsScalarFieldEnum = (typeof Agent_runsScalarFieldEnum)[keyof typeof Agent_runsScalarFieldEnum]
+
+
+export const Agent_run_stepsScalarFieldEnum = {
+  id: 'id',
+  run_id: 'run_id',
+  step_index: 'step_index',
+  agent_role: 'agent_role',
+  status: 'status',
+  input: 'input',
+  result: 'result',
+  citations: 'citations',
+  started_at: 'started_at',
+  finished_at: 'finished_at'
+} as const
+
+export type Agent_run_stepsScalarFieldEnum = (typeof Agent_run_stepsScalarFieldEnum)[keyof typeof Agent_run_stepsScalarFieldEnum]
+
+
+export const Knowledge_documentsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  created_by: 'created_by',
+  title: 'title',
+  source_type: 'source_type',
+  source_url: 'source_url',
+  content_hash: 'content_hash',
+  content: 'content',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Knowledge_documentsScalarFieldEnum = (typeof Knowledge_documentsScalarFieldEnum)[keyof typeof Knowledge_documentsScalarFieldEnum]
+
+
+export const Knowledge_chunksScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  document_id: 'document_id',
+  chunk_index: 'chunk_index',
+  heading: 'heading',
+  content: 'content',
+  embedding: 'embedding',
+  created_at: 'created_at'
+} as const
+
+export type Knowledge_chunksScalarFieldEnum = (typeof Knowledge_chunksScalarFieldEnum)[keyof typeof Knowledge_chunksScalarFieldEnum]
+
+
+export const External_integrationsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  created_by: 'created_by',
+  provider: 'provider',
+  external_account_id: 'external_account_id',
+  display_name: 'display_name',
+  base_url: 'base_url',
+  credentials_ciphertext: 'credentials_ciphertext',
+  config: 'config',
+  status: 'status',
+  last_synced_at: 'last_synced_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type External_integrationsScalarFieldEnum = (typeof External_integrationsScalarFieldEnum)[keyof typeof External_integrationsScalarFieldEnum]
+
+
+export const Integration_eventsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  integration_id: 'integration_id',
+  task_id: 'task_id',
+  provider: 'provider',
+  external_id: 'external_id',
+  event_type: 'event_type',
+  actor: 'actor',
+  title: 'title',
+  body: 'body',
+  url: 'url',
+  occurred_at: 'occurred_at',
+  metadata: 'metadata',
+  created_at: 'created_at'
+} as const
+
+export type Integration_eventsScalarFieldEnum = (typeof Integration_eventsScalarFieldEnum)[keyof typeof Integration_eventsScalarFieldEnum]
+
+
+export const Integration_resource_linksScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  task_id: 'task_id',
+  provider: 'provider',
+  external_id: 'external_id',
+  external_url: 'external_url',
+  created_at: 'created_at'
+} as const
+
+export type Integration_resource_linksScalarFieldEnum = (typeof Integration_resource_linksScalarFieldEnum)[keyof typeof Integration_resource_linksScalarFieldEnum]
+
+
+export const Recovery_jobsScalarFieldEnum = {
+  id: 'id',
+  plan_id: 'plan_id',
+  workspace_id: 'workspace_id',
+  status: 'status',
+  attempts: 'attempts',
+  available_at: 'available_at',
+  locked_at: 'locked_at',
+  last_error: 'last_error',
+  created_at: 'created_at'
+} as const
+
+export type Recovery_jobsScalarFieldEnum = (typeof Recovery_jobsScalarFieldEnum)[keyof typeof Recovery_jobsScalarFieldEnum]
+
+
+export const Ai_evaluationsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  run_id: 'run_id',
+  case_key: 'case_key',
+  passed: 'passed',
+  metrics: 'metrics',
+  latency_ms: 'latency_ms',
+  created_at: 'created_at'
+} as const
+
+export type Ai_evaluationsScalarFieldEnum = (typeof Ai_evaluationsScalarFieldEnum)[keyof typeof Ai_evaluationsScalarFieldEnum]
+
+
+export const Integration_oauth_statesScalarFieldEnum = {
+  id: 'id',
+  state_hash: 'state_hash',
+  workspace_id: 'workspace_id',
+  project_id: 'project_id',
+  user_id: 'user_id',
+  provider: 'provider',
+  provider_config: 'provider_config',
+  expires_at: 'expires_at',
+  consumed_at: 'consumed_at',
+  created_at: 'created_at'
+} as const
+
+export type Integration_oauth_statesScalarFieldEnum = (typeof Integration_oauth_statesScalarFieldEnum)[keyof typeof Integration_oauth_statesScalarFieldEnum]
+
+
+export const Integration_sync_jobsScalarFieldEnum = {
+  id: 'id',
+  workspace_id: 'workspace_id',
+  integration_id: 'integration_id',
+  requested_by: 'requested_by',
+  status: 'status',
+  attempts: 'attempts',
+  available_at: 'available_at',
+  locked_at: 'locked_at',
+  error_code: 'error_code',
+  result: 'result',
+  created_at: 'created_at',
+  finished_at: 'finished_at'
+} as const
+
+export type Integration_sync_jobsScalarFieldEnum = (typeof Integration_sync_jobsScalarFieldEnum)[keyof typeof Integration_sync_jobsScalarFieldEnum]
 
 
 export const SortOrder = {

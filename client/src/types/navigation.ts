@@ -5,6 +5,7 @@ import {
   GitBranch,
   Building2,
   Activity,
+  BrainCircuit,
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -21,5 +22,6 @@ export const NavItems: NavItem[] = [
   { label: "Projects", icon: FolderKanban, path: "/projects" },
   { label: "Execution", icon: GitBranch, path: "/execution" },
   { label: "Delivery Health", icon: Activity, path: "/delivery-health" },
+  { label: "Insights", icon: BrainCircuit, path: "/insights" },
   { label: "Workspaces", icon: Building2, path: "/workspaces" },
 ];

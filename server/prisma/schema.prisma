@@ -22,6 +22,15 @@ model projects {
   task_evidence    task_evidence[]
   task_truth       task_truth[]
   ai_proposals     ai_proposals[]
+  execution_history_snapshots execution_history_snapshots[]
+  execution_scenarios execution_scenarios[]
+  recovery_plans recovery_plans[]
+  agent_runs agent_runs[]
+  integration_events integration_events[]
+  external_integrations external_integrations[]
+  execution_scenario_runs execution_scenario_runs[]
+  ai_evaluations ai_evaluations[]
+  integration_oauth_states integration_oauth_states[]
 }
 
 model tasks {
@@ -48,6 +57,8 @@ model tasks {
   outgoing_dependencies task_dependencies[]    @relation("dependency_predecessor")
   incoming_dependencies task_dependencies[]    @relation("dependency_successor")
   plan_snapshots        execution_plan_tasks[]
+  integration_events    integration_events[]
+  integration_resource_links integration_resource_links[]
 
   @@index([assigned_to], map: "idx_tasks_assigned_to")
   @@index([project_id], map: "idx_tasks_project_id")
@@ -85,6 +96,15 @@ model users {
   invitations_sent    invitations[]
   task_status_changes task_status_history[]
   idempotency_records idempotency_records[]
+  execution_history_snapshots execution_history_snapshots[]
+  execution_scenarios execution_scenarios[]
+  recovery_plans_created recovery_plans[] @relation("recovery_created_by")
+  recovery_plans_decided recovery_plans[] @relation("recovery_decided_by")
+  agent_runs agent_runs[]
+  knowledge_documents knowledge_documents[]
+  external_integrations external_integrations[]
+  integration_oauth_states integration_oauth_states[]
+  integration_sync_jobs integration_sync_jobs[] @relation("integration_sync_requested_by")
 }
 
 model idempotency_records {
@@ -274,6 +294,20 @@ model workspaces {
   task_evidence       task_evidence[]
   task_truth          task_truth[]
   ai_proposals        ai_proposals[]
+  execution_history_snapshots execution_history_snapshots[]
+  execution_scenarios execution_scenarios[]
+  execution_scenario_runs execution_scenario_runs[]
+  recovery_plans recovery_plans[]
+  recovery_jobs recovery_jobs[]
+  agent_runs agent_runs[]
+  knowledge_documents knowledge_documents[]
+  knowledge_chunks knowledge_chunks[]
+  external_integrations external_integrations[]
+  integration_events integration_events[]
+  integration_sync_jobs integration_sync_jobs[]
+  ai_evaluations ai_evaluations[]
+  integration_oauth_states integration_oauth_states[]
+  integration_resource_links integration_resource_links[]
 }
 
 model refresh_tokens {
@@ -434,4 +468,291 @@ model ai_proposals {
   projects     projects   @relation(fields: [project_id], references: [id], onDelete: Cascade)
 
   @@index([workspace_id, project_id, status, created_at], map: "idx_ai_proposals_workspace_project_status")
+}
+
+model execution_history_snapshots {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String     @db.Uuid
+  project_id   String     @db.Uuid
+  captured_by  String     @db.Uuid
+  snapshot     Json
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects     projects   @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  users        users      @relation(fields: [captured_by], references: [id], onDelete: Cascade)
+
+  @@index([workspace_id, project_id, created_at(sort: Desc)], map: "idx_execution_history_project_time")
+}
+
+model execution_scenarios {
+  id           String                    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String                    @db.Uuid
+  project_id   String                    @db.Uuid
+  created_by   String                    @db.Uuid
+  name         String                    @db.VarChar(120)
+  changes      Json
+  created_at   DateTime                  @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime                  @default(now()) @updatedAt @db.Timestamptz(6)
+  workspaces   workspaces                @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects     projects                  @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  users        users                     @relation(fields: [created_by], references: [id], onDelete: Cascade)
+  runs         execution_scenario_runs[]
+
+  @@index([workspace_id, project_id, created_at(sort: Desc)], map: "idx_execution_scenarios_project_time")
+}
+
+model execution_scenario_runs {
+  id              String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  scenario_id     String              @db.Uuid
+  workspace_id    String              @db.Uuid
+  project_id      String              @db.Uuid
+  input_hash      String              @db.VarChar(64)
+  input_snapshot  Json
+  result          Json
+  created_at      DateTime            @default(now()) @db.Timestamptz(6)
+  scenarios       execution_scenarios @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
+  workspaces      workspaces          @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects        projects            @relation(fields: [project_id], references: [id], onDelete: Cascade)
+
+  @@unique([scenario_id, input_hash], map: "uq_execution_scenario_run_input")
+  @@index([workspace_id, project_id, created_at(sort: Desc)], map: "idx_execution_scenario_runs_project_time")
+}
+
+model recovery_plans {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String     @db.Uuid
+  project_id   String     @db.Uuid
+  created_by   String     @db.Uuid
+  name         String     @db.VarChar(120)
+  status       String     @default("PENDING") @db.VarChar(20)
+  root_cause   Json
+  options      Json
+  selected_option_key String? @db.VarChar(80)
+  decided_by   String?    @db.Uuid
+  decided_at   DateTime?  @db.Timestamptz(6)
+  verification Json?
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime   @default(now()) @updatedAt @db.Timestamptz(6)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects     projects   @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  creator      users      @relation("recovery_created_by", fields: [created_by], references: [id], onDelete: Cascade)
+  decider      users?     @relation("recovery_decided_by", fields: [decided_by], references: [id], onDelete: SetNull)
+  jobs         recovery_jobs[]
+
+  @@index([workspace_id, project_id, status, created_at(sort: Desc)], map: "idx_recovery_plans_project_status")
+}
+
+model agent_runs {
+  id              String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id    String     @db.Uuid
+  project_id      String     @db.Uuid
+  requested_by    String     @db.Uuid
+  agent_type      String     @db.VarChar(24)
+  status          String     @default("QUEUED") @db.VarChar(20)
+  input           Json
+  result          Json?
+  budget_limit    Int        @default(1000)
+  budget_used     Int        @default(0)
+  idempotency_key String?    @db.VarChar(120)
+  created_at      DateTime   @default(now()) @db.Timestamptz(6)
+  finished_at     DateTime?  @db.Timestamptz(6)
+  workspaces      workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects        projects   @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  users           users      @relation(fields: [requested_by], references: [id], onDelete: Cascade)
+  steps           agent_run_steps[]
+  evaluations     ai_evaluations[]
+
+  @@unique([workspace_id, requested_by, idempotency_key], map: "uq_agent_run_idempotency")
+  @@index([workspace_id, project_id, created_at(sort: Desc)], map: "idx_agent_runs_project_time")
+}
+
+model agent_run_steps {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  run_id      String    @db.Uuid
+  step_index  Int
+  agent_role  String    @db.VarChar(24)
+  status      String    @db.VarChar(20)
+  input       Json
+  result      Json?
+  citations   Json
+  started_at  DateTime  @default(now()) @db.Timestamptz(6)
+  finished_at DateTime? @db.Timestamptz(6)
+  runs        agent_runs @relation(fields: [run_id], references: [id], onDelete: Cascade)
+
+  @@unique([run_id, step_index], map: "uq_agent_run_step")
+  @@index([run_id, started_at], map: "idx_agent_run_steps_run_time")
+}
+
+model knowledge_documents {
+  id           String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String           @db.Uuid
+  created_by   String           @db.Uuid
+  title        String           @db.VarChar(240)
+  source_type  String           @db.VarChar(24)
+  source_url   String?
+  content_hash String           @db.VarChar(64)
+  content      String
+  created_at   DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime         @default(now()) @updatedAt @db.Timestamptz(6)
+  workspaces   workspaces       @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  users        users            @relation(fields: [created_by], references: [id], onDelete: Cascade)
+  chunks       knowledge_chunks[]
+
+  @@unique([workspace_id, content_hash], map: "uq_knowledge_document_hash")
+  @@index([workspace_id, created_at(sort: Desc)], map: "idx_knowledge_documents_workspace_time")
+}
+
+model knowledge_chunks {
+  id           String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String             @db.Uuid
+  document_id  String             @db.Uuid
+  chunk_index  Int
+  heading      String?            @db.VarChar(240)
+  content      String
+  embedding    Json?
+  search_vector Unsupported("tsvector")?
+  embedding_vector Unsupported("vector(768)")?
+  created_at   DateTime           @default(now()) @db.Timestamptz(6)
+  workspaces   workspaces         @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  documents    knowledge_documents @relation(fields: [document_id], references: [id], onDelete: Cascade)
+
+  @@unique([document_id, chunk_index], map: "uq_knowledge_chunk_order")
+  @@index([workspace_id, document_id], map: "idx_knowledge_chunks_workspace_document")
+}
+
+model external_integrations {
+  id                   String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id         String     @db.Uuid
+  project_id           String?    @db.Uuid
+  created_by           String     @db.Uuid
+  provider             String     @db.VarChar(24)
+  external_account_id  String     @db.VarChar(240)
+  display_name         String     @db.VarChar(240)
+  base_url              String?
+  credentials_ciphertext String?
+  config                Json
+  status                String    @default("ACTIVE") @db.VarChar(20)
+  last_synced_at        DateTime? @db.Timestamptz(6)
+  created_at            DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime  @default(now()) @updatedAt @db.Timestamptz(6)
+  workspaces            workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects              projects?  @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  users                 users      @relation(fields: [created_by], references: [id], onDelete: Cascade)
+  events                integration_events[]
+  sync_jobs             integration_sync_jobs[]
+
+  @@unique([workspace_id, provider, external_account_id], map: "uq_external_integration_scope")
+  @@index([workspace_id, provider, status], map: "idx_external_integrations_provider_status")
+}
+
+model integration_events {
+  id             String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id   String               @db.Uuid
+  project_id     String               @db.Uuid
+  integration_id String               @db.Uuid
+  task_id        String?              @db.Uuid
+  provider       String               @db.VarChar(24)
+  external_id    String               @db.VarChar(200)
+  event_type     String               @db.VarChar(80)
+  actor          String?
+  title          String
+  body           String?
+  url            String?
+  occurred_at    DateTime             @db.Timestamptz(6)
+  metadata       Json
+  created_at     DateTime             @default(now()) @db.Timestamptz(6)
+  workspaces     workspaces           @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects       projects             @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  integrations   external_integrations @relation(fields: [integration_id], references: [id], onDelete: Cascade)
+  tasks          tasks?               @relation(fields: [task_id], references: [id], onDelete: SetNull)
+
+  @@unique([integration_id, external_id], map: "uq_integration_event_external")
+  @@index([workspace_id, project_id, occurred_at(sort: Desc)], map: "idx_integration_events_project_time")
+}
+
+model integration_resource_links {
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id      String    @db.Uuid
+  task_id            String    @db.Uuid
+  provider           String    @db.VarChar(24)
+  external_id        String    @db.VarChar(200)
+  external_url       String?
+  created_at         DateTime  @default(now()) @db.Timestamptz(6)
+  tasks              tasks     @relation(fields: [task_id], references: [id], onDelete: Cascade)
+  workspaces         workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+
+  @@unique([workspace_id, provider, external_id], map: "uq_integration_resource_external")
+  @@index([workspace_id, task_id], map: "idx_integration_resource_task")
+}
+
+model recovery_jobs {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  plan_id      String     @unique(map: "uq_recovery_job_plan") @db.Uuid
+  workspace_id String     @db.Uuid
+  status       String     @default("PENDING") @db.VarChar(16)
+  attempts     Int        @default(0)
+  available_at DateTime   @default(now()) @db.Timestamptz(6)
+  locked_at    DateTime?  @db.Timestamptz(6)
+  last_error   String?    @db.VarChar(120)
+  created_at   DateTime   @default(now()) @db.Timestamptz(6)
+  plans        recovery_plans @relation(fields: [plan_id], references: [id], onDelete: Cascade)
+  workspaces   workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+
+  @@index([status, available_at], map: "idx_recovery_jobs_poll")
+}
+
+model ai_evaluations {
+  id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id String      @db.Uuid
+  project_id   String?     @db.Uuid
+  run_id       String?     @db.Uuid
+  case_key     String      @db.VarChar(120)
+  passed       Boolean
+  metrics      Json
+  latency_ms   Int?
+  created_at   DateTime    @default(now()) @db.Timestamptz(6)
+  workspaces   workspaces  @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects     projects?   @relation(fields: [project_id], references: [id], onDelete: SetNull)
+  runs         agent_runs? @relation(fields: [run_id], references: [id], onDelete: SetNull)
+
+  @@index([workspace_id, created_at(sort: Desc)], map: "idx_ai_evaluations_workspace_time")
+}
+
+model integration_oauth_states {
+  id           String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  state_hash   String      @unique(map: "uq_integration_oauth_state_hash") @db.VarChar(64)
+  workspace_id String      @db.Uuid
+  project_id   String?     @db.Uuid
+  user_id      String      @db.Uuid
+  provider     String      @db.VarChar(24)
+  provider_config Json     @default("{}")
+  expires_at   DateTime    @db.Timestamptz(6)
+  consumed_at  DateTime?   @db.Timestamptz(6)
+  created_at   DateTime    @default(now()) @db.Timestamptz(6)
+  workspaces   workspaces  @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  projects     projects?   @relation(fields: [project_id], references: [id], onDelete: Cascade)
+  users        users       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([expires_at], map: "idx_integration_oauth_states_expiry")
+}
+
+model integration_sync_jobs {
+  id             String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workspace_id   String      @db.Uuid
+  integration_id String      @db.Uuid
+  requested_by   String      @db.Uuid
+  status         String      @default("PENDING") @db.VarChar(16)
+  attempts       Int         @default(0)
+  available_at   DateTime    @default(now()) @db.Timestamptz(6)
+  locked_at      DateTime?   @db.Timestamptz(6)
+  error_code     String?     @db.VarChar(100)
+  result         Json?
+  created_at     DateTime    @default(now()) @db.Timestamptz(6)
+  finished_at    DateTime?   @db.Timestamptz(6)
+  workspaces     workspaces @relation(fields: [workspace_id], references: [id], onDelete: Cascade)
+  integrations   external_integrations @relation(fields: [integration_id], references: [id], onDelete: Cascade)
+  requester      users       @relation("integration_sync_requested_by", fields: [requested_by], references: [id], onDelete: Cascade)
+
+  @@index([status, available_at], map: "idx_integration_sync_jobs_poll")
+  @@index([integration_id, created_at(sort: Desc)], map: "idx_integration_sync_jobs_integration_time")
 }

@@ -248,6 +248,8 @@ export type tasksWhereInput = {
   outgoing_dependencies?: Prisma.Task_dependenciesListRelationFilter
   incoming_dependencies?: Prisma.Task_dependenciesListRelationFilter
   plan_snapshots?: Prisma.Execution_plan_tasksListRelationFilter
+  integration_events?: Prisma.Integration_eventsListRelationFilter
+  integration_resource_links?: Prisma.Integration_resource_linksListRelationFilter
 }
 
 export type tasksOrderByWithRelationInput = {
@@ -273,6 +275,8 @@ export type tasksOrderByWithRelationInput = {
   outgoing_dependencies?: Prisma.task_dependenciesOrderByRelationAggregateInput
   incoming_dependencies?: Prisma.task_dependenciesOrderByRelationAggregateInput
   plan_snapshots?: Prisma.execution_plan_tasksOrderByRelationAggregateInput
+  integration_events?: Prisma.integration_eventsOrderByRelationAggregateInput
+  integration_resource_links?: Prisma.integration_resource_linksOrderByRelationAggregateInput
 }
 
 export type tasksWhereUniqueInput = Prisma.AtLeast<{
@@ -301,6 +305,8 @@ export type tasksWhereUniqueInput = Prisma.AtLeast<{
   outgoing_dependencies?: Prisma.Task_dependenciesListRelationFilter
   incoming_dependencies?: Prisma.Task_dependenciesListRelationFilter
   plan_snapshots?: Prisma.Execution_plan_tasksListRelationFilter
+  integration_events?: Prisma.Integration_eventsListRelationFilter
+  integration_resource_links?: Prisma.Integration_resource_linksListRelationFilter
 }, "id" | "task_key">
 
 export type tasksOrderByWithAggregationInput = {
@@ -359,6 +365,8 @@ export type tasksCreateInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateInput = {
@@ -381,6 +389,8 @@ export type tasksUncheckedCreateInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUpdateInput = {
@@ -403,6 +413,8 @@ export type tasksUpdateInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateInput = {
@@ -425,6 +437,8 @@ export type tasksUncheckedUpdateInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateManyInput = {
@@ -770,6 +784,36 @@ export type tasksUpdateOneRequiredWithoutTask_truthNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.tasksUpdateToOneWithWhereWithoutTask_truthInput, Prisma.tasksUpdateWithoutTask_truthInput>, Prisma.tasksUncheckedUpdateWithoutTask_truthInput>
 }
 
+export type tasksCreateNestedOneWithoutIntegration_eventsInput = {
+  create?: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_eventsInput, Prisma.tasksUncheckedCreateWithoutIntegration_eventsInput>
+  connectOrCreate?: Prisma.tasksCreateOrConnectWithoutIntegration_eventsInput
+  connect?: Prisma.tasksWhereUniqueInput
+}
+
+export type tasksUpdateOneWithoutIntegration_eventsNestedInput = {
+  create?: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_eventsInput, Prisma.tasksUncheckedCreateWithoutIntegration_eventsInput>
+  connectOrCreate?: Prisma.tasksCreateOrConnectWithoutIntegration_eventsInput
+  upsert?: Prisma.tasksUpsertWithoutIntegration_eventsInput
+  disconnect?: Prisma.tasksWhereInput | boolean
+  delete?: Prisma.tasksWhereInput | boolean
+  connect?: Prisma.tasksWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tasksUpdateToOneWithWhereWithoutIntegration_eventsInput, Prisma.tasksUpdateWithoutIntegration_eventsInput>, Prisma.tasksUncheckedUpdateWithoutIntegration_eventsInput>
+}
+
+export type tasksCreateNestedOneWithoutIntegration_resource_linksInput = {
+  create?: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedCreateWithoutIntegration_resource_linksInput>
+  connectOrCreate?: Prisma.tasksCreateOrConnectWithoutIntegration_resource_linksInput
+  connect?: Prisma.tasksWhereUniqueInput
+}
+
+export type tasksUpdateOneRequiredWithoutIntegration_resource_linksNestedInput = {
+  create?: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedCreateWithoutIntegration_resource_linksInput>
+  connectOrCreate?: Prisma.tasksCreateOrConnectWithoutIntegration_resource_linksInput
+  upsert?: Prisma.tasksUpsertWithoutIntegration_resource_linksInput
+  connect?: Prisma.tasksWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.tasksUpdateToOneWithWhereWithoutIntegration_resource_linksInput, Prisma.tasksUpdateWithoutIntegration_resource_linksInput>, Prisma.tasksUncheckedUpdateWithoutIntegration_resource_linksInput>
+}
+
 export type tasksCreateWithoutProjectsInput = {
   id?: string
   task_key?: string | null
@@ -789,6 +833,8 @@ export type tasksCreateWithoutProjectsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutProjectsInput = {
@@ -810,6 +856,8 @@ export type tasksUncheckedCreateWithoutProjectsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutProjectsInput = {
@@ -875,6 +923,8 @@ export type tasksCreateWithoutStatus_historyInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutStatus_historyInput = {
@@ -896,6 +946,8 @@ export type tasksUncheckedCreateWithoutStatus_historyInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutStatus_historyInput = {
@@ -933,6 +985,8 @@ export type tasksUpdateWithoutStatus_historyInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutStatus_historyInput = {
@@ -954,6 +1008,8 @@ export type tasksUncheckedUpdateWithoutStatus_historyInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateWithoutUsersInput = {
@@ -975,6 +1031,8 @@ export type tasksCreateWithoutUsersInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutUsersInput = {
@@ -996,6 +1054,8 @@ export type tasksUncheckedCreateWithoutUsersInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutUsersInput = {
@@ -1043,6 +1103,8 @@ export type tasksCreateWithoutOutgoing_dependenciesInput = {
   status_history?: Prisma.task_status_historyCreateNestedManyWithoutTasksInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutOutgoing_dependenciesInput = {
@@ -1064,6 +1126,8 @@ export type tasksUncheckedCreateWithoutOutgoing_dependenciesInput = {
   status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutTasksInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutOutgoing_dependenciesInput = {
@@ -1090,6 +1154,8 @@ export type tasksCreateWithoutIncoming_dependenciesInput = {
   status_history?: Prisma.task_status_historyCreateNestedManyWithoutTasksInput
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutIncoming_dependenciesInput = {
@@ -1111,6 +1177,8 @@ export type tasksUncheckedCreateWithoutIncoming_dependenciesInput = {
   status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutTasksInput
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutIncoming_dependenciesInput = {
@@ -1148,6 +1216,8 @@ export type tasksUpdateWithoutOutgoing_dependenciesInput = {
   status_history?: Prisma.task_status_historyUpdateManyWithoutTasksNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutOutgoing_dependenciesInput = {
@@ -1169,6 +1239,8 @@ export type tasksUncheckedUpdateWithoutOutgoing_dependenciesInput = {
   status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutTasksNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUpsertWithoutIncoming_dependenciesInput = {
@@ -1201,6 +1273,8 @@ export type tasksUpdateWithoutIncoming_dependenciesInput = {
   status_history?: Prisma.task_status_historyUpdateManyWithoutTasksNestedInput
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutIncoming_dependenciesInput = {
@@ -1222,6 +1296,8 @@ export type tasksUncheckedUpdateWithoutIncoming_dependenciesInput = {
   status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutTasksNestedInput
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateWithoutPlan_snapshotsInput = {
@@ -1243,6 +1319,8 @@ export type tasksCreateWithoutPlan_snapshotsInput = {
   status_history?: Prisma.task_status_historyCreateNestedManyWithoutTasksInput
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutPlan_snapshotsInput = {
@@ -1264,6 +1342,8 @@ export type tasksUncheckedCreateWithoutPlan_snapshotsInput = {
   status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutTasksInput
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutPlan_snapshotsInput = {
@@ -1301,6 +1381,8 @@ export type tasksUpdateWithoutPlan_snapshotsInput = {
   status_history?: Prisma.task_status_historyUpdateManyWithoutTasksNestedInput
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutPlan_snapshotsInput = {
@@ -1322,6 +1404,8 @@ export type tasksUncheckedUpdateWithoutPlan_snapshotsInput = {
   status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutTasksNestedInput
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateWithoutWorkspacesInput = {
@@ -1343,6 +1427,8 @@ export type tasksCreateWithoutWorkspacesInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutWorkspacesInput = {
@@ -1364,6 +1450,8 @@ export type tasksUncheckedCreateWithoutWorkspacesInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutWorkspacesInput = {
@@ -1411,6 +1499,8 @@ export type tasksCreateWithoutExecution_eventsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutExecution_eventsInput = {
@@ -1432,6 +1522,8 @@ export type tasksUncheckedCreateWithoutExecution_eventsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutExecution_eventsInput = {
@@ -1469,6 +1561,8 @@ export type tasksUpdateWithoutExecution_eventsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutExecution_eventsInput = {
@@ -1490,6 +1584,8 @@ export type tasksUncheckedUpdateWithoutExecution_eventsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateWithoutTask_evidenceInput = {
@@ -1511,6 +1607,8 @@ export type tasksCreateWithoutTask_evidenceInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutTask_evidenceInput = {
@@ -1532,6 +1630,8 @@ export type tasksUncheckedCreateWithoutTask_evidenceInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutTask_evidenceInput = {
@@ -1569,6 +1669,8 @@ export type tasksUpdateWithoutTask_evidenceInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutTask_evidenceInput = {
@@ -1590,6 +1692,8 @@ export type tasksUncheckedUpdateWithoutTask_evidenceInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateWithoutTask_truthInput = {
@@ -1611,6 +1715,8 @@ export type tasksCreateWithoutTask_truthInput = {
   outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
 }
 
 export type tasksUncheckedCreateWithoutTask_truthInput = {
@@ -1632,6 +1738,8 @@ export type tasksUncheckedCreateWithoutTask_truthInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
 }
 
 export type tasksCreateOrConnectWithoutTask_truthInput = {
@@ -1669,6 +1777,8 @@ export type tasksUpdateWithoutTask_truthInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutTask_truthInput = {
@@ -1690,6 +1800,224 @@ export type tasksUncheckedUpdateWithoutTask_truthInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
+}
+
+export type tasksCreateWithoutIntegration_eventsInput = {
+  id?: string
+  task_key?: string | null
+  title: string
+  completed?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  completed_at?: Date | string | null
+  status?: string
+  due_date?: Date | string | null
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutTasksInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutTasksInput
+  task_truth?: Prisma.task_truthCreateNestedOneWithoutTasksInput
+  users?: Prisma.usersCreateNestedOneWithoutTasksInput
+  projects: Prisma.projectsCreateNestedOneWithoutTasksInput
+  workspaces: Prisma.workspacesCreateNestedOneWithoutTasksInput
+  status_history?: Prisma.task_status_historyCreateNestedManyWithoutTasksInput
+  outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
+  incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
+  plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutTasksInput
+}
+
+export type tasksUncheckedCreateWithoutIntegration_eventsInput = {
+  id?: string
+  task_key?: string | null
+  project_id: string
+  workspace_id: string
+  assigned_to?: string | null
+  title: string
+  completed?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  completed_at?: Date | string | null
+  status?: string
+  due_date?: Date | string | null
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutTasksInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutTasksInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedOneWithoutTasksInput
+  status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutTasksInput
+  outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
+  incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
+  plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutTasksInput
+}
+
+export type tasksCreateOrConnectWithoutIntegration_eventsInput = {
+  where: Prisma.tasksWhereUniqueInput
+  create: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_eventsInput, Prisma.tasksUncheckedCreateWithoutIntegration_eventsInput>
+}
+
+export type tasksUpsertWithoutIntegration_eventsInput = {
+  update: Prisma.XOR<Prisma.tasksUpdateWithoutIntegration_eventsInput, Prisma.tasksUncheckedUpdateWithoutIntegration_eventsInput>
+  create: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_eventsInput, Prisma.tasksUncheckedCreateWithoutIntegration_eventsInput>
+  where?: Prisma.tasksWhereInput
+}
+
+export type tasksUpdateToOneWithWhereWithoutIntegration_eventsInput = {
+  where?: Prisma.tasksWhereInput
+  data: Prisma.XOR<Prisma.tasksUpdateWithoutIntegration_eventsInput, Prisma.tasksUncheckedUpdateWithoutIntegration_eventsInput>
+}
+
+export type tasksUpdateWithoutIntegration_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  completed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  due_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutTasksNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutTasksNestedInput
+  task_truth?: Prisma.task_truthUpdateOneWithoutTasksNestedInput
+  users?: Prisma.usersUpdateOneWithoutTasksNestedInput
+  projects?: Prisma.projectsUpdateOneRequiredWithoutTasksNestedInput
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutTasksNestedInput
+  status_history?: Prisma.task_status_historyUpdateManyWithoutTasksNestedInput
+  outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
+  incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
+  plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
+}
+
+export type tasksUncheckedUpdateWithoutIntegration_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  project_id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  completed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  due_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutTasksNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateOneWithoutTasksNestedInput
+  status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutTasksNestedInput
+  outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
+  incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
+  plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
+}
+
+export type tasksCreateWithoutIntegration_resource_linksInput = {
+  id?: string
+  task_key?: string | null
+  title: string
+  completed?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  completed_at?: Date | string | null
+  status?: string
+  due_date?: Date | string | null
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutTasksInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutTasksInput
+  task_truth?: Prisma.task_truthCreateNestedOneWithoutTasksInput
+  users?: Prisma.usersCreateNestedOneWithoutTasksInput
+  projects: Prisma.projectsCreateNestedOneWithoutTasksInput
+  workspaces: Prisma.workspacesCreateNestedOneWithoutTasksInput
+  status_history?: Prisma.task_status_historyCreateNestedManyWithoutTasksInput
+  outgoing_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutPredecessorInput
+  incoming_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutSuccessorInput
+  plan_snapshots?: Prisma.execution_plan_tasksCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutTasksInput
+}
+
+export type tasksUncheckedCreateWithoutIntegration_resource_linksInput = {
+  id?: string
+  task_key?: string | null
+  project_id: string
+  workspace_id: string
+  assigned_to?: string | null
+  title: string
+  completed?: boolean
+  created_at?: Date | string
+  updated_at?: Date | string
+  completed_at?: Date | string | null
+  status?: string
+  due_date?: Date | string | null
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutTasksInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutTasksInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedOneWithoutTasksInput
+  status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutTasksInput
+  outgoing_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutPredecessorInput
+  incoming_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutSuccessorInput
+  plan_snapshots?: Prisma.execution_plan_tasksUncheckedCreateNestedManyWithoutTasksInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutTasksInput
+}
+
+export type tasksCreateOrConnectWithoutIntegration_resource_linksInput = {
+  where: Prisma.tasksWhereUniqueInput
+  create: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedCreateWithoutIntegration_resource_linksInput>
+}
+
+export type tasksUpsertWithoutIntegration_resource_linksInput = {
+  update: Prisma.XOR<Prisma.tasksUpdateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedUpdateWithoutIntegration_resource_linksInput>
+  create: Prisma.XOR<Prisma.tasksCreateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedCreateWithoutIntegration_resource_linksInput>
+  where?: Prisma.tasksWhereInput
+}
+
+export type tasksUpdateToOneWithWhereWithoutIntegration_resource_linksInput = {
+  where?: Prisma.tasksWhereInput
+  data: Prisma.XOR<Prisma.tasksUpdateWithoutIntegration_resource_linksInput, Prisma.tasksUncheckedUpdateWithoutIntegration_resource_linksInput>
+}
+
+export type tasksUpdateWithoutIntegration_resource_linksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  completed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  due_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutTasksNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutTasksNestedInput
+  task_truth?: Prisma.task_truthUpdateOneWithoutTasksNestedInput
+  users?: Prisma.usersUpdateOneWithoutTasksNestedInput
+  projects?: Prisma.projectsUpdateOneRequiredWithoutTasksNestedInput
+  workspaces?: Prisma.workspacesUpdateOneRequiredWithoutTasksNestedInput
+  status_history?: Prisma.task_status_historyUpdateManyWithoutTasksNestedInput
+  outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
+  incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
+  plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+}
+
+export type tasksUncheckedUpdateWithoutIntegration_resource_linksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  task_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  project_id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspace_id?: Prisma.StringFieldUpdateOperationsInput | string
+  assigned_to?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  completed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  completed_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  due_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutTasksNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateOneWithoutTasksNestedInput
+  status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutTasksNestedInput
+  outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
+  incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
+  plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksCreateManyProjectsInput = {
@@ -1725,6 +2053,8 @@ export type tasksUpdateWithoutProjectsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutProjectsInput = {
@@ -1746,6 +2076,8 @@ export type tasksUncheckedUpdateWithoutProjectsInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateManyWithoutProjectsInput = {
@@ -1795,6 +2127,8 @@ export type tasksUpdateWithoutUsersInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutUsersInput = {
@@ -1816,6 +2150,8 @@ export type tasksUncheckedUpdateWithoutUsersInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateManyWithoutUsersInput = {
@@ -1865,6 +2201,8 @@ export type tasksUpdateWithoutWorkspacesInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateWithoutWorkspacesInput = {
@@ -1886,6 +2224,8 @@ export type tasksUncheckedUpdateWithoutWorkspacesInput = {
   outgoing_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutPredecessorNestedInput
   incoming_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutSuccessorNestedInput
   plan_snapshots?: Prisma.execution_plan_tasksUncheckedUpdateManyWithoutTasksNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutTasksNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutTasksNestedInput
 }
 
 export type tasksUncheckedUpdateManyWithoutWorkspacesInput = {
@@ -1914,6 +2254,8 @@ export type TasksCountOutputType = {
   outgoing_dependencies: number
   incoming_dependencies: number
   plan_snapshots: number
+  integration_events: number
+  integration_resource_links: number
 }
 
 export type TasksCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1923,6 +2265,8 @@ export type TasksCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   outgoing_dependencies?: boolean | TasksCountOutputTypeCountOutgoing_dependenciesArgs
   incoming_dependencies?: boolean | TasksCountOutputTypeCountIncoming_dependenciesArgs
   plan_snapshots?: boolean | TasksCountOutputTypeCountPlan_snapshotsArgs
+  integration_events?: boolean | TasksCountOutputTypeCountIntegration_eventsArgs
+  integration_resource_links?: boolean | TasksCountOutputTypeCountIntegration_resource_linksArgs
 }
 
 /**
@@ -1977,6 +2321,20 @@ export type TasksCountOutputTypeCountPlan_snapshotsArgs<ExtArgs extends runtime.
   where?: Prisma.execution_plan_tasksWhereInput
 }
 
+/**
+ * TasksCountOutputType without action
+ */
+export type TasksCountOutputTypeCountIntegration_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_eventsWhereInput
+}
+
+/**
+ * TasksCountOutputType without action
+ */
+export type TasksCountOutputTypeCountIntegration_resource_linksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_resource_linksWhereInput
+}
+
 
 export type tasksSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2001,6 +2359,8 @@ export type tasksSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   outgoing_dependencies?: boolean | Prisma.tasks$outgoing_dependenciesArgs<ExtArgs>
   incoming_dependencies?: boolean | Prisma.tasks$incoming_dependenciesArgs<ExtArgs>
   plan_snapshots?: boolean | Prisma.tasks$plan_snapshotsArgs<ExtArgs>
+  integration_events?: boolean | Prisma.tasks$integration_eventsArgs<ExtArgs>
+  integration_resource_links?: boolean | Prisma.tasks$integration_resource_linksArgs<ExtArgs>
   _count?: boolean | Prisma.TasksCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["tasks"]>
 
@@ -2067,6 +2427,8 @@ export type tasksInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   outgoing_dependencies?: boolean | Prisma.tasks$outgoing_dependenciesArgs<ExtArgs>
   incoming_dependencies?: boolean | Prisma.tasks$incoming_dependenciesArgs<ExtArgs>
   plan_snapshots?: boolean | Prisma.tasks$plan_snapshotsArgs<ExtArgs>
+  integration_events?: boolean | Prisma.tasks$integration_eventsArgs<ExtArgs>
+  integration_resource_links?: boolean | Prisma.tasks$integration_resource_linksArgs<ExtArgs>
   _count?: boolean | Prisma.TasksCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type tasksIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2093,6 +2455,8 @@ export type $tasksPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     outgoing_dependencies: Prisma.$task_dependenciesPayload<ExtArgs>[]
     incoming_dependencies: Prisma.$task_dependenciesPayload<ExtArgs>[]
     plan_snapshots: Prisma.$execution_plan_tasksPayload<ExtArgs>[]
+    integration_events: Prisma.$integration_eventsPayload<ExtArgs>[]
+    integration_resource_links: Prisma.$integration_resource_linksPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2511,6 +2875,8 @@ export interface Prisma__tasksClient<T, Null = never, ExtArgs extends runtime.Ty
   outgoing_dependencies<T extends Prisma.tasks$outgoing_dependenciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasks$outgoing_dependenciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_dependenciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   incoming_dependencies<T extends Prisma.tasks$incoming_dependenciesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasks$incoming_dependenciesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_dependenciesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   plan_snapshots<T extends Prisma.tasks$plan_snapshotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasks$plan_snapshotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_plan_tasksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_events<T extends Prisma.tasks$integration_eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasks$integration_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_eventsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_resource_links<T extends Prisma.tasks$integration_resource_linksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.tasks$integration_resource_linksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_resource_linksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3132,6 +3498,54 @@ export type tasks$plan_snapshotsArgs<ExtArgs extends runtime.Types.Extensions.In
   take?: number
   skip?: number
   distinct?: Prisma.Execution_plan_tasksScalarFieldEnum | Prisma.Execution_plan_tasksScalarFieldEnum[]
+}
+
+/**
+ * tasks.integration_events
+ */
+export type tasks$integration_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_events
+   */
+  select?: Prisma.integration_eventsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_events
+   */
+  omit?: Prisma.integration_eventsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_eventsInclude<ExtArgs> | null
+  where?: Prisma.integration_eventsWhereInput
+  orderBy?: Prisma.integration_eventsOrderByWithRelationInput | Prisma.integration_eventsOrderByWithRelationInput[]
+  cursor?: Prisma.integration_eventsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_eventsScalarFieldEnum | Prisma.Integration_eventsScalarFieldEnum[]
+}
+
+/**
+ * tasks.integration_resource_links
+ */
+export type tasks$integration_resource_linksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_resource_links
+   */
+  select?: Prisma.integration_resource_linksSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_resource_links
+   */
+  omit?: Prisma.integration_resource_linksOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_resource_linksInclude<ExtArgs> | null
+  where?: Prisma.integration_resource_linksWhereInput
+  orderBy?: Prisma.integration_resource_linksOrderByWithRelationInput | Prisma.integration_resource_linksOrderByWithRelationInput[]
+  cursor?: Prisma.integration_resource_linksWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_resource_linksScalarFieldEnum | Prisma.Integration_resource_linksScalarFieldEnum[]
 }
 
 /**

@@ -13,6 +13,7 @@ import OnboardingRoute from "./components/auth/OnboardingRoute";
 import WorkspaceManagementPage from "./pages/WorkspaceManagementPage";
 import DeliveryHealthPage from "./pages/DeliveryHealthPage";
 const ExecutionPage = lazy(() => import("./pages/ExecutionPage"));
+const IntelligencePage = lazy(() => import("./pages/IntelligencePage"));
 
 const App = () => {
   return (
@@ -70,6 +71,7 @@ const App = () => {
         <Route path="/workspaces" element={<ProtectedRoute><Shell><WorkspaceManagementPage /></Shell></ProtectedRoute>} />
         <Route path="/execution" element={<ProtectedRoute><Shell><Suspense fallback={<div className="flex h-80 items-center justify-center text-sm text-slate-500">Loading execution view…</div>}><ExecutionPage /></Suspense></Shell></ProtectedRoute>} />
         <Route path="/delivery-health" element={<ProtectedRoute><Shell><DeliveryHealthPage /></Shell></ProtectedRoute>} />
+        <Route path="/insights" element={<ProtectedRoute><Shell><Suspense fallback={<div className="flex h-80 items-center justify-center text-sm text-slate-500">Loading project insights…</div>}><IntelligencePage /></Suspense></Shell></ProtectedRoute>} />
 
         {/* Onboarding: authenticated users without a workspace land here */}
         <Route
