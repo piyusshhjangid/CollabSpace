@@ -183,6 +183,20 @@ export type workspacesWhereInput = {
   task_evidence?: Prisma.Task_evidenceListRelationFilter
   task_truth?: Prisma.Task_truthListRelationFilter
   ai_proposals?: Prisma.Ai_proposalsListRelationFilter
+  execution_history_snapshots?: Prisma.Execution_history_snapshotsListRelationFilter
+  execution_scenarios?: Prisma.Execution_scenariosListRelationFilter
+  execution_scenario_runs?: Prisma.Execution_scenario_runsListRelationFilter
+  recovery_plans?: Prisma.Recovery_plansListRelationFilter
+  recovery_jobs?: Prisma.Recovery_jobsListRelationFilter
+  agent_runs?: Prisma.Agent_runsListRelationFilter
+  knowledge_documents?: Prisma.Knowledge_documentsListRelationFilter
+  knowledge_chunks?: Prisma.Knowledge_chunksListRelationFilter
+  external_integrations?: Prisma.External_integrationsListRelationFilter
+  integration_events?: Prisma.Integration_eventsListRelationFilter
+  integration_sync_jobs?: Prisma.Integration_sync_jobsListRelationFilter
+  ai_evaluations?: Prisma.Ai_evaluationsListRelationFilter
+  integration_oauth_states?: Prisma.Integration_oauth_statesListRelationFilter
+  integration_resource_links?: Prisma.Integration_resource_linksListRelationFilter
 }
 
 export type workspacesOrderByWithRelationInput = {
@@ -206,6 +220,20 @@ export type workspacesOrderByWithRelationInput = {
   task_evidence?: Prisma.task_evidenceOrderByRelationAggregateInput
   task_truth?: Prisma.task_truthOrderByRelationAggregateInput
   ai_proposals?: Prisma.ai_proposalsOrderByRelationAggregateInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsOrderByRelationAggregateInput
+  execution_scenarios?: Prisma.execution_scenariosOrderByRelationAggregateInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsOrderByRelationAggregateInput
+  recovery_plans?: Prisma.recovery_plansOrderByRelationAggregateInput
+  recovery_jobs?: Prisma.recovery_jobsOrderByRelationAggregateInput
+  agent_runs?: Prisma.agent_runsOrderByRelationAggregateInput
+  knowledge_documents?: Prisma.knowledge_documentsOrderByRelationAggregateInput
+  knowledge_chunks?: Prisma.knowledge_chunksOrderByRelationAggregateInput
+  external_integrations?: Prisma.external_integrationsOrderByRelationAggregateInput
+  integration_events?: Prisma.integration_eventsOrderByRelationAggregateInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsOrderByRelationAggregateInput
+  ai_evaluations?: Prisma.ai_evaluationsOrderByRelationAggregateInput
+  integration_oauth_states?: Prisma.integration_oauth_statesOrderByRelationAggregateInput
+  integration_resource_links?: Prisma.integration_resource_linksOrderByRelationAggregateInput
 }
 
 export type workspacesWhereUniqueInput = Prisma.AtLeast<{
@@ -232,6 +260,20 @@ export type workspacesWhereUniqueInput = Prisma.AtLeast<{
   task_evidence?: Prisma.Task_evidenceListRelationFilter
   task_truth?: Prisma.Task_truthListRelationFilter
   ai_proposals?: Prisma.Ai_proposalsListRelationFilter
+  execution_history_snapshots?: Prisma.Execution_history_snapshotsListRelationFilter
+  execution_scenarios?: Prisma.Execution_scenariosListRelationFilter
+  execution_scenario_runs?: Prisma.Execution_scenario_runsListRelationFilter
+  recovery_plans?: Prisma.Recovery_plansListRelationFilter
+  recovery_jobs?: Prisma.Recovery_jobsListRelationFilter
+  agent_runs?: Prisma.Agent_runsListRelationFilter
+  knowledge_documents?: Prisma.Knowledge_documentsListRelationFilter
+  knowledge_chunks?: Prisma.Knowledge_chunksListRelationFilter
+  external_integrations?: Prisma.External_integrationsListRelationFilter
+  integration_events?: Prisma.Integration_eventsListRelationFilter
+  integration_sync_jobs?: Prisma.Integration_sync_jobsListRelationFilter
+  ai_evaluations?: Prisma.Ai_evaluationsListRelationFilter
+  integration_oauth_states?: Prisma.Integration_oauth_statesListRelationFilter
+  integration_resource_links?: Prisma.Integration_resource_linksListRelationFilter
 }, "id">
 
 export type workspacesOrderByWithAggregationInput = {
@@ -273,6 +315,20 @@ export type workspacesCreateInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateInput = {
@@ -296,6 +352,20 @@ export type workspacesUncheckedCreateInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUpdateInput = {
@@ -319,6 +389,20 @@ export type workspacesUpdateInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateInput = {
@@ -342,6 +426,20 @@ export type workspacesUncheckedUpdateInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateManyInput = {
@@ -623,6 +721,202 @@ export type workspacesUpdateOneRequiredWithoutAi_proposalsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutAi_proposalsInput, Prisma.workspacesUpdateWithoutAi_proposalsInput>, Prisma.workspacesUncheckedUpdateWithoutAi_proposalsInput>
 }
 
+export type workspacesCreateNestedOneWithoutExecution_history_snapshotsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedCreateWithoutExecution_history_snapshotsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_history_snapshotsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExecution_history_snapshotsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedCreateWithoutExecution_history_snapshotsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_history_snapshotsInput
+  upsert?: Prisma.workspacesUpsertWithoutExecution_history_snapshotsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExecution_history_snapshotsInput, Prisma.workspacesUpdateWithoutExecution_history_snapshotsInput>, Prisma.workspacesUncheckedUpdateWithoutExecution_history_snapshotsInput>
+}
+
+export type workspacesCreateNestedOneWithoutExecution_scenariosInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenariosInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_scenariosInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExecution_scenariosNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenariosInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_scenariosInput
+  upsert?: Prisma.workspacesUpsertWithoutExecution_scenariosInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExecution_scenariosInput, Prisma.workspacesUpdateWithoutExecution_scenariosInput>, Prisma.workspacesUncheckedUpdateWithoutExecution_scenariosInput>
+}
+
+export type workspacesCreateNestedOneWithoutExecution_scenario_runsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenario_runsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_scenario_runsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExecution_scenario_runsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenario_runsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExecution_scenario_runsInput
+  upsert?: Prisma.workspacesUpsertWithoutExecution_scenario_runsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExecution_scenario_runsInput, Prisma.workspacesUpdateWithoutExecution_scenario_runsInput>, Prisma.workspacesUncheckedUpdateWithoutExecution_scenario_runsInput>
+}
+
+export type workspacesCreateNestedOneWithoutRecovery_plansInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_plansInput, Prisma.workspacesUncheckedCreateWithoutRecovery_plansInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutRecovery_plansInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutRecovery_plansNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_plansInput, Prisma.workspacesUncheckedCreateWithoutRecovery_plansInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutRecovery_plansInput
+  upsert?: Prisma.workspacesUpsertWithoutRecovery_plansInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutRecovery_plansInput, Prisma.workspacesUpdateWithoutRecovery_plansInput>, Prisma.workspacesUncheckedUpdateWithoutRecovery_plansInput>
+}
+
+export type workspacesCreateNestedOneWithoutAgent_runsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAgent_runsInput, Prisma.workspacesUncheckedCreateWithoutAgent_runsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAgent_runsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutAgent_runsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAgent_runsInput, Prisma.workspacesUncheckedCreateWithoutAgent_runsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAgent_runsInput
+  upsert?: Prisma.workspacesUpsertWithoutAgent_runsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutAgent_runsInput, Prisma.workspacesUpdateWithoutAgent_runsInput>, Prisma.workspacesUncheckedUpdateWithoutAgent_runsInput>
+}
+
+export type workspacesCreateNestedOneWithoutKnowledge_documentsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_documentsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutKnowledge_documentsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutKnowledge_documentsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_documentsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutKnowledge_documentsInput
+  upsert?: Prisma.workspacesUpsertWithoutKnowledge_documentsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutKnowledge_documentsInput, Prisma.workspacesUpdateWithoutKnowledge_documentsInput>, Prisma.workspacesUncheckedUpdateWithoutKnowledge_documentsInput>
+}
+
+export type workspacesCreateNestedOneWithoutKnowledge_chunksInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_chunksInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutKnowledge_chunksInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutKnowledge_chunksNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_chunksInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutKnowledge_chunksInput
+  upsert?: Prisma.workspacesUpsertWithoutKnowledge_chunksInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutKnowledge_chunksInput, Prisma.workspacesUpdateWithoutKnowledge_chunksInput>, Prisma.workspacesUncheckedUpdateWithoutKnowledge_chunksInput>
+}
+
+export type workspacesCreateNestedOneWithoutExternal_integrationsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedCreateWithoutExternal_integrationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExternal_integrationsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutExternal_integrationsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedCreateWithoutExternal_integrationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutExternal_integrationsInput
+  upsert?: Prisma.workspacesUpsertWithoutExternal_integrationsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutExternal_integrationsInput, Prisma.workspacesUpdateWithoutExternal_integrationsInput>, Prisma.workspacesUncheckedUpdateWithoutExternal_integrationsInput>
+}
+
+export type workspacesCreateNestedOneWithoutIntegration_eventsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_eventsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_eventsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutIntegration_eventsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_eventsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_eventsInput
+  upsert?: Prisma.workspacesUpsertWithoutIntegration_eventsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutIntegration_eventsInput, Prisma.workspacesUpdateWithoutIntegration_eventsInput>, Prisma.workspacesUncheckedUpdateWithoutIntegration_eventsInput>
+}
+
+export type workspacesCreateNestedOneWithoutIntegration_resource_linksInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedCreateWithoutIntegration_resource_linksInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_resource_linksInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutIntegration_resource_linksNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedCreateWithoutIntegration_resource_linksInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_resource_linksInput
+  upsert?: Prisma.workspacesUpsertWithoutIntegration_resource_linksInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutIntegration_resource_linksInput, Prisma.workspacesUpdateWithoutIntegration_resource_linksInput>, Prisma.workspacesUncheckedUpdateWithoutIntegration_resource_linksInput>
+}
+
+export type workspacesCreateNestedOneWithoutRecovery_jobsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedCreateWithoutRecovery_jobsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutRecovery_jobsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutRecovery_jobsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedCreateWithoutRecovery_jobsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutRecovery_jobsInput
+  upsert?: Prisma.workspacesUpsertWithoutRecovery_jobsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutRecovery_jobsInput, Prisma.workspacesUpdateWithoutRecovery_jobsInput>, Prisma.workspacesUncheckedUpdateWithoutRecovery_jobsInput>
+}
+
+export type workspacesCreateNestedOneWithoutAi_evaluationsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedCreateWithoutAi_evaluationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAi_evaluationsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutAi_evaluationsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedCreateWithoutAi_evaluationsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutAi_evaluationsInput
+  upsert?: Prisma.workspacesUpsertWithoutAi_evaluationsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutAi_evaluationsInput, Prisma.workspacesUpdateWithoutAi_evaluationsInput>, Prisma.workspacesUncheckedUpdateWithoutAi_evaluationsInput>
+}
+
+export type workspacesCreateNestedOneWithoutIntegration_oauth_statesInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedCreateWithoutIntegration_oauth_statesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_oauth_statesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutIntegration_oauth_statesNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedCreateWithoutIntegration_oauth_statesInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_oauth_statesInput
+  upsert?: Prisma.workspacesUpsertWithoutIntegration_oauth_statesInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutIntegration_oauth_statesInput, Prisma.workspacesUpdateWithoutIntegration_oauth_statesInput>, Prisma.workspacesUncheckedUpdateWithoutIntegration_oauth_statesInput>
+}
+
+export type workspacesCreateNestedOneWithoutIntegration_sync_jobsInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_sync_jobsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_sync_jobsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+}
+
+export type workspacesUpdateOneRequiredWithoutIntegration_sync_jobsNestedInput = {
+  create?: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_sync_jobsInput>
+  connectOrCreate?: Prisma.workspacesCreateOrConnectWithoutIntegration_sync_jobsInput
+  upsert?: Prisma.workspacesUpsertWithoutIntegration_sync_jobsInput
+  connect?: Prisma.workspacesWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.workspacesUpdateToOneWithWhereWithoutIntegration_sync_jobsInput, Prisma.workspacesUpdateWithoutIntegration_sync_jobsInput>, Prisma.workspacesUncheckedUpdateWithoutIntegration_sync_jobsInput>
+}
+
 export type workspacesCreateWithoutProjectsInput = {
   id?: string
   name: string
@@ -643,6 +937,20 @@ export type workspacesCreateWithoutProjectsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutProjectsInput = {
@@ -665,6 +973,20 @@ export type workspacesUncheckedCreateWithoutProjectsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutProjectsInput = {
@@ -703,6 +1025,20 @@ export type workspacesUpdateWithoutProjectsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutProjectsInput = {
@@ -725,6 +1061,20 @@ export type workspacesUncheckedUpdateWithoutProjectsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTasksInput = {
@@ -747,6 +1097,20 @@ export type workspacesCreateWithoutTasksInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTasksInput = {
@@ -769,6 +1133,20 @@ export type workspacesUncheckedCreateWithoutTasksInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTasksInput = {
@@ -807,6 +1185,20 @@ export type workspacesUpdateWithoutTasksInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTasksInput = {
@@ -829,6 +1221,20 @@ export type workspacesUncheckedUpdateWithoutTasksInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_status_historyInput = {
@@ -851,6 +1257,20 @@ export type workspacesCreateWithoutTask_status_historyInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
@@ -873,6 +1293,20 @@ export type workspacesUncheckedCreateWithoutTask_status_historyInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_status_historyInput = {
@@ -911,6 +1345,20 @@ export type workspacesUpdateWithoutTask_status_historyInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
@@ -933,6 +1381,20 @@ export type workspacesUncheckedUpdateWithoutTask_status_historyInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutWorkspace_membersInput = {
@@ -955,6 +1417,20 @@ export type workspacesCreateWithoutWorkspace_membersInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
@@ -977,6 +1453,20 @@ export type workspacesUncheckedCreateWithoutWorkspace_membersInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutWorkspace_membersInput = {
@@ -1015,6 +1505,20 @@ export type workspacesUpdateWithoutWorkspace_membersInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
@@ -1037,6 +1541,20 @@ export type workspacesUncheckedUpdateWithoutWorkspace_membersInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutOutcomesInput = {
@@ -1059,6 +1577,20 @@ export type workspacesCreateWithoutOutcomesInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutOutcomesInput = {
@@ -1081,6 +1613,20 @@ export type workspacesUncheckedCreateWithoutOutcomesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutOutcomesInput = {
@@ -1119,6 +1665,20 @@ export type workspacesUpdateWithoutOutcomesInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutOutcomesInput = {
@@ -1141,6 +1701,20 @@ export type workspacesUncheckedUpdateWithoutOutcomesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutGoalsInput = {
@@ -1163,6 +1737,20 @@ export type workspacesCreateWithoutGoalsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutGoalsInput = {
@@ -1185,6 +1773,20 @@ export type workspacesUncheckedCreateWithoutGoalsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutGoalsInput = {
@@ -1223,6 +1825,20 @@ export type workspacesUpdateWithoutGoalsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutGoalsInput = {
@@ -1245,6 +1861,20 @@ export type workspacesUncheckedUpdateWithoutGoalsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutMilestonesInput = {
@@ -1267,6 +1897,20 @@ export type workspacesCreateWithoutMilestonesInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutMilestonesInput = {
@@ -1289,6 +1933,20 @@ export type workspacesUncheckedCreateWithoutMilestonesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutMilestonesInput = {
@@ -1327,6 +1985,20 @@ export type workspacesUpdateWithoutMilestonesInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutMilestonesInput = {
@@ -1349,6 +2021,20 @@ export type workspacesUncheckedUpdateWithoutMilestonesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_dependenciesInput = {
@@ -1371,6 +2057,20 @@ export type workspacesCreateWithoutTask_dependenciesInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_dependenciesInput = {
@@ -1393,6 +2093,20 @@ export type workspacesUncheckedCreateWithoutTask_dependenciesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_dependenciesInput = {
@@ -1431,6 +2145,20 @@ export type workspacesUpdateWithoutTask_dependenciesInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_dependenciesInput = {
@@ -1453,6 +2181,20 @@ export type workspacesUncheckedUpdateWithoutTask_dependenciesInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutDelivery_contractsInput = {
@@ -1475,6 +2217,20 @@ export type workspacesCreateWithoutDelivery_contractsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutDelivery_contractsInput = {
@@ -1497,6 +2253,20 @@ export type workspacesUncheckedCreateWithoutDelivery_contractsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutDelivery_contractsInput = {
@@ -1535,6 +2305,20 @@ export type workspacesUpdateWithoutDelivery_contractsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutDelivery_contractsInput = {
@@ -1557,6 +2341,20 @@ export type workspacesUncheckedUpdateWithoutDelivery_contractsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutExecution_plansInput = {
@@ -1579,6 +2377,20 @@ export type workspacesCreateWithoutExecution_plansInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutExecution_plansInput = {
@@ -1601,6 +2413,20 @@ export type workspacesUncheckedCreateWithoutExecution_plansInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutExecution_plansInput = {
@@ -1639,6 +2465,20 @@ export type workspacesUpdateWithoutExecution_plansInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutExecution_plansInput = {
@@ -1661,6 +2501,20 @@ export type workspacesUncheckedUpdateWithoutExecution_plansInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutEvent_counterInput = {
@@ -1683,6 +2537,20 @@ export type workspacesCreateWithoutEvent_counterInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutEvent_counterInput = {
@@ -1705,6 +2573,20 @@ export type workspacesUncheckedCreateWithoutEvent_counterInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutEvent_counterInput = {
@@ -1743,6 +2625,20 @@ export type workspacesUpdateWithoutEvent_counterInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutEvent_counterInput = {
@@ -1765,6 +2661,20 @@ export type workspacesUncheckedUpdateWithoutEvent_counterInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutInvitationsInput = {
@@ -1787,6 +2697,20 @@ export type workspacesCreateWithoutInvitationsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutInvitationsInput = {
@@ -1809,6 +2733,20 @@ export type workspacesUncheckedCreateWithoutInvitationsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutInvitationsInput = {
@@ -1847,6 +2785,20 @@ export type workspacesUpdateWithoutInvitationsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutInvitationsInput = {
@@ -1869,6 +2821,20 @@ export type workspacesUncheckedUpdateWithoutInvitationsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutGithub_integrationsInput = {
@@ -1891,6 +2857,20 @@ export type workspacesCreateWithoutGithub_integrationsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutGithub_integrationsInput = {
@@ -1913,6 +2893,20 @@ export type workspacesUncheckedCreateWithoutGithub_integrationsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutGithub_integrationsInput = {
@@ -1951,6 +2945,20 @@ export type workspacesUpdateWithoutGithub_integrationsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutGithub_integrationsInput = {
@@ -1973,6 +2981,20 @@ export type workspacesUncheckedUpdateWithoutGithub_integrationsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutExecution_eventsInput = {
@@ -1995,6 +3017,20 @@ export type workspacesCreateWithoutExecution_eventsInput = {
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutExecution_eventsInput = {
@@ -2017,6 +3053,20 @@ export type workspacesUncheckedCreateWithoutExecution_eventsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutExecution_eventsInput = {
@@ -2055,6 +3105,20 @@ export type workspacesUpdateWithoutExecution_eventsInput = {
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutExecution_eventsInput = {
@@ -2077,6 +3141,20 @@ export type workspacesUncheckedUpdateWithoutExecution_eventsInput = {
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_evidenceInput = {
@@ -2099,6 +3177,20 @@ export type workspacesCreateWithoutTask_evidenceInput = {
   execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_evidenceInput = {
@@ -2121,6 +3213,20 @@ export type workspacesUncheckedCreateWithoutTask_evidenceInput = {
   execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_evidenceInput = {
@@ -2159,6 +3265,20 @@ export type workspacesUpdateWithoutTask_evidenceInput = {
   execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_evidenceInput = {
@@ -2181,6 +3301,20 @@ export type workspacesUncheckedUpdateWithoutTask_evidenceInput = {
   execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutTask_truthInput = {
@@ -2203,6 +3337,20 @@ export type workspacesCreateWithoutTask_truthInput = {
   execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutTask_truthInput = {
@@ -2225,6 +3373,20 @@ export type workspacesUncheckedCreateWithoutTask_truthInput = {
   execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutTask_truthInput = {
@@ -2263,6 +3425,20 @@ export type workspacesUpdateWithoutTask_truthInput = {
   execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutTask_truthInput = {
@@ -2285,6 +3461,20 @@ export type workspacesUncheckedUpdateWithoutTask_truthInput = {
   execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesCreateWithoutAi_proposalsInput = {
@@ -2307,6 +3497,20 @@ export type workspacesCreateWithoutAi_proposalsInput = {
   execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
   task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesUncheckedCreateWithoutAi_proposalsInput = {
@@ -2329,6 +3533,20 @@ export type workspacesUncheckedCreateWithoutAi_proposalsInput = {
   execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
   task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
   task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
 }
 
 export type workspacesCreateOrConnectWithoutAi_proposalsInput = {
@@ -2367,6 +3585,20 @@ export type workspacesUpdateWithoutAi_proposalsInput = {
   execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
   task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
 }
 
 export type workspacesUncheckedUpdateWithoutAi_proposalsInput = {
@@ -2389,6 +3621,2260 @@ export type workspacesUncheckedUpdateWithoutAi_proposalsInput = {
   execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
   task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExecution_history_snapshotsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExecution_history_snapshotsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExecution_history_snapshotsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedCreateWithoutExecution_history_snapshotsInput>
+}
+
+export type workspacesUpsertWithoutExecution_history_snapshotsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_history_snapshotsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedCreateWithoutExecution_history_snapshotsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExecution_history_snapshotsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_history_snapshotsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_history_snapshotsInput>
+}
+
+export type workspacesUpdateWithoutExecution_history_snapshotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExecution_history_snapshotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExecution_scenariosInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExecution_scenariosInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExecution_scenariosInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenariosInput>
+}
+
+export type workspacesUpsertWithoutExecution_scenariosInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedUpdateWithoutExecution_scenariosInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenariosInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExecution_scenariosInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_scenariosInput, Prisma.workspacesUncheckedUpdateWithoutExecution_scenariosInput>
+}
+
+export type workspacesUpdateWithoutExecution_scenariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExecution_scenariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExecution_scenario_runsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExecution_scenario_runsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExecution_scenario_runsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenario_runsInput>
+}
+
+export type workspacesUpsertWithoutExecution_scenario_runsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_scenario_runsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedCreateWithoutExecution_scenario_runsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExecution_scenario_runsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExecution_scenario_runsInput, Prisma.workspacesUncheckedUpdateWithoutExecution_scenario_runsInput>
+}
+
+export type workspacesUpdateWithoutExecution_scenario_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExecution_scenario_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutRecovery_plansInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutRecovery_plansInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutRecovery_plansInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_plansInput, Prisma.workspacesUncheckedCreateWithoutRecovery_plansInput>
+}
+
+export type workspacesUpsertWithoutRecovery_plansInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutRecovery_plansInput, Prisma.workspacesUncheckedUpdateWithoutRecovery_plansInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_plansInput, Prisma.workspacesUncheckedCreateWithoutRecovery_plansInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutRecovery_plansInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutRecovery_plansInput, Prisma.workspacesUncheckedUpdateWithoutRecovery_plansInput>
+}
+
+export type workspacesUpdateWithoutRecovery_plansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutRecovery_plansInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutAgent_runsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutAgent_runsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutAgent_runsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAgent_runsInput, Prisma.workspacesUncheckedCreateWithoutAgent_runsInput>
+}
+
+export type workspacesUpsertWithoutAgent_runsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutAgent_runsInput, Prisma.workspacesUncheckedUpdateWithoutAgent_runsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAgent_runsInput, Prisma.workspacesUncheckedCreateWithoutAgent_runsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutAgent_runsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutAgent_runsInput, Prisma.workspacesUncheckedUpdateWithoutAgent_runsInput>
+}
+
+export type workspacesUpdateWithoutAgent_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutAgent_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutKnowledge_documentsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutKnowledge_documentsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutKnowledge_documentsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_documentsInput>
+}
+
+export type workspacesUpsertWithoutKnowledge_documentsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedUpdateWithoutKnowledge_documentsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_documentsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutKnowledge_documentsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutKnowledge_documentsInput, Prisma.workspacesUncheckedUpdateWithoutKnowledge_documentsInput>
+}
+
+export type workspacesUpdateWithoutKnowledge_documentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutKnowledge_documentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutKnowledge_chunksInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutKnowledge_chunksInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutKnowledge_chunksInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_chunksInput>
+}
+
+export type workspacesUpsertWithoutKnowledge_chunksInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedUpdateWithoutKnowledge_chunksInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedCreateWithoutKnowledge_chunksInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutKnowledge_chunksInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutKnowledge_chunksInput, Prisma.workspacesUncheckedUpdateWithoutKnowledge_chunksInput>
+}
+
+export type workspacesUpdateWithoutKnowledge_chunksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutKnowledge_chunksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutExternal_integrationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutExternal_integrationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutExternal_integrationsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedCreateWithoutExternal_integrationsInput>
+}
+
+export type workspacesUpsertWithoutExternal_integrationsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedUpdateWithoutExternal_integrationsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedCreateWithoutExternal_integrationsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutExternal_integrationsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutExternal_integrationsInput, Prisma.workspacesUncheckedUpdateWithoutExternal_integrationsInput>
+}
+
+export type workspacesUpdateWithoutExternal_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutExternal_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutIntegration_eventsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutIntegration_eventsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutIntegration_eventsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_eventsInput>
+}
+
+export type workspacesUpsertWithoutIntegration_eventsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_eventsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_eventsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutIntegration_eventsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_eventsInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_eventsInput>
+}
+
+export type workspacesUpdateWithoutIntegration_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutIntegration_eventsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutIntegration_resource_linksInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutIntegration_resource_linksInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutIntegration_resource_linksInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedCreateWithoutIntegration_resource_linksInput>
+}
+
+export type workspacesUpsertWithoutIntegration_resource_linksInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_resource_linksInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedCreateWithoutIntegration_resource_linksInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutIntegration_resource_linksInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_resource_linksInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_resource_linksInput>
+}
+
+export type workspacesUpdateWithoutIntegration_resource_linksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutIntegration_resource_linksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutRecovery_jobsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutRecovery_jobsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutRecovery_jobsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedCreateWithoutRecovery_jobsInput>
+}
+
+export type workspacesUpsertWithoutRecovery_jobsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedUpdateWithoutRecovery_jobsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedCreateWithoutRecovery_jobsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutRecovery_jobsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutRecovery_jobsInput, Prisma.workspacesUncheckedUpdateWithoutRecovery_jobsInput>
+}
+
+export type workspacesUpdateWithoutRecovery_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutRecovery_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutAi_evaluationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutAi_evaluationsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutAi_evaluationsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedCreateWithoutAi_evaluationsInput>
+}
+
+export type workspacesUpsertWithoutAi_evaluationsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedUpdateWithoutAi_evaluationsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedCreateWithoutAi_evaluationsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutAi_evaluationsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutAi_evaluationsInput, Prisma.workspacesUncheckedUpdateWithoutAi_evaluationsInput>
+}
+
+export type workspacesUpdateWithoutAi_evaluationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutAi_evaluationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutIntegration_oauth_statesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutIntegration_oauth_statesInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutIntegration_oauth_statesInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedCreateWithoutIntegration_oauth_statesInput>
+}
+
+export type workspacesUpsertWithoutIntegration_oauth_statesInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_oauth_statesInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedCreateWithoutIntegration_oauth_statesInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutIntegration_oauth_statesInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_oauth_statesInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_oauth_statesInput>
+}
+
+export type workspacesUpdateWithoutIntegration_oauth_statesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutIntegration_oauth_statesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesCreateWithoutIntegration_sync_jobsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesUncheckedCreateWithoutIntegration_sync_jobsInput = {
+  id?: string
+  name: string
+  created_at?: Date | string
+  projects?: Prisma.projectsUncheckedCreateNestedManyWithoutWorkspacesInput
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutWorkspacesInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutWorkspacesInput
+  invitations?: Prisma.invitationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_status_history?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutWorkspacesInput
+  outcomes?: Prisma.outcomesUncheckedCreateNestedManyWithoutWorkspacesInput
+  goals?: Prisma.goalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  milestones?: Prisma.milestonesUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedCreateNestedManyWithoutWorkspacesInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_plans?: Prisma.execution_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  event_counter?: Prisma.workspace_event_countersUncheckedCreateNestedOneWithoutWorkspacesInput
+  github_integrations?: Prisma.github_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_events?: Prisma.execution_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_evidence?: Prisma.task_evidenceUncheckedCreateNestedManyWithoutWorkspacesInput
+  task_truth?: Prisma.task_truthUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutWorkspacesInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_plans?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutWorkspacesInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedCreateNestedManyWithoutWorkspacesInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutWorkspacesInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedCreateNestedManyWithoutWorkspacesInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_events?: Prisma.integration_eventsUncheckedCreateNestedManyWithoutWorkspacesInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutWorkspacesInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedCreateNestedManyWithoutWorkspacesInput
+}
+
+export type workspacesCreateOrConnectWithoutIntegration_sync_jobsInput = {
+  where: Prisma.workspacesWhereUniqueInput
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_sync_jobsInput>
+}
+
+export type workspacesUpsertWithoutIntegration_sync_jobsInput = {
+  update: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_sync_jobsInput>
+  create: Prisma.XOR<Prisma.workspacesCreateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedCreateWithoutIntegration_sync_jobsInput>
+  where?: Prisma.workspacesWhereInput
+}
+
+export type workspacesUpdateToOneWithWhereWithoutIntegration_sync_jobsInput = {
+  where?: Prisma.workspacesWhereInput
+  data: Prisma.XOR<Prisma.workspacesUpdateWithoutIntegration_sync_jobsInput, Prisma.workspacesUncheckedUpdateWithoutIntegration_sync_jobsInput>
+}
+
+export type workspacesUpdateWithoutIntegration_sync_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUpdateManyWithoutWorkspacesNestedInput
+}
+
+export type workspacesUncheckedUpdateWithoutIntegration_sync_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  projects?: Prisma.projectsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutWorkspacesNestedInput
+  invitations?: Prisma.invitationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_status_history?: Prisma.task_status_historyUncheckedUpdateManyWithoutWorkspacesNestedInput
+  outcomes?: Prisma.outcomesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  goals?: Prisma.goalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  milestones?: Prisma.milestonesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_dependencies?: Prisma.task_dependenciesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  delivery_contracts?: Prisma.delivery_contractsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_plans?: Prisma.execution_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  event_counter?: Prisma.workspace_event_countersUncheckedUpdateOneWithoutWorkspacesNestedInput
+  github_integrations?: Prisma.github_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_events?: Prisma.execution_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_evidence?: Prisma.task_evidenceUncheckedUpdateManyWithoutWorkspacesNestedInput
+  task_truth?: Prisma.task_truthUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_proposals?: Prisma.ai_proposalsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutWorkspacesNestedInput
+  execution_scenario_runs?: Prisma.execution_scenario_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_plans?: Prisma.recovery_plansUncheckedUpdateManyWithoutWorkspacesNestedInput
+  recovery_jobs?: Prisma.recovery_jobsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  knowledge_chunks?: Prisma.knowledge_chunksUncheckedUpdateManyWithoutWorkspacesNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_events?: Prisma.integration_eventsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  ai_evaluations?: Prisma.ai_evaluationsUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutWorkspacesNestedInput
+  integration_resource_links?: Prisma.integration_resource_linksUncheckedUpdateManyWithoutWorkspacesNestedInput
 }
 
 
@@ -2413,6 +5899,20 @@ export type WorkspacesCountOutputType = {
   task_evidence: number
   task_truth: number
   ai_proposals: number
+  execution_history_snapshots: number
+  execution_scenarios: number
+  execution_scenario_runs: number
+  recovery_plans: number
+  recovery_jobs: number
+  agent_runs: number
+  knowledge_documents: number
+  knowledge_chunks: number
+  external_integrations: number
+  integration_events: number
+  integration_sync_jobs: number
+  ai_evaluations: number
+  integration_oauth_states: number
+  integration_resource_links: number
 }
 
 export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2432,6 +5932,20 @@ export type WorkspacesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extens
   task_evidence?: boolean | WorkspacesCountOutputTypeCountTask_evidenceArgs
   task_truth?: boolean | WorkspacesCountOutputTypeCountTask_truthArgs
   ai_proposals?: boolean | WorkspacesCountOutputTypeCountAi_proposalsArgs
+  execution_history_snapshots?: boolean | WorkspacesCountOutputTypeCountExecution_history_snapshotsArgs
+  execution_scenarios?: boolean | WorkspacesCountOutputTypeCountExecution_scenariosArgs
+  execution_scenario_runs?: boolean | WorkspacesCountOutputTypeCountExecution_scenario_runsArgs
+  recovery_plans?: boolean | WorkspacesCountOutputTypeCountRecovery_plansArgs
+  recovery_jobs?: boolean | WorkspacesCountOutputTypeCountRecovery_jobsArgs
+  agent_runs?: boolean | WorkspacesCountOutputTypeCountAgent_runsArgs
+  knowledge_documents?: boolean | WorkspacesCountOutputTypeCountKnowledge_documentsArgs
+  knowledge_chunks?: boolean | WorkspacesCountOutputTypeCountKnowledge_chunksArgs
+  external_integrations?: boolean | WorkspacesCountOutputTypeCountExternal_integrationsArgs
+  integration_events?: boolean | WorkspacesCountOutputTypeCountIntegration_eventsArgs
+  integration_sync_jobs?: boolean | WorkspacesCountOutputTypeCountIntegration_sync_jobsArgs
+  ai_evaluations?: boolean | WorkspacesCountOutputTypeCountAi_evaluationsArgs
+  integration_oauth_states?: boolean | WorkspacesCountOutputTypeCountIntegration_oauth_statesArgs
+  integration_resource_links?: boolean | WorkspacesCountOutputTypeCountIntegration_resource_linksArgs
 }
 
 /**
@@ -2556,6 +6070,104 @@ export type WorkspacesCountOutputTypeCountAi_proposalsArgs<ExtArgs extends runti
   where?: Prisma.ai_proposalsWhereInput
 }
 
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExecution_history_snapshotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_history_snapshotsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExecution_scenariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_scenariosWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExecution_scenario_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_scenario_runsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountRecovery_plansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recovery_plansWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountRecovery_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recovery_jobsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountAgent_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.agent_runsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountKnowledge_documentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.knowledge_documentsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountKnowledge_chunksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.knowledge_chunksWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountExternal_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.external_integrationsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountIntegration_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_eventsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountIntegration_sync_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_sync_jobsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountAi_evaluationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ai_evaluationsWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountIntegration_oauth_statesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_oauth_statesWhereInput
+}
+
+/**
+ * WorkspacesCountOutputType without action
+ */
+export type WorkspacesCountOutputTypeCountIntegration_resource_linksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_resource_linksWhereInput
+}
+
 
 export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2578,6 +6190,20 @@ export type workspacesSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   task_evidence?: boolean | Prisma.workspaces$task_evidenceArgs<ExtArgs>
   task_truth?: boolean | Prisma.workspaces$task_truthArgs<ExtArgs>
   ai_proposals?: boolean | Prisma.workspaces$ai_proposalsArgs<ExtArgs>
+  execution_history_snapshots?: boolean | Prisma.workspaces$execution_history_snapshotsArgs<ExtArgs>
+  execution_scenarios?: boolean | Prisma.workspaces$execution_scenariosArgs<ExtArgs>
+  execution_scenario_runs?: boolean | Prisma.workspaces$execution_scenario_runsArgs<ExtArgs>
+  recovery_plans?: boolean | Prisma.workspaces$recovery_plansArgs<ExtArgs>
+  recovery_jobs?: boolean | Prisma.workspaces$recovery_jobsArgs<ExtArgs>
+  agent_runs?: boolean | Prisma.workspaces$agent_runsArgs<ExtArgs>
+  knowledge_documents?: boolean | Prisma.workspaces$knowledge_documentsArgs<ExtArgs>
+  knowledge_chunks?: boolean | Prisma.workspaces$knowledge_chunksArgs<ExtArgs>
+  external_integrations?: boolean | Prisma.workspaces$external_integrationsArgs<ExtArgs>
+  integration_events?: boolean | Prisma.workspaces$integration_eventsArgs<ExtArgs>
+  integration_sync_jobs?: boolean | Prisma.workspaces$integration_sync_jobsArgs<ExtArgs>
+  ai_evaluations?: boolean | Prisma.workspaces$ai_evaluationsArgs<ExtArgs>
+  integration_oauth_states?: boolean | Prisma.workspaces$integration_oauth_statesArgs<ExtArgs>
+  integration_resource_links?: boolean | Prisma.workspaces$integration_resource_linksArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspaces"]>
 
@@ -2618,6 +6244,20 @@ export type workspacesInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   task_evidence?: boolean | Prisma.workspaces$task_evidenceArgs<ExtArgs>
   task_truth?: boolean | Prisma.workspaces$task_truthArgs<ExtArgs>
   ai_proposals?: boolean | Prisma.workspaces$ai_proposalsArgs<ExtArgs>
+  execution_history_snapshots?: boolean | Prisma.workspaces$execution_history_snapshotsArgs<ExtArgs>
+  execution_scenarios?: boolean | Prisma.workspaces$execution_scenariosArgs<ExtArgs>
+  execution_scenario_runs?: boolean | Prisma.workspaces$execution_scenario_runsArgs<ExtArgs>
+  recovery_plans?: boolean | Prisma.workspaces$recovery_plansArgs<ExtArgs>
+  recovery_jobs?: boolean | Prisma.workspaces$recovery_jobsArgs<ExtArgs>
+  agent_runs?: boolean | Prisma.workspaces$agent_runsArgs<ExtArgs>
+  knowledge_documents?: boolean | Prisma.workspaces$knowledge_documentsArgs<ExtArgs>
+  knowledge_chunks?: boolean | Prisma.workspaces$knowledge_chunksArgs<ExtArgs>
+  external_integrations?: boolean | Prisma.workspaces$external_integrationsArgs<ExtArgs>
+  integration_events?: boolean | Prisma.workspaces$integration_eventsArgs<ExtArgs>
+  integration_sync_jobs?: boolean | Prisma.workspaces$integration_sync_jobsArgs<ExtArgs>
+  ai_evaluations?: boolean | Prisma.workspaces$ai_evaluationsArgs<ExtArgs>
+  integration_oauth_states?: boolean | Prisma.workspaces$integration_oauth_statesArgs<ExtArgs>
+  integration_resource_links?: boolean | Prisma.workspaces$integration_resource_linksArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspacesCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type workspacesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2643,6 +6283,20 @@ export type $workspacesPayload<ExtArgs extends runtime.Types.Extensions.Internal
     task_evidence: Prisma.$task_evidencePayload<ExtArgs>[]
     task_truth: Prisma.$task_truthPayload<ExtArgs>[]
     ai_proposals: Prisma.$ai_proposalsPayload<ExtArgs>[]
+    execution_history_snapshots: Prisma.$execution_history_snapshotsPayload<ExtArgs>[]
+    execution_scenarios: Prisma.$execution_scenariosPayload<ExtArgs>[]
+    execution_scenario_runs: Prisma.$execution_scenario_runsPayload<ExtArgs>[]
+    recovery_plans: Prisma.$recovery_plansPayload<ExtArgs>[]
+    recovery_jobs: Prisma.$recovery_jobsPayload<ExtArgs>[]
+    agent_runs: Prisma.$agent_runsPayload<ExtArgs>[]
+    knowledge_documents: Prisma.$knowledge_documentsPayload<ExtArgs>[]
+    knowledge_chunks: Prisma.$knowledge_chunksPayload<ExtArgs>[]
+    external_integrations: Prisma.$external_integrationsPayload<ExtArgs>[]
+    integration_events: Prisma.$integration_eventsPayload<ExtArgs>[]
+    integration_sync_jobs: Prisma.$integration_sync_jobsPayload<ExtArgs>[]
+    ai_evaluations: Prisma.$ai_evaluationsPayload<ExtArgs>[]
+    integration_oauth_states: Prisma.$integration_oauth_statesPayload<ExtArgs>[]
+    integration_resource_links: Prisma.$integration_resource_linksPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3059,6 +6713,20 @@ export interface Prisma__workspacesClient<T, Null = never, ExtArgs extends runti
   task_evidence<T extends Prisma.workspaces$task_evidenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_evidenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_evidencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   task_truth<T extends Prisma.workspaces$task_truthArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$task_truthArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_truthPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   ai_proposals<T extends Prisma.workspaces$ai_proposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$ai_proposalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ai_proposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_history_snapshots<T extends Prisma.workspaces$execution_history_snapshotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_history_snapshotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_history_snapshotsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_scenarios<T extends Prisma.workspaces$execution_scenariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_scenariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_scenariosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_scenario_runs<T extends Prisma.workspaces$execution_scenario_runsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$execution_scenario_runsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_scenario_runsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recovery_plans<T extends Prisma.workspaces$recovery_plansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$recovery_plansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recovery_plansPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recovery_jobs<T extends Prisma.workspaces$recovery_jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$recovery_jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recovery_jobsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agent_runs<T extends Prisma.workspaces$agent_runsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$agent_runsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$agent_runsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  knowledge_documents<T extends Prisma.workspaces$knowledge_documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$knowledge_documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$knowledge_documentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  knowledge_chunks<T extends Prisma.workspaces$knowledge_chunksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$knowledge_chunksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$knowledge_chunksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  external_integrations<T extends Prisma.workspaces$external_integrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$external_integrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$external_integrationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_events<T extends Prisma.workspaces$integration_eventsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$integration_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_eventsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_sync_jobs<T extends Prisma.workspaces$integration_sync_jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$integration_sync_jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_sync_jobsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ai_evaluations<T extends Prisma.workspaces$ai_evaluationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$ai_evaluationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ai_evaluationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_oauth_states<T extends Prisma.workspaces$integration_oauth_statesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$integration_oauth_statesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_oauth_statesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_resource_links<T extends Prisma.workspaces$integration_resource_linksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.workspaces$integration_resource_linksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_resource_linksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3884,6 +7552,342 @@ export type workspaces$ai_proposalsArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.Ai_proposalsScalarFieldEnum | Prisma.Ai_proposalsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.execution_history_snapshots
+ */
+export type workspaces$execution_history_snapshotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_history_snapshots
+   */
+  select?: Prisma.execution_history_snapshotsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_history_snapshots
+   */
+  omit?: Prisma.execution_history_snapshotsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_history_snapshotsInclude<ExtArgs> | null
+  where?: Prisma.execution_history_snapshotsWhereInput
+  orderBy?: Prisma.execution_history_snapshotsOrderByWithRelationInput | Prisma.execution_history_snapshotsOrderByWithRelationInput[]
+  cursor?: Prisma.execution_history_snapshotsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_history_snapshotsScalarFieldEnum | Prisma.Execution_history_snapshotsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.execution_scenarios
+ */
+export type workspaces$execution_scenariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_scenarios
+   */
+  select?: Prisma.execution_scenariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_scenarios
+   */
+  omit?: Prisma.execution_scenariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_scenariosInclude<ExtArgs> | null
+  where?: Prisma.execution_scenariosWhereInput
+  orderBy?: Prisma.execution_scenariosOrderByWithRelationInput | Prisma.execution_scenariosOrderByWithRelationInput[]
+  cursor?: Prisma.execution_scenariosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_scenariosScalarFieldEnum | Prisma.Execution_scenariosScalarFieldEnum[]
+}
+
+/**
+ * workspaces.execution_scenario_runs
+ */
+export type workspaces$execution_scenario_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_scenario_runs
+   */
+  select?: Prisma.execution_scenario_runsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_scenario_runs
+   */
+  omit?: Prisma.execution_scenario_runsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_scenario_runsInclude<ExtArgs> | null
+  where?: Prisma.execution_scenario_runsWhereInput
+  orderBy?: Prisma.execution_scenario_runsOrderByWithRelationInput | Prisma.execution_scenario_runsOrderByWithRelationInput[]
+  cursor?: Prisma.execution_scenario_runsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_scenario_runsScalarFieldEnum | Prisma.Execution_scenario_runsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.recovery_plans
+ */
+export type workspaces$recovery_plansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recovery_plans
+   */
+  select?: Prisma.recovery_plansSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recovery_plans
+   */
+  omit?: Prisma.recovery_plansOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recovery_plansInclude<ExtArgs> | null
+  where?: Prisma.recovery_plansWhereInput
+  orderBy?: Prisma.recovery_plansOrderByWithRelationInput | Prisma.recovery_plansOrderByWithRelationInput[]
+  cursor?: Prisma.recovery_plansWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Recovery_plansScalarFieldEnum | Prisma.Recovery_plansScalarFieldEnum[]
+}
+
+/**
+ * workspaces.recovery_jobs
+ */
+export type workspaces$recovery_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recovery_jobs
+   */
+  select?: Prisma.recovery_jobsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recovery_jobs
+   */
+  omit?: Prisma.recovery_jobsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recovery_jobsInclude<ExtArgs> | null
+  where?: Prisma.recovery_jobsWhereInput
+  orderBy?: Prisma.recovery_jobsOrderByWithRelationInput | Prisma.recovery_jobsOrderByWithRelationInput[]
+  cursor?: Prisma.recovery_jobsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Recovery_jobsScalarFieldEnum | Prisma.Recovery_jobsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.agent_runs
+ */
+export type workspaces$agent_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the agent_runs
+   */
+  select?: Prisma.agent_runsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the agent_runs
+   */
+  omit?: Prisma.agent_runsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.agent_runsInclude<ExtArgs> | null
+  where?: Prisma.agent_runsWhereInput
+  orderBy?: Prisma.agent_runsOrderByWithRelationInput | Prisma.agent_runsOrderByWithRelationInput[]
+  cursor?: Prisma.agent_runsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Agent_runsScalarFieldEnum | Prisma.Agent_runsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.knowledge_documents
+ */
+export type workspaces$knowledge_documentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the knowledge_documents
+   */
+  select?: Prisma.knowledge_documentsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the knowledge_documents
+   */
+  omit?: Prisma.knowledge_documentsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.knowledge_documentsInclude<ExtArgs> | null
+  where?: Prisma.knowledge_documentsWhereInput
+  orderBy?: Prisma.knowledge_documentsOrderByWithRelationInput | Prisma.knowledge_documentsOrderByWithRelationInput[]
+  cursor?: Prisma.knowledge_documentsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Knowledge_documentsScalarFieldEnum | Prisma.Knowledge_documentsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.knowledge_chunks
+ */
+export type workspaces$knowledge_chunksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the knowledge_chunks
+   */
+  select?: Prisma.knowledge_chunksSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the knowledge_chunks
+   */
+  omit?: Prisma.knowledge_chunksOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.knowledge_chunksInclude<ExtArgs> | null
+  where?: Prisma.knowledge_chunksWhereInput
+  orderBy?: Prisma.knowledge_chunksOrderByWithRelationInput | Prisma.knowledge_chunksOrderByWithRelationInput[]
+  cursor?: Prisma.knowledge_chunksWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Knowledge_chunksScalarFieldEnum | Prisma.Knowledge_chunksScalarFieldEnum[]
+}
+
+/**
+ * workspaces.external_integrations
+ */
+export type workspaces$external_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the external_integrations
+   */
+  select?: Prisma.external_integrationsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the external_integrations
+   */
+  omit?: Prisma.external_integrationsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.external_integrationsInclude<ExtArgs> | null
+  where?: Prisma.external_integrationsWhereInput
+  orderBy?: Prisma.external_integrationsOrderByWithRelationInput | Prisma.external_integrationsOrderByWithRelationInput[]
+  cursor?: Prisma.external_integrationsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.External_integrationsScalarFieldEnum | Prisma.External_integrationsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.integration_events
+ */
+export type workspaces$integration_eventsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_events
+   */
+  select?: Prisma.integration_eventsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_events
+   */
+  omit?: Prisma.integration_eventsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_eventsInclude<ExtArgs> | null
+  where?: Prisma.integration_eventsWhereInput
+  orderBy?: Prisma.integration_eventsOrderByWithRelationInput | Prisma.integration_eventsOrderByWithRelationInput[]
+  cursor?: Prisma.integration_eventsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_eventsScalarFieldEnum | Prisma.Integration_eventsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.integration_sync_jobs
+ */
+export type workspaces$integration_sync_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_sync_jobs
+   */
+  select?: Prisma.integration_sync_jobsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_sync_jobs
+   */
+  omit?: Prisma.integration_sync_jobsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_sync_jobsInclude<ExtArgs> | null
+  where?: Prisma.integration_sync_jobsWhereInput
+  orderBy?: Prisma.integration_sync_jobsOrderByWithRelationInput | Prisma.integration_sync_jobsOrderByWithRelationInput[]
+  cursor?: Prisma.integration_sync_jobsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_sync_jobsScalarFieldEnum | Prisma.Integration_sync_jobsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.ai_evaluations
+ */
+export type workspaces$ai_evaluationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ai_evaluations
+   */
+  select?: Prisma.ai_evaluationsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ai_evaluations
+   */
+  omit?: Prisma.ai_evaluationsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ai_evaluationsInclude<ExtArgs> | null
+  where?: Prisma.ai_evaluationsWhereInput
+  orderBy?: Prisma.ai_evaluationsOrderByWithRelationInput | Prisma.ai_evaluationsOrderByWithRelationInput[]
+  cursor?: Prisma.ai_evaluationsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Ai_evaluationsScalarFieldEnum | Prisma.Ai_evaluationsScalarFieldEnum[]
+}
+
+/**
+ * workspaces.integration_oauth_states
+ */
+export type workspaces$integration_oauth_statesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_oauth_states
+   */
+  select?: Prisma.integration_oauth_statesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_oauth_states
+   */
+  omit?: Prisma.integration_oauth_statesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_oauth_statesInclude<ExtArgs> | null
+  where?: Prisma.integration_oauth_statesWhereInput
+  orderBy?: Prisma.integration_oauth_statesOrderByWithRelationInput | Prisma.integration_oauth_statesOrderByWithRelationInput[]
+  cursor?: Prisma.integration_oauth_statesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_oauth_statesScalarFieldEnum | Prisma.Integration_oauth_statesScalarFieldEnum[]
+}
+
+/**
+ * workspaces.integration_resource_links
+ */
+export type workspaces$integration_resource_linksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_resource_links
+   */
+  select?: Prisma.integration_resource_linksSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_resource_links
+   */
+  omit?: Prisma.integration_resource_linksOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_resource_linksInclude<ExtArgs> | null
+  where?: Prisma.integration_resource_linksWhereInput
+  orderBy?: Prisma.integration_resource_linksOrderByWithRelationInput | Prisma.integration_resource_linksOrderByWithRelationInput[]
+  cursor?: Prisma.integration_resource_linksWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_resource_linksScalarFieldEnum | Prisma.Integration_resource_linksScalarFieldEnum[]
 }
 
 /**

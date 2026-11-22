@@ -18,9 +18,9 @@ The app service references its own Render URL for Socket.IO CORS and invitation 
 
 - The app health check is `/health/ready`; it verifies PostgreSQL connectivity.
 - PostgreSQL and Key Value use private network connection strings. Free Postgres is limited to 1 GB and expires after 30 days. Free Key Value has 25 MB of memory and no persistence, so cached presence and rate-limit state can be lost on restart.
-- The free plan does not include a background worker. Do not configure a GitHub webhook for this demo; GitHub events won't be processed until you move to a paid plan and add the worker service.
+- The free demo starts the GitHub, recovery, and provider-sync workers in the same supervised web container as the API. This avoids adding a paid worker service, but the workers pause when the free web service sleeps and restart together with the API. Durable integration/recovery jobs remain in PostgreSQL; GitHub queue state uses non-persistent Redis.
 - Free web services spin down after 15 minutes without traffic and can take about a minute to wake up.
 - The optional email notification worker is not included because SMTP credentials are not configured. Workspace invitation links remain available through the app's existing invitation flow.
+- Provider connections remain disabled until their OAuth app credentials, public callback URL, and generated integration encryption key are configured. The Render Blueprint generates the encryption key and provides optional client ID/secret inputs. Semantic knowledge search also needs a Gemini embedding API key and a PostgreSQL database with pgvector installed; full-text search works without them.
 - Configure a custom domain in Render only after the default URL is working; the self-referenced app URL updates through the Blueprint.
-- Before sharing the demo, verify registration, login, task/project CRUD, and invitation acceptance. GitHub webhooks and invitation emails are not enabled in this free setup.
-
+- Before sharing the demo, verify registration, login, task/project CRUD, invitation acceptance, worker startup, and the GitHub webhook endpoint. Invitation emails remain disabled until SMTP is configured.

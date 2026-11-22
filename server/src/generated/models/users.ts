@@ -188,6 +188,15 @@ export type usersWhereInput = {
   invitations_sent?: Prisma.InvitationsListRelationFilter
   task_status_changes?: Prisma.Task_status_historyListRelationFilter
   idempotency_records?: Prisma.Idempotency_recordsListRelationFilter
+  execution_history_snapshots?: Prisma.Execution_history_snapshotsListRelationFilter
+  execution_scenarios?: Prisma.Execution_scenariosListRelationFilter
+  recovery_plans_created?: Prisma.Recovery_plansListRelationFilter
+  recovery_plans_decided?: Prisma.Recovery_plansListRelationFilter
+  agent_runs?: Prisma.Agent_runsListRelationFilter
+  knowledge_documents?: Prisma.Knowledge_documentsListRelationFilter
+  external_integrations?: Prisma.External_integrationsListRelationFilter
+  integration_oauth_states?: Prisma.Integration_oauth_statesListRelationFilter
+  integration_sync_jobs?: Prisma.Integration_sync_jobsListRelationFilter
 }
 
 export type usersOrderByWithRelationInput = {
@@ -202,6 +211,15 @@ export type usersOrderByWithRelationInput = {
   invitations_sent?: Prisma.invitationsOrderByRelationAggregateInput
   task_status_changes?: Prisma.task_status_historyOrderByRelationAggregateInput
   idempotency_records?: Prisma.idempotency_recordsOrderByRelationAggregateInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsOrderByRelationAggregateInput
+  execution_scenarios?: Prisma.execution_scenariosOrderByRelationAggregateInput
+  recovery_plans_created?: Prisma.recovery_plansOrderByRelationAggregateInput
+  recovery_plans_decided?: Prisma.recovery_plansOrderByRelationAggregateInput
+  agent_runs?: Prisma.agent_runsOrderByRelationAggregateInput
+  knowledge_documents?: Prisma.knowledge_documentsOrderByRelationAggregateInput
+  external_integrations?: Prisma.external_integrationsOrderByRelationAggregateInput
+  integration_oauth_states?: Prisma.integration_oauth_statesOrderByRelationAggregateInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsOrderByRelationAggregateInput
 }
 
 export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -219,6 +237,15 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   invitations_sent?: Prisma.InvitationsListRelationFilter
   task_status_changes?: Prisma.Task_status_historyListRelationFilter
   idempotency_records?: Prisma.Idempotency_recordsListRelationFilter
+  execution_history_snapshots?: Prisma.Execution_history_snapshotsListRelationFilter
+  execution_scenarios?: Prisma.Execution_scenariosListRelationFilter
+  recovery_plans_created?: Prisma.Recovery_plansListRelationFilter
+  recovery_plans_decided?: Prisma.Recovery_plansListRelationFilter
+  agent_runs?: Prisma.Agent_runsListRelationFilter
+  knowledge_documents?: Prisma.Knowledge_documentsListRelationFilter
+  external_integrations?: Prisma.External_integrationsListRelationFilter
+  integration_oauth_states?: Prisma.Integration_oauth_statesListRelationFilter
+  integration_sync_jobs?: Prisma.Integration_sync_jobsListRelationFilter
 }, "id" | "email">
 
 export type usersOrderByWithAggregationInput = {
@@ -255,6 +282,15 @@ export type usersCreateInput = {
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateInput = {
@@ -269,6 +305,15 @@ export type usersUncheckedCreateInput = {
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUpdateInput = {
@@ -283,6 +328,15 @@ export type usersUpdateInput = {
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateInput = {
@@ -297,6 +351,15 @@ export type usersUncheckedUpdateInput = {
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateManyInput = {
@@ -443,6 +506,134 @@ export type usersUpdateOneRequiredWithoutInvitations_sentNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutInvitations_sentInput, Prisma.usersUpdateWithoutInvitations_sentInput>, Prisma.usersUncheckedUpdateWithoutInvitations_sentInput>
 }
 
+export type usersCreateNestedOneWithoutExecution_history_snapshotsInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedCreateWithoutExecution_history_snapshotsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExecution_history_snapshotsInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutExecution_history_snapshotsNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedCreateWithoutExecution_history_snapshotsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExecution_history_snapshotsInput
+  upsert?: Prisma.usersUpsertWithoutExecution_history_snapshotsInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutExecution_history_snapshotsInput, Prisma.usersUpdateWithoutExecution_history_snapshotsInput>, Prisma.usersUncheckedUpdateWithoutExecution_history_snapshotsInput>
+}
+
+export type usersCreateNestedOneWithoutExecution_scenariosInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExecution_scenariosInput, Prisma.usersUncheckedCreateWithoutExecution_scenariosInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExecution_scenariosInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutExecution_scenariosNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExecution_scenariosInput, Prisma.usersUncheckedCreateWithoutExecution_scenariosInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExecution_scenariosInput
+  upsert?: Prisma.usersUpsertWithoutExecution_scenariosInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutExecution_scenariosInput, Prisma.usersUpdateWithoutExecution_scenariosInput>, Prisma.usersUncheckedUpdateWithoutExecution_scenariosInput>
+}
+
+export type usersCreateNestedOneWithoutRecovery_plans_createdInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_createdInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRecovery_plans_createdInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersCreateNestedOneWithoutRecovery_plans_decidedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_decidedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRecovery_plans_decidedInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutRecovery_plans_createdNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_createdInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRecovery_plans_createdInput
+  upsert?: Prisma.usersUpsertWithoutRecovery_plans_createdInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutRecovery_plans_createdInput, Prisma.usersUpdateWithoutRecovery_plans_createdInput>, Prisma.usersUncheckedUpdateWithoutRecovery_plans_createdInput>
+}
+
+export type usersUpdateOneWithoutRecovery_plans_decidedNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_decidedInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutRecovery_plans_decidedInput
+  upsert?: Prisma.usersUpsertWithoutRecovery_plans_decidedInput
+  disconnect?: Prisma.usersWhereInput | boolean
+  delete?: Prisma.usersWhereInput | boolean
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutRecovery_plans_decidedInput, Prisma.usersUpdateWithoutRecovery_plans_decidedInput>, Prisma.usersUncheckedUpdateWithoutRecovery_plans_decidedInput>
+}
+
+export type usersCreateNestedOneWithoutAgent_runsInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAgent_runsInput, Prisma.usersUncheckedCreateWithoutAgent_runsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAgent_runsInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutAgent_runsNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutAgent_runsInput, Prisma.usersUncheckedCreateWithoutAgent_runsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutAgent_runsInput
+  upsert?: Prisma.usersUpsertWithoutAgent_runsInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutAgent_runsInput, Prisma.usersUpdateWithoutAgent_runsInput>, Prisma.usersUncheckedUpdateWithoutAgent_runsInput>
+}
+
+export type usersCreateNestedOneWithoutKnowledge_documentsInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutKnowledge_documentsInput, Prisma.usersUncheckedCreateWithoutKnowledge_documentsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutKnowledge_documentsInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutKnowledge_documentsNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutKnowledge_documentsInput, Prisma.usersUncheckedCreateWithoutKnowledge_documentsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutKnowledge_documentsInput
+  upsert?: Prisma.usersUpsertWithoutKnowledge_documentsInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutKnowledge_documentsInput, Prisma.usersUpdateWithoutKnowledge_documentsInput>, Prisma.usersUncheckedUpdateWithoutKnowledge_documentsInput>
+}
+
+export type usersCreateNestedOneWithoutExternal_integrationsInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExternal_integrationsInput, Prisma.usersUncheckedCreateWithoutExternal_integrationsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExternal_integrationsInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutExternal_integrationsNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutExternal_integrationsInput, Prisma.usersUncheckedCreateWithoutExternal_integrationsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutExternal_integrationsInput
+  upsert?: Prisma.usersUpsertWithoutExternal_integrationsInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutExternal_integrationsInput, Prisma.usersUpdateWithoutExternal_integrationsInput>, Prisma.usersUncheckedUpdateWithoutExternal_integrationsInput>
+}
+
+export type usersCreateNestedOneWithoutIntegration_oauth_statesInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedCreateWithoutIntegration_oauth_statesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutIntegration_oauth_statesInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutIntegration_oauth_statesNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedCreateWithoutIntegration_oauth_statesInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutIntegration_oauth_statesInput
+  upsert?: Prisma.usersUpsertWithoutIntegration_oauth_statesInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutIntegration_oauth_statesInput, Prisma.usersUpdateWithoutIntegration_oauth_statesInput>, Prisma.usersUncheckedUpdateWithoutIntegration_oauth_statesInput>
+}
+
+export type usersCreateNestedOneWithoutIntegration_sync_jobsInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedCreateWithoutIntegration_sync_jobsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutIntegration_sync_jobsInput
+  connect?: Prisma.usersWhereUniqueInput
+}
+
+export type usersUpdateOneRequiredWithoutIntegration_sync_jobsNestedInput = {
+  create?: Prisma.XOR<Prisma.usersCreateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedCreateWithoutIntegration_sync_jobsInput>
+  connectOrCreate?: Prisma.usersCreateOrConnectWithoutIntegration_sync_jobsInput
+  upsert?: Prisma.usersUpsertWithoutIntegration_sync_jobsInput
+  connect?: Prisma.usersWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.usersUpdateToOneWithWhereWithoutIntegration_sync_jobsInput, Prisma.usersUpdateWithoutIntegration_sync_jobsInput>, Prisma.usersUncheckedUpdateWithoutIntegration_sync_jobsInput>
+}
+
 export type usersCreateWithoutTasksInput = {
   id?: string
   email: string
@@ -454,6 +645,15 @@ export type usersCreateWithoutTasksInput = {
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutTasksInput = {
@@ -467,6 +667,15 @@ export type usersUncheckedCreateWithoutTasksInput = {
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutTasksInput = {
@@ -496,6 +705,15 @@ export type usersUpdateWithoutTasksInput = {
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutTasksInput = {
@@ -509,6 +727,15 @@ export type usersUncheckedUpdateWithoutTasksInput = {
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateWithoutTask_status_changesInput = {
@@ -522,6 +749,15 @@ export type usersCreateWithoutTask_status_changesInput = {
   refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutTask_status_changesInput = {
@@ -535,6 +771,15 @@ export type usersUncheckedCreateWithoutTask_status_changesInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutTask_status_changesInput = {
@@ -564,6 +809,15 @@ export type usersUpdateWithoutTask_status_changesInput = {
   refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutTask_status_changesInput = {
@@ -577,6 +831,15 @@ export type usersUncheckedUpdateWithoutTask_status_changesInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateWithoutIdempotency_recordsInput = {
@@ -590,6 +853,15 @@ export type usersCreateWithoutIdempotency_recordsInput = {
   refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutIdempotency_recordsInput = {
@@ -603,6 +875,15 @@ export type usersUncheckedCreateWithoutIdempotency_recordsInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutIdempotency_recordsInput = {
@@ -632,6 +913,15 @@ export type usersUpdateWithoutIdempotency_recordsInput = {
   refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutIdempotency_recordsInput = {
@@ -645,6 +935,15 @@ export type usersUncheckedUpdateWithoutIdempotency_recordsInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateWithoutWorkspace_membersInput = {
@@ -658,6 +957,15 @@ export type usersCreateWithoutWorkspace_membersInput = {
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutWorkspace_membersInput = {
@@ -671,6 +979,15 @@ export type usersUncheckedCreateWithoutWorkspace_membersInput = {
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutWorkspace_membersInput = {
@@ -700,6 +1017,15 @@ export type usersUpdateWithoutWorkspace_membersInput = {
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutWorkspace_membersInput = {
@@ -713,6 +1039,15 @@ export type usersUncheckedUpdateWithoutWorkspace_membersInput = {
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateWithoutRefresh_tokensInput = {
@@ -726,6 +1061,15 @@ export type usersCreateWithoutRefresh_tokensInput = {
   invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutRefresh_tokensInput = {
@@ -739,6 +1083,15 @@ export type usersUncheckedCreateWithoutRefresh_tokensInput = {
   invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutRefresh_tokensInput = {
@@ -768,6 +1121,15 @@ export type usersUpdateWithoutRefresh_tokensInput = {
   invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutRefresh_tokensInput = {
@@ -781,6 +1143,15 @@ export type usersUncheckedUpdateWithoutRefresh_tokensInput = {
   invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersCreateWithoutInvitations_sentInput = {
@@ -794,6 +1165,15 @@ export type usersCreateWithoutInvitations_sentInput = {
   refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
 }
 
 export type usersUncheckedCreateWithoutInvitations_sentInput = {
@@ -807,6 +1187,15 @@ export type usersUncheckedCreateWithoutInvitations_sentInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
   task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
 }
 
 export type usersCreateOrConnectWithoutInvitations_sentInput = {
@@ -836,6 +1225,15 @@ export type usersUpdateWithoutInvitations_sentInput = {
   refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
 }
 
 export type usersUncheckedUpdateWithoutInvitations_sentInput = {
@@ -849,6 +1247,951 @@ export type usersUncheckedUpdateWithoutInvitations_sentInput = {
   refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
   task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
   idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutExecution_history_snapshotsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutExecution_history_snapshotsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutExecution_history_snapshotsInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedCreateWithoutExecution_history_snapshotsInput>
+}
+
+export type usersUpsertWithoutExecution_history_snapshotsInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedUpdateWithoutExecution_history_snapshotsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedCreateWithoutExecution_history_snapshotsInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutExecution_history_snapshotsInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutExecution_history_snapshotsInput, Prisma.usersUncheckedUpdateWithoutExecution_history_snapshotsInput>
+}
+
+export type usersUpdateWithoutExecution_history_snapshotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutExecution_history_snapshotsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutExecution_scenariosInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutExecution_scenariosInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutExecution_scenariosInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutExecution_scenariosInput, Prisma.usersUncheckedCreateWithoutExecution_scenariosInput>
+}
+
+export type usersUpsertWithoutExecution_scenariosInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutExecution_scenariosInput, Prisma.usersUncheckedUpdateWithoutExecution_scenariosInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutExecution_scenariosInput, Prisma.usersUncheckedCreateWithoutExecution_scenariosInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutExecution_scenariosInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutExecution_scenariosInput, Prisma.usersUncheckedUpdateWithoutExecution_scenariosInput>
+}
+
+export type usersUpdateWithoutExecution_scenariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutExecution_scenariosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutRecovery_plans_createdInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutRecovery_plans_createdInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutRecovery_plans_createdInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_createdInput>
+}
+
+export type usersCreateWithoutRecovery_plans_decidedInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutRecovery_plans_decidedInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutRecovery_plans_decidedInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_decidedInput>
+}
+
+export type usersUpsertWithoutRecovery_plans_createdInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedUpdateWithoutRecovery_plans_createdInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_createdInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutRecovery_plans_createdInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutRecovery_plans_createdInput, Prisma.usersUncheckedUpdateWithoutRecovery_plans_createdInput>
+}
+
+export type usersUpdateWithoutRecovery_plans_createdInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutRecovery_plans_createdInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUpsertWithoutRecovery_plans_decidedInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedUpdateWithoutRecovery_plans_decidedInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedCreateWithoutRecovery_plans_decidedInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutRecovery_plans_decidedInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutRecovery_plans_decidedInput, Prisma.usersUncheckedUpdateWithoutRecovery_plans_decidedInput>
+}
+
+export type usersUpdateWithoutRecovery_plans_decidedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutRecovery_plans_decidedInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutAgent_runsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutAgent_runsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutAgent_runsInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutAgent_runsInput, Prisma.usersUncheckedCreateWithoutAgent_runsInput>
+}
+
+export type usersUpsertWithoutAgent_runsInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutAgent_runsInput, Prisma.usersUncheckedUpdateWithoutAgent_runsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutAgent_runsInput, Prisma.usersUncheckedCreateWithoutAgent_runsInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutAgent_runsInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutAgent_runsInput, Prisma.usersUncheckedUpdateWithoutAgent_runsInput>
+}
+
+export type usersUpdateWithoutAgent_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutAgent_runsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutKnowledge_documentsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutKnowledge_documentsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutKnowledge_documentsInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutKnowledge_documentsInput, Prisma.usersUncheckedCreateWithoutKnowledge_documentsInput>
+}
+
+export type usersUpsertWithoutKnowledge_documentsInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutKnowledge_documentsInput, Prisma.usersUncheckedUpdateWithoutKnowledge_documentsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutKnowledge_documentsInput, Prisma.usersUncheckedCreateWithoutKnowledge_documentsInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutKnowledge_documentsInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutKnowledge_documentsInput, Prisma.usersUncheckedUpdateWithoutKnowledge_documentsInput>
+}
+
+export type usersUpdateWithoutKnowledge_documentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutKnowledge_documentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutExternal_integrationsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutExternal_integrationsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutExternal_integrationsInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutExternal_integrationsInput, Prisma.usersUncheckedCreateWithoutExternal_integrationsInput>
+}
+
+export type usersUpsertWithoutExternal_integrationsInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutExternal_integrationsInput, Prisma.usersUncheckedUpdateWithoutExternal_integrationsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutExternal_integrationsInput, Prisma.usersUncheckedCreateWithoutExternal_integrationsInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutExternal_integrationsInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutExternal_integrationsInput, Prisma.usersUncheckedUpdateWithoutExternal_integrationsInput>
+}
+
+export type usersUpdateWithoutExternal_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutExternal_integrationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutIntegration_oauth_statesInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsCreateNestedManyWithoutRequesterInput
+}
+
+export type usersUncheckedCreateWithoutIntegration_oauth_statesInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedCreateNestedManyWithoutRequesterInput
+}
+
+export type usersCreateOrConnectWithoutIntegration_oauth_statesInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedCreateWithoutIntegration_oauth_statesInput>
+}
+
+export type usersUpsertWithoutIntegration_oauth_statesInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedUpdateWithoutIntegration_oauth_statesInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedCreateWithoutIntegration_oauth_statesInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutIntegration_oauth_statesInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutIntegration_oauth_statesInput, Prisma.usersUncheckedUpdateWithoutIntegration_oauth_statesInput>
+}
+
+export type usersUpdateWithoutIntegration_oauth_statesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersUncheckedUpdateWithoutIntegration_oauth_statesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_sync_jobs?: Prisma.integration_sync_jobsUncheckedUpdateManyWithoutRequesterNestedInput
+}
+
+export type usersCreateWithoutIntegration_sync_jobsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesCreateNestedManyWithoutUsersInput
+}
+
+export type usersUncheckedCreateWithoutIntegration_sync_jobsInput = {
+  id?: string
+  email: string
+  password_hash: string
+  name: string
+  created_at?: Date | string
+  tasks?: Prisma.tasksUncheckedCreateNestedManyWithoutUsersInput
+  workspace_members?: Prisma.workspace_membersUncheckedCreateNestedManyWithoutUsersInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedCreateNestedManyWithoutUsersInput
+  invitations_sent?: Prisma.invitationsUncheckedCreateNestedManyWithoutUsersInput
+  task_status_changes?: Prisma.task_status_historyUncheckedCreateNestedManyWithoutUsersInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedCreateNestedManyWithoutUsersInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedCreateNestedManyWithoutUsersInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedCreateNestedManyWithoutUsersInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutCreatorInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedCreateNestedManyWithoutDeciderInput
+  agent_runs?: Prisma.agent_runsUncheckedCreateNestedManyWithoutUsersInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedCreateNestedManyWithoutUsersInput
+  external_integrations?: Prisma.external_integrationsUncheckedCreateNestedManyWithoutUsersInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedCreateNestedManyWithoutUsersInput
+}
+
+export type usersCreateOrConnectWithoutIntegration_sync_jobsInput = {
+  where: Prisma.usersWhereUniqueInput
+  create: Prisma.XOR<Prisma.usersCreateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedCreateWithoutIntegration_sync_jobsInput>
+}
+
+export type usersUpsertWithoutIntegration_sync_jobsInput = {
+  update: Prisma.XOR<Prisma.usersUpdateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedUpdateWithoutIntegration_sync_jobsInput>
+  create: Prisma.XOR<Prisma.usersCreateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedCreateWithoutIntegration_sync_jobsInput>
+  where?: Prisma.usersWhereInput
+}
+
+export type usersUpdateToOneWithWhereWithoutIntegration_sync_jobsInput = {
+  where?: Prisma.usersWhereInput
+  data: Prisma.XOR<Prisma.usersUpdateWithoutIntegration_sync_jobsInput, Prisma.usersUncheckedUpdateWithoutIntegration_sync_jobsInput>
+}
+
+export type usersUpdateWithoutIntegration_sync_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUpdateManyWithoutUsersNestedInput
+}
+
+export type usersUncheckedUpdateWithoutIntegration_sync_jobsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password_hash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tasks?: Prisma.tasksUncheckedUpdateManyWithoutUsersNestedInput
+  workspace_members?: Prisma.workspace_membersUncheckedUpdateManyWithoutUsersNestedInput
+  refresh_tokens?: Prisma.refresh_tokensUncheckedUpdateManyWithoutUsersNestedInput
+  invitations_sent?: Prisma.invitationsUncheckedUpdateManyWithoutUsersNestedInput
+  task_status_changes?: Prisma.task_status_historyUncheckedUpdateManyWithoutUsersNestedInput
+  idempotency_records?: Prisma.idempotency_recordsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_history_snapshots?: Prisma.execution_history_snapshotsUncheckedUpdateManyWithoutUsersNestedInput
+  execution_scenarios?: Prisma.execution_scenariosUncheckedUpdateManyWithoutUsersNestedInput
+  recovery_plans_created?: Prisma.recovery_plansUncheckedUpdateManyWithoutCreatorNestedInput
+  recovery_plans_decided?: Prisma.recovery_plansUncheckedUpdateManyWithoutDeciderNestedInput
+  agent_runs?: Prisma.agent_runsUncheckedUpdateManyWithoutUsersNestedInput
+  knowledge_documents?: Prisma.knowledge_documentsUncheckedUpdateManyWithoutUsersNestedInput
+  external_integrations?: Prisma.external_integrationsUncheckedUpdateManyWithoutUsersNestedInput
+  integration_oauth_states?: Prisma.integration_oauth_statesUncheckedUpdateManyWithoutUsersNestedInput
 }
 
 
@@ -863,6 +2206,15 @@ export type UsersCountOutputType = {
   invitations_sent: number
   task_status_changes: number
   idempotency_records: number
+  execution_history_snapshots: number
+  execution_scenarios: number
+  recovery_plans_created: number
+  recovery_plans_decided: number
+  agent_runs: number
+  knowledge_documents: number
+  external_integrations: number
+  integration_oauth_states: number
+  integration_sync_jobs: number
 }
 
 export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -872,6 +2224,15 @@ export type UsersCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.
   invitations_sent?: boolean | UsersCountOutputTypeCountInvitations_sentArgs
   task_status_changes?: boolean | UsersCountOutputTypeCountTask_status_changesArgs
   idempotency_records?: boolean | UsersCountOutputTypeCountIdempotency_recordsArgs
+  execution_history_snapshots?: boolean | UsersCountOutputTypeCountExecution_history_snapshotsArgs
+  execution_scenarios?: boolean | UsersCountOutputTypeCountExecution_scenariosArgs
+  recovery_plans_created?: boolean | UsersCountOutputTypeCountRecovery_plans_createdArgs
+  recovery_plans_decided?: boolean | UsersCountOutputTypeCountRecovery_plans_decidedArgs
+  agent_runs?: boolean | UsersCountOutputTypeCountAgent_runsArgs
+  knowledge_documents?: boolean | UsersCountOutputTypeCountKnowledge_documentsArgs
+  external_integrations?: boolean | UsersCountOutputTypeCountExternal_integrationsArgs
+  integration_oauth_states?: boolean | UsersCountOutputTypeCountIntegration_oauth_statesArgs
+  integration_sync_jobs?: boolean | UsersCountOutputTypeCountIntegration_sync_jobsArgs
 }
 
 /**
@@ -926,6 +2287,69 @@ export type UsersCountOutputTypeCountIdempotency_recordsArgs<ExtArgs extends run
   where?: Prisma.idempotency_recordsWhereInput
 }
 
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountExecution_history_snapshotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_history_snapshotsWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountExecution_scenariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.execution_scenariosWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountRecovery_plans_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recovery_plansWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountRecovery_plans_decidedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.recovery_plansWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountAgent_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.agent_runsWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountKnowledge_documentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.knowledge_documentsWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountExternal_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.external_integrationsWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountIntegration_oauth_statesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_oauth_statesWhereInput
+}
+
+/**
+ * UsersCountOutputType without action
+ */
+export type UsersCountOutputTypeCountIntegration_sync_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.integration_sync_jobsWhereInput
+}
+
 
 export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -939,6 +2363,15 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   invitations_sent?: boolean | Prisma.users$invitations_sentArgs<ExtArgs>
   task_status_changes?: boolean | Prisma.users$task_status_changesArgs<ExtArgs>
   idempotency_records?: boolean | Prisma.users$idempotency_recordsArgs<ExtArgs>
+  execution_history_snapshots?: boolean | Prisma.users$execution_history_snapshotsArgs<ExtArgs>
+  execution_scenarios?: boolean | Prisma.users$execution_scenariosArgs<ExtArgs>
+  recovery_plans_created?: boolean | Prisma.users$recovery_plans_createdArgs<ExtArgs>
+  recovery_plans_decided?: boolean | Prisma.users$recovery_plans_decidedArgs<ExtArgs>
+  agent_runs?: boolean | Prisma.users$agent_runsArgs<ExtArgs>
+  knowledge_documents?: boolean | Prisma.users$knowledge_documentsArgs<ExtArgs>
+  external_integrations?: boolean | Prisma.users$external_integrationsArgs<ExtArgs>
+  integration_oauth_states?: boolean | Prisma.users$integration_oauth_statesArgs<ExtArgs>
+  integration_sync_jobs?: boolean | Prisma.users$integration_sync_jobsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["users"]>
 
@@ -974,6 +2407,15 @@ export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   invitations_sent?: boolean | Prisma.users$invitations_sentArgs<ExtArgs>
   task_status_changes?: boolean | Prisma.users$task_status_changesArgs<ExtArgs>
   idempotency_records?: boolean | Prisma.users$idempotency_recordsArgs<ExtArgs>
+  execution_history_snapshots?: boolean | Prisma.users$execution_history_snapshotsArgs<ExtArgs>
+  execution_scenarios?: boolean | Prisma.users$execution_scenariosArgs<ExtArgs>
+  recovery_plans_created?: boolean | Prisma.users$recovery_plans_createdArgs<ExtArgs>
+  recovery_plans_decided?: boolean | Prisma.users$recovery_plans_decidedArgs<ExtArgs>
+  agent_runs?: boolean | Prisma.users$agent_runsArgs<ExtArgs>
+  knowledge_documents?: boolean | Prisma.users$knowledge_documentsArgs<ExtArgs>
+  external_integrations?: boolean | Prisma.users$external_integrationsArgs<ExtArgs>
+  integration_oauth_states?: boolean | Prisma.users$integration_oauth_statesArgs<ExtArgs>
+  integration_sync_jobs?: boolean | Prisma.users$integration_sync_jobsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type usersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -988,6 +2430,15 @@ export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     invitations_sent: Prisma.$invitationsPayload<ExtArgs>[]
     task_status_changes: Prisma.$task_status_historyPayload<ExtArgs>[]
     idempotency_records: Prisma.$idempotency_recordsPayload<ExtArgs>[]
+    execution_history_snapshots: Prisma.$execution_history_snapshotsPayload<ExtArgs>[]
+    execution_scenarios: Prisma.$execution_scenariosPayload<ExtArgs>[]
+    recovery_plans_created: Prisma.$recovery_plansPayload<ExtArgs>[]
+    recovery_plans_decided: Prisma.$recovery_plansPayload<ExtArgs>[]
+    agent_runs: Prisma.$agent_runsPayload<ExtArgs>[]
+    knowledge_documents: Prisma.$knowledge_documentsPayload<ExtArgs>[]
+    external_integrations: Prisma.$external_integrationsPayload<ExtArgs>[]
+    integration_oauth_states: Prisma.$integration_oauth_statesPayload<ExtArgs>[]
+    integration_sync_jobs: Prisma.$integration_sync_jobsPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1395,6 +2846,15 @@ export interface Prisma__usersClient<T, Null = never, ExtArgs extends runtime.Ty
   invitations_sent<T extends Prisma.users$invitations_sentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$invitations_sentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$invitationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   task_status_changes<T extends Prisma.users$task_status_changesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$task_status_changesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$task_status_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   idempotency_records<T extends Prisma.users$idempotency_recordsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$idempotency_recordsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$idempotency_recordsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_history_snapshots<T extends Prisma.users$execution_history_snapshotsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$execution_history_snapshotsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_history_snapshotsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  execution_scenarios<T extends Prisma.users$execution_scenariosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$execution_scenariosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$execution_scenariosPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recovery_plans_created<T extends Prisma.users$recovery_plans_createdArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$recovery_plans_createdArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recovery_plansPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  recovery_plans_decided<T extends Prisma.users$recovery_plans_decidedArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$recovery_plans_decidedArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$recovery_plansPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  agent_runs<T extends Prisma.users$agent_runsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$agent_runsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$agent_runsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  knowledge_documents<T extends Prisma.users$knowledge_documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$knowledge_documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$knowledge_documentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  external_integrations<T extends Prisma.users$external_integrationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$external_integrationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$external_integrationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_oauth_states<T extends Prisma.users$integration_oauth_statesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$integration_oauth_statesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_oauth_statesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  integration_sync_jobs<T extends Prisma.users$integration_sync_jobsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.users$integration_sync_jobsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$integration_sync_jobsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1963,6 +3423,222 @@ export type users$idempotency_recordsArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.Idempotency_recordsScalarFieldEnum | Prisma.Idempotency_recordsScalarFieldEnum[]
+}
+
+/**
+ * users.execution_history_snapshots
+ */
+export type users$execution_history_snapshotsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_history_snapshots
+   */
+  select?: Prisma.execution_history_snapshotsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_history_snapshots
+   */
+  omit?: Prisma.execution_history_snapshotsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_history_snapshotsInclude<ExtArgs> | null
+  where?: Prisma.execution_history_snapshotsWhereInput
+  orderBy?: Prisma.execution_history_snapshotsOrderByWithRelationInput | Prisma.execution_history_snapshotsOrderByWithRelationInput[]
+  cursor?: Prisma.execution_history_snapshotsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_history_snapshotsScalarFieldEnum | Prisma.Execution_history_snapshotsScalarFieldEnum[]
+}
+
+/**
+ * users.execution_scenarios
+ */
+export type users$execution_scenariosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the execution_scenarios
+   */
+  select?: Prisma.execution_scenariosSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the execution_scenarios
+   */
+  omit?: Prisma.execution_scenariosOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.execution_scenariosInclude<ExtArgs> | null
+  where?: Prisma.execution_scenariosWhereInput
+  orderBy?: Prisma.execution_scenariosOrderByWithRelationInput | Prisma.execution_scenariosOrderByWithRelationInput[]
+  cursor?: Prisma.execution_scenariosWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Execution_scenariosScalarFieldEnum | Prisma.Execution_scenariosScalarFieldEnum[]
+}
+
+/**
+ * users.recovery_plans_created
+ */
+export type users$recovery_plans_createdArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recovery_plans
+   */
+  select?: Prisma.recovery_plansSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recovery_plans
+   */
+  omit?: Prisma.recovery_plansOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recovery_plansInclude<ExtArgs> | null
+  where?: Prisma.recovery_plansWhereInput
+  orderBy?: Prisma.recovery_plansOrderByWithRelationInput | Prisma.recovery_plansOrderByWithRelationInput[]
+  cursor?: Prisma.recovery_plansWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Recovery_plansScalarFieldEnum | Prisma.Recovery_plansScalarFieldEnum[]
+}
+
+/**
+ * users.recovery_plans_decided
+ */
+export type users$recovery_plans_decidedArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the recovery_plans
+   */
+  select?: Prisma.recovery_plansSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the recovery_plans
+   */
+  omit?: Prisma.recovery_plansOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.recovery_plansInclude<ExtArgs> | null
+  where?: Prisma.recovery_plansWhereInput
+  orderBy?: Prisma.recovery_plansOrderByWithRelationInput | Prisma.recovery_plansOrderByWithRelationInput[]
+  cursor?: Prisma.recovery_plansWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Recovery_plansScalarFieldEnum | Prisma.Recovery_plansScalarFieldEnum[]
+}
+
+/**
+ * users.agent_runs
+ */
+export type users$agent_runsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the agent_runs
+   */
+  select?: Prisma.agent_runsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the agent_runs
+   */
+  omit?: Prisma.agent_runsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.agent_runsInclude<ExtArgs> | null
+  where?: Prisma.agent_runsWhereInput
+  orderBy?: Prisma.agent_runsOrderByWithRelationInput | Prisma.agent_runsOrderByWithRelationInput[]
+  cursor?: Prisma.agent_runsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Agent_runsScalarFieldEnum | Prisma.Agent_runsScalarFieldEnum[]
+}
+
+/**
+ * users.knowledge_documents
+ */
+export type users$knowledge_documentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the knowledge_documents
+   */
+  select?: Prisma.knowledge_documentsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the knowledge_documents
+   */
+  omit?: Prisma.knowledge_documentsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.knowledge_documentsInclude<ExtArgs> | null
+  where?: Prisma.knowledge_documentsWhereInput
+  orderBy?: Prisma.knowledge_documentsOrderByWithRelationInput | Prisma.knowledge_documentsOrderByWithRelationInput[]
+  cursor?: Prisma.knowledge_documentsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Knowledge_documentsScalarFieldEnum | Prisma.Knowledge_documentsScalarFieldEnum[]
+}
+
+/**
+ * users.external_integrations
+ */
+export type users$external_integrationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the external_integrations
+   */
+  select?: Prisma.external_integrationsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the external_integrations
+   */
+  omit?: Prisma.external_integrationsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.external_integrationsInclude<ExtArgs> | null
+  where?: Prisma.external_integrationsWhereInput
+  orderBy?: Prisma.external_integrationsOrderByWithRelationInput | Prisma.external_integrationsOrderByWithRelationInput[]
+  cursor?: Prisma.external_integrationsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.External_integrationsScalarFieldEnum | Prisma.External_integrationsScalarFieldEnum[]
+}
+
+/**
+ * users.integration_oauth_states
+ */
+export type users$integration_oauth_statesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_oauth_states
+   */
+  select?: Prisma.integration_oauth_statesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_oauth_states
+   */
+  omit?: Prisma.integration_oauth_statesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_oauth_statesInclude<ExtArgs> | null
+  where?: Prisma.integration_oauth_statesWhereInput
+  orderBy?: Prisma.integration_oauth_statesOrderByWithRelationInput | Prisma.integration_oauth_statesOrderByWithRelationInput[]
+  cursor?: Prisma.integration_oauth_statesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_oauth_statesScalarFieldEnum | Prisma.Integration_oauth_statesScalarFieldEnum[]
+}
+
+/**
+ * users.integration_sync_jobs
+ */
+export type users$integration_sync_jobsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the integration_sync_jobs
+   */
+  select?: Prisma.integration_sync_jobsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the integration_sync_jobs
+   */
+  omit?: Prisma.integration_sync_jobsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.integration_sync_jobsInclude<ExtArgs> | null
+  where?: Prisma.integration_sync_jobsWhereInput
+  orderBy?: Prisma.integration_sync_jobsOrderByWithRelationInput | Prisma.integration_sync_jobsOrderByWithRelationInput[]
+  cursor?: Prisma.integration_sync_jobsWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Integration_sync_jobsScalarFieldEnum | Prisma.Integration_sync_jobsScalarFieldEnum[]
 }
 
 /**

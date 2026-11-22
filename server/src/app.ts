@@ -18,6 +18,12 @@ import { prisma } from "./db/prisma.js";
 import executionRouter from "./routes/execution.routes.js";
 import graphRouter from "./routes/graph.routes.js";
 import githubIntegrationsRouter, { githubWebhookRouter } from "./routes/github.routes.js";
+import analyticsRouter from "./routes/analytics.routes.js";
+import scenarioRouter from "./routes/scenario.routes.js";
+import recoveryRouter from "./routes/recovery.routes.js";
+import agentRouter from "./routes/agent.routes.js";
+import knowledgeRouter from "./routes/knowledge.routes.js";
+import integrationRouter from "./routes/integration.routes.js";
 
 const app = express();
 app.set("trust proxy", process.env.TRUST_PROXY === "true" ? 1 : false);
@@ -53,6 +59,12 @@ app.use("/api", graphRouter);
 app.use("/api", githubIntegrationsRouter);
 app.use("/api", deliveryHealthRouter);
 app.use("/api", aiRouter);
+app.use("/api", analyticsRouter);
+app.use("/api", scenarioRouter);
+app.use("/api", recoveryRouter);
+app.use("/api", agentRouter);
+app.use("/api", knowledgeRouter);
+app.use("/api", integrationRouter);
 app.use("/api/workspaces", workspaceRouter);
 app.use("/api/workspaces/:workspaceId/projects", projectRouter);
 app.use("/api/projects/:projectId/tasks", taskRouter)
@@ -105,4 +117,3 @@ app.use(errorHandler);
 
 export default app;
 //made by piyush with love 
-

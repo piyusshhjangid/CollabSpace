@@ -60,4 +60,3 @@ async function shutdown() {
 }
 process.once("SIGINT", () => { void shutdown().finally(() => process.exit(0)); });
 process.once("SIGTERM", () => { void shutdown().finally(() => process.exit(0)); });
-

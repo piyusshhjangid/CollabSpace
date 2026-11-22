@@ -33,7 +33,7 @@
 
 # 🚀 About
 
-**CollabSpace** is a full-stack SaaS collaboration platform designed to help modern teams organize projects, manage tasks, collaborate across workspaces, and eventually leverage AI for productivity.
+**CollabSpace** is an AI delivery control plane for teams: define outcomes, model execution as a task graph, observe delivery evidence, forecast risks, simulate changes, and safely review recovery actions.
 
 The platform is inspired by products such as **Jira, Linear, Notion, ClickUp, and Slack**, while focusing on clean architecture and a scalable foundation.
 
@@ -58,6 +58,13 @@ Built with:
 - 🎨 Responsive UI
 - ⚡ Type-safe Components
 - 🔄 Centralized State Management
+- 🧭 Execution graph, critical path, and dependency analytics
+- 📈 Delivery health, cycle/blocked time, and plan accuracy insights
+- 🔀 Saved what-if scenarios with immutable simulation snapshots
+- 🛡️ Human-reviewed recovery plans with atomic execution and verification
+- 🧠 Bounded agent analysis with stored traces, task citations, and budgets
+- 📚 Workspace knowledge library with source-cited search
+- 🔌 Optional Jira, Linear, GitLab, and Slack integrations
 
 ## ⚙️ Backend
 
@@ -89,7 +96,7 @@ Built with:
 
 ## 🔐 Authentication
 
-**Currently in development**
+Authentication and workspace authorization are implemented.
 
 - User Registration
 - bcrypt Password Hashing
@@ -98,19 +105,17 @@ Built with:
 - Access Tokens
 - Refresh Tokens
 - Protected Routes
+- Workspace roles and permission checks
+- Tenant-scoped API access
 
-## 🔮 Planned
+## Current limits
 
-- Team Members
-- Role-Based Access Control
-- AI Assistant
-- File Uploads
-- Team Chat
-- Notifications
-- Real-time Collaboration
-- Activity Feed
-- Advanced Search
-- AI-powered Productivity
+- Agent roles are deterministic and read-only; they do not call an LLM or execute tools.
+- Jira, Linear, and GitLab imports are read-only activity; Slack sends a delivery digest.
+- Semantic knowledge search requires a separate Gemini embedding key and a PostgreSQL pgvector extension; full-text search works without them.
+- OAuth providers need their own app credentials and a public HTTPS callback in deployment.
+- The free Render demo runs workers with the web process and may pause while idle.
+- Load-test and p95 analytics baselines have not been recorded yet.
 
 ---
 
@@ -546,6 +551,20 @@ Protected Routes
 - [x] Human-reviewed AI task proposals with permission-checked approval
 - [x] Docker services, CI workflow, health checks, structured logs, and release operations docs
 
+## Phase 15–21 — Execution Intelligence and Reliability (Days 101–160)
+
+- [x] Graph analytics, task slack, bottlenecks, workload, cycle/blocked-time, and historical plan variance
+- [x] Immutable, deterministic what-if scenarios for delays, capacity assumptions, scope, dependencies, reassignment, and deadlines
+- [x] Recovery candidates simulated before review; different workspace member approval; atomic apply and verification
+- [x] Deterministic agent run traces, citations, budgets, idempotency, and basic grounding evaluation
+- [x] Workspace-scoped knowledge library and PostgreSQL full-text retrieval; optional Gemini embeddings with pgvector
+- [x] Jira/Linear/GitLab read-only activity sync, GitLab pipeline events, and Slack delivery digests
+- [x] Durable PostgreSQL outboxes, bounded retries, Docker worker services, and a supervised free-demo worker topology
+- [x] Architecture decisions, agent safety, integration, scale, failure, release, and demo notes
+- [ ] Run clean-database migration, build/lint, security suites, load baseline, and failure drills before calling the release production-verified
+
+The agents are deterministic and read-only; no generative agent or broad model-quality evaluation suite is included. Provider connections and semantic search require external credentials and, for semantic retrieval, pgvector.
+
 ---
 
 # 📊 Current Status
@@ -584,7 +603,7 @@ Protected Routes
 | Real-time Collaboration | ✅ |
 | Docker | ✅ |
 | CI/CD | ✅ |
-| Deployment | ⏳ |
+| Deployment | Blueprint configured; live URL not verified |
 
 ---
 

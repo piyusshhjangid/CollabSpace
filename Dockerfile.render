@@ -25,7 +25,7 @@ COPY --from=server-build /workspace/server/prisma ./prisma
 COPY --from=server-build /workspace/server/prisma.config.ts ./prisma.config.ts
 COPY --from=server-build /workspace/server/src/generated ./src/generated
 COPY --from=server-build /workspace/server/dist ./dist
+COPY server/scripts ./scripts
 COPY --from=client-build /workspace/client/dist ./public
 EXPOSE 10000
-CMD ["sh", "-c", "npm run db:migrate:deploy && npm run start"]
-
+CMD ["sh", "-c", "npm run db:migrate:deploy && npm run start:demo"]
